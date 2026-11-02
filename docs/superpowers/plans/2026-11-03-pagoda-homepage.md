@@ -83,13 +83,16 @@
 
 **Interfaces:**
 - Produces: `%Machines{scene: {x :: number, y :: number}}`. This is the machine's foot point as a percentage (0–100) of the scene box's width and height. Add it to `@enforce_keys` and the type. Starting values are xin-xam `{27, 62}` and giai-nghiep `{73, 62}`. Task 3 may tune them to the art.
-- Produces: `GateHTML.scene(assigns)`, a function component that renders `<svg class="scene" viewBox="0 0 1200 800" aria-hidden="true" focusable="false">`. In this task it is a placeholder: a ground diamond plus one group per vignette with ids `v-gate`, `v-court`, `v-hall`. Task 3 fills it.
+- Produces: `GateHTML.scene(assigns)`, a function component that renders `<svg class="scene" viewBox="0 0 1200 800" aria-hidden="true" focusable="false"><g id="scene-art">…</g></svg>`. In this task it is a placeholder: a ground diamond plus one group per vignette with ids `v-gate`, `v-court`, `v-hall`. Task 3 fills it.
+- Produces: `GateHTML.vignette(assigns)` with attr `part` (one of `"gate"`, `"court"`, `"hall"`). It renders `<svg class={"vignette vignette-" <> @part} viewBox={crop} aria-hidden="true" focusable="false"><use href="#scene-art" /></svg>`. The crop viewBoxes are module attributes, set to placeholders here and tuned in Task 3. Vignettes reuse the art and duplicate no links.
 - Produces: this markup, which Tasks 4–5 style and script:
   ```heex
   <main class="gate">
     <h1 class="sr-only">Chùa Máy</h1>
     <div class="stage">
       <.scene />
+      <.vignette part="gate" />
+      <.vignette part="court" />
       <ul class="machines">
         <li :for={m <- @machines}>
           <a class="machine" href={Machines.path(m)} style={"--x: #{elem(m.scene, 0)}%; --y: #{elem(m.scene, 1)}%; --accent: #{m.accent}"}>
@@ -99,16 +102,17 @@
           </a>
         </li>
       </ul>
+      <.vignette part="hall" />
     </div>
   </main>
   ```
-  - On a phone the vignettes appear in order (gate, court, machines, hall). Task 4 achieves that with CSS on the same DOM. It must not duplicate links.
+  - The DOM order is the phone walk order. Desktop hides the vignettes, and the phone shows them while hiding the full scene.
   - Image `width` is the real PNG width at 520px tall. Read it from the Task 1 output and use each machine's own value. If they differ, add a `thumb_size: {w, h}` field rather than hard-coding one value.
 
 - [ ] **Step 1: Write failing tests.**
-  - `machines_test.exs`: `"every machine has a scene point inside the box"`. For each `m` in `Machines.all()`, assert `{x, y} = m.scene` and `x in 0..100//1 or (is_float(x) and x >= 0 and x <= 100)`, and the same for `y`.
+  - `machines_test.exs`: `"every machine has a scene point inside the box"`. For each `m` in `Machines.all()`, assert `{x, y} = m.scene`, then `for v <- [x, y], do: assert(is_number(v) and v >= 0 and v <= 100)`.
   - `gate_test.exs`: keep the four existing tests, which still select `a.machine`. Add `"each machine is placed at its scene point"`: for each `{link, m}`, `[style] = Floki.attribute(link, "style")`, then assert `style =~ "--x: #{elem(m.scene, 0)}%"` and `style =~ "--y: #{elem(m.scene, 1)}%"`.
-  - Add `"the scene is decorative and holds no links"`: `[svg] = Floki.find(doc, "svg.scene")`, assert `Floki.attribute(svg, "aria-hidden") == ["true"]` and `Floki.find(svg, "a") == []`.
+  - Add `"the scene is decorative and holds no links"`: `[svg] = Floki.find(doc, "svg.scene")`, assert `Floki.attribute(svg, "aria-hidden") == ["true"]` and `Floki.find(svg, "a") == []`. Also `assert ["true", "true", "true"] == doc |> Floki.find("svg.vignette") |> Floki.attribute("aria-hidden")`.
   - Add `"each machine link appears once"`: `Floki.find(doc, ~s(a[href="/xin-xam"]))` has length 1, and the same for `/giai-nghiep`.
 - [ ] **Step 2: Run `mix test test/chua_tau_web`.** Expected: FAIL (no `scene` key, no `svg.scene`).
 - [ ] **Step 3: Implement** the `scene` field and values, `scene/1` (placeholder), and the template above.
@@ -123,6 +127,7 @@
 
 **Interfaces:**
 - Consumes: the `scene/1` contract from Task 2 (viewBox `0 0 1200 800`, `aria-hidden`, groups `v-gate`, `v-court`, `v-hall`).
+- Produces: final crop viewBoxes for `vignette/1` (`gate`, `court`, `hall`), each framing that part of the scene at about 3:2.
 - Produces: inside the SVG, ids that Task 4 animates: `#smoke` (group of smoke puffs above the lư hương), `#ripple` (pond ripple ellipse(s)), `#lantern` (a hanging lantern group, pivot at its hook). It also produces a `<filter id="grain">` that Task 4 applies site-wide on the gate.
 
 Draw in true 30° isometric (screen x = (gx−gy)·cos30, y = (gx+gy)·sin30 − z), with light from the upper left. Follow the sketch (`.superpowers/brainstorm/55289-1793641008/content/diorama-machines-v2.html`) for relationships, not coordinates:
@@ -155,8 +160,8 @@ Draw in true 30° isometric (screen x = (gx−gy)·cos30, y = (gx+gy)·sin30 −
     - `.machine-name` is a paper label (`--card` fill, 1.5px `--ink` border, small caps, letter-spaced) above the machine. It is hidden until `:hover` or `:focus-visible`. `.machine-tagline` is hidden on desktop.
     - On hover or focus the machine lifts `translateY(-4px)` over about 180ms. `:focus-visible` adds a 2px `--brass` outline offset 4px.
   - **Phone (< 700px):** `.stage` is a flex column, and the scene vignettes become separate crops.
-    - Render the gate, court and hall vignettes as crops of the same SVG with no DOM duplication. Use `.scene` with `display:contents`, or a phone-only CSS `object-view-box`/viewBox approach. If neither works in WebKit, a CSS-only crop of the whole SVG (`overflow:hidden` wrappers with a negative offset) is acceptable as long as there are no duplicate links.
-    - Order: gate → court → `.machines` → hall.
+    - Hide the full `.scene` with `position:absolute; width:0; height:0; overflow:hidden`, not `display:none`, because `<use>` and filters break when the source SVG is `display:none` in some browsers. Show the `.vignette`s at full width. On desktop, `.vignette{display:none}`.
+    - The DOM order already gives the walk: gate → court → `.machines` → hall.
     - Each `.machine` is a static block: the centred image about 220px tall, `.machine-name` in Lora, `.machine-tagline` below, and a brass plaque "Vào". The plaque comes from CSS `::after{content:"Vào"}` so no copy is added to the DOM.
     - Plaque press state: `:active` drops it 2px and shrinks its shadow.
   - **Idle life:**
