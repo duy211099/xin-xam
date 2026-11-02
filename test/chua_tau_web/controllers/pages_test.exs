@@ -8,9 +8,9 @@ defmodule ChuaTauWeb.PagesTest do
     {body, Jason.decode!(body)}
   end
 
-  describe "GET /" do
+  describe "GET /xin-xam" do
     test "serves the figure with the full fortune JSON", %{conn: conn} do
-      html = conn |> get(~p"/") |> html_response(200)
+      html = conn |> get(~p"/xin-xam") |> html_response(200)
       {_, data} = fortune_json(html)
 
       assert [%{"collection" => "quan-am"}, %{"collection" => "lu-to"}] = data["collections"]
@@ -32,14 +32,14 @@ defmodule ChuaTauWeb.PagesTest do
     end
 
     test "has SEO tags, and one title", %{conn: conn} do
-      html = conn |> get(~p"/") |> html_response(200)
+      html = conn |> get(~p"/xin-xam") |> html_response(200)
       doc = Floki.parse_document!(html)
 
       assert [{"title", _, ["Xin xăm online · Quan Âm Linh Xăm 100 quẻ"]}] =
                Floki.find(doc, "title")
 
       assert [url] = Floki.attribute(doc, ~s(link[rel=canonical]), "href")
-      assert String.starts_with?(url, "http://localhost") and String.ends_with?(url, "/")
+      assert String.starts_with?(url, "http://localhost") and String.ends_with?(url, "/xin-xam")
       assert [_] = Floki.attribute(doc, ~s(meta[name=description]), "content")
       assert ["vi_VN"] = Floki.attribute(doc, ~s(meta[property="og:locale"]), "content")
       assert ["website"] = Floki.attribute(doc, ~s(meta[property="og:type"]), "content")
@@ -52,8 +52,10 @@ defmodule ChuaTauWeb.PagesTest do
       assert ["/manifest.webmanifest"] = Floki.attribute(doc, ~s(link[rel=manifest]), "href")
       assert [_] = Floki.attribute(doc, ~s(link[rel=apple-touch-icon]), "href")
       assert Floki.find(doc, ~s(meta[name=robots])) == []
-      assert html =~ ~s("@type":"WebSite")
       assert Floki.find(doc, ".ct-intro") == []
+
+      assert [link] = Floki.find(doc, ~s(a[href="/"]))
+      assert Floki.text(link) == "← Cổng chùa"
     end
   end
 
@@ -90,7 +92,7 @@ defmodule ChuaTauWeb.PagesTest do
       assert html =~ "Lời khuyên"
       refute html =~ "Nội dung mẫu"
       assert Floki.find(doc, ~s(meta[name=robots])) == []
-      assert ["/?col=quan-am"] = Floki.attribute(doc, ~s(a.slip-button), "href")
+      assert ["/xin-xam?col=quan-am"] = Floki.attribute(doc, ~s(a.slip-button), "href")
       assert [url] = Floki.attribute(doc, ~s(link[rel=canonical]), "href")
       assert String.ends_with?(url, "/que/quan-am/1")
     end
@@ -109,14 +111,19 @@ defmodule ChuaTauWeb.PagesTest do
   end
 
   describe "site files" do
-    test "sitemap lists home and the written, non-sample fortunes only", %{conn: conn} do
+    test "sitemap lists gate, machines, certificates and the written, non-sample fortunes only",
+         %{conn: conn} do
       conn = get(conn, ~p"/sitemap.xml")
       assert response_content_type(conn, :xml) =~ "xml"
       body = response(conn, 200)
-      assert length(Regex.scan(~r{<loc>}, body)) == 201
+      assert length(Regex.scan(~r{<loc>}, body)) == 206
       assert body =~ ~r{<loc>http://localhost[^<]*/</loc>}
+      assert body =~ ~r{<loc>http://localhost[^<]*/xin-xam</loc>}
       assert body =~ ~r{<loc>http://localhost[^<]*/que/quan-am/100</loc>}
       assert body =~ "/que/lu-to/100"
+      assert body =~ ~r{<loc>http://localhost[^<]*/giai-nghiep</loc>}
+
+      for loai <- ~w(than khau y), do: assert(body =~ "/giai-nghiep/#{loai}</loc>")
     end
 
     test "robots.txt allows all and points at the sitemap", %{conn: conn} do
@@ -127,8 +134,9 @@ defmodule ChuaTauWeb.PagesTest do
 
     test "manifest", %{conn: conn} do
       m = conn |> get(~p"/manifest.webmanifest") |> response(200) |> Jason.decode!()
-      assert m["name"] == "Máy xin xăm online"
-      assert m["short_name"] == "Xin xăm"
+      assert m["name"] == ChuaTauWeb.Seo.site_name()
+      assert m["short_name"] == "Cổng chùa"
+      assert m["start_url"] == "/"
       assert m["lang"] == "vi"
       assert m["display"] == "standalone"
       assert m["theme_color"] == "#b3261e"
@@ -141,7 +149,10 @@ defmodule ChuaTauWeb.PagesTest do
             "/images/icon-192.png",
             "/images/icon-512.png",
             "/images/og.png",
-            "/css/share.css"
+            "/css/share.css",
+            "/css/gate.css",
+            "/images/machines/xin-xam.png",
+            "/images/machines/giai-nghiep.png"
           ] do
         assert conn |> get(path) |> response(200)
       end
@@ -149,7 +160,7 @@ defmodule ChuaTauWeb.PagesTest do
 
     test "/api/fortunes matches the page JSON", %{conn: conn} do
       api = conn |> get(~p"/api/fortunes") |> json_response(200)
-      {_, page} = conn |> get(~p"/") |> html_response(200) |> fortune_json()
+      {_, page} = conn |> get(~p"/xin-xam") |> html_response(200) |> fortune_json()
       assert api == page
     end
   end

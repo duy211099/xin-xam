@@ -13,6 +13,8 @@ defmodule ChuaTauWeb.FigurePage do
   @script_open ~s(<script id="ct-fortunes" type="application/json">)
   @script_close "</script>"
 
+  @gate_link ~s(<style>.ct-gate-link{position:fixed;top:8px;left:8px;z-index:50;padding:4px 8px;font:13px/1.2 'Noto Serif','Times New Roman',Georgia,serif;color:#2b1a10;background:#f3eee4;border:2px solid #2b1a10;border-radius:4px;text-decoration:none}</style><a class="ct-gate-link" href="/">← Cổng chùa</a>)
+
   @type parts :: %{
           head: binary(),
           between: binary(),
@@ -71,10 +73,11 @@ defmodule ChuaTauWeb.FigurePage do
   defp assemble(parts, json) do
     [
       Regex.replace(~r{<title>.*?</title>}s, parts.head, "", global: false),
-      Seo.render_home(),
+      Seo.render(Seo.xin_xam()),
       parts.between,
       json,
       parts.after_json,
+      @gate_link,
       parts.tail
     ]
   end

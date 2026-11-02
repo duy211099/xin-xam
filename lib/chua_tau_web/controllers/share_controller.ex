@@ -14,7 +14,8 @@ defmodule ChuaTauWeb.ShareController do
       render(conn, :show,
         collection: collection,
         fortune: fortune,
-        seo: share_seo(collection, fortune)
+        seo: share_seo(collection, fortune),
+        stylesheet: "/css/share.css"
       )
     else
       _ -> not_found(conn)

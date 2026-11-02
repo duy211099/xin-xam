@@ -1,21 +1,52 @@
 defmodule ChuaTauWeb.Seo do
-  @moduledoc "Head tags shared by the figure page and the share pages."
+  @moduledoc "Head tags shared by the gate, the figure page and the share pages."
   use Phoenix.Component
 
-  @site_name "Máy xin xăm online"
-  @home_title "Xin xăm online · Quan Âm Linh Xăm 100 quẻ"
-  @home_description "Xin xăm online với máy xin xăm ảo: thành tâm khấn nguyện, bỏ đồng xu, nhận viên nang vàng rồi đọc lời xăm. Hai bộ Quan Âm và Lữ Tổ Linh Xăm, mỗi bộ 100 quẻ, có lời thơ, lời giải và lời khuyên."
+  @site_name "Cổng chùa · Máy xin xăm và máy giải nghiệp"
+  @gate_title "Cổng chùa · Máy xin xăm và máy giải nghiệp online"
+  @gate_description "Cổng chùa online với hai chiếc máy: máy xin xăm ảo rút quẻ từ bộ Quan Âm và Lữ Tổ Linh Xăm, và máy giải nghiệp. Chọn một máy để bắt đầu."
+  @xin_xam_title "Xin xăm online · Quan Âm Linh Xăm 100 quẻ"
+  @xin_xam_description "Xin xăm online với máy xin xăm ảo: thành tâm khấn nguyện, bỏ đồng xu, nhận viên nang vàng rồi đọc lời xăm. Hai bộ Quan Âm và Lữ Tổ Linh Xăm, mỗi bộ 100 quẻ, có lời thơ, lời giải và lời khuyên."
 
-  defstruct [:title, :description, :url, noindex: false, json_ld: nil]
+  @giai_nghiep_title "Máy giải nghiệp online · Nhanh, gọn, có kết quả"
+  @giai_nghiep_description "Máy giải nghiệp online: chọn nghiệp thân, khẩu hoặc ý, nhét tiền vào máy, đợi máy giải rồi nhận kết quả và giấy chứng nhận đã giải nghiệp. Nhanh, gọn, có kết quả."
+
+  defstruct [:title, :description, :url, noindex: false, json_ld: nil, image: "/images/og.png"]
 
   def site_name, do: @site_name
 
   def absolute(path), do: ChuaTauWeb.Endpoint.url() <> path
 
-  def home do
+  def xin_xam do
     %__MODULE__{
-      title: @home_title,
-      description: @home_description,
+      title: @xin_xam_title,
+      description: @xin_xam_description,
+      url: absolute("/xin-xam")
+    }
+  end
+
+  def giai_nghiep do
+    %__MODULE__{
+      title: @giai_nghiep_title,
+      description: @giai_nghiep_description,
+      url: absolute("/giai-nghiep")
+    }
+  end
+
+  def certificate(loai, label) do
+    %__MODULE__{
+      title: "Giấy chứng nhận đã giải nghiệp · Loại #{label} · Máy giải nghiệp",
+      description:
+        "Giấy chứng nhận đã giải nghiệp, loại #{label}, hiệu lực đến lần sau. Tự giải nghiệp của mình ở máy giải nghiệp online.",
+      url: absolute("/giai-nghiep/#{loai}"),
+      image: "/images/giai-nghiep/#{loai}.png"
+    }
+  end
+
+  def gate do
+    %__MODULE__{
+      title: @gate_title,
+      description: @gate_description,
       url: absolute("/"),
       json_ld:
         Jason.encode!(
@@ -31,8 +62,9 @@ defmodule ChuaTauWeb.Seo do
     }
   end
 
-  def render_home do
-    assigns = %{seo: home()}
+  @spec render(%__MODULE__{}) :: iodata()
+  def render(%__MODULE__{} = seo) do
+    assigns = %{seo: seo}
 
     ~H"<.head_tags seo={@seo} />"
     |> Phoenix.HTML.Safe.to_iodata()
@@ -54,13 +86,13 @@ defmodule ChuaTauWeb.Seo do
     <meta property="og:title" content={@seo.title} />
     <meta property="og:description" content={@seo.description} />
     <meta property="og:url" content={@seo.url} />
-    <meta property="og:image" content={absolute("/images/og.png")} />
+    <meta property="og:image" content={absolute(@seo.image)} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={@seo.title} />
     <meta name="twitter:description" content={@seo.description} />
-    <meta name="twitter:image" content={absolute("/images/og.png")} />
+    <meta name="twitter:image" content={absolute(@seo.image)} />
     <meta name="theme-color" content="#b3261e" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/images/icon-192.png" />

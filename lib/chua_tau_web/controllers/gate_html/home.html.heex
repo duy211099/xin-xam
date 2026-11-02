@@ -1,0 +1,27 @@
+<main class="gate">
+  <h1 class="gate-title">Cổng chùa</h1>
+  <div class="arch">
+    <svg class="arch-roof" viewBox="0 0 400 64" preserveAspectRatio="none" aria-hidden="true">
+      <g stroke="#2b1a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+        <path
+          d="M4 58 Q40 56 80 36 L200 8 L320 36 Q360 56 396 58 Q380 62 360 62 L40 62 Q20 62 4 58 Z"
+          fill="#b3261e"
+          vector-effect="non-scaling-stroke"
+        />
+        <path d="M200 8 L200 2" fill="none" vector-effect="non-scaling-stroke" />
+      </g>
+    </svg>
+    <div class="arch-beam"><span class="arch-sign"></span></div>
+    <div class="arch-posts">
+      <ul class="machines">
+        <li :for={m <- @machines}>
+          <a class="machine" href={Machines.path(m)} style={"--accent: #{m.accent}"}>
+            <img src={m.thumb} alt="" width="300" height="400" />
+            <span class="machine-name">{m.name}</span>
+            <span class="machine-tagline">{m.tagline}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</main>
