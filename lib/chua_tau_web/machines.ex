@@ -28,7 +28,7 @@ defmodule ChuaTauWeb.Machines do
         tagline: "Thành tâm khấn nguyện, bỏ đồng xu, nhận quẻ.",
         thumb: "/images/machines/xin-xam.png",
         thumb_size: {347, 520},
-        scene: {27, 62},
+        scene: {34, 52},
         accent: "#d6a53a"
       },
       %__MODULE__{
@@ -37,7 +37,7 @@ defmodule ChuaTauWeb.Machines do
         tagline: "Nhanh · Gọn · Có kết quả",
         thumb: "/images/machines/giai-nghiep.png",
         thumb_size: {257, 520},
-        scene: {73, 62},
+        scene: {55, 70},
         accent: "#e5533d"
       }
     ]

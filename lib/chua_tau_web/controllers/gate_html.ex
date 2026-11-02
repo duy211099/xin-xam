@@ -6,9 +6,9 @@ defmodule ChuaTauWeb.GateHTML do
   embed_templates "gate_html/*"
 
   @vignettes %{
-    "gate" => "0 400 1200 400",
-    "court" => "200 200 800 533",
-    "hall" => "200 0 800 533"
+    "gate" => "120 330 480 320",
+    "court" => "390 250 390 260",
+    "hall" => "500 60 630 420"
   }
 
   @doc "The whole courtyard scene. Decorative: the machines are links laid over it."
