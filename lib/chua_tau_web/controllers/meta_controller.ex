@@ -3,7 +3,7 @@ defmodule ChuaTauWeb.MetaController do
   use ChuaTauWeb, :controller
 
   alias ChuaTau.Fortunes
-  alias ChuaTauWeb.Seo
+  alias ChuaTauWeb.{Machines, Seo}
 
   def sitemap(conn, _params) do
     share_paths =
@@ -11,8 +11,11 @@ defmodule ChuaTauWeb.MetaController do
           {n, %{sample: false}} <- Enum.sort(c.entries),
           do: "/que/#{c.id}/#{n}"
 
+    machine_paths =
+      for m <- Machines.all(), m.slug == "xin-xam", do: Machines.path(m)
+
     urls =
-      for path <- ["/" | share_paths] do
+      for path <- ["/" | machine_paths] ++ share_paths do
         "  <url><loc>#{Plug.HTML.html_escape(Seo.absolute(path))}</loc></url>\n"
       end
 
@@ -34,7 +37,7 @@ defmodule ChuaTauWeb.MetaController do
   def manifest(conn, _params) do
     manifest = %{
       name: Seo.site_name(),
-      short_name: "Xin xăm",
+      short_name: "Cổng chùa",
       lang: "vi",
       start_url: "/",
       display: "standalone",

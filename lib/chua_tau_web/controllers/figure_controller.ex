@@ -3,7 +3,7 @@ defmodule ChuaTauWeb.FigureController do
 
   alias ChuaTauWeb.FigurePage
 
-  def home(conn, _params) do
+  def xin_xam(conn, _params) do
     conn
     |> put_resp_content_type("text/html")
     |> send_resp(200, FigurePage.render())

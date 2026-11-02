@@ -14,7 +14,8 @@ defmodule ChuaTauWeb.Router do
 
     pipe_through :browser
 
-    get "/", FigureController, :home
+    get "/", GateController, :home
+    get "/xin-xam", FigureController, :xin_xam
     get "/que/:set/:n", ShareController, :show
   end
 end
