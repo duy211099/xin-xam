@@ -49,7 +49,20 @@ defmodule ChuaTauWeb.GiaiNghiepFigureTest do
   end
 
   test "never calls the output a bill", %{html: html} do
-    refute String.contains?(String.downcase(html), "hóa đơn")
+    lower = String.downcase(html)
+
+    for bill <- ["hóa đơn", "hoá đơn"] do
+      refute String.contains?(lower, bill), "found #{inspect(bill)}"
+    end
+  end
+
+  test "exposes the certificate renderer for the share images", %{html: html} do
+    assert html =~ ~r/window\.ctCertificate\s*=/
+    assert html =~ ~r/\bdraw\(/
+  end
+
+  test "has no debug params that skip paying", %{html: html} do
+    refute html =~ ~r/q\.(get|has)\(\s*'(receipt|paid|cash)'/
   end
 
   test "has exactly one </head> and one <title>", %{html: html} do
@@ -61,6 +74,6 @@ defmodule ChuaTauWeb.GiaiNghiepFigureTest do
     refute html =~ ~r/(src|href)\s*=\s*["']\s*(https?:)?\/\//i
     refute html =~ ~r/url\(\s*["']?(https?:)?\/\//i
     refute html =~ ~r/@import/
-    refute html =~ ~r/fetch\(|XMLHttpRequest/
+    refute html =~ ~r/fetch\(|XMLHttpRequest|WebSocket|sendBeacon|EventSource|\bimport\(/
   end
 end

@@ -9,7 +9,8 @@ header,.made-with,.ctl:has(#wb){display:none!important}
 .act{min-height:34px}
 #fig .tag text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif!important}
 .gn-gate{position:fixed;top:8px;left:8px;z-index:50;padding:4px 8px;font:13px/1.2 'Noto Serif','Times New Roman',Georgia,serif;color:#2b1a10;background:#fbf3dc;border:2px solid #2b1a10;border-radius:4px;text-decoration:none}
-.gn-modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(35,22,14,.55)}
+.gn-modal{position:fixed;inset:0;z-index:1000;isolation:isolate;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(35,22,14,.78)}
+body.gn-open .tag,body.gn-open .stage svg .tag{visibility:hidden}
 .gn-modal.show{display:flex}
 .gn-sheet{width:min(680px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#f2efe7;border:2px solid #2b1a10;border-radius:10px;padding:14px;box-shadow:0 18px 50px rgba(0,0,0,.4);text-align:center}
 .gn-sheet canvas{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 2px 0 #2b1a10}
@@ -837,8 +838,8 @@ function gnFront(st, m, k){
   s += ink(pd(g), 1.7);
   // keypad plate and lamps (the buttons themselves stick out, see gnMounted)
   s += shape(lrr(59.5, 34, 21.5, 82, 2.5), '#4a2c22', 1.3);
-  for (const key of GN_KEYS){ const i = GN_TYPES[key].i, on = st.loai === key && st.phase !== 'idle';
-    s += shape(lcirc(61.6, 43 + 15*i, .9, .4), on ? '#ffe27a' : '#7d6a5c', .5); }
+  for (const key of GN_KEYS){ const i = GN_TYPES[key].i, lit = st.loai === key && st.phase !== 'idle';
+    s += shape(lcirc(61.6, 43 + 15*i, .9, .4), lit ? '#ffe27a' : '#7d6a5c', .5); }
   s += shape(lcirc(61.6, 96, .9, .4), st.nang && st.loai ? '#ff9a3c' : '#7d6a5c', .5);
   // LCD strip: status on the left, the counter on the right
   s += shape(lrr(4, 118, 77, 16, 2.5), GN_MUST, 1.3);
@@ -869,9 +870,9 @@ const gnLcd = st => st.phase === 'running' ? 'ĐANG GIẢI...' : st.phase === 'd
 function gnMounted(st){
   const parts = [], pr = key => st.press === key ? 1.6 : 0;
   for (const key of GN_KEYS){ const T = GN_TYPES[key], v0 = 37 + 15*T.i, x1 = W + 2.6 - pr(key);
-    const y0 = D - 79, y1 = D - 63.5, z0 = H - (v0 + 12), z1 = H - v0, on = st.loai === key && st.phase !== 'idle';
+    const y0 = D - 79, y1 = D - 63.5, z0 = H - (v0 + 12), z1 = H - v0, glow = st.loai === key && st.phase !== 'idle';
     const m = matOf(T.col);
-    const svg = box(W, y0, z0, x1, y1, z1, m, toneI, 1.1) + (on ? ink(pd(on2(PX(x1 + .05), rectUV(y0 + .8, z0 + .8, y1 - .8, z1 - .8))), 1.2).replace(INK, '#fff6b0') : '')
+    const svg = box(W, y0, z0, x1, y1, z1, m, toneI, 1.1) + (glow ? ink(pd(on(PX(x1 + .05), rectUV(y0 + .8, z0 + .8, y1 - .8, z1 - .8))), 1.2).replace(INK, '#fff6b0') : '')
       + gnTx(x1 + .06, (y0 + y1)/2, z0 + 4.4, T.label, 4.4, key === 'khau' ? GN_INKB : '#fff8e8', 800);
     parts.push({ box: [[W, y0, z0], [x1, y1, z1]], svg: act(key, svg) }); }
   { const x1 = W + 2.2 - pr('nang'), y = D - 71.2, z = H - 96, lit = st.nang && st.loai;
@@ -885,7 +886,6 @@ function gnMounted(st){
     parts.push({ box: [[W - 1, 36, 10.6], [x1, 48, 11.1]], svg: act('tray', svg) }); }
   return byDepth(parts);
 }
-const on2 = on;
 
 /* ---------- other faces ---------- */
 function gnLeft(m){                          // y = D: sticker and vents
@@ -1028,7 +1028,7 @@ function gnMech(st, k){
   const mz = MOTOR.z + Math.sin(ang*1.3)*wob, my = MOTOR.y + Math.cos(ang)*wob;
   parts.push(gnBx(MOTOR.x0 + 3, MOTOR.y - 3, MOTOR.z + 3, MOTOR.x1 - 3, MOTOR.y + 3, SHELF_Z[2] - 1.5, METAL, .6));
   parts.push(gnPart([[MOTOR.x0 - 1.8, MOTOR.y - 3.6, MOTOR.z - 3.6], [MOTOR.x1, MOTOR.y + 3.6, MOTOR.z + 3]],
-    (vis([-1,0,0]) ? '' : '') + cylX(MOTOR.x0 + .5, MOTOR.x1, my, mz, MOTOR.r, { l:'#c9cfd2', m:'#a3abaf', d:'#6d7579' }, toneI, .8, 18)
+    cylX(MOTOR.x0 + .5, MOTOR.x1, my, mz, MOTOR.r, { l:'#c9cfd2', m:'#a3abaf', d:'#6d7579' }, toneI, .8, 18)
     + cylX(MOTOR.x0 - 1.6, MOTOR.x0 + .5, my + Math.cos(ang)*1.1, mz + Math.sin(ang)*1.1, 1.8, BRASS, toneI, .6, 12)));
   // the shelf cavity's back panel and the shelves
   parts.push(gnBx(CX0 - .8, CY0, CZ0 - 2, CX0, CY1, CZ1 + 1.5, { l:'#7a5444', m:'#5b3a2c', d:'#3a241b' }, .7));
@@ -1093,8 +1093,7 @@ function gnAudio(){
   if (!gnAC){ const A = window.AudioContext || window.webkitAudioContext; if (A) try { gnAC = new A(); } catch (e) { gnAC = null; } }
   if (gnAC && gnAC.state === 'suspended') gnAC.resume();
 }
-addEventListener('pointerdown', gnAudio, true);
-addEventListener('keydown', gnAudio, true);
+for (const ev of ['pointerdown', 'pointerup', 'touchend', 'click', 'keydown']) addEventListener(ev, gnAudio, true);
 function gnTone(freq, dur, type, vol, when = 0){
   if (!gnAC) return;
   const t = gnAC.currentTime + when, o = gnAC.createOscillator(), g = gnAC.createGain();
@@ -1107,7 +1106,7 @@ const gnRustle = () => { gnTone(260, .07, 'square', .03); gnTone(190, .09, 'squa
 const gnDing = () => { gnTone(1320, 1.8, 'sine', .22); gnTone(1320*2.76, .9, 'sine', .06); gnTone(1320*5.4, .45, 'sine', .03); };
 
 /* ---------- behaviour: idle -> chosen -> paying -> running -> done ---------- */
-let ui, gnRunId = 0, gnTimers = [], gnFlyOn = false;
+let ui, gnRunId = 0, gnFlyOn = false;
 function gnPress(st, key){
   st.press = key; const at = st.pressAt = performance.now();
   ui.animate(() => { if (st.pressAt !== at) return false; if (performance.now() - at < 160) return true; st.press = null; return false; });
@@ -1155,11 +1154,13 @@ function gnRun(st){
     return true; });
 }
 function gnTake(st){
-  if (st.phase !== 'done' || st.receipt < .3) return st.phase === 'running' ? undefined : ui.flash('Khay trống');
+  if (st.phase === 'running') return;
+  if (st.phase !== 'done') return ui.flash('Khay trống');
+  if (st.receipt < .3) return;                            // still printing
   gnOpenCert(st.loai);
 }
 function gnReset(st){
-  gnRunId++; gnTimers.forEach(clearTimeout); gnTimers = [];
+  gnRunId++;
   for (const c of st.fly) st.cash += c.v;                  // money already in the slot still lands in the box
   st.fly = [];
   Object.assign(st, { phase: 'idle', loai: null, nang: false, paid: 0, receipt: 0, runAt: 0, press: null });
@@ -1206,25 +1207,31 @@ window.ctCertificate = {
   }
 };
 const gnToday = () => { const d = new Date(), p = n => String(n).padStart(2, '0'); return `${p(d.getDate())}/${p(d.getMonth() + 1)}/${d.getFullYear()}`; };
-let gnCertLoai = null;
+let gnCertLoai = null, gnOpenedAt = 0, gnOpener = null, gnDownOnBack = false;
+const GN_GUARD = 400;                                      // ms: the click that follows the opening tap is ignored
 function gnOpenCert(loai){
-  gnCertLoai = loai;
+  gnCertLoai = loai; gnOpenedAt = performance.now(); gnDownOnBack = false;
+  const ae = document.activeElement; gnOpener = ae && ae !== document.body ? ae : null;
   const md = document.getElementById('gnModal');
   window.ctCertificate.draw(document.getElementById('gnCert'), { loai, date: gnToday() });
   document.getElementById('gnNote').hidden = true; document.getElementById('gnUrl').hidden = true;
-  md.classList.add('show'); document.getElementById('gnSave').focus();
+  md.classList.add('show'); document.body.classList.add('gn-open'); document.getElementById('gnSave').focus();
 }
 function gnCloseCert(reset){
   const md = document.getElementById('gnModal'); if (!md || !md.classList.contains('show')) return;
-  md.classList.remove('show'); gnCertLoai = null;
+  md.classList.remove('show'); document.body.classList.remove('gn-open'); gnCertLoai = null;
+  const back = gnOpener; gnOpener = null;
   if (reset){ gnReset(ui.st); ui.render(); }
+  if (back && back.isConnected) back.focus();
 }
 function gnSave(){
   if (!gnCertLoai) return;
   const c = document.createElement('canvas'); c.width = 1200; c.height = 630;
   window.ctCertificate.draw(c, { loai: gnCertLoai, date: gnToday() });
-  const a = document.createElement('a'); a.download = 'giai-nghiep-' + gnCertLoai + '.png'; a.href = c.toDataURL('image/png');
-  document.body.appendChild(a); a.click(); a.remove();
+  const name = 'giai-nghiep-' + gnCertLoai + '.png';
+  c.toBlob(blob => { if (!blob) return;
+    const href = URL.createObjectURL(blob), a = document.createElement('a'); a.download = name; a.href = href;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(href), 1000); }, 'image/png');
 }
 async function gnShare(){
   if (!gnCertLoai) return;
@@ -1260,9 +1267,6 @@ ui = mountFigure({
   params: (st, q) => {
     if (GN_TYPES[q.get('loai')]) { st.loai = q.get('loai'); st.phase = 'chosen'; }
     if (q.get('nang') === '1') st.nang = true;
-    if (q.has('paid')) { st.paid = +q.get('paid') || 0; if (st.paid) st.phase = 'paying'; }
-    if (q.has('cash')) st.cash = +q.get('cash') || 0;
-    if (q.get('receipt') === '1' && st.loai) { st.phase = 'done'; st.receipt = 1; st.paid = 0; }
   },
 });
 document.title = gnTitle || document.title;
@@ -1282,7 +1286,16 @@ xrMount(() => ui, () => '');
   document.getElementById('gnSave').onclick = gnSave;
   document.getElementById('gnShare').onclick = gnShare;
   document.getElementById('gnClose').onclick = () => gnCloseCert(true);
-  document.getElementById('gnModal').addEventListener('click', e => { if (e.target.id === 'gnModal') gnCloseCert(true); });
+  const md = document.getElementById('gnModal');
+  md.addEventListener('pointerdown', e => { gnDownOnBack = e.target === md; });
+  md.addEventListener('click', e => {                     // capture: a ghost click right after opening reaches nothing
+    if (performance.now() - gnOpenedAt < GN_GUARD){ e.stopPropagation(); e.preventDefault(); } }, true);
+  md.addEventListener('click', e => { if (e.target === md && gnDownOnBack) gnCloseCert(true); gnDownOnBack = false; });
+  md.addEventListener('keydown', e => { if (e.key !== 'Tab') return;
+    const f = [...md.querySelectorAll('button, input')].filter(el => !el.hidden);
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); } });
   addEventListener('keydown', e => { if (e.key === 'Escape') gnCloseCert(true); });
   // the keypad buttons above the figure show what is chosen
   const btn = t => [...document.querySelectorAll('#btns .act')].find(b => b.textContent.trim() === t);
