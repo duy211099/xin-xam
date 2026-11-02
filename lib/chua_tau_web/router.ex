@@ -1,0 +1,20 @@
+defmodule ChuaTauWeb.Router do
+  use ChuaTauWeb, :router
+
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :put_secure_browser_headers
+  end
+
+  scope "/", ChuaTauWeb do
+    get "/sitemap.xml", MetaController, :sitemap
+    get "/robots.txt", MetaController, :robots
+    get "/manifest.webmanifest", MetaController, :manifest
+    get "/api/fortunes", FigureController, :fortunes
+
+    pipe_through :browser
+
+    get "/", FigureController, :home
+    get "/que/:set/:n", ShareController, :show
+  end
+end

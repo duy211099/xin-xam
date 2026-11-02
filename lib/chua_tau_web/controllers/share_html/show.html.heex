@@ -1,0 +1,20 @@
+<main class="slip">
+  <p class="slip-collection">{@collection.name}</p>
+  <h1 class="slip-heading">LINH XĂM</h1>
+  <p class="slip-number">Quẻ số {@fortune.number} / {@collection.total}</p>
+  <p class="slip-title">{@fortune.title}</p>
+  <p>
+    <span class={["badge", "badge-#{@fortune.category}"]}>
+      {category_label(@fortune.category)}
+    </span>
+  </p>
+  <div class="slip-poem">
+    <p :for={line <- @fortune.poem}>{line}</p>
+  </div>
+  <h2>Lời giải</h2>
+  <p>{@fortune.interpretation}</p>
+  <h2>Lời khuyên</h2>
+  <p>{@fortune.advice}</p>
+  <p :if={@fortune.sample} class="slip-sample">Nội dung mẫu, không phải lời xăm truyền thống.</p>
+  <a class="slip-button" href={"/?col=#{@collection.id}"}>Xin xăm</a>
+</main>

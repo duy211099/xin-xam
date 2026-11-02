@@ -1,0 +1,2710 @@
+{
+  "collection": "quan-am",
+  "order": 1,
+  "name": "Quan Âm Linh Xăm",
+  "total": 100,
+  "sample": false,
+  "source": "https://github.com/yanxinyu777-beep/guanyin-lingqian-100 (bản Hán, Bách sự vấn Quan Âm); dịch tiếng Việt",
+  "fortunes": [
+    {
+      "number": 1,
+      "title": "Chung Ly thành đạo",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Khai thiên tịch địa tác lương duyên",
+        "Cát nhật lương thời vạn vật toàn",
+        "Nhược đắc thử thiêm phi tiểu khả",
+        "Nhân hành trung chính đế vương tuyên"
+      ],
+      "poem_han": [
+        "开天辟地作良缘",
+        "吉日良时万物全",
+        "若得此签非小可",
+        "人行忠正帝王宣"
+      ],
+      "meaning": [
+        "Mở trời lập đất tạo nên duyên lành",
+        "Ngày tốt giờ lành, vạn vật đều đầy đủ",
+        "Nếu được quẻ này thì không phải chuyện nhỏ",
+        "Người sống trung chính sẽ được vua ban chiếu triệu"
+      ],
+      "interpretation": "Quẻ mang hình ảnh Bàn Cổ vừa mở trời đất, Quan Âm hạ bút báo trước cho bạn biết mọi việc đều tốt lành. Đây là quẻ cát, mọi việc đều thuận.",
+      "advice": "Gia đạo: cầu phúc. Cầu tài: thu đông lợi lớn. Giao dịch, hôn nhân: thành. Sinh con: trai. Người đi xa: sẽ đến. Tằm tang, gia súc: tốt. Tìm người: thấy. Kiện tụng: tốt. Mất đồ: hướng đông bắc. Bệnh: cúng giải. Mồ mả: tốt.",
+      "story": "Chung Ly Quyền, một trong Bát Tiên, tu luyện thành đạo."
+    },
+    {
+      "number": 2,
+      "title": "Tô Tần bất đệ",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Kình ngư vị biến thủ giang hà",
+        "Bất khả thăng đằng cánh vọng cao",
+        "Dị nhật tranh vanh thân biến hóa",
+        "Hứa quân nhất dược khiêu Long Môn"
+      ],
+      "poem_han": [
+        "鲸鱼未变守江河",
+        "不可升腾更望高",
+        "异日峥嵘身变化",
+        "许君一跃跳龙门"
+      ],
+      "meaning": [
+        "Cá kình chưa hóa vẫn phải giữ sông nước",
+        "Chưa thể bay lên, đừng mong cao hơn",
+        "Ngày sau vươn mình đổi khác, nổi bật hơn người",
+        "Cho bạn một bước nhảy vượt Long Môn"
+      ],
+      "interpretation": "Quẻ mang hình ảnh cá kình chưa hóa rồng, cần nhẫn nại chờ thời. Công danh vẫn còn đó, chỉ cần kiên nhẫn đợi đến lúc.",
+      "advice": "Gia đạo: không yên. Bản thân: cúng tạ nguyện. Cầu tài: ít lợi. Hôn nhân: khó. Sinh con: cúng phúc. Người đi xa: bình an. Tằm tang: tốt. Gia súc: bất lợi. Tìm người: thấy. Kiện tụng: hòa. Dời chỗ: tốt. Mất đồ: hướng đông nam. Bệnh: cầu bảo. Mồ mả: tốt.",
+      "story": "Tô Tần thi không đỗ, thời trẻ chưa gặp vận."
+    },
+    {
+      "number": 3,
+      "title": "Đổng Vĩnh ngộ tiên",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Lâm phong mạo vũ khứ hoàn hương",
+        "Chính thị kỳ thân tự yến nhi",
+        "Hàm đắc nê lai dục tác lũy",
+        "Đáo đầu lũy hoại phục tu nê"
+      ],
+      "poem_han": [
+        "临风冒雨去还乡",
+        "正是其身似燕儿",
+        "衔得坭来欲作垒",
+        "到头垒坏复须坭"
+      ],
+      "meaning": [
+        "Đón gió dầm mưa trở về quê",
+        "Thân này đúng như con chim én",
+        "Ngậm được bùn về muốn đắp tổ",
+        "Rốt cuộc tổ hỏng lại phải tha bùn"
+      ],
+      "interpretation": "Quẻ mang hình ảnh chim én ngậm bùn làm tổ, thời gian dài không ngơi nghỉ. Mọi việc rốt cuộc đều tốn tâm sức.",
+      "advice": "Gia đạo: trước hung sau cát. Bản thân: cẩn thận phòng ngừa. Cầu tài: có giao dịch. Hôn nhân: không hợp. Người đi xa: tốt. Sinh con: trai. Tằm tang, gia súc: lợi. Kiện tụng: có lý. Tìm người: thấy. Dời chỗ: yên. Mất đồ: thấy. Bệnh: khó khỏi. Mồ mả: tốt.",
+      "story": "Đổng Vĩnh bán mình chôn cha, được tiên nữ xuống giúp."
+    },
+    {
+      "number": 4,
+      "title": "Ngọc Liên hội Thập Bằng",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Thiên niên cổ kính phục trùng viên",
+        "Nữ tái cầu phu nam tái hôn",
+        "Tự thử môn đình trùng cải hoán",
+        "Cánh thiêm phúc lộc tại nhi tôn"
+      ],
+      "poem_han": [
+        "千年古镜复重圆",
+        "女再求夫男再婚",
+        "自此门庭重改换",
+        "更添福禄在儿孙"
+      ],
+      "meaning": [
+        "Gương cổ ngàn năm lại tròn đầy",
+        "Nữ lại tìm chồng, nam lại cưới vợ",
+        "Từ nay gia môn đổi mới",
+        "Thêm phúc lộc cho con cháu"
+      ],
+      "interpretation": "Quẻ mang hình ảnh gương cổ lại tròn, như đãi cát tìm vàng, cưỡi rồng đạp hổ. Tuy nhọc lòng nhưng trong đó có ích, nhọc lòng mà gặp quý nhân.",
+      "advice": "Gia đạo: bất lợi. Bản thân, cầu tài: thu đông vượng. Giao dịch: được. Hôn nhân: thành. Người đi xa: sẽ đến. Tìm người: thấy. Sinh con: cầu bảo. Tằm tang, gia súc: dùng được. Kiện tụng: bất lợi. Dời chỗ: giữ cũ. Mất đồ: thấy muộn. Bệnh: cầu phúc. Mồ mả: tốt.",
+      "story": "Vương Thập Bằng và Tiền Ngọc Liên đoàn tụ trong vở Kinh Thoa ký."
+    },
+    {
+      "number": 5,
+      "title": "Lưu Thần ngộ tiên",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Nhất chùy thảo địa yếu cầu tuyền",
+        "Nỗ lực cầu chi đắc tối nan",
+        "Vô ý nga nhiên ngộ tri kỷ",
+        "Tương phùng huề thủ thượng thanh thiên"
+      ],
+      "poem_han": [
+        "一锥草地要求泉",
+        "努力求之得最难",
+        "无意俄然遇知己",
+        "相逢携手上青天"
+      ],
+      "meaning": [
+        "Một mũi dùi đâm xuống đất cỏ muốn tìm suối",
+        "Cố gắng tìm thì khó được nhất",
+        "Không ngờ bỗng gặp tri kỷ",
+        "Gặp nhau nắm tay lên trời xanh"
+      ],
+      "interpretation": "Quẻ mang hình ảnh dùi đất tìm suối. Mọi việc không biết biến đổi thì khó mưu, trước chuẩn sau dễ.",
+      "advice": "Gia đạo: cầu phúc. Cầu tài: lợi. Giao dịch, hôn nhân: hợp. Sinh con: yên. Người đi xa: chậm. Tìm người: thấy. Tằm tang: nên gieo sớm. Gia súc: hao tổn. Kiện tụng: nên hòa. Dời chỗ: tốt. Trộm cắp: không thấy. Bệnh: cúng giải sao. Mồ mả: tốt.",
+      "story": "Lưu Thần vào núi hái thuốc gặp tiên nữ."
+    },
+    {
+      "number": 6,
+      "title": "Nhân Quý ngộ chủ",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Đầu thân nham hạ đồng điểu cư",
+        "Tu thị hoàn tha đại trượng phu",
+        "Thập đắc doanh mưu thùy khả đắc",
+        "Thông hành thiên địa thử nhân vô"
+      ],
+      "poem_han": [
+        "投身岩下铜鸟居",
+        "须是还他大丈夫",
+        "拾得营谋谁可得",
+        "通行天地此人无"
+      ],
+      "meaning": [
+        "Náu thân dưới vách đá, ở nơi chim đồng",
+        "Phải là bậc đại trượng phu mới làm được",
+        "Nhặt được mưu tính ấy thì ai có được",
+        "Đi khắp trời đất không có người như vậy"
+      ],
+      "interpretation": "Quẻ mang hình ảnh náu dưới vách đá. Cần chờ thời, bỏ cũ theo mới, mọi việc thuận lợi. Cơm áo không lo, thân tâm thanh thản.",
+      "advice": "Gia đạo: bất lợi. Cầu tài: vừa cát. Giao dịch: khó. Hôn nhân: bình thường. Sinh con: yên. Người đi xa: gần. Tằm tang: gieo sớm. Gia súc: hao. Tìm người: thấy. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: cúng giải. Kiện tụng: có lý. Mồ mả: tốt.",
+      "story": "Tiết Nhân Quý gặp được minh chủ, về sau lập công danh."
+    },
+    {
+      "number": 7,
+      "title": "Tô Nương tẩu nạn",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Bôn ba trở cách trùng trùng hiểm",
+        "Đới thủy tha nê khứ độ sơn",
+        "Cánh vọng tha hương cầu dụng sự",
+        "Thiên hương vạn lý vị hồi hoàn"
+      ],
+      "poem_han": [
+        "奔波阻隔重重险",
+        "带水拖坭去度山",
+        "更望他乡求用事",
+        "千乡万里未回还"
+      ],
+      "meaning": [
+        "Bôn ba trở ngại, hiểm nguy trùng trùng",
+        "Lê bùn kéo nước vượt núi",
+        "Lại mong cầu việc ở quê người",
+        "Ngàn làng vạn dặm chưa trở về"
+      ],
+      "interpretation": "Quẻ mang hình ảnh lê bùn kéo nước. Lui thân thì được, tiến bước thì khó. Chỉ nên giữ cũ, chớ mong leo cao.",
+      "advice": "Gia đạo: bất lợi. Bản thân: cầu phúc. Cầu tài: thu đông tốt. Giao dịch: bình thường. Hôn nhân, sinh con: cầu phúc. Người đi xa: bị cản trở. Tằm tang, gia súc: bất lợi. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: tốt. Mất đồ: không thấy. Bệnh: cúng giải. Mồ mả: tốt.",
+      "story": "Tô Nương chạy nạn, nhân vật trong tích truyện dân gian."
+    },
+    {
+      "number": 8,
+      "title": "Bùi Độ hoàn đới",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Mậu lâm tùng bách chính hưng vượng",
+        "Vũ tuyết phong sương tổng mạc vi",
+        "Dị nhật hốt nhiên thành đại dụng",
+        "Công danh thành tựu đống lương tài"
+      ],
+      "poem_han": [
+        "茂林松柏正兴旺",
+        "雨雪风霜总莫为",
+        "异日忽然成大用",
+        "功名成就栋梁材"
+      ],
+      "meaning": [
+        "Rừng tùng bách rậm rạp đang hưng thịnh",
+        "Mưa tuyết gió sương đều chẳng làm gì được",
+        "Ngày sau bỗng thành người được trọng dụng",
+        "Công danh thành tựu, là bậc rường cột"
+      ],
+      "interpretation": "Quẻ mang hình ảnh rừng tùng bách tươi tốt. Đường đi hanh thông, cả đời có công, tằm tang bội thu, gia đạo hưng long, mọi việc đều có quý khí.",
+      "advice": "Gia đạo: cát. Bản thân: thuận lợi. Cầu tài: trung bình. Giao dịch: vượng. Hôn nhân: thành. Tằm tang: lợi. Gia súc: hao. Sinh con: trai. Người đi xa: có tin. Tìm người: sẽ đến. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: yên. Mồ mả: tốt.",
+      "story": "Bùi Độ nhặt được đai ngọc của người khác và trả lại, nhờ đó đổi vận."
+    },
+    {
+      "number": 9,
+      "title": "Khổng Minh điểm tướng",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Phiền quân vật tác tư tâm sự",
+        "Thử ý thiên nghi thuyết vấn công",
+        "Nhất phiến minh tâm quang kiểu khiết",
+        "Uyển như kiểu nguyệt chính thiên tâm"
+      ],
+      "poem_han": [
+        "烦君勿作私心事",
+        "此意偏宜说问公",
+        "一片明心光皎洁",
+        "宛如皎月正天心"
+      ],
+      "meaning": [
+        "Xin bạn đừng làm việc vì lòng riêng",
+        "Ý này nên đem ra nói và hỏi người công chính",
+        "Một tấm lòng sáng, ánh sáng trong trắng",
+        "Như vầng trăng sáng ngay giữa trời"
+      ],
+      "interpretation": "Quẻ mang hình ảnh trăng sáng giữa trời. Lòng ngay, lý thuận, pháp khoan. Việc quang minh chính đại thì cuối cùng đều thông.",
+      "advice": "Gia đạo: cát. Bản thân: thuận. Cầu tài: trung bình. Giao dịch: vượng. Hôn nhân: thành. Sinh con: trai. Tằm tang: lợi. Gia súc: hao. Tìm người: sẽ đến. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: cầu phúc. Bệnh: yên. Mồ mả: tốt.",
+      "story": "Khổng Minh (Gia Cát Lượng) điểm binh khiển tướng."
+    },
+    {
+      "number": 10,
+      "title": "Bàng Quyên quan trận",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thạch tàng vô giá ngọc hòa trân",
+        "Chỉ quản tha hương ngoại khách tầm",
+        "Uyển như trì đăng cánh mịch hỏa",
+        "Bất như thu thập uổng lao tâm"
+      ],
+      "poem_han": [
+        "石藏无价玉和珍",
+        "只管他乡外客寻",
+        "宛如持灯更觅火",
+        "不如收拾枉劳心"
+      ],
+      "meaning": [
+        "Trong đá giấu ngọc quý vô giá",
+        "Cứ mải đi tìm nơi đất khách quê người",
+        "Như cầm đèn mà còn đi tìm lửa",
+        "Chi bằng thu xếp lại, đừng uổng công nhọc lòng"
+      ],
+      "interpretation": "Quẻ mang hình ảnh cầm đèn đi tìm lửa. Việc khó thành, ý định đáng ngờ, cái trước mắt mới là thật. Mọi việc đợi thời mới thành.",
+      "advice": "Gia đạo: bất lợi. Bản thân: yên. Cầu tài, giao dịch: khó. Hôn nhân: hợp. Sinh con: gái. Người đi xa: có động tĩnh. Kiện tụng: thiệt. Tằm tang: thu hoạch mùa thu tốt. Gia súc: khó nuôi. Tìm người: thấy. Dời chỗ: giữ cũ thì yên. Mất đồ: khó thấy. Bệnh: cúng giải. Mồ mả: bình thường.",
+      "story": "Bàng Quyên xem trận, nhân vật thời Chiến Quốc, đối thủ của Tôn Tẫn."
+    },
+    {
+      "number": 11,
+      "title": "Thư tiến Khương Duy",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Dục cầu thắng sự khả phi thường",
+        "Tranh nại thân nhân nhật tạm mang",
+        "Đáo đầu cánh tất thành lộc tiễn",
+        "Quý nhân chỉ dẫn quý nhân hương"
+      ],
+      "poem_han": [
+        "欲求胜事可非常",
+        "争奈亲姻日暂忙",
+        "到头竟必成鹿箭",
+        "贵人指引贵人乡"
+      ],
+      "meaning": [
+        "Muốn cầu việc hơn người thì thật phi thường",
+        "Nhưng chuyện hôn nhân mấy ngày nay đang bận",
+        "Rốt cuộc ắt thành công",
+        "Quý nhân chỉ đường đến nơi của quý nhân"
+      ],
+      "interpretation": "Quẻ mang hình ảnh nhân họa mà được phúc. Hỏi việc thì chỉ nên gần quý nhân, mưu việc gì cũng thuận lợi.",
+      "advice": "Gia đạo: đại cát. Bản thân: thuận lợi. Cầu tài: có giao dịch, thành. Hôn nhân: hợp. Sinh con: trai. Tìm người: thấy. Người đi xa: chưa đến. Tằm tang, gia súc: trung bình. Kiện tụng: có lý. Dời chỗ: vượng. Mất đồ: hướng đông. Bệnh: cúng giải sao. Mồ mả: cát.",
+      "story": "Thư tiến cử Khương Duy, danh tướng nước Thục Hán."
+    },
+    {
+      "number": 12,
+      "title": "Vũ Cát ngộ sư",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Bĩ khứ thái lai chỉ xích gian",
+        "Tạm giao quân tử xuất ư sơn",
+        "Nhược phùng hổ thố giai âm tín",
+        "Lập chí mang trung sự tức nhàn"
+      ],
+      "poem_han": [
+        "否去泰来咫尺间",
+        "暂交君子出于山",
+        "若逢虎兔佳音信",
+        "立志忙中事即闲"
+      ],
+      "meaning": [
+        "Bĩ qua thái đến chỉ trong gang tấc",
+        "Tạm kết giao quân tử, ra khỏi núi",
+        "Nếu gặp tuổi hay ngày Dần Mão sẽ có tin vui",
+        "Lập chí giữa lúc bận rộn thì việc sẽ thành nhàn"
+      ],
+      "interpretation": "Quẻ mang hình ảnh trong họa có phúc, nhân tai họa mà được phúc, việc trước hung sau cát. Như đổi tơ kết duyên lành.",
+      "advice": "Gia đạo: yên. Bản thân: cát. Cầu tài: có giao dịch, nên chậm. Hôn nhân: thành. Sinh con: trai. Người đi xa: chưa về. Tằm tang: lợi. Gia súc: thận trọng thì tốt. Tìm người: thấy. Kiện tụng: tốt. Dời chỗ: giữ cũ. Mất đồ: thấy. Bệnh: mùa thu tốt. Mồ mả: tốt.",
+      "story": "Vũ Cát, người đốn củi, gặp Khương Tử Nha."
+    },
+    {
+      "number": 13,
+      "title": "La Thông bái soái",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Tự tiểu sinh tại phú quý gia",
+        "Nhãn tiền vạn vật tổng xa hoa",
+        "Mông quân tứ tử kim giác đới",
+        "Tứ hải thanh danh định khả khoa"
+      ],
+      "poem_han": [
+        "自小生在富贵家",
+        "眼前万物总奢华",
+        "蒙君赐紫金角带",
+        "四海声名定可夸"
+      ],
+      "meaning": [
+        "Từ nhỏ sinh ra trong nhà giàu sang",
+        "Trước mắt vạn vật đều xa hoa",
+        "Được vua ban đai sừng vàng tía",
+        "Danh tiếng bốn biển ắt đáng khoe"
+      ],
+      "interpretation": "Quẻ mang hình ảnh gặp thời Long Môn, như tù nhân được xá, bệnh liền yên. Gặp Long Môn thì danh vang kinh đô, mọi việc có biến đổi đều đại cát.",
+      "advice": "Gia đạo, bản thân: cầu phúc. Cầu tài: thu đông tốt. Giao dịch: nên chậm. Hôn nhân: thành. Tìm người: thấy. Kiện tụng: có lý. Sinh con: gái. Người đi xa: cầu bảo. Tằm tang, gia súc: trung bình. Dời chỗ: giữ cũ. Mất đồ: hướng đông. Bệnh: yên. Mồ mả: tốt.",
+      "story": "La Thông được phong làm soái, tướng trẻ trong truyện Thuyết Đường."
+    },
+    {
+      "number": 14,
+      "title": "Tử Nha khí quan",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Uyển như tiên hạc xuất phàm lung",
+        "Thoát đắc phàm lung lộ lộ thông",
+        "Nam bắc đông tây vô trở cách",
+        "Nhiệm quân trực thượng cửu tiêu cung"
+      ],
+      "poem_han": [
+        "宛如仙鹤出凡笼",
+        "脱得凡笼路路通",
+        "南北东西无阻隔",
+        "任君直上九霄宫"
+      ],
+      "meaning": [
+        "Như tiên hạc ra khỏi lồng phàm",
+        "Thoát khỏi lồng phàm thì đường nào cũng thông",
+        "Nam bắc đông tây không còn cản trở",
+        "Mặc bạn bay thẳng lên cung chín tầng mây"
+      ],
+      "interpretation": "Quẻ mang hình ảnh tiên hạc rời lồng. Tùy ý tiêu dao tự tại, đường phía trước hanh thông, việc trước hung sau cát.",
+      "advice": "Gia đạo: không yên. Bản thân: cúng tạ nguyện. Cầu tài, giao dịch: hợp. Hôn nhân: hợp. Sinh con: trai. Người đi xa: sẽ gặp. Tằm tang: có lợi. Gia súc: hao. Tìm người: bị cản. Kiện tụng: nên hòa. Dời chỗ: tốt. Mất đồ: hướng đông nam. Bệnh: cúng giải. Mồ mả: tốt.",
+      "story": "Khương Tử Nha (Lã Vọng) bỏ quan quy ẩn."
+    },
+    {
+      "number": 15,
+      "title": "Tô Tần đắc chí",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Hành nhân oán nhật khí nan thôn",
+        "Hốt hữu tai sự vật cận tiền",
+        "Điểu phá lâm sào vô sở túc",
+        "Khả tầm thâm xứ ổn an thân"
+      ],
+      "poem_han": [
+        "行人怨日气难吞",
+        "忽有灾事勿近前",
+        "鸟破林巢无所宿",
+        "可寻深处稳安身"
+      ],
+      "meaning": [
+        "Người đi xa oán ngày tháng, khó nuốt cơn giận",
+        "Bỗng có tai họa thì chớ lại gần",
+        "Chim bị phá tổ trong rừng, không nơi trú ngụ",
+        "Nên tìm chốn sâu kín để yên thân"
+      ],
+      "interpretation": "Quẻ mang hình ảnh chim khách làm tổ trong rừng. Nếu được ân thì oan thù có thể giải. Lời hay chưa tin, nên giữ cũ chờ thời, rốt cuộc mọi việc đều vừa lòng.",
+      "advice": "Gia đạo: trước hung sau cát. Bản thân: cẩn thận phòng ngừa. Cầu tài: tốt. Giao dịch: thành. Hôn nhân: trở ngại. Sinh con: trai. Người đi xa: thuận. Tằm tang: lợi. Gia súc: vượng. Tìm người: thấy. Kiện tụng: có lý. Bệnh: cúng tạ. Mất đồ: khó thấy. Mồ mả: tốt.",
+      "story": "Tô Tần sau thất bại đã đắc chí, làm tướng quốc sáu nước."
+    },
+    {
+      "number": 16,
+      "title": "Diệp Mộng Hùng triều đế",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Toàn mi tư lự tạm thời khai",
+        "Chỉ xích vân khai kiến nhật lai",
+        "Uyển tự ô nê trung phiến ngọc",
+        "Lương công nhất cử xuất trần ai"
+      ],
+      "poem_han": [
+        "攒眉思虑暂时开",
+        "咫尺云开见日来",
+        "宛似污泥中片玉",
+        "良工一举出尘埃"
+      ],
+      "meaning": [
+        "Nhíu mày lo nghĩ, tạm thời được mở ra",
+        "Gang tấc mây tan, thấy mặt trời",
+        "Như viên ngọc trong bùn nhơ",
+        "Thợ giỏi nhấc lên một lần là thoát khỏi bụi trần"
+      ],
+      "interpretation": "Quẻ mang hình ảnh âm dương hòa hợp. Được ở chỗ không mất, trong tổn có ích. Gặp hung thì quân tử thuận cát, mọi việc đều tốt.",
+      "advice": "Gia đạo: bất lợi. Bản thân: thu đông tốt. Hôn nhân: thành. Sinh con: hư kinh. Người đi xa: sẽ đến. Tằm tang: cầu phúc. Gia súc: bình thường. Tìm người: thấy. Kiện tụng: bất lợi. Dời chỗ: giữ cũ. Mất đồ: không thấy. Bệnh: cúng giải. Mồ mả: yên.",
+      "story": "Diệp Mộng Hùng vào triều yết kiến hoàng đế."
+    },
+    {
+      "number": 17,
+      "title": "Vọng mai chỉ khát",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Mạc thính nhàn ngôn thuyết thị phi",
+        "Thần hôn chỉ hảo niệm A Di",
+        "Nhược tương cuồng thoại vi chân thực",
+        "Họa bính như hà chỉ đắc cơ"
+      ],
+      "poem_han": [
+        "莫听闲言说是非",
+        "晨昏只好念阿弥",
+        "若将狂话为真实",
+        "书饼如何止得饥"
+      ],
+      "meaning": [
+        "Đừng nghe lời nhàn rỗi bàn chuyện phải trái",
+        "Sớm tối chỉ nên niệm A Di Đà",
+        "Nếu coi lời cuồng vọng là sự thật",
+        "Bánh vẽ sao có thể hết đói"
+      ],
+      "interpretation": "Quẻ mang hình ảnh vẽ bánh chữa đói, ăn cũng khó nuốt. Mọi việc nhiều hư ít thực, lòng bất định, nên xem kinh.",
+      "advice": "Gia đạo: cầu phúc. Bản thân, cầu tài, giao dịch: thuận lợi. Hôn nhân: trở ngại. Sinh con: yên. Tằm tang: nên gieo sớm. Gia súc: bất lợi. Người đi xa: sẽ thấy. Tìm người: thấy. Kiện tụng: hòa. Mất đồ: không thấy. Dời chỗ: giữ cũ. Bệnh: cúng tạ. Mồ mả: tốt.",
+      "story": "Điển Tào Tháo cho quân tưởng tượng rừng mơ để vơi khát."
+    },
+    {
+      "number": 18,
+      "title": "Tào Quốc Cữu thành tiên",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Kim ô tây trụy thố đông thăng",
+        "Nhật dạ tuần hoàn chí cổ kim",
+        "Tăng đạo đắc tri vô bất lợi",
+        "Sĩ nông công thương các tòng tâm"
+      ],
+      "poem_han": [
+        "金乌西坠兔东升",
+        "日夜循环至古今",
+        "僧道得知无不利",
+        "士农工商各从心"
+      ],
+      "meaning": [
+        "Mặt trời lặn phía tây, trăng mọc phía đông",
+        "Ngày đêm luân chuyển từ xưa đến nay",
+        "Tăng đạo biết được thì không gì bất lợi",
+        "Sĩ nông công thương mỗi người tùy tâm"
+      ],
+      "interpretation": "Quẻ mang hình ảnh âm dương tiêu trưởng, như mũi tên rời cung bắn thẳng giữa trời. Mưu việc có công, mọi việc đều toại ý.",
+      "advice": "Gia đạo: yên. Bản thân: cát. Cầu tài: thuận. Giao dịch: thành. Hôn nhân: thành. Sinh con: trai. Người đi xa, tìm người: sẽ đến. Tằm tang: gieo sớm. Gia súc: ít lợi. Kiện tụng: có lý. Mất đồ: thấy. Dời chỗ: tốt. Bệnh: cúng giải sao. Mồ mả: đại cát.",
+      "story": "Tào Quốc Cữu, một trong Bát Tiên, tu thành tiên."
+    },
+    {
+      "number": 19,
+      "title": "Tử Nghi phong vương",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Cấp thủy than đầu phóng thuyền quy",
+        "Phong ba tác lãng dục hà vi",
+        "Nhược yếu an nhiên cầu ổn tĩnh",
+        "Đẳng đãi lãng tĩnh quá thử nguy"
+      ],
+      "poem_han": [
+        "急水滩头放船归",
+        "风波作浪欲何为",
+        "若要安然求稳静",
+        "等待浪静道此危"
+      ],
+      "meaning": [
+        "Ở đầu ghềnh nước xiết thả thuyền về",
+        "Gió sóng nổi lên, định làm gì đây",
+        "Nếu muốn được yên ổn thì cầu sự tĩnh lặng",
+        "Chờ sóng lặng rồi qua cơn nguy này"
+      ],
+      "interpretation": "Quẻ mang hình ảnh thuyền qua ghềnh gấp, hiểm nguy cần chờ thời. Hỏi mưu việc thì có thể làm, nhưng mọi việc nên giữ cũ chờ thời.",
+      "advice": "Gia đạo, bản thân: cúng phúc. Cầu tài, giao dịch: chưa thành. Hôn nhân: không thành. Sinh con: hư kinh. Người đi xa: sẽ đến. Tằm tang: tốt. Gia súc: hao. Kiện tụng: hòa. Dời chỗ: giữ cũ. Mất đồ: khó tìm. Bệnh: cầu phúc. Mồ mả: tốt.",
+      "story": "Quách Tử Nghi, danh tướng nhà Đường, được phong Phần Dương Vương."
+    },
+    {
+      "number": 20,
+      "title": "Khương Thái Công ngộ Văn Vương",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Đương xuân cửu vũ hỷ khai tình",
+        "Ngọc thố kim ô tiệm tiệm minh",
+        "Cựu sự tiêu tán tân sự toại",
+        "Khán khán nhất khiêu quá Long Môn"
+      ],
+      "poem_han": [
+        "当春久雨喜开晴",
+        "玉兔金乌渐渐明",
+        "旧事消散新事遂",
+        "看看一跳过龙门"
+      ],
+      "meaning": [
+        "Mùa xuân mưa lâu, mừng trời tạnh",
+        "Trăng và mặt trời dần dần sáng tỏ",
+        "Việc cũ tan đi, việc mới thành",
+        "Sắp một bước nhảy qua Long Môn"
+      ],
+      "interpretation": "Quẻ mang hình ảnh mưa lâu mới tạnh. Thần phật hộ trì, có tai mà không nguy, toại chí bình sinh, rốt cuộc vinh quy.",
+      "advice": "Gia đạo: trung bình. Bản thân: cầu phúc. Cầu tài: chưa gặp. Giao dịch: đợi thời. Hôn nhân: tùy ý. Sinh con: gái. Tằm tang, gia súc: bị cản. Kiện tụng: hòa. Dời chỗ: tốt. Người đi xa: bị cản. Tìm người: chậm. Mất đồ: thấy. Mồ mả: nền cũ tốt.",
+      "story": "Khương Thái Công (Khương Tử Nha) câu cá bên sông Vị, gặp Chu Văn Vương."
+    },
+    {
+      "number": 21,
+      "title": "Lý Đán long phụng phối hợp",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Âm dương đạo hợp tổng do thiên",
+        "Nữ giá nam hôn hỷ ngẫu nhiên",
+        "Đãn khán long xà tương hội hợp",
+        "Hùng bi nhập mộng lạc đoàn viên"
+      ],
+      "poem_han": [
+        "阴阳道合总由天",
+        "女嫁男婚喜偶然",
+        "但看龙蛇相会合",
+        "熊罴入梦乐团圆"
+      ],
+      "meaning": [
+        "Đạo âm dương hợp lại đều do trời",
+        "Gái gả trai cưới, mừng duyên tình cờ",
+        "Cứ xem rồng rắn gặp gỡ hội hợp",
+        "Gấu hiện trong mộng, vui cảnh đoàn viên"
+      ],
+      "interpretation": "Quẻ mang hình ảnh âm dương hợp đạo, thuận theo ý lòng. Hôn nhân sinh con trai, của cải tăng thêm, lợi cho tằm tang, mọi việc hòa hợp đại cát.",
+      "advice": "Gia đạo: yên. Bản thân: lợi. Cầu tài: lợi. Giao dịch: thành. Hôn nhân: hợp. Sinh con: trai. Tằm tang, gia súc: hưng. Người đi xa: sẽ đến. Tìm người: thấy. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: gặp thầy thuốc hay. Mồ mả: đại cát.",
+      "story": "Lý Đán, duyên long phụng sánh đôi."
+    },
+    {
+      "number": 22,
+      "title": "Lục Lang phùng cứu",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Hạn thời điền lý giai khô cảo",
+        "Tạ thiên cam vũ lạc lâm lâm",
+        "Hoa quả thảo mộc giai nhuận trạch",
+        "Thủy tri nhất vũ trị thiên kim"
+      ],
+      "poem_han": [
+        "旱时田里皆枯槁",
+        "谢天甘雨落淋淋",
+        "花果草木皆润泽",
+        "始知一雨值千金"
+      ],
+      "meaning": [
+        "Lúc hạn hán, ruộng đồng đều khô héo",
+        "Tạ ơn trời, mưa ngọt rơi rả rích",
+        "Hoa quả cỏ cây đều được thấm nhuần",
+        "Mới biết một trận mưa đáng giá ngàn vàng"
+      ],
+      "interpretation": "Quẻ mang hình ảnh hạn lâu gặp mưa ngọt. Tằm ruộng bội thu, vận dần đến. Bệnh gặp thuốc hay, người đi xa sắp về, trong khó khăn có người cứu.",
+      "advice": "Gia đạo: cầu bảo. Bản thân: yên. Cầu tài: khá có. Giao dịch: chậm. Hôn nhân: hợp. Sinh con: trai. Người đi xa: bị cản trở. Tằm tang, gia súc: lợi. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: hướng tây. Bệnh: cúng giải họa. Mồ mả: yên, tốt.",
+      "story": "Lục Lang, tức Dương Lục Lang trong truyện Dương gia tướng, được cứu thoát nạn."
+    },
+    {
+      "number": 23,
+      "title": "Hoài Đức chiêu thân",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Dục phan tiên quế nhập thiềm cung",
+        "Khởi lự thiên môn bất nhiệm quân",
+        "Hốt ngộ nhất ban âm tín hảo",
+        "Nhân nhân giai tiếu hỷ hân hân"
+      ],
+      "poem_han": [
+        "欲攀仙桂入蟾宫",
+        "岂虑天门不任君",
+        "忽遇一般音信好",
+        "人人皆笑喜欣欣"
+      ],
+      "meaning": [
+        "Muốn vin cành quế tiên vào cung trăng",
+        "Lo gì cửa trời không dung nạp bạn",
+        "Bỗng gặp một tin tốt lành",
+        "Mọi người đều cười, vui mừng hớn hở"
+      ],
+      "interpretation": "Quẻ mang hình ảnh tay vin quế tiên. Buôn bán có lợi, đi đứng không nguy, bệnh yên, kiện toại, mọi việc đều có quý nhân giúp.",
+      "advice": "Gia đạo: ít yên. Bản thân: cầu phúc. Cầu tài: toại ý. Giao dịch: thành. Hôn nhân: hợp. Sinh con: cầu phúc. Người đi xa: có nguy. Tằm tang, gia súc: bất lợi. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: ít cát. Bệnh: yên. Mồ mả: nền cũ tốt.",
+      "story": "Điển Hoài Đức chiêu thân, kén rể."
+    },
+    {
+      "number": 24,
+      "title": "Ân Giao ngộ sư",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Bất thành lý luận bất thành gia",
+        "Thủy tính si nhân tự lạc hoa",
+        "Nhược vấn quân ân tu đắc lực",
+        "Đáo đầu phương kiến sự như ma"
+      ],
+      "poem_han": [
+        "不成理论不成家",
+        "水性痴人似落花",
+        "若问君恩须得力",
+        "到头方见事如麻"
+      ],
+      "meaning": [
+        "Không nên lý lẽ, cũng không nên cửa nhà",
+        "Người si mê tính như nước, tựa hoa rơi",
+        "Nếu hỏi ơn vua thì phải được người giúp sức",
+        "Đến cuối mới thấy việc rối như gai"
+      ],
+      "interpretation": "Quẻ mang hình ảnh người đi đường bị chặn lối. Chớ nói chuyện phải trái, phải cẩn thận. Lòng ngay lý thẳng mới tránh được nguy, giữ cũ chờ thời.",
+      "advice": "Gia đạo: không yên. Bản thân: hiểm. Cầu tài: trở ngại. Giao dịch: khó. Hôn nhân: đợi thời. Tằm tang, gia súc: nhiều tai. Sinh con: cầu phúc. Người đi xa, tìm người: bị cản. Kiện tụng: thiệt. Dời chỗ: tốt. Bệnh: gấp, cầu phúc. Mất đồ: khó thấy. Mồ mả: không tốt.",
+      "story": "Ân Giao, con vua Trụ trong Phong Thần, gặp thầy học đạo."
+    },
+    {
+      "number": 25,
+      "title": "Lý Quảng xạ thạch",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Quá liễu ưu nguy đệ kỷ trùng",
+        "Tùng kim tái lịch vĩnh vô hung",
+        "Khoan tâm tự hữu khoan tâm kế",
+        "Đắc ngộ cao nhân hộ đại công"
+      ],
+      "poem_han": [
+        "过了忧危第几重",
+        "从今再历永无凶",
+        "宽心自有宽心计",
+        "得遇高人护大功"
+      ],
+      "meaning": [
+        "Đã qua bao tầng lo lắng nguy hiểm",
+        "Từ nay có trải qua nữa cũng không còn hung",
+        "Thư thả lòng thì tự có kế thư thả",
+        "Gặp được người cao minh giúp thành đại công"
+      ],
+      "interpretation": "Quẻ mang hình ảnh giếng cổ gặp suối. Kiện tụng cuối cùng có lý, bệnh được an toàn, mọi việc có quý nhân giúp thành.",
+      "advice": "Gia đạo: bình thường. Bản thân, cầu tài, giao dịch: trở ngại. Hôn nhân: hòa hợp. Sinh con: có kinh. Kiện tụng: có lý. Người đi xa, tìm người: bị cách trở. Tằm tang, gia súc: bất lợi. Dời chỗ: không hợp. Mất đồ: khó tìm. Bệnh: cầu phúc. Mồ mả: không tốt.",
+      "story": "Lý Quảng, phi tướng quân nhà Hán, bắn tên xuyên đá tưởng là hổ."
+    },
+    {
+      "number": 26,
+      "title": "Chung Quỳ đắc đạo",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thượng hạ truyền lai sự chuyển hư",
+        "Thiên biên tiếp đắc nhất phong thư",
+        "Thư trung hứa ngã công danh toại",
+        "Trực đáo chung thì diệc thị hư"
+      ],
+      "poem_han": [
+        "上下传来事转虚",
+        "天边接得一封书",
+        "书中许我功名遂",
+        "直到终时亦是虚"
+      ],
+      "meaning": [
+        "Tin từ trên dưới truyền đến, việc hóa thành hư không",
+        "Nơi chân trời nhận được một bức thư",
+        "Trong thư hứa cho ta công danh thành đạt",
+        "Nhưng đến cuối cùng cũng chỉ là hư không"
+      ],
+      "interpretation": "Quẻ mang hình ảnh hư danh: lòng phiền muộn, cầu nhàn mà chẳng được nhàn. Mọi việc nhiều ham muốn, giữ nếp cũ thì yên, bên ngoài nhiều mà thực chất ít.",
+      "advice": "Gia đạo: cầu phúc. Cầu tài: giao dịch trở ngại. Hôn nhân: không thành. Sinh con: gái. Người đi xa: có tin. Tằm tơ ruộng vườn: được nửa mùa. Vật nuôi: nuôi được. Tìm người: hướng tây. Kiện tụng: thiệt. Dời chỗ: giữ nếp cũ. Mất đồ: khó tìm. Bệnh: cầu cúng. Mồ mả: tốt.",
+      "story": "Chung Quỳ là nhân vật truyền thuyết trừ quỷ, về sau đắc đạo thành thần."
+    },
+    {
+      "number": 27,
+      "title": "Lưu Cơ gián chủ",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Nhất mưu nhất dụng nhất phiên cơ",
+        "Lự hậu nghi tiền bất cảm vi",
+        "Thời chí tự nhiên phùng quý trợ",
+        "Ngân tường thiết bích hảo an cư"
+      ],
+      "poem_han": [
+        "一谋一用一番机",
+        "虑后疑前不敢为",
+        "时至自然逢贵助",
+        "银墙铁壁好安居"
+      ],
+      "meaning": [
+        "Mỗi mưu tính, mỗi việc làm đều có cơ hội",
+        "Lo sau nghi trước nên không dám làm",
+        "Thời đến tự nhiên gặp quý nhân giúp đỡ",
+        "Tường bạc vách sắt, ở yên ổn tốt lành"
+      ],
+      "interpretation": "Quẻ như hoa lạnh gặp xuân, hình ảnh ngôi nhà tốt tường vách vững chắc. Bỏ cũ theo mới lúc đầu còn trì trệ, nhưng nay lòng thanh thản, mọi việc vững vàng không hiểm nguy.",
+      "advice": "Gia đạo: yên. Bản thân: tốt. Cầu tài: có giao dịch nhưng khó. Sinh con: gái. Người đi xa, tìm người: chậm. Tằm tơ ruộng vườn: được mùa. Vật nuôi: lợi. Kiện tụng: nên hòa. Dời chỗ: tốt. Mất đồ: không dấu vết. Bệnh: kéo dài rồi yên. Mồ mả: giữ nếp cũ, rất tốt.",
+      "story": "Lưu Cơ (Lưu Bá Ôn) can gián vua, nổi tiếng là quân sư của Minh Thái Tổ."
+    },
+    {
+      "number": 28,
+      "title": "Lý hậu tầm Bao Công",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Đông biên nguyệt thượng chính thiền quyên",
+        "Khoảnh khắc vân già diệc ám tồn",
+        "Hoặc hữu viên thì hoàn hữu khuyết",
+        "Cánh ngôn phi giả diệc nhàn ngôn"
+      ],
+      "poem_han": [
+        "东边月上正蝉娟",
+        "顷刻云遮亦暗存",
+        "或有圆时还有缺",
+        "更言非者亦闲言"
+      ],
+      "meaning": [
+        "Phía đông trăng lên đang đẹp dịu dàng",
+        "Chốc lát mây che cũng thành mờ tối",
+        "Có lúc tròn thì cũng có lúc khuyết",
+        "Nói thêm phải trái cũng chỉ là lời nhàn"
+      ],
+      "interpretation": "Quẻ hình ảnh mây nổi che trăng, không nên nghi hoặc. Mọi việc cứ chờ mây tan thì thấy thu hoạch, việc tốn thời gian và chưa định.",
+      "advice": "Gia đạo: không yên. Bản thân: cầu bảo hộ. Cầu tài: giao dịch trở ngại. Hôn nhân: không hợp. Sinh con: có kinh sợ. Tằm tơ ruộng vườn, vật nuôi: bất lợi. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: giữ nếp cũ. Mất đồ: hướng tây. Bệnh: khó khỏi. Mồ mả: nên đổi.",
+      "story": "Lý hậu (Lý Thần phi) tìm Bao Công minh oan, tích Hồ ly tráo thái tử trong truyện Bao Công."
+    },
+    {
+      "number": 29,
+      "title": "Triệu Tử Long cứu A Đẩu",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Bảo kiếm xuất hạp diệu quang minh",
+        "Tại hạp toàn nhiên bất nhạ trần",
+        "Kim đắc quý nhân huề xuất hiện",
+        "Hữu uy hữu thế chúng nhân khâm"
+      ],
+      "poem_han": [
+        "宝剑出匣耀光明",
+        "在匣全然不惹尘",
+        "今得贵人携出现",
+        "有威有势众人钦"
+      ],
+      "meaning": [
+        "Bảo kiếm rút khỏi vỏ tỏa ánh sáng rực rỡ",
+        "Khi còn trong vỏ hoàn toàn không dính bụi",
+        "Nay được quý nhân mang ra cho thấy",
+        "Có uy có thế, mọi người đều kính phục"
+      ],
+      "interpretation": "Quẻ hình ảnh bảo kiếm ra khỏi vỏ, tỏa sáng. Được quý nhân chỉ dẫn thì việc gì cũng tốt đẹp, có uy có thế.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: tốt. Cầu tài: lợi, giao dịch thành. Hôn nhân: tốt. Sinh con: gái. Người đi xa: chậm. Tằm tơ ruộng vườn: nên sớm. Vật nuôi: hao tổn. Tìm người: gặp. Kiện tụng: hòa. Dời chỗ: hưng vượng. Mất đồ: hướng nam. Bệnh: hồi phục. Mồ mả: tốt.",
+      "story": "Triệu Tử Long đơn kỵ cứu A Đẩu (con Lưu Bị) giữa vòng vây ở Trường Bản."
+    },
+    {
+      "number": 30,
+      "title": "Kỳ bàn đại hội",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Khuyến quân thiết mạc hướng tha cầu",
+        "Tự hạc phi lai ám tiễn đầu",
+        "Nhược khứ thái tân xà tại thảo",
+        "Khủng tao độc khẩu dã ưu sầu"
+      ],
+      "poem_han": [
+        "劝君切莫向他求",
+        "似鹤飞来暗箭投",
+        "若去采薪蛇在草",
+        "恐遭毒口也忧愁"
+      ],
+      "meaning": [
+        "Khuyên bạn tuyệt đối đừng cầu xin người khác",
+        "Như hạc bay tới mà ném tên lén",
+        "Nếu đi hái củi, rắn nấp trong cỏ",
+        "Sợ bị cắn độc mà chuốc lo buồn"
+      ],
+      "interpretation": "Quẻ khuyên ngậm miệng, không can dự việc người khác, giữ phận mình. Nếu có việc khuất tất thì hại đến thân, việc nhỏ cũng phải thận trọng đề phòng.",
+      "advice": "Gia đạo: yên. Bản thân: bình thường. Cầu tài: chờ thời, giao dịch trì trệ. Hôn nhân: chưa cho phép. Người đi xa, tìm người: cách trở. Sinh con: hư kinh. Tằm tơ ruộng vườn, vật nuôi: bất lợi. Dời chỗ: giữ nếp cũ. Mất đồ: không thấy. Bệnh: khó khỏi. Mồ mả: rất tốt.",
+      "story": "Kỳ bàn đại hội, tích đấu cờ; chỉ nhắc lại tên điển tích."
+    },
+    {
+      "number": 31,
+      "title": "Phật Ấn hội Đông Pha",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thanh nhàn vô sự tĩnh xứ tọa",
+        "Cơ thì ngật phạn khốn thì ngọa",
+        "Phóng hạ thân tâm bất dụng mang",
+        "Tất định bất tao ương dữ họa"
+      ],
+      "poem_han": [
+        "清闲无事静处坐",
+        "饥时吃饭困时卧",
+        "放下身心不用忙",
+        "必定不遭殃与祸"
+      ],
+      "meaning": [
+        "Thanh nhàn không việc, ngồi nơi yên tĩnh",
+        "Đói thì ăn cơm, mệt thì nằm ngủ",
+        "Buông thân tâm xuống, không cần vội vàng",
+        "Chắc chắn không gặp tai ương họa hại"
+      ],
+      "interpretation": "Quẻ giữ nếp cũ thì yên ổn, hãy hỏi thần tiên mà chờ thời. Mọi việc chờ thời đến thì tốt.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: yên. Cầu tài: giữ và chờ, giao dịch nên chậm. Hôn nhân: hợp. Tìm người: sẽ đến. Kiện tụng: hòa. Sinh con: gái. Tằm tơ ruộng vườn: thu hoạch mùa thu. Vật nuôi: ổn. Dời chỗ: tốt. Mất đồ: không có. Bệnh: cúng tiễn. Mồ mả: tốt.",
+      "story": "Thiền sư Phật Ấn gặp Tô Đông Pha, tích đối đáp nổi tiếng giữa hai người."
+    },
+    {
+      "number": 32,
+      "title": "Lưu Bị cầu hiền",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Tiền trình yểu yểu định vô nghi",
+        "Thạch trung tàng ngọc hữu thùy tri",
+        "Nhất triêu lương tượng phân minh phẫu",
+        "Thủy giác an nhiên bích ngọc kỳ"
+      ],
+      "poem_han": [
+        "前程杳杳定无疑",
+        "石中藏玉有谁知",
+        "一朝良匠分明剖",
+        "始觉安然碧玉期"
+      ],
+      "meaning": [
+        "Đường phía trước mịt mờ nhưng chắc không nghi ngờ",
+        "Ngọc giấu trong đá, có ai biết",
+        "Một sớm thợ giỏi bổ ra rõ ràng",
+        "Mới hay ngọc biếc đến kỳ yên ổn"
+      ],
+      "interpretation": "Quẻ hình ảnh bổ đá thấy ngọc: báu vật nằm trong đá, ít người biết. Cứ chờ đến lúc rõ ràng rồi mới ra tay; việc cần dốc sức mới thành.",
+      "advice": "Gia đạo: bình bình. Bản thân: yên. Cầu tài: tốn sức, giao dịch trở ngại. Hôn nhân: thành. Sinh con: hư. Người đi xa: bặt tin. Tằm tơ ruộng vườn: thành muộn. Vật nuôi: thịnh. Tìm người: gặp. Kiện tụng: kinh sợ. Dời chỗ: nên đổi. Mất đồ: hướng tây. Bệnh: chưa yên. Mồ mả: đổi hướng thì tốt.",
+      "story": "Lưu Bị ba lần đến lều tranh mời Khổng Minh (Gia Cát Lượng) ra giúp."
+    },
+    {
+      "number": 33,
+      "title": "Giảo Kim sính Nhân Quý",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Nội tàng vô giá bảo hòa trân",
+        "Đắc ngọc hà tu ngoại giới tầm",
+        "Bất như đẳng đãi cao nhân thức",
+        "Khoan tâm do thả cánh khoan tâm"
+      ],
+      "poem_han": [
+        "内藏无价宝和珍",
+        "得玉何须外界寻",
+        "不如等待高人识",
+        "宽心犹且更宽心"
+      ],
+      "meaning": [
+        "Bên trong giấu báu vật vô giá",
+        "Đã có ngọc cần gì tìm bên ngoài",
+        "Chi bằng chờ bậc cao nhân nhận ra",
+        "Hãy yên lòng, rồi lại yên lòng hơn"
+      ],
+      "interpretation": "Quẻ nói trong mình đã có vàng ngọc, không cần tìm kiếm bên ngoài. Gặp quý nhân chỉ điểm thì không phải lao tâm, mọi việc chờ thời là được.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: yên. Cầu tài: giữ và chờ, giao dịch chậm. Hôn nhân: thành. Sinh con: trai. Người đi xa: bị cản. Tằm tơ ruộng vườn: được nửa mùa. Vật nuôi: thịnh. Tìm người: sẽ đến. Kiện tụng: bị cản trở. Dời chỗ: tốt. Mất đồ: hướng bắc. Bệnh: gặp thầy giỏi. Mồ mả: nên đổi.",
+      "story": "Trình Giảo Kim mời Tiết Nhân Quý ra giúp nhà Đường."
+    },
+    {
+      "number": 34,
+      "title": "Đào Viên kết nghĩa",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Hành tàng xuất nhập lễ nghĩa cung",
+        "Ngôn tất trung lương tín tất thông",
+        "Tâm bất liễu nhiên thả tĩnh triệt",
+        "Quang minh hồng nhật chính đương trung"
+      ],
+      "poem_han": [
+        "行藏出入礼义恭",
+        "言必忠良信必聪",
+        "心不了然且静澈",
+        "光明红日正当中"
+      ],
+      "meaning": [
+        "Đi đứng ra vào đều giữ lễ nghĩa cung kính",
+        "Lời nói trung thành tốt lành, giữ chữ tín thì sáng suốt",
+        "Lòng chưa thông suốt thì hãy tĩnh lặng cho trong",
+        "Mặt trời đỏ rực rỡ đang giữa trời"
+      ],
+      "interpretation": "Quẻ hình ảnh mặt trời đỏ chiếu giữa trời, gan mật soi nhau như nước thu trong. Không cần nghi hoặc, mọi việc tự nhiên thành, thuận ý.",
+      "advice": "Gia đạo: thanh cát. Bản thân: yên. Cầu tài: hư, giao dịch khó. Hôn nhân: hợp. Sinh con: có hiểm. Người đi xa: bị cản. Tằm tơ ruộng vườn: bất lợi. Vật nuôi: suy. Tìm người: chậm. Kiện tụng: thiệt. Dời chỗ: giữ nếp cũ. Mất đồ: hư. Bệnh: cúng tiễn. Mồ mả: rất tốt.",
+      "story": "Lưu Bị, Quan Vũ, Trương Phi kết nghĩa anh em ở vườn đào."
+    },
+    {
+      "number": 35,
+      "title": "Đường Tăng thủ kinh",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Y quan trọng chỉnh cựu gia phong",
+        "Đạo thị vô cùng khước hữu công",
+        "Tảo khước đương đồ kinh cức thích",
+        "Tam nhân ước nghị tái hòa đồng"
+      ],
+      "poem_han": [
+        "衣冠重整旧家风",
+        "道是无穷却有功",
+        "扫却当途荆棘刺",
+        "三人约议再和同"
+      ],
+      "meaning": [
+        "Chỉnh đốn lại áo mũ, nếp nhà xưa",
+        "Tưởng là không cùng đường nhưng lại có công",
+        "Quét sạch gai góc chắn đường",
+        "Ba người bàn hẹn, lại hòa hợp cùng nhau"
+      ],
+      "interpretation": "Quẻ hình ảnh chỉnh lại áo mũ, nếp nhà xưa. Hỏi tiền đồ thì đường phía trước đi được, việc lúc đầu khó về sau dễ.",
+      "advice": "Gia đạo: yên. Bản thân: tốt. Cầu tài: tốt, giao dịch lợi. Hôn nhân: hợp. Sinh con: trai. Người đi xa: sẽ đến. Tằm tơ ruộng vườn: bất lợi. Vật nuôi: hưng. Kiện tụng: có lý. Dời chỗ: yên. Mất đồ: chậm thấy. Bệnh: cầu phúc thì yên. Mồ mả: giữ nếp cũ.",
+      "story": "Đường Tăng cùng các đệ tử đi Tây Thiên thỉnh kinh."
+    },
+    {
+      "number": 36,
+      "title": "Tương Tử ngộ Tân",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Nhãn tiền bệnh tụng bất tu ưu",
+        "Thực địa tư tài tận khả cầu",
+        "Kháp tự viên hầu kim tỏa thoát",
+        "Tự quy sơn động khứ lai du"
+      ],
+      "poem_han": [
+        "眼前病讼不须忧",
+        "实地资财尽可求",
+        "恰似猿猴金锁脱",
+        "自归山洞去来游"
+      ],
+      "meaning": [
+        "Bệnh tật kiện tụng trước mắt không cần lo",
+        "Của cải thực tế đều có thể cầu được",
+        "Như con vượn thoát khỏi khóa vàng",
+        "Tự về hang núi, đi lại dạo chơi"
+      ],
+      "interpretation": "Quẻ hình ảnh vượn thoát khóa: thoát thân xong việc, cứ yên lòng. Đợi thời đến thì tìm được đường chính, việc lúc đầu khó về sau dễ.",
+      "advice": "Gia đạo: không yên. Bản thân: yên. Cầu tài: đại lợi, giao dịch đợi thời. Hôn nhân: chưa thành. Người đi xa, tìm người: chưa đến. Sinh con: cầu phúc. Tằm tơ ruộng vườn: đầy đủ. Vật nuôi: bình. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: đi xa. Bệnh: chưa yên. Mồ mả: tốt.",
+      "story": "Hàn Tương Tử gặp Lã Động Tân, hai trong Bát Tiên."
+    },
+    {
+      "number": 37,
+      "title": "Lý Tĩnh quy sơn",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Dục đãi thân an vận thái thì",
+        "Phong trung đăng chúc bất tương nghi",
+        "Bất như thu thập thâm đường tọa",
+        "Thứ miễn quang dao tĩnh xứ kỳ"
+      ],
+      "poem_han": [
+        "欲待身安运泰时",
+        "风中灯烛不相宜",
+        "不如收拾深堂坐",
+        "庶免光摇静处期"
+      ],
+      "meaning": [
+        "Muốn chờ thân yên, vận hanh thông",
+        "Đèn nến trong gió thì không hợp",
+        "Chi bằng thu xếp ngồi trong nhà sâu",
+        "Để khỏi ánh sáng chao đảo, giữ nơi yên tĩnh"
+      ],
+      "interpretation": "Quẻ hình ảnh đèn nến lay trong gió: nên ở yên chờ thời, giữ mệnh. Hễ động thì dễ gây chuyện không hay, giữ nếp thường thì tốt.",
+      "advice": "Gia đạo: giữ nếp cũ. Bản thân: bình bình. Cầu tài: có giao dịch nhưng khó. Hôn nhân: không hợp. Sinh con: cầu bảo hộ. Kiện tụng: hòa. Người đi xa: có tin. Tằm tơ ruộng vườn: thu hoạch mùa thu. Vật nuôi: yên. Tìm người: gặp. Dời chỗ: giữ nếp cũ. Bệnh: cúng giải sao. Mồ mả: đừng đổi.",
+      "story": "Lý Tĩnh (Thác Tháp Thiên Vương) quy ẩn về núi."
+    },
+    {
+      "number": 38,
+      "title": "Hà Văn Tú ngộ nạn",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Nguyệt chiếu thiên thư tĩnh xứ kỳ",
+        "Hốt tao vân vụ hựu hôn mê",
+        "Khoan tâm kỳ đãi vân hà tán",
+        "Thử thì cánh cải hảo thi vi"
+      ],
+      "poem_han": [
+        "月照天书静处期",
+        "忽遭云雾又昏迷",
+        "宽心祈待云霞散",
+        "此时更改好施为"
+      ],
+      "meaning": [
+        "Trăng chiếu thiên thư, hẹn nơi yên tĩnh",
+        "Bỗng gặp mây mù lại tối tăm",
+        "Yên lòng cầu chờ mây tan",
+        "Lúc ấy đổi thay mới hay làm việc"
+      ],
+      "interpretation": "Quẻ hình ảnh mây mù che trăng: nhà cửa lo âu, người nhà có tai họa. Cầu phúc bảo hộ, e hao tài, việc chưa thành, nên giữ nếp cũ.",
+      "advice": "Gia đạo: không yên. Bản thân: cầu bảo hộ. Cầu tài: khó, giao dịch chờ thời. Hôn nhân: khó hợp. Sinh con: hư kinh. Người đi xa: chưa rõ. Tằm tơ ruộng vườn, vật nuôi: hao tổn. Tìm người: sẽ đến. Kiện tụng: hòa. Dời chỗ: yên. Mất đồ: hư. Bệnh: kéo dài rồi yên. Mồ mả: nên sửa.",
+      "story": "Hà Văn Tú gặp nạn, tích truyện Hà Văn Tú trong hí khúc."
+    },
+    {
+      "number": 39,
+      "title": "Khương nữ tầm phu",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thiên biên tiêu tức thực nan tư",
+        "Thiết mạc đa tâm vọng cưỡng cầu",
+        "Nhược bả thạch đầu ma tác kính",
+        "Tằng tri uổng phí kỷ công phu"
+      ],
+      "poem_han": [
+        "天边消息实难思",
+        "切莫多心望强求",
+        "若把石头磨作镜",
+        "曾知枉费己工夫"
+      ],
+      "meaning": [
+        "Tin tức nơi chân trời thật khó nghĩ",
+        "Đừng đa tâm mà gượng cầu",
+        "Nếu mài đá thành gương",
+        "Mới biết uổng phí công sức của mình"
+      ],
+      "interpretation": "Quẻ giữ thường an tĩnh: dùng trăm mưu nghìn kế cũng uổng công. Chi bằng giữ nếp cũ, tự giữ mình thì tốt.",
+      "advice": "Gia đạo: yên. Bản thân: đề phòng. Cầu tài: bình bình, giao dịch trở ngại. Hôn nhân: không hợp. Sinh con: gái. Người đi xa: có động. Tằm tơ ruộng vườn: lợi. Vật nuôi: hao. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: bình. Mất đồ: không. Bệnh: cúng tiễn. Mồ mả: yên.",
+      "story": "Mạnh Khương Nữ đi tìm chồng đến Trường Thành, tích khóc đổ Trường Thành."
+    },
+    {
+      "number": 40,
+      "title": "Võ Tắc Thiên đăng vị",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Hồng luân tây trụy thố đông thăng",
+        "Âm trưởng dương tiêu bách sự hanh",
+        "Nhược thị nữ nhân nghi vọng dụng",
+        "Tăng thiêm tài lộc phúc kỳ tâm"
+      ],
+      "poem_han": [
+        "红轮西坠兔东升",
+        "阴长阳消百事亨",
+        "若是女人宜望用",
+        "增添财禄福其心"
+      ],
+      "meaning": [
+        "Mặt trời đỏ lặn phía tây, trăng mọc phía đông",
+        "Âm lớn dương tiêu, trăm việc hanh thông",
+        "Nếu là phụ nữ thì nên mong dùng",
+        "Thêm tài lộc, phúc cho lòng"
+      ],
+      "interpretation": "Quẻ hình ảnh âm dương tiêu trưởng: lợi cho phụ nữ, không lợi cho nam giới. Việc nếu cầu mai mối thì trước hung sau cát, lúc đầu khó về sau dễ.",
+      "advice": "Gia đạo: bất lợi. Bản thân: cầu phúc. Cầu tài: giữ và chờ, giao dịch tốt. Hôn nhân: không hợp. Tằm tơ ruộng vườn, vật nuôi: thịnh. Sinh con: hư. Người đi xa: bị cản. Tìm người: cách trở. Kiện tụng: thiệt. Dời chỗ: tốt. Mất đồ: không. Bệnh: có kinh sợ. Mồ mả: rất tốt.",
+      "story": "Võ Tắc Thiên lên ngôi hoàng đế, lập nhà Chu."
+    },
+    {
+      "number": 41,
+      "title": "Đổng Trác thu Lã Bố",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Vô hạn hảo ngôn quân ký thủ",
+        "Khước vì nhận tặc tương tác tử",
+        "Mạc tham nhãn hạ hữu ta điềm",
+        "Cánh lự tha niên tiền dạng khán"
+      ],
+      "poem_han": [
+        "无限好言君记取",
+        "却为认贼将作子",
+        "莫贪眼下有些甜",
+        "更虑他年前样看"
+      ],
+      "meaning": [
+        "Lời hay vô hạn xin bạn ghi nhớ",
+        "Chớ nhận giặc làm con",
+        "Đừng tham chút ngọt trước mắt",
+        "Hãy lo cho năm sau cũng như vậy"
+      ],
+      "interpretation": "Quẻ hình ảnh nhận giặc làm con, nhận giả làm thật. Hãy ghi nhớ trong lòng thì không sinh phiền muộn, đừng sai một nước cờ.",
+      "advice": "Gia đạo: không yên. Bản thân: bình thường. Cầu tài: giữ và chờ, giao dịch khó. Hôn nhân: chưa hợp. Người đi xa, tìm người: sẽ đến. Sinh con: có kinh. Tằm tơ ruộng vườn: được nửa mùa. Vật nuôi: yên. Kiện tụng: nên hòa. Dời chỗ: cầu bảo hộ. Bệnh: cúng giải sao. Mồ mả: tốt.",
+      "story": "Đổng Trác nhận Lã Bố làm con nuôi, rồi bị chính Lã Bố giết."
+    },
+    {
+      "number": 42,
+      "title": "Mục Liên cứu mẫu",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Quân hoàng thánh hậu tổng vi ân",
+        "Phục đãi kỳ nhương vô tổn tăng",
+        "Nhất thiết hữu tình giai thụ dụng",
+        "Nhân gian thiên thượng đắc kỳ hanh"
+      ],
+      "poem_han": [
+        "君皇圣后总为恩",
+        "复待祈禳无损增",
+        "一切有情皆受用",
+        "人间天上得期亨"
+      ],
+      "meaning": [
+        "Vua và hoàng hậu thánh thiện đều ban ơn",
+        "Lại chờ cầu cúng thì không tổn không thêm",
+        "Hết thảy chúng sinh hữu tình đều được hưởng",
+        "Cõi người cõi trời đều hanh thông"
+      ],
+      "interpretation": "Quẻ hình ảnh ơn trời ban xuống, trước sau chớ quên. Sáng tối lễ Phật, thắp hương thì việc thành đại cát.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: thu đông tốt. Cầu tài: chưa có, giao dịch thành. Hôn nhân: khá tốt. Sinh con: bình an. Người đi xa: có động. Tằm tơ ruộng vườn, vật nuôi: trung bình. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: giữ nếp cũ. Mất đồ: không. Mồ mả: yên.",
+      "story": "Mục Kiền Liên (Mục Liên) xuống địa ngục cứu mẹ, tích Vu Lan."
+    },
+    {
+      "number": 43,
+      "title": "Hành Giả đắc đạo",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Thiên địa giao thái vạn vật toàn",
+        "Tự doanh tự dưỡng tự nhiên cẩm",
+        "Nhi tôn đại đại giai anh phát",
+        "Sự sự như tâm tạ thánh hiền"
+      ],
+      "poem_han": [
+        "天地交泰万物全",
+        "自营自养自然锦",
+        "儿孙代代皆英发",
+        "事事如心谢圣贤"
+      ],
+      "meaning": [
+        "Trời đất giao hòa, vạn vật đầy đủ",
+        "Tự lo tự nuôi, tự nhiên tươi đẹp",
+        "Con cháu đời đời đều anh tài",
+        "Việc việc như ý, tạ ơn thánh hiền"
+      ],
+      "interpretation": "Quẻ thiên địa giao thái: trời sinh vạn vật, mưu cầu đều thông. Được phúc đức giúp đỡ, chính khí dồi dào, việc đại cát không nguy.",
+      "advice": "Gia đạo: tốt. Bản thân: yên. Cầu tài: có giao dịch, lợi. Hôn nhân: hợp. Sinh con: trai. Người đi xa: có cản trở. Tằm tơ ruộng vườn, vật nuôi: trung bình. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: thiệt. Mất đồ: hướng đông tây. Bệnh: cúng giải sao. Mồ mả: hướng đông tây tốt.",
+      "story": "Tôn Hành Giả (Tôn Ngộ Không) tu hành đắc đạo trong Tây Du Ký."
+    },
+    {
+      "number": 44,
+      "title": "Khương Duy Đặng Ngải đấu trận",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Kỳ phùng địch thủ trước tương nghi",
+        "Hắc bạch bàn trung vị quyết thì",
+        "Giai nhân nhất trước tri thắng bại",
+        "Tu giao tự hữu hảo suy nghi"
+      ],
+      "poem_han": [
+        "棋逢敌手着相宜",
+        "黑白盘中未决时",
+        "皆因一着知胜败",
+        "须教自有好推宜"
+      ],
+      "meaning": [
+        "Cờ gặp địch thủ ngang tài, nước đi tương xứng",
+        "Quân đen trắng trên bàn chưa phân thắng bại",
+        "Chỉ một nước cờ là biết thua được",
+        "Phải để tự mình suy tính cho khéo"
+      ],
+      "interpretation": "Quẻ hình ảnh cờ gặp địch thủ, như cuộc cờ vây. Rốt cuộc thắng bại nằm ở dụng tâm cơ trí, biết dùng mưu thì tốt.",
+      "advice": "Gia đạo: đại lợi. Bản thân: bình ổn. Cầu tài: thuận, giao dịch lợi. Hôn nhân: chưa hợp. Người đi xa, tìm người: cách trở. Sinh con: gái. Tằm tơ ruộng vườn: bình. Vật nuôi: hao. Kiện tụng: nên hòa. Dời chỗ: giữ nếp cũ. Mất đồ: không. Bệnh: cầu bảo hộ. Mồ mả: giữ nếp cũ.",
+      "story": "Khương Duy và Đặng Ngải giao tranh bày trận thời Tam Quốc."
+    },
+    {
+      "number": 45,
+      "title": "Nhân Tông nhận mẫu",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Ôn nhu tự cổ thắng cương cường",
+        "Tích thiện chi môn đại cát xương",
+        "Nhược thị hữu nhân chiêm thử quẻ",
+        "Uyển như chính khát ngộ dao tương"
+      ],
+      "poem_han": [
+        "温柔自古胜刚强",
+        "积善之门大吉昌",
+        "若是有人占此卦",
+        "宛如正渴遇瑶浆"
+      ],
+      "meaning": [
+        "Từ xưa mềm mại thắng cứng rắn",
+        "Nhà tích thiện đại cát hưng thịnh",
+        "Nếu có người xin quẻ này",
+        "Như đang khát gặp nước quỳnh tương"
+      ],
+      "interpretation": "Quẻ hình ảnh tích đức hiền hòa, trời đất cảm ứng linh nghiệm lạ thường. Được thần Phật phù hộ, gặp quý nhân thì hòa hợp.",
+      "advice": "Gia đạo: tốt. Bản thân: bình an. Cầu tài: được, giao dịch lợi. Hôn nhân: hợp. Sinh con: trai. Người đi xa: bị cản. Kiện tụng: thắng. Tằm tơ ruộng vườn: lợi mùa thu. Vật nuôi: trung bình. Tìm người: gặp. Dời chỗ: lợi. Mất đồ: hướng đông. Bệnh: cầu phúc. Mồ mả: hướng đông tây tốt.",
+      "story": "Tống Nhân Tông nhận lại mẹ ruột (Lý Thần phi), tích Bao Công."
+    },
+    {
+      "number": 46,
+      "title": "Vị Thủy điếu ngư",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Khuyến quân nại thủ cựu sinh nhai",
+        "Bả định tâm trường vật khởi đãi",
+        "Trực đãi hữu nhân khinh trước lực",
+        "Khô chi lão thụ tái sinh hoa"
+      ],
+      "poem_han": [
+        "劝君耐守旧生涯",
+        "把定心肠勿起歹",
+        "直待有人轻着力",
+        "枯枝老树再生花"
+      ],
+      "meaning": [
+        "Khuyên bạn kiên nhẫn giữ nghề cũ",
+        "Giữ vững lòng, đừng sinh ý xấu",
+        "Chờ đến khi có người nhẹ tay giúp sức",
+        "Cành khô cây già lại nở hoa"
+      ],
+      "interpretation": "Quẻ hình ảnh cây khô nở hoa: giữ nếp cũ chờ thời thì tự có thành tựu. Động thì gặp họa, tĩnh thì không lỗi.",
+      "advice": "Gia đạo: yên. Bản thân: bình, tốt. Cầu tài: chờ thời, giao dịch thành. Hôn nhân: thành. Sinh con: gái. Người đi xa: bị cản. Tằm tơ ruộng vườn: được năm phần. Vật nuôi: khó. Tìm người: sẽ đến. Kiện tụng: tốt. Dời chỗ: tốt. Mất đồ: hướng tây bắc. Bệnh: cầu phúc. Mồ mả: tốt.",
+      "story": "Khương Tử Nha câu cá bên sông Vị chờ gặp Chu Văn Vương."
+    },
+    {
+      "number": 47,
+      "title": "Lương Hạo đăng khoa",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Cẩm thượng thiêm hoa sắc dũ tiên",
+        "Vận lai lộc mã hỉ song toàn",
+        "Thời nhân mạc hận công danh vãn",
+        "Nhất cử đăng khoa tứ hải truyền"
+      ],
+      "poem_han": [
+        "锦上添花色愈鲜",
+        "运来禄马喜双全",
+        "时人莫恨功名晚",
+        "一举登科四海传"
+      ],
+      "meaning": [
+        "Thêu hoa trên gấm, màu càng tươi",
+        "Vận đến lộc mã đều vui trọn vẹn",
+        "Người đời đừng hận công danh muộn",
+        "Một lần đỗ đạt, bốn biển đều hay"
+      ],
+      "interpretation": "Quẻ hình ảnh gấm thêm hoa: bỏ cũ theo mới, danh thành công toại. Thỏa chí cả đời, mọi việc đều là mệnh, đại cát đại lợi.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: bình an. Cầu tài: lợi, giao dịch trở ngại. Hôn nhân: hợp. Sinh con: trai. Người đi xa: chậm. Tằm tơ ruộng vườn: được tám phần. Vật nuôi: bình. Tìm người: sẽ đến. Kiện tụng: nên hòa. Dời chỗ: tốt. Mất đồ: hướng tây bắc. Bệnh: cầu phúc. Mồ mả: lợi.",
+      "story": "Lương Hạo thi đỗ trạng nguyên năm 82 tuổi, tích đỗ đạt muộn."
+    },
+    {
+      "number": 48,
+      "title": "Hàn Tín quải soái",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Côn điểu thu lai hóa tác bằng",
+        "Hảo du khoái tưởng hỉ phi đằng",
+        "Cao tường vạn lý vân tiêu khứ",
+        "Dư ngoại chư cầm tổng bất năng"
+      ],
+      "poem_han": [
+        "昆鸟秋来化作鹏",
+        "好游快桨喜飞腾",
+        "翱翔万里云霄去",
+        "馀外诸禽总不能"
+      ],
+      "meaning": [
+        "Chim côn mùa thu đến hóa thành chim bằng",
+        "Thích dạo chơi, chèo nhanh, vui bay vút",
+        "Lượn bay vạn dặm lên tầng mây",
+        "Các loài chim khác đều không làm được"
+      ],
+      "interpretation": "Quẻ hình ảnh chim bằng biến hóa: hễ bẻ cành quế thì phúc lộc tự tăng, có biến động là đại cát. Chim hồng hóa bằng, muôn loài chim không sánh được.",
+      "advice": "Gia đạo: lợi. Bản thân: bình, tốt. Cầu tài: mùa thu thịnh, giao dịch chậm. Hôn nhân: không hợp. Sinh con: an. Người đi xa: bị cản trở. Tằm tơ ruộng vườn: trung bình. Vật nuôi: lợi mùa xuân. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: giữ nếp cũ. Mất đồ: hướng tây. Bệnh: cầu bảo hộ. Mồ mả: yên.",
+      "story": "Hàn Tín được Lưu Bang bái làm đại tướng, nắm soái ấn."
+    },
+    {
+      "number": 49,
+      "title": "Vương Tường cầu lý",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thiên hàn địa đống thủy thành băng",
+        "Hà tu bần lận thủ công danh",
+        "Chỉ hảo thủ kỷ tĩnh xứ tọa",
+        "Đãi thì hưng biến tự nhiên minh"
+      ],
+      "poem_han": [
+        "天寒地冻水成冰",
+        "何须贫吝取功名",
+        "只好守己静处坐",
+        "待时兴变自然明"
+      ],
+      "meaning": [
+        "Trời lạnh đất đóng băng, nước hóa thành đá",
+        "Cần gì keo kiệt tham cầu công danh",
+        "Chỉ nên giữ mình, ngồi nơi yên tĩnh",
+        "Đợi thời có biến, tự nhiên sáng tỏ"
+      ],
+      "interpretation": "Quẻ hình ảnh nước kết thành băng, băng tan lại thành nước. Nếu cứ mưu cầu đến cùng thì vẫn như vậy, không cần cầu thêm.",
+      "advice": "Gia đạo: không yên. Bản thân: cầu bảo hộ. Cầu tài: kém, giao dịch trở ngại. Hôn nhân: không hợp. Sinh con: hiểm. Người đi xa: chậm. Tằm tơ ruộng vườn, vật nuôi: hao tổn. Tìm người: gặp. Kiện tụng: lợi. Dời chỗ: giữ nếp cũ. Mất đồ: không. Bệnh: khó khỏi. Mồ mả: rất tốt.",
+      "story": "Vương Tường nằm trên băng cầu cá chép cho mẹ kế, một trong Nhị thập tứ hiếu."
+    },
+    {
+      "number": 50,
+      "title": "Đào Chu quy Ngũ Hồ",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Ngũ hồ tứ hải tận quân hành",
+        "Cao quải phàm bồng tự tại sanh",
+        "Nhược đắc thuận phong tùy tức chí",
+        "Mãn thuyền bảo bối hỉ tằng tằng"
+      ],
+      "poem_han": [
+        "五湖四海尽君行",
+        "高挂帆蓬自在撑",
+        "若得顺风随即至",
+        "满船宝贝喜层层"
+      ],
+      "meaning": [
+        "Ngũ hồ tứ hải bạn đều đi khắp",
+        "Treo cao buồm, chèo thuyền tự tại",
+        "Nếu được thuận gió thì đến ngay",
+        "Đầy thuyền bảo vật, vui chồng chất"
+      ],
+      "interpretation": "Quẻ hình ảnh thuận gió chèo thuyền, tự tại rong chơi không cần gắng sức. Tài lộc trùng trùng, việc gì cũng thuận, đại cát.",
+      "advice": "Gia đạo: lợi. Bản thân: tốt. Cầu tài: lợi, giao dịch nên chậm. Hôn nhân: không hợp. Sinh con: gái. Người đi xa: bị cản. Tằm tơ ruộng vườn: lợi mùa thu. Vật nuôi: thịnh. Tìm người: sẽ đến. Kiện tụng: thiệt. Dời chỗ: giữ nếp cũ. Mất đồ: hướng tây. Bệnh: giải được. Mồ mả: hướng nam lợi.",
+      "story": "Phạm Lãi (hiệu Đào Chu Công) rời nước Việt, đi thuyền về Ngũ Hồ làm giàu."
+    },
+    {
+      "number": 51,
+      "title": "Khổng Minh nhập Xuyên",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Hạ nhật viêm viêm nhật cảnh trường",
+        "Nhân nhân sầu nhiệt muộn phi thường",
+        "Thiên địa dã giải hòa nhân ý",
+        "Huân phong phất phất tự nhiên lương"
+      ],
+      "poem_han": [
+        "夏日炎炎日景长",
+        "人人愁热闷非常",
+        "天地也解和人意",
+        "薰风拂拂自然凉"
+      ],
+      "meaning": [
+        "Ngày hè nắng gắt, ngày dài dằng dặc",
+        "Ai nấy đều lo nóng bức, bực bội lạ thường",
+        "Trời đất cũng hiểu lòng người",
+        "Gió nam hiu hiu thổi, tự nhiên mát mẻ"
+      ],
+      "interpretation": "Quẻ có hình ảnh ai ai cũng phiền muộn vì cái nóng, nhưng rồi gió mát sẽ đến. Mọi việc mưu tính, chi dùng không cần quá bận tâm, sự việc sẽ thuận theo ý mình. Tiến hay lùi đừng nghi ngại, tự có thời điểm tốt.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: cẩn thận. Cầu tài: mùa thu tốt. Giao dịch: bình thường. Hôn nhân: hợp. Sinh con: trai. Người đi xa: sắp có động tĩnh. Tằm tơ: tổn. Gia súc: bình thường. Tìm người: gặp. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: hướng bắc. Bệnh: cúng tạ. Mồ mả: tốt.",
+      "story": "Gia Cát Khổng Minh (Gia Cát Lượng) theo Lưu Bị tiến vào đất Xuyên."
+    },
+    {
+      "number": 52,
+      "title": "Lý Thái Bạch túy lao minh nguyệt",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thủy trung tróc nguyệt phí công phu",
+        "Phí tận công phu khước hựu vô",
+        "Mạc thuyết nhàn ngôn tinh loạn ngữ",
+        "Uổng lao tâm lực cưỡng thân cô"
+      ],
+      "poem_han": [
+        "水中捉月费功夫",
+        "费尽功夫却又无",
+        "莫说闲言并乱语",
+        "枉劳心力强身孤"
+      ],
+      "meaning": [
+        "Vớt trăng dưới nước thật tốn công",
+        "Tốn hết công sức rồi vẫn chẳng có gì",
+        "Chớ nói lời nhàn rỗi và lời loạn",
+        "Uổng phí tâm sức, gượng thân cô độc"
+      ],
+      "interpretation": "Quẻ có hình ảnh tham cầu mà tốn sức vô ích, như vớt trăng đáy nước. Trong nhà có điều phiền muộn, việc gì cũng mệt tâm tốn lực, nên chờ gặp quý nhân. Lời nói khó nhịn, cần giữ miệng.",
+      "advice": "Gia đạo: bất an. Bản thân: kém. Cầu tài: trung bình. Giao dịch: khó. Hôn nhân: chưa thành. Sinh con: cầu bảo hộ. Người đi xa: có tai họa. Tằm tơ: năm phần. Gia súc: tổn. Tìm người: sẽ đến. Kiện tụng: hợp (nên hòa). Dời chỗ: bình thường. Bệnh: cầu bảo hộ. Mồ mả: tốt.",
+      "story": "Thi hào Lý Bạch (Lý Thái Bạch) say rượu, nhảy xuống nước vớt bóng trăng."
+    },
+    {
+      "number": 53,
+      "title": "Lưu Bị chiêu thân",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thất ý phiên thành đắc ý thời",
+        "Long ngâm hổ khiếu lưỡng tương nghi",
+        "Thanh thiên tự hữu thông tiêu lộ",
+        "Hứa ngã công danh tái hữu kỳ"
+      ],
+      "poem_han": [
+        "失意番成得意时",
+        "龙吟虎啸两相宜",
+        "青天自有通宵路",
+        "许我功名再有期"
+      ],
+      "meaning": [
+        "Lúc thất ý hóa thành lúc đắc ý",
+        "Rồng ngâm hổ gầm, hai bên đều hợp",
+        "Trời xanh tự có đường suốt đêm thông",
+        "Cho ta công danh lại có kỳ hạn"
+      ],
+      "interpretation": "Quẻ có hình ảnh rồng ngâm hổ gầm, bảo đi thì đi, bảo ở thì ở. Mọi việc tự có lúc hanh thông, đến cuối cùng đều lợi, việc thuận ý và có hy vọng.",
+      "advice": "Gia đạo: bất an. Bản thân: kém. Cầu tài: trung bình. Giao dịch: khó. Hôn nhân: thành. Sinh con: cầu bảo hộ. Người đi xa: có tai họa. Tằm tơ: năm phần. Gia súc: tổn. Tìm người: sẽ đến. Kiện tụng: hợp. Dời chỗ: bình thường. Bệnh: cầu bảo hộ. Mồ mả: tốt.",
+      "story": "Lưu Bị sang Đông Ngô kết hôn với Tôn Thượng Hương, em gái Tôn Quyền."
+    },
+    {
+      "number": 54,
+      "title": "Mã Siêu truy Tào",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Mộng trung đắc bảo tỉnh lai vô",
+        "Tự nghĩ Nam Kha chỉ thị hư",
+        "Nhược vấn hôn nhân tinh vấn bệnh",
+        "Biệt tầm hảo lộ vi chi ngô"
+      ],
+      "poem_han": [
+        "梦中得宝醒来无",
+        "自拟南柯只是虚",
+        "若问婚姻并问病",
+        "别寻好路为支吾"
+      ],
+      "meaning": [
+        "Trong mộng được báu, tỉnh dậy chẳng còn",
+        "Tự ví như giấc Nam Kha, chỉ là hư ảo",
+        "Nếu hỏi chuyện hôn nhân và bệnh tật",
+        "Hãy tìm đường tốt khác, đừng qua loa chống chế"
+      ],
+      "interpretation": "Quẻ có hình ảnh được báu trong mộng, như vật dưới nước chỉ thấy bóng dài ngắn mà không nắm được. Mọi việc đã có phần định, không cần bàn tính, làm thì uổng phí tâm sức.",
+      "advice": "Gia đạo: kém yên. Bản thân: cẩn thận. Cầu tài: bị cản. Giao dịch: khó. Hôn nhân: đợi thời. Tằm tơ, gia súc: đình trệ. Sinh con: cầu bảo hộ. Người đi xa: chậm. Tìm người: gặp. Kiện tụng: thiệt. Dời chỗ: tốt. Mất đồ: không có. Bệnh: cầu thần phù hộ. Mồ mả: bất an.",
+      "story": "Mã Siêu đuổi theo Tào Tháo trong trận Đồng Quan thời Tam Quốc."
+    },
+    {
+      "number": 55,
+      "title": "Chu Vũ Vương đăng vị",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Phụ hiền tử quý y truyền cẩm",
+        "Thực lộc phong túc chỉ kháo thiên",
+        "Đường thượng xuân huyên nhân khoái lạc",
+        "Cơ xan khát ẩm muộn an miên"
+      ],
+      "poem_han": [
+        "父贤子贵衣传锦",
+        "食禄丰足只靠天",
+        "堂上椿萱人快乐",
+        "饥餐渴饮闷安眠"
+      ],
+      "meaning": [
+        "Cha hiền con quý, áo gấm truyền đời",
+        "Lộc ăn đầy đủ chỉ nhờ trời",
+        "Cha mẹ trên nhà đều vui vẻ",
+        "Đói ăn khát uống, buồn thì ngủ yên"
+      ],
+      "interpretation": "Quẻ có hình ảnh nối ống tre dẫn suối, dòng chảy truyền mãi không dứt. Người quân tử mưu tính điều gì cũng vui vẻ, việc mưu cầu rất tốt.",
+      "advice": "Gia đạo: kém yên. Bản thân: cúng tạ. Cầu tài: lợi. Giao dịch: thành. Hôn nhân: hợp. Người đi xa: sắp động. Tìm người: khó. Sinh con: bình an. Tằm tơ: tốt. Gia súc: tổn. Kiện tụng: có quý nhân. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: giải sao. Mồ mả: yên.",
+      "story": "Chu Vũ Vương Cơ Phát diệt nhà Thương, lên ngôi lập nhà Chu."
+    },
+    {
+      "number": 56,
+      "title": "Lộc Sơn tạo phản",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Than tiểu thạch khê lưu thủy hưởng",
+        "Thanh phong minh nguyệt quý nhân mang",
+        "Lộ tu tá vấn hà phương khứ",
+        "Mạc thủ lâm trung hoa thảo hương"
+      ],
+      "poem_han": [
+        "滩小石溪流水响",
+        "清风明月贵人忙",
+        "路须借问何方去",
+        "莫取林中花草香"
+      ],
+      "meaning": [
+        "Bãi nhỏ khe đá, nước chảy vang",
+        "Gió mát trăng thanh, quý nhân bận rộn",
+        "Đường đi phải hỏi xem về hướng nào",
+        "Chớ ham hương hoa cỏ trong rừng"
+      ],
+      "interpretation": "Quẻ có hình ảnh thuyền đi qua bãi cạn, mưu việc thì mệt tâm tốn sức. Nên giữ nếp cũ, chờ thời thì ắt có lợi; nếu cố làm thì khó khăn, ít hy vọng.",
+      "advice": "Gia đạo: yên. Bản thân: tốt. Cầu tài: trung bình. Giao dịch: lợi. Hôn nhân: toại ý. Sinh con: trai. Người đi xa: đến. Tằm tơ: mùa thu lợi. Gia súc: tổn. Tìm người: sẽ đến. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: còn ở gần. Bệnh: sớm yên. Mồ mả: nên sửa.",
+      "story": "An Lộc Sơn nổi loạn chống triều Đường, gây ra loạn An Sử."
+    },
+    {
+      "number": 57,
+      "title": "Đổng Trọng tầm thân",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thuyết thị thuyết phi phong quá nhĩ",
+        "Hảo y hảo lộc tự nhiên phong",
+        "Quân mạc ký thủ đương niên sự",
+        "Nhữ ý hoàn như ngã ý đồng"
+      ],
+      "poem_han": [
+        "说是说非风过耳",
+        "好衣好禄自然丰",
+        "君莫记取当年事",
+        "汝意还如我意同"
+      ],
+      "meaning": [
+        "Lời phải lời quấy như gió thoảng qua tai",
+        "Áo đẹp lộc tốt tự nhiên đầy đủ",
+        "Chàng chớ nhớ chuyện năm xưa",
+        "Ý anh vẫn như ý tôi"
+      ],
+      "interpretation": "Quẻ có hình ảnh đứa con gặp lại mẹ, như người đi làm việc công gặp được quý nhân. Mọi việc mưu cầu đều vui vẻ, chờ thời thì được tốt lành.",
+      "advice": "Gia đạo: bất an. Bản thân: bình thường. Cầu tài: thuận. Giao dịch: thành. Hôn nhân: hợp. Sinh con: gái. Người đi xa: bị cản. Tằm tơ: thành. Gia súc: tổn. Tìm người: khó. Kiện tụng: nên hòa. Dời chỗ: giữ cũ. Mất đồ: không có. Bệnh: cầu phúc. Mồ mả: tốt.",
+      "story": "Đổng Trọng (Đổng Vĩnh) đi tìm lại người thân, một tích hiếu đạo xưa."
+    },
+    {
+      "number": 58,
+      "title": "Văn Vương vấn bốc",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Trực ngôn thuyết thoại quân tu ký",
+        "Mạc tại tha hương cầu biệt nghệ",
+        "Thiết tu thủ kỷ cựu sinh nhai",
+        "Trừ thị kỳ dư đô bất lợi"
+      ],
+      "poem_han": [
+        "直言说话君须记",
+        "莫在他乡求别艺",
+        "切须守己旧生涯",
+        "除是其余都不利"
+      ],
+      "meaning": [
+        "Lời nói thẳng, chàng nên ghi nhớ",
+        "Đừng ở quê người cầu nghề khác",
+        "Cần giữ mình với nghề cũ",
+        "Ngoài ra mọi việc đều bất lợi"
+      ],
+      "interpretation": "Quẻ có hình ảnh giữ nếp thường, chờ thời. Không nên làm việc khác, chỉ nên giữ cái cũ thì được tốt; ở yên được thì ở, lấy được thì lấy.",
+      "advice": "Gia đạo: bình thường. Bản thân: bất lợi. Cầu tài: tốt. Giao dịch: thành. Hôn nhân: bị cản. Sinh con: kinh sợ. Người đi xa: chậm. Tằm tơ: năm phần. Gia súc: tổn. Tìm người: gặp. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Bệnh: kém yên. Mất đồ: thấy. Mồ mả: nên sửa.",
+      "story": "Chu Văn Vương Cơ Xương xem bói hỏi việc, tích về việc tìm được Khương Tử Nha."
+    },
+    {
+      "number": 59,
+      "title": "Trương Lương ẩn sơn",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Trực thượng trùng lâu khứ tàng thân",
+        "Tứ vi kinh cức nhiễu vi lâm",
+        "Thiên cao quân mệnh trường hòa đoản",
+        "Đắc nhất phiên thành thất nhị nhân"
+      ],
+      "poem_han": [
+        "直上重楼去藏身",
+        "四围荆棘绕为林",
+        "天高君命长和短",
+        "得一番成失二人"
+      ],
+      "meaning": [
+        "Lên thẳng lầu cao để ẩn thân",
+        "Bốn bề gai góc quanh thành rừng",
+        "Trời cao, mệnh chàng dài hay ngắn",
+        "Được một lần thành thì mất hai người"
+      ],
+      "interpretation": "Quẻ có hình ảnh giữ cũ an phận, như người say rượu chỉ nên ở yên. Cứ đợi thời đến thì không tai không lỗi, chờ thời thì tốt.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: yên. Cầu tài: bình thường. Giao dịch: thành. Hôn nhân: không hợp. Người đi xa, tìm người: bị cản. Sinh con: làm phúc. Tằm tơ: nửa tốt. Gia súc: lợi lớn. Kiện tụng: thiệt. Dời chỗ: thiệt. Mất đồ: xấu. Bệnh: cầu phúc. Mồ mả: tốt.",
+      "story": "Trương Lương, mưu thần giúp Hán Cao Tổ, về sau lui về ở ẩn trên núi."
+    },
+    {
+      "number": 60,
+      "title": "Xích Bích ngao binh",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Bão tân cứu hỏa đại giai nhiên",
+        "Thiêu biến tam thiên diệc phục nhiên",
+        "Nhược vấn vinh hoa tinh xuất nhập",
+        "Bất như thu thập uổng lao tâm"
+      ],
+      "poem_han": [
+        "抱薪救火大皆燃",
+        "烧遍三千亦复然",
+        "若问荣华并出入",
+        "不如收拾枉劳心"
+      ],
+      "meaning": [
+        "Ôm củi cứu lửa, lửa càng cháy lớn",
+        "Cháy khắp ba nghìn cũng vẫn như vậy",
+        "Nếu hỏi vinh hoa và việc đi lại",
+        "Chi bằng thu xếp, kẻo uổng phí tâm sức"
+      ],
+      "interpretation": "Quẻ có hình ảnh ôm củi chữa cháy, càng làm càng thêm họa. Dùng muôn kế cũng không bằng đừng động; một khi gây chuyện e họa đổ lên thân, cần tự cẩn thận.",
+      "advice": "Gia đạo: xấu. Bản thân: cầu bảo hộ. Cầu tài: ít. Giao dịch: khó. Hôn nhân: không hợp. Sinh con: nguy hiểm. Người đi xa: đình trệ. Tằm tơ: bất lợi. Gia súc: tổn. Tìm người: sẽ đến. Kiện tụng: thiệt. Dời chỗ: tốt. Mất đồ: hướng tây. Bệnh: có kinh sợ. Mồ mả: bình thường.",
+      "story": "Trận Xích Bích thời Tam Quốc, Chu Du và Gia Cát Lượng dùng hỏa công đốt thủy quân Tào Tháo."
+    },
+    {
+      "number": 61,
+      "title": "Tô Tiểu Muội nan phu",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Khiếu tụ sơn lâm hung ác trù",
+        "Thiện lương vô sự khổ tiên ưu",
+        "Chủ nhân đại tiếu xuất môn khứ",
+        "Bất dụng can qua đạo tặc hưu"
+      ],
+      "poem_han": [
+        "啸聚山林凶恶俦",
+        "善良无事苦煎忧",
+        "主人大笑出门去",
+        "不用干戈盗贼休"
+      ],
+      "meaning": [
+        "Bọn hung ác tụ họp nơi rừng núi",
+        "Người lương thiện vô sự mà vẫn lo khổ",
+        "Chủ nhà cười lớn bước ra khỏi cửa",
+        "Không cần binh đao, giặc cướp tự dừng"
+      ],
+      "interpretation": "Quẻ có hình ảnh giai nhân ở trong nhà ngâm thơ hát khúc, giữ nếp cũ thì bình an. Lòng vui vẻ, họa phúc đã có số, chờ thời thì được tốt lành.",
+      "advice": "Gia đạo: yên. Bản thân: tốt. Cầu tài: thuận. Giao dịch: lợi. Hôn nhân: thành. Sinh con: gái. Tìm người: sẽ đến. Tằm tơ: được mùa. Gia súc: vượng. Kiện tụng: có lý. Dời chỗ: tốt. Bệnh: mau khỏi. Mồ mả: tốt.",
+      "story": "Tô Tiểu Muội, em gái Tô Đông Pha, nổi tiếng tài thơ, ra đề khó để chọn chồng."
+    },
+    {
+      "number": 62,
+      "title": "Đường Tăng đắc đạo",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thần hôn toàn lại Phật phù trì",
+        "Tu thị phùng nguy khước bất nguy",
+        "Nhược đắc quý nhân tương dẫn xứ",
+        "Na thời tài bạch diệc tương tùy"
+      ],
+      "poem_han": [
+        "晨昏全赖佛扶持",
+        "须是逢危却不危",
+        "若得贵人相引处",
+        "那时财帛亦相随"
+      ],
+      "meaning": [
+        "Sớm tối đều nhờ Phật giúp đỡ",
+        "Gặp nguy mà lại không nguy",
+        "Nếu được quý nhân dẫn dắt",
+        "Lúc ấy tiền của cũng theo về"
+      ],
+      "interpretation": "Quẻ có hình ảnh thần Phật ngầm giúp đỡ, mọi việc bình ổn, danh tiếng lan bốn phương. Đổi cũ theo mới cũng không hiểm nguy, biết nhẫn nại thì rất tốt.",
+      "advice": "Gia đạo: yên. Bản thân: tốt. Cầu tài: hướng tây. Giao dịch: thuận. Hôn nhân: thành. Sinh con: cầu phúc. Người đi xa: bị cản. Tằm tơ: bảy phần. Gia súc: lợi. Tìm người: hướng tây. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: thấy. Bệnh: cầu phúc. Mồ mả: tốt.",
+      "story": "Đường Tăng (Huyền Trang) vượt gian khó sang Tây Thiên thỉnh kinh và đắc đạo."
+    },
+    {
+      "number": 63,
+      "title": "Nữ Oa thị luyện thạch",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Tích nhật hành thuyền thất liễu châm",
+        "Kim triêu y cựu hải trung tầm",
+        "Nhược nhiên tầm đắc nguyên châm tại",
+        "Dã phí công phu dã phí tâm"
+      ],
+      "poem_han": [
+        "昔日行船失了针",
+        "今朝依旧海中寻",
+        "若然寻得原针在",
+        "也费工夫也费心"
+      ],
+      "meaning": [
+        "Ngày xưa đi thuyền làm mất cây kim",
+        "Nay vẫn như cũ đi tìm giữa biển",
+        "Nếu tìm được cây kim gốc còn đó",
+        "Cũng đã tốn công phu, tốn tâm sức"
+      ],
+      "interpretation": "Quẻ có hình ảnh mò kim đáy biển, việc tốn tâm tốn sức. Nên nói cho rõ ràng và giữ sự cẩn trọng, đừng nóng vội.",
+      "advice": "Gia đạo: kém lợi. Bản thân: cẩn thận. Cầu tài: có. Giao dịch: thành. Hôn nhân: không hợp. Người đi xa: đình trệ. Tằm tơ: tốt. Gia súc: đừng nuôi. Tìm người: khó. Kiện tụng: nên hòa. Dời chỗ: tốt. Mất đồ: xấu. Bệnh: khó khỏi. Mồ mả: tạm yên.",
+      "story": "Nữ Oa luyện đá ngũ sắc vá trời, một thần thoại Trung Hoa cổ."
+    },
+    {
+      "number": 64,
+      "title": "Mã tiền phúc thủy",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Du ngư khước tại bích ba trì",
+        "Chàng tao la võng tứ biên vi",
+        "Tư lượng vô kế phiên thân xuất",
+        "Sự đáo đầu lai nhạ thị phi"
+      ],
+      "poem_han": [
+        "游鱼却在碧波池",
+        "撞遭罗网四边围",
+        "思量无计番身出",
+        "事到头来惹是非"
+      ],
+      "meaning": [
+        "Cá bơi lại ở ao sóng biếc",
+        "Đụng phải lưới giăng bốn bề",
+        "Nghĩ mãi không có cách thoát thân",
+        "Việc đến cuối cùng lại rước thị phi"
+      ],
+      "interpretation": "Quẻ có hình ảnh cá mắc lưới, ở yên trong nhà mà họa từ trời giáng xuống. Cần sớm nhận biết và đề phòng thì tránh được tai ương, mọi việc nên cẩn thận.",
+      "advice": "Gia đạo: bất an. Bản thân: nguy hiểm. Cầu tài: trung bình. Hôn nhân: không hợp. Sinh con: kinh sợ. Người đi xa: bị cản. Tằm tơ: tổn. Gia súc: suy. Tìm người: bặt tin. Kiện tụng: thiệt. Dời chỗ: tốt. Mất đồ: xấu. Bệnh: có tai họa nguy hiểm. Mồ mả: nên sửa.",
+      "story": "Điển Mã tiền phúc thủy: Chu Mãi Thần bị vợ bỏ, sau vợ xin lại, ông hất bát nước xuống đất trước đầu ngựa."
+    },
+    {
+      "number": 65,
+      "title": "Tôn Tẫn khốn Bàng Quyên",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Nhãn tiền hoan hỉ vị vi hoan",
+        "Diệc bất nguy thời diệc bất an",
+        "Cát nhục thành sang vi thậm sự",
+        "Bất như thủ cựu đãi thời quang"
+      ],
+      "poem_han": [
+        "眼前欢喜未为欢",
+        "亦不危时亦不安",
+        "割肉成疮为甚事",
+        "不如守旧待时光"
+      ],
+      "meaning": [
+        "Vui trước mắt chưa hẳn là vui",
+        "Chẳng lúc nguy mà cũng chẳng yên",
+        "Cắt thịt thành nhọt là vì chuyện gì",
+        "Chi bằng giữ nếp cũ đợi thời"
+      ],
+      "interpretation": "Quẻ có hình ảnh cắt thịt thành mụn nhọt, tự làm đau mình. Biết dừng thì dừng, chỉ nên giữ cũ chờ thời.",
+      "advice": "Gia đạo: bất an. Bản thân: khẩu thiệt. Cầu tài: bất lợi. Giao dịch: có tiểu nhân. Hôn nhân: hợp. Sinh con: có kinh sợ. Người đi xa: bị cản. Tằm tơ, gia súc: tổn. Tìm người: rước thị phi. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: khó tìm. Bệnh: tái đi tái lại.",
+      "story": "Tôn Tẫn dùng mưu đánh bại đối thủ cũ là Bàng Quyên thời Chiến Quốc."
+    },
+    {
+      "number": 66,
+      "title": "Bá Vương bị khốn",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Lộ hiểm mã luy nhân hành cấp",
+        "Thất quần quân tốt khốn tương đương",
+        "Than cao phong lãng thuyền trạo phá",
+        "Nhật mộ hoa tàn thiên giáng sương"
+      ],
+      "poem_han": [
+        "路险马羸人行急",
+        "失群军卒困相当",
+        "滩高风浪船棹破",
+        "日暮花残天降霜"
+      ],
+      "meaning": [
+        "Đường hiểm, ngựa gầy, người đi vội",
+        "Quân lính lạc đàn đều bị khốn",
+        "Bãi cao sóng gió, thuyền gãy chèo",
+        "Chiều tà hoa tàn, trời xuống sương"
+      ],
+      "interpretation": "Quẻ có hình ảnh thuyền vỡ khi xuống bãi, việc hiểm trở cần đề phòng. Giữ cũ chờ thời, yên tĩnh thì không lỗi, không cầu mưu thì tự được thảnh thơi.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: cẩn thận. Cầu tài: khó. Giao dịch: bị cản. Hôn nhân: không thành. Sinh con: hư kinh. Người đi xa: bị cản. Tằm tơ: tổn. Gia súc: bất lợi. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: khó tìm. Bệnh: cúng phúc. Mồ mả: tốt.",
+      "story": "Hạng Vũ (Tây Sở Bá Vương) bị Hán quân vây khốn ở Cai Hạ."
+    },
+    {
+      "number": 67,
+      "title": "Kim Tinh thử Đậu nhi",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Nhất điều kim tuyến xứng quân tâm",
+        "Vô giảm vô tăng vô trọng khinh",
+        "Vi nhân bình sinh tâm chính trực",
+        "Văn chương toàn cụ nghệ quang minh"
+      ],
+      "poem_han": [
+        "一条金线秤君心",
+        "无减无增无重轻",
+        "为人平生心正直",
+        "文章全具艺光明"
+      ],
+      "meaning": [
+        "Một sợi dây vàng cân lòng chàng",
+        "Không bớt không thêm, không nặng không nhẹ",
+        "Làm người cả đời tâm ngay thẳng",
+        "Văn chương đủ đầy, tài nghệ sáng rõ"
+      ],
+      "interpretation": "Quẻ có hình ảnh lòng bình và ngay thẳng, cuối cùng được yên ổn. Chỉ cần theo bổn phận thì thiên hạ thái bình, mọi việc ổn thỏa không hung hiểm.",
+      "advice": "Gia đạo: yên. Bản thân: bình thường. Cầu tài: giữ thận trọng. Giao dịch: ổn. Hôn nhân: hợp. Người đi xa: có tin. Tằm tơ: ổn. Gia súc: yên. Tìm người: chậm gặp. Kiện tụng: hòa. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: giải sao. Mồ mả: bình thường.",
+      "story": "Truyện Kim Tinh (Thái Bạch Kim Tinh) thử lòng Đậu Vũ Quân, người ngay thẳng nhân hậu."
+    },
+    {
+      "number": 68,
+      "title": "Quách Phần Dương chúc thọ",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Môn đình cát khánh hỉ phi thường",
+        "Tích thiện chi môn đại cát xương",
+        "Hôn nhân điền tàm chư sự toại",
+        "Bệnh phùng diệu dược tức an khang"
+      ],
+      "poem_han": [
+        "门廷吉庆喜非常",
+        "积善之门大吉昌",
+        "婚姻田蚕诸事遂",
+        "病逢妙药即安康"
+      ],
+      "meaning": [
+        "Nhà cửa cát khánh, vui khác thường",
+        "Nhà tích thiện rất tốt đẹp thịnh vượng",
+        "Hôn nhân, ruộng tằm mọi việc đều thuận",
+        "Bệnh gặp thuốc hay liền khỏe mạnh"
+      ],
+      "interpretation": "Quẻ có hình ảnh xuân sâu ngày ấm, trăm hoa tự nở. Việc đừng chần chừ, gặp người sẽ hiển đạt, có quý nhân giúp thì rất tốt.",
+      "advice": "Gia đạo: vượng. Bản thân: yên. Cầu tài: vượng. Giao dịch: thuận. Hôn nhân: thành. Sinh con: đề phòng kinh sợ. Người đi xa: đến. Tằm tơ: lợi. Gia súc: vượng. Tìm người: sẽ đến. Kiện tụng: thắng. Dời chỗ: như ý. Mất đồ: mau tìm. Bệnh: yên. Mồ mả: rất tốt.",
+      "story": "Quách Tử Nghi, được phong Phần Dương Vương, phúc lộc song toàn, con cháu đầy nhà trong lễ chúc thọ."
+    },
+    {
+      "number": 69,
+      "title": "Mai khai nhị độ",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Đông lai lĩnh thượng nhất chi mai",
+        "Diệp lạc chi khô chung bất tồi",
+        "Đãn đắc dương xuân tiêu tức chí",
+        "Y nhiên hoàn ngã tác hoa khôi"
+      ],
+      "poem_han": [
+        "冬来岭上一枝梅",
+        "叶落枝枯终不摧",
+        "但得阳春消息至",
+        "依然还我作花魁"
+      ],
+      "meaning": [
+        "Đông đến, trên đỉnh núi có một cành mai",
+        "Lá rụng cành khô vẫn không gãy",
+        "Chỉ cần tin xuân đến",
+        "Vẫn lại cho ta làm hoa khôi"
+      ],
+      "interpretation": "Quẻ có hình ảnh mai nở đứng đầu các loài hoa, như mũi tên bắn vào khoảng không mà không phải không. Chờ xuân đến thì có thành quả, việc chậm lại thì tốt.",
+      "advice": "Gia đạo: kém lợi. Bản thân: làm phúc. Cầu tài: thận trọng. Giao dịch: đợi thời. Hôn nhân: thành. Người đi xa: chậm đến. Sinh con: xuân thật thu hư. Tìm người: gặp. Tằm tơ, gia súc: vượng. Kiện tụng: thiệt. Mất đồ: hướng đông. Bệnh: hư kinh. Mồ mả: nên sửa.",
+      "story": "Tích hoa mai nở lại lần hai, mượn hình ảnh mai chịu rét đợi xuân."
+    },
+    {
+      "number": 70,
+      "title": "Lý Mật phản Đường",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Triêu triêu kháp tự thái hoa phong",
+        "Phi xuất tây nam hựu tẩu đông",
+        "Xuân tận hoa tàn vô mịch xứ",
+        "Thử tâm bất biến cựu hành tung"
+      ],
+      "poem_han": [
+        "朝朝恰似采花蜂",
+        "飞出西南又走东",
+        "春尽花残无觅处",
+        "此心不变旧行踪"
+      ],
+      "meaning": [
+        "Ngày ngày như con ong hái hoa",
+        "Bay ra tây nam lại chạy sang đông",
+        "Xuân hết hoa tàn không còn chỗ tìm",
+        "Lòng này không đổi, vẫn theo dấu cũ"
+      ],
+      "interpretation": "Quẻ có hình ảnh ong hái hoa, suốt ngày xuân sắc mà mưa dầm không tạnh. Cầu mưu hành động chi bằng yên tĩnh, việc mệt tâm tốn sức.",
+      "advice": "Gia đạo: khẩu thiệt. Bản thân: tiểu nhân. Cầu tài: hao tán. Giao dịch: thất thường. Hôn nhân: không lâu dài. Sinh con: hoa hư. Người đi xa: bị cản. Tằm tơ, gia súc: tổn. Tìm người: bặt dấu. Kiện tụng: thiệt. Mất đồ: không có. Bệnh: có trở ngại. Dời chỗ: giữ cũ. Mồ mả: nên sửa.",
+      "story": "Lý Mật, tướng cuối đời Tùy, nổi dậy rồi theo Đường nhưng sau lại làm phản."
+    },
+    {
+      "number": 71,
+      "title": "Văn Quân phỏng Tương Như",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thùy tri thương long há cửu cù",
+        "Nữ tử đương niên giá nhị phu",
+        "Tự thị nhất cung giá lưỡng tiễn",
+        "Thiết khủng long mã thượng an cư"
+      ],
+      "poem_han": [
+        "谁知苍龙下九衢",
+        "女子当年嫁二夫",
+        "自是一弓架两箭",
+        "切恐龙马上安居"
+      ],
+      "meaning": [
+        "Ai biết rồng xanh xuống nơi đường lớn",
+        "Người con gái năm ấy lấy hai đời chồng",
+        "Vốn là một cây cung gác hai mũi tên",
+        "E rằng rồng ngựa mới yên ổn ở trên"
+      ],
+      "interpretation": "Quẻ có hình ảnh một cung gác hai tên, việc có lặp lại là do trời định. Mưu tính ra vào nên giữ mình chờ mệnh, việc hợp lại lần nữa thì tốt.",
+      "advice": "Gia đạo: tổn thất. Bản thân: thị phi. Cầu tài: tốn sức. Giao dịch: cẩn thận. Hôn nhân: tái hợp. Người đi xa: bị cản. Sinh con: trước hư sau thực. Tằm tơ: thu hoạch muộn. Gia súc: tổn. Tìm người: gặp. Kiện tụng: thiệt. Bệnh: giải sao. Dời chỗ: tốt. Mồ mả: nên sửa.",
+      "story": "Trác Văn Quân bỏ nhà theo Tư Mã Tương Như, mối tình nổi tiếng thời Hán."
+    },
+    {
+      "number": 72,
+      "title": "Vương Mãng cầu hiền",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Dưỡng phong tu dụng cầu tha mật",
+        "Chỉ phạ tao xúc vĩ thượng đinh",
+        "Tu thị nhãn tiền hữu dị lộ",
+        "Ám lý thâm như kinh cức lâm"
+      ],
+      "poem_han": [
+        "养蜂须用求他蜜",
+        "只怕遭触尾上钉",
+        "须是眼前有异路",
+        "暗里深如荆棘林"
+      ],
+      "meaning": [
+        "Nuôi ong cần để lấy mật",
+        "Chỉ sợ chạm vào, đuôi có ngòi châm",
+        "Phải biết trước mắt có lối khác",
+        "Trong tối sâu như rừng gai góc"
+      ],
+      "interpretation": "Quẻ có hình ảnh ong kết đàn hái mật, việc cần cẩn thận, không nên cưỡng cầu. Mọi việc đều tốn tâm tốn sức, cần xem xét kỹ.",
+      "advice": "Gia đạo: kém lợi. Bản thân: đề phòng. Cầu tài: vượng. Giao dịch: chậm. Hôn nhân: bị ngăn cách. Tằm tơ, gia súc: thu ít. Sinh con: hư kinh. Người đi xa: chậm. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: đừng động. Mất đồ: xấu. Bệnh: nặng, có thể mất. Mồ mả: nên sửa.",
+      "story": "Vương Mãng, người cướp ngôi Tây Hán lập nhà Tân, từng làm bộ trọng dụng người hiền."
+    },
+    {
+      "number": 73,
+      "title": "Trần Kiều binh biến",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Xuân lai lôi chấn bách trùng minh",
+        "Phiên thân nhất chuyển ly nê trung",
+        "Thủy tri xuất nhập hoàn lai vãng",
+        "Nhất triêu biến hóa tiện thành long"
+      ],
+      "poem_han": [
+        "春来雷震百虫鸣",
+        "番身一转离泥中",
+        "始知出入还来往",
+        "一朝变化便成龙"
+      ],
+      "meaning": [
+        "Xuân đến sấm động, trăm loài sâu kêu",
+        "Trở mình một cái là rời khỏi bùn",
+        "Mới biết ra vào vẫn qua lại",
+        "Một sớm biến hóa liền thành rồng"
+      ],
+      "interpretation": "Quẻ có hình ảnh sấm xuân làm trăm loài sâu thức tỉnh, vừa ra vào đều được trọn vẹn. Một sớm biến hóa thẳng đến cửa trời, gặp quý nhân là điềm tốt.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: bình thường. Cầu tài: mùa xuân lợi. Giao dịch: nhờ quý nhân. Hôn nhân: hợp. Sinh con: trai. Người đi xa: đến. Tằm tơ: sớm. Gia súc: xuân lợi. Tìm người: gặp. Kiện tụng: thuận. Dời chỗ: tốt. Bệnh: bị cản. Mồ mả: tốt.",
+      "story": "Triệu Khuông Dận được quân sĩ khoác hoàng bào ở Trần Kiều, lập nên nhà Tống."
+    },
+    {
+      "number": 74,
+      "title": "Tần bại cầm tam soái",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Tự cáp phi lai tự nhập lung",
+        "Dục đắc phiên thân khước bất thông",
+        "Nam bắc đông tây đô nan xuất",
+        "Thử quái thành khủng hận vô cùng"
+      ],
+      "poem_han": [
+        "似鸽飞来自入笼",
+        "欲得番身却不通",
+        "南北东西都难出",
+        "此卦诚恐恨无穷"
+      ],
+      "meaning": [
+        "Như chim bồ câu tự bay vào lồng",
+        "Muốn trở mình thoát ra lại không thông",
+        "Nam bắc đông tây đều khó ra",
+        "Quẻ này thật e hận không cùng"
+      ],
+      "interpretation": "Quẻ có hình ảnh chim sa vào lồng, bốn phương đều khó thoát. Cúi đầu đi thẳng thì rơi cả vào trong, việc nhiều hư ít thực.",
+      "advice": "Gia đạo: bất an. Bản thân: khốn đốn. Cầu tài: có tiểu nhân. Giao dịch: hao tán. Hôn nhân: hình thương. Người đi xa: bị cản. Sinh con: tai nạn. Tằm tơ: thiếu. Gia súc: dịch bệnh. Tìm người: bặt tin. Kiện tụng: tai họa. Dời chỗ: bất lợi. Mất đồ: xấu. Bệnh: kéo dài. Mồ mả: tốt.",
+      "story": "Nước Tần bị Tấn đánh bại ở Hào Sơn, ba tướng Tần bị bắt."
+    },
+    {
+      "number": 75,
+      "title": "Ngũ Viên dạ xuất Chiêu Quan",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Kháp như bão hổ quá cao sơn",
+        "Chiến chiến căng căng đảm toái hàn",
+        "Bất giác hốt nhiên tòng hảo sự",
+        "Thiết tu bảo thủ nhất thân an"
+      ],
+      "poem_han": [
+        "恰如抱虎过高山",
+        "战战竞竞胆碎寒",
+        "不觉忽然从好事",
+        "切须保守一身安"
+      ],
+      "meaning": [
+        "Như ôm hổ vượt núi cao",
+        "Run run sợ sệt, mật vỡ lạnh người",
+        "Chẳng ngờ bỗng theo được việc tốt",
+        "Cần giữ gìn để thân được yên"
+      ],
+      "interpretation": "Quẻ có hình ảnh ôm đá nhảy xuống núi, trước mặt hiểm trở, hung hiểm đáng sợ. Hỏi việc mưu cầu thì rốt cuộc vất vả, cần giữ mình cẩn trọng.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: đề phòng. Cầu tài: thận trọng. Giao dịch: đình trệ. Hôn nhân: khó. Sinh con: có kinh sợ. Người đi xa: bị cản. Tằm tơ: năm phần. Gia súc: tổn. Tìm người: bặt tin. Kiện tụng: thiệt. Mất đồ: khó tìm. Bệnh: cúng tế. Dời chỗ: giữ cũ. Mồ mả: xấu.",
+      "story": "Ngũ Tử Tư (Ngũ Viên) trốn đêm qua ải Chiêu Quan, một đêm bạc trắng đầu."
+    },
+    {
+      "number": 76,
+      "title": "Hồng Vũ khán ngưu",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Ngư long hỗn tạp ý tương đồng",
+        "Nại thủ thâm đàm đãi vận thông",
+        "Bất giác nhất triêu đầu tủng xuất",
+        "Vũ Môn nhất khiêu quá long cung"
+      ],
+      "poem_han": [
+        "鱼龙混杂意相同",
+        "耐守深潭待运通",
+        "不觉一朝头耸出",
+        "禹门一跳过龙宫"
+      ],
+      "meaning": [
+        "Cá và rồng lẫn lộn, ý như nhau",
+        "Kiên nhẫn giữ trong vực sâu chờ vận thông",
+        "Bỗng một sớm ngoi đầu lên",
+        "Nhảy một cái qua Vũ Môn vào long cung"
+      ],
+      "interpretation": "Quẻ mang hình ảnh cá rồng chưa hóa. Mọi việc mưu tính nên giữ mình, chớ làm càn, chờ thời đến thì mới nên việc.",
+      "advice": "Gia đạo: bình an. Bản thân: khỏe mạnh. Cầu tài: có giao dịch, đợi thời. Hôn nhân: chậm hợp. Sinh con: trai. Người đi xa: chậm. Tằm tang: muộn được mùa. Gia súc: về sau có lợi. Tìm người: chưa gặp. Kiện tụng: kéo dài. Dời chỗ: giữ nguyên cũ. Mồ mả: tốt.",
+      "story": "Hồng Vũ là niên hiệu của Minh Thái Tổ Chu Nguyên Chương, thuở hàn vi từng đi chăn trâu."
+    },
+    {
+      "number": 77,
+      "title": "Hoàn bích quy Triệu",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Mộng trung thuyết đắc thị đa tài",
+        "Thanh danh vân ngoại tổng hư lai",
+        "Thủy viễn sơn dao nan tín thực",
+        "Quý nhân chỉ điểm tiếu nhan khai"
+      ],
+      "poem_han": [
+        "梦中说得是多财",
+        "声名云外总虚来",
+        "水远山遥难信实",
+        "贵人指点笑颜开"
+      ],
+      "meaning": [
+        "Trong mộng nói được nhiều của cải",
+        "Danh tiếng ngoài mây rốt cuộc đều hư ảo",
+        "Nước xa núi xa khó tin là thật",
+        "Có quý nhân chỉ điểm thì mặt mày tươi cười"
+      ],
+      "interpretation": "Như nói chuyện trong mộng, đừng mong cầu danh tiếng. Quẻ có hình ảnh được báu trong mộng, nên chờ thời có quý nhân chỉ bảo, việc phần nhiều hư ít thực.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: bị cản trở. Cầu tài: hư, giao dịch khó thành. Hôn nhân: không hợp. Sinh con: hư. Người đi xa: chậm. Tằm tang: không thu hoạch. Gia súc: tổn hại. Tìm người: sẽ đến. Kiện tụng: hòa. Dời chỗ: đợi thời. Mất đồ: ở xa. Bệnh: cúng tống. Mồ mả: nên đổi.",
+      "story": "Lạn Tương Như mang ngọc bích họ Hòa sang nước Tần rồi giữ nguyên vẹn đem về nước Triệu."
+    },
+    {
+      "number": 78,
+      "title": "Lâm Đồng cứu giá",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Lãnh thủy vị thiêu bạch phất thang",
+        "Bất hàn bất nhiệt hữu ôn lương",
+        "Yếu hành thiên hạ vô tha sự",
+        "Vi hữu thân trung bách nghệ cường"
+      ],
+      "poem_han": [
+        "冷水未烧白沸汤",
+        "不寒不热有温凉",
+        "要行天下无他事",
+        "为有身中百艺强"
+      ],
+      "meaning": [
+        "Nước lạnh chưa đun đã sôi trắng",
+        "Không lạnh không nóng, chỉ ấm mát",
+        "Muốn đi khắp thiên hạ chẳng có gì trở ngại",
+        "Vì trong mình có trăm nghề giỏi"
+      ],
+      "interpretation": "Như tù nhân được ân xá, người bệnh gặp thầy thuốc giỏi. Quẻ hanh thông như ý, cầu tài mưu sự đều có quý nhân chỉ điểm, rất tốt.",
+      "advice": "Gia đạo: bình an. Bản thân: tốt. Cầu tài: giao dịch thành. Hôn nhân: hợp. Sinh con: trai. Người đi xa: về. Tìm người: gặp. Tằm tang: được mùa. Gia súc: thịnh. Kiện tụng: tan. Dời chỗ: đại cát. Mất đồ: thấy ngay. Bệnh: yên. Mồ mả: đại cát.",
+      "story": "Điển Lâm Đồng cứu giá trong truyện Tùy Đường, kể việc cứu Đường Cao Tổ Lý Uyên khỏi hiểm nguy."
+    },
+    {
+      "number": 79,
+      "title": "Ám phù đảo đồng kỳ",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Hư không kết nguyện bảo bình an",
+        "Bảo đắc thân an nguyện bất hoàn",
+        "Mạc vong thánh hiền chân thực ngữ",
+        "Thần ân hiển hách mạc khinh mạn"
+      ],
+      "poem_han": [
+        "虚空结愿保平安",
+        "保得身安愿不还",
+        "莫忘圣贤真实语",
+        "神恩显赫莫轻慢"
+      ],
+      "meaning": [
+        "Hứa nguyện giữa hư không để cầu bình an",
+        "Giữ được thân yên rồi lại không trả lễ",
+        "Đừng quên lời chân thật của bậc thánh hiền",
+        "Ơn thần hiển hách, chớ khinh nhờn"
+      ],
+      "interpretation": "Người có chỗ thấy hư ảo thì đừng vội vàng. Quẻ dạy tin điều thật, chớ tin điều hư; Quan Âm chỉ dẫn nên đừng khinh nhờn, hãy giữ nếp cũ.",
+      "advice": "Gia đạo: nên trả lễ nguyện. Bản thân: chớ coi nhẹ. Cầu tài: giữ phận. Giao dịch: thận trọng. Hôn nhân: hư. Sinh con: gái. Người đi xa: chậm trễ. Tằm tang: bảy phần. Gia súc: tổn hại. Tìm người: sẽ đến. Kiện tụng: hòa. Dời chỗ: giữ cũ. Mất đồ: hướng tây. Bệnh: cúng giải. Mồ mả: hướng tây.",
+      "story": "Điển về việc ngầm giúp dựng lại cây cờ đồng bị đổ, nay chỉ còn nhắc lại tên tích."
+    },
+    {
+      "number": 80,
+      "title": "Lưu Trí Viễn đầu quân",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Trực thượng tiên nham yếu học tiên",
+        "Khởi tri nhất đán đế vương tuyên",
+        "Thanh thiên nhật nguyệt thường minh chiếu",
+        "Tâm chính thanh danh tứ hải truyền"
+      ],
+      "poem_han": [
+        "直上仙岩要学仙",
+        "岂知一旦帝王宣",
+        "青天日月常明照",
+        "心正声名四海传"
+      ],
+      "meaning": [
+        "Thẳng lên núi tiên muốn học đạo tiên",
+        "Nào ngờ một sớm vua triệu vời",
+        "Trời xanh nhật nguyệt luôn soi sáng",
+        "Lòng ngay thì danh tiếng truyền khắp bốn biển"
+      ],
+      "interpretation": "Có đầu có cuối, chớ chạy ngược xuôi. Quẻ có hình ảnh quý nhân tiếp dẫn, việc trong lòng có quý nhân giúp đỡ nhiều lần, mọi việc hòa hợp, rất tốt.",
+      "advice": "Gia đạo: bình an. Bản thân: tốt. Cầu tài: có lợi. Giao dịch: toại ý. Hôn nhân: xứng đôi. Người đi xa: về. Sinh con: trai. Tằm tang: được nửa. Gia súc: thắng. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: tốt. Mất đồ: hướng nam. Bệnh: yên. Mồ mả: tốt.",
+      "story": "Lưu Trí Viễn, nhân vật trong tích Bạch Thố Ký, thuở nghèo khó đi đầu quân rồi về sau thành danh."
+    },
+    {
+      "number": 81,
+      "title": "Phong tống Đằng Vương các",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Ngô đồng diệp lạc thu tương mộ",
+        "Hành khách quy trình khứ tự vân",
+        "Tạ đắc thiên công cao trước lực",
+        "Thuận phong thuyền tái bảo trân quy"
+      ],
+      "poem_han": [
+        "梧桐叶落秋将暮",
+        "行客归程去似云",
+        "谢得天公高着力",
+        "顺风船载宝珍归"
+      ],
+      "meaning": [
+        "Lá ngô đồng rụng, thu sắp tàn",
+        "Khách đi đường về nhanh như mây",
+        "Nhờ ông trời ra sức giúp",
+        "Thuyền thuận gió chở châu báu trở về"
+      ],
+      "interpretation": "Điều trong lòng muốn, trời cũng thuận theo. Quẻ có hình ảnh lá ngô đồng rụng, mưu sự cứ việc làm, việc trước xấu sau tốt.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: bình an. Cầu tài: toại ý. Giao dịch: thành. Hôn nhân: hòa hợp. Sinh con: trai. Người đi xa: sắp động thân. Tằm tang: muộn nhưng thắng. Gia súc: ổn. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: như ý. Bệnh: mừng. Mồ mả: nên chọn đất.",
+      "story": "Vương Bột nhờ gió thuận đưa thuyền đến kịp Đằng Vương các, viết nên bài Đằng Vương các tự."
+    },
+    {
+      "number": 82,
+      "title": "Hỏa thiêu Hồ Lô cốc",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Viêm viêm liệt hỏa diệm liên thiên",
+        "Diệm lý hoàn sinh nhất đóa liên",
+        "Đáo để đắc thành chung bất hại",
+        "Y nhiên sinh diệp trưởng căn chi"
+      ],
+      "poem_han": [
+        "炎炎烈火焰连天",
+        "焰里还生一朵莲",
+        "到底得成终不害",
+        "依然生叶长根枝"
+      ],
+      "meaning": [
+        "Lửa dữ hừng hực cháy tận trời",
+        "Trong lửa vẫn nở một đóa sen",
+        "Rốt cuộc nên việc, cuối cùng không bị hại",
+        "Vẫn sinh lá, mọc rễ cành như cũ"
+      ],
+      "interpretation": "Tuy gặp hiểm nhưng không tổn thân. Quẻ có hình ảnh sen mọc trong bùn, mưu sự đều gặp quý nhân, tựa hiểm mà không hiểm.",
+      "advice": "Gia đạo: bất an. Bản thân: cần đề phòng. Cầu tài: nhọc sức. Giao dịch: có tiểu nhân. Hôn nhân: bị cản. Sinh con: chỉ hú vía. Người đi xa: bị cản. Tằm tang: thiếu. Gia súc: tổn hại. Tìm người: hướng tây. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: hướng nam. Bệnh: nặng, cần cúng tống. Mồ mả: nên đổi.",
+      "story": "Điển trận hỏa công ở Hồ Lô cốc trong truyện Tam Quốc, Gia Cát Lượng dụ quân Ngụy vào thung lũng."
+    },
+    {
+      "number": 83,
+      "title": "Lý Uyên đăng vị",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Thí nhược sơ tam tứ ngũ khuyết",
+        "Bán vô bán hữu vị viên toàn",
+        "Đẳng đãi thập ngũ lương tiêu dạ",
+        "Đáo xứ quang minh đáo xứ viên"
+      ],
+      "poem_han": [
+        "譬若初三四五缺",
+        "半无半有未圆全",
+        "等待十五良宵夜",
+        "到处光明到处圆"
+      ],
+      "meaning": [
+        "Ví như trăng khuyết mồng ba, bốn, năm",
+        "Nửa không nửa có, chưa tròn đầy",
+        "Đợi đến đêm đẹp mười lăm",
+        "Nơi nơi sáng tỏ, nơi nơi tròn đầy"
+      ],
+      "interpretation": "Giữ cũ đợi thời thì không gì không tốt. Quẻ có hình ảnh trăng khuyết chưa tròn, cứ chờ như đợi trăng non đến ngày rằm, đợi đúng thời thì cát.",
+      "advice": "Gia đạo: nên thực hiện lời nguyện. Bản thân: mùa hạ, thu tốt. Cầu tài: giữ cẩn thận. Giao dịch: đợi thời. Hôn nhân: chậm. Sinh con: gái. Người đi xa: bị cản. Tằm tang, gia súc: bình ổn. Tìm người: khó. Kiện tụng: hòa. Dời chỗ: giữ cũ. Mất đồ: khó tìm. Bệnh: nặng, cần cúng tống. Mồ mả: nên đổi.",
+      "story": "Lý Uyên là Đường Cao Tổ, người lập nên nhà Đường và lên ngôi hoàng đế."
+    },
+    {
+      "number": 84,
+      "title": "Trang Tử thí thê",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Nhân danh táng đức như hà sự",
+        "Thiết khủng cát trung biến hóa hung",
+        "Tửu túy bất tri hà xứ khứ",
+        "Thanh tùng ảnh lý mộng mông lung"
+      ],
+      "poem_han": [
+        "因名丧德如何事",
+        "切恐吉中变化凶",
+        "酒醉不知何处去",
+        "青松影里梦朦胧"
+      ],
+      "meaning": [
+        "Vì danh mà mất đức thì là việc gì",
+        "Rất sợ trong điều tốt lại biến thành xấu",
+        "Say rượu chẳng biết đi đâu",
+        "Trong bóng thông xanh mơ màng giấc mộng"
+      ],
+      "interpretation": "Như cá lạnh rời nước, đẹp mà còn thiếu sót. Hỏi về mưu sự thì chớ làm, không nên di chuyển.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: cần đề phòng. Cầu tài: khó, giao dịch bị cản. Hôn nhân: không thành. Sinh con: sát nặng. Người đi xa: bị cản. Tằm tang: tổn hại. Gia súc: bất lợi. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: không thấy. Bệnh: cúng phúc. Mồ mả: tốt.",
+      "story": "Điển Trang Tử giả chết để thử lòng vợ, tích truyện dân gian về triết gia Trang Chu."
+    },
+    {
+      "number": 85,
+      "title": "Hàn Văn Công ngộ tuyết",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Vân khai vụ tráo sơn tiền lộ",
+        "Vạn vật viên trung nguyệt tái viên",
+        "Nhược đắc thi thư trầm mộng tỉnh",
+        "Quý nhân chỉ dẫn bộ thiên đài"
+      ],
+      "poem_han": [
+        "云开雾罩山前路",
+        "万物圆中月再圆",
+        "若得诗书沉梦醒",
+        "贵人指引步天台"
+      ],
+      "meaning": [
+        "Mây tan sương phủ, đường trước núi hiện ra",
+        "Muôn vật trong sự tròn đầy, trăng lại tròn",
+        "Nếu nhờ thi thư mà tỉnh cơn mộng chìm",
+        "Quý nhân dẫn đường bước lên thiên đài"
+      ],
+      "interpretation": "Người già lại phát đạt, xuân tàn lại nở hoa. Cầu danh lợi thì muộn mới gặp của bất ngờ, việc về sau sẽ đổi khác.",
+      "advice": "Gia đạo: kém lợi. Bản thân: thận trọng. Cầu tài: phải gắng sức. Giao dịch: bình thường. Hôn nhân: chậm. Tằm tang, gia súc: tốt. Người đi xa: bị cản. Sinh con: gái. Tìm người: khó. Kiện tụng: hòa. Dời chỗ: đổi mới. Mất đồ: xấu. Bệnh: kéo dài. Mồ mả: nên đổi.",
+      "story": "Hàn Dũ (Hàn Văn Công), danh sĩ đời Đường, bị đày đi Triều Châu, gặp tuyết ở Lam Quan."
+    },
+    {
+      "number": 86,
+      "title": "Thương Lộ trúng tam nguyên",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Xuân lai hoa phát ánh dương đài",
+        "Vạn lý xa lai tiến bảo tài",
+        "Nhược đắc Vũ Môn tam cấp lãng",
+        "Kháp như bình địa nhất thanh lôi"
+      ],
+      "poem_han": [
+        "春来花发映阳台",
+        "万里车来进宝财",
+        "若得禹门三级浪",
+        "恰如平地一声雷"
+      ],
+      "meaning": [
+        "Xuân đến hoa nở rọi lên dương đài",
+        "Xe từ vạn dặm chở của báu đến",
+        "Nếu vượt được ba tầng sóng Vũ Môn",
+        "Chẳng khác một tiếng sấm giữa đất bằng"
+      ],
+      "interpretation": "Như vào chầu vua nhận chức, như người nghèo được báu. Quẻ lên chầu vua, mưu cầu thuận lòng, là quẻ đứng đầu, rất tốt rất lợi.",
+      "advice": "Gia đạo: đại cát. Bản thân: thuận lợi. Cầu tài: có, giao dịch thành. Hôn nhân: hợp. Sinh con: trai. Người đi xa: về. Tằm tang: lợi. Gia súc: thịnh. Tìm người: gặp. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: yên. Mồ mả: tốt.",
+      "story": "Thương Lộ, danh thần đời Minh, đỗ đầu cả ba kỳ thi Hương, Hội, Đình (tam nguyên)."
+    },
+    {
+      "number": 87,
+      "title": "Giảo Kim thám địa huyệt",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Nhân hành bán lĩnh nhật hàm sơn",
+        "Tuấn lĩnh nhai nham vị khả an",
+        "Ngưỡng vọng thượng thiên vi hộ hựu",
+        "Thử thân do tại thái bình gian"
+      ],
+      "poem_han": [
+        "人行半岭日衔山",
+        "峻岭崖岩未可安",
+        "仰望上天为护佑",
+        "此身犹在太平间"
+      ],
+      "meaning": [
+        "Người đi giữa sườn núi, mặt trời ngậm núi",
+        "Núi cao vách đá chưa thể yên tâm",
+        "Ngẩng trông trời cao che chở",
+        "Thân này vẫn ở nơi thái bình"
+      ],
+      "interpretation": "Như ném đá thấy vàng, đãi cát thấy vàng. Việc cần gắng sức nhưng chỉ nhọc lòng, có quý nhân giúp đỡ.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: kém lợi. Cầu tài: nhọc lòng. Giao dịch: thận trọng. Hôn nhân: có cản trở. Sinh con: hư. Người đi xa: chậm. Tằm tang, gia súc: bình ổn. Tìm người: chưa gặp. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: xấu. Bệnh: bị cản. Mồ mả: tốt.",
+      "story": "Trình Giảo Kim (Giảo Kim), tướng nhà Đường trong truyện Tùy Đường, dò xuống hang đất tìm báu."
+    },
+    {
+      "number": 88,
+      "title": "Bàng Hồng úy Bao Công",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Mộc vi nhất hổ tại đương môn",
+        "Tu thị hữu uy bất hại nhân",
+        "Phân minh thuyết thị vô phòng sự",
+        "Ưu não trì nghi khủng cụ tâm"
+      ],
+      "poem_han": [
+        "木为一虎在当门",
+        "须是有威不害人",
+        "分明说是无防事",
+        "忧恼迟疑恐惧心"
+      ],
+      "meaning": [
+        "Một con hổ gỗ đứng ngay cửa",
+        "Có uy nhưng không hại người",
+        "Rõ ràng nói là không có gì phải phòng",
+        "Mà vẫn lo phiền, do dự, lòng sợ hãi"
+      ],
+      "interpretation": "Như điểm tuyết trên lò, như gió xuyên qua tai. Quẻ có hình ảnh hổ gỗ có uy, nên làm phúc, việc trước xấu sau tốt, phần nhiều chỉ là hư kinh, ít thực.",
+      "advice": "Gia đạo: bất an. Bản thân: khẩu thiệt. Cầu tài: có tiểu nhân. Giao dịch: bất lợi. Hôn nhân: không hợp. Sinh con: hiểm hư. Người đi xa: bị cản. Kiện tụng: thiệt. Tằm tang, gia súc: tổn hại. Tìm người: bặt tin. Dời chỗ: giữ cũ. Mất đồ: hư. Bệnh: cúng hổ. Mồ mả: xấu.",
+      "story": "Bàng Hồng là quốc trượng gian ác trong truyện Bao Công, luôn e sợ Bao Chửng chính trực."
+    },
+    {
+      "number": 89,
+      "title": "Trí phục Khương Duy",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Xuất nhập doanh mưu đại cát xương",
+        "Tự ngọc vô hà thạch lý tàng",
+        "Nhược đắc quý nhân lai chỉ dẫn",
+        "Tư thời đắc bảo hỉ phong quang"
+      ],
+      "poem_han": [
+        "出入营谋大吉昌",
+        "似玉无瑕石里藏",
+        "若得贵人来指引",
+        "斯时得宝喜风光"
+      ],
+      "meaning": [
+        "Ra vào mưu tính đều đại cát",
+        "Như ngọc không tì vết ẩn trong đá",
+        "Nếu có quý nhân đến chỉ dẫn",
+        "Lúc ấy được báu, vui cảnh đẹp"
+      ],
+      "interpretation": "Như đá giấu ngọc, có quý nhân chỉ dẫn. Quẻ có hình ảnh đá giấu báu, được báu vừa lòng, mọi việc xứng ý, rất tốt.",
+      "advice": "Gia đạo: cát lợi. Bản thân: khỏe mạnh. Cầu tài: toại ý. Giao dịch: thành. Hôn nhân: thành. Sinh con: trai. Người đi xa: bị cản. Tằm tang: phải gắng sức. Gia súc: chăm nom. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: tốt. Bệnh: yên. Mồ mả: tốt.",
+      "story": "Gia Cát Lượng dùng mưu trí thu phục Khương Duy, về sau Khương Duy theo Thục Hán."
+    },
+    {
+      "number": 90,
+      "title": "Thương long ngộ tiên",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Hốt nhiên nhất tín hướng thiên phi",
+        "Thái Sơn bảo bối mãn thuyền quy",
+        "Nhược vấn lộ đồ thành hảo sự",
+        "Tiền đầu nhưng hữu quý nhân thôi"
+      ],
+      "poem_han": [
+        "忽然一信向天飞",
+        "泰山宝贝满船归",
+        "若问路途成好事",
+        "前头仍有贵人推"
+      ],
+      "meaning": [
+        "Bỗng một bức thư bay lên trời",
+        "Báu vật Thái Sơn chở đầy thuyền trở về",
+        "Nếu hỏi đường đi có thành việc tốt không",
+        "Phía trước vẫn có quý nhân đẩy giúp"
+      ],
+      "interpretation": "Hỏi công danh thì phía trước có quý nhân. Quẻ công thành danh toại, thêm hỉ khí, tài lộc dồi dào, việc nên tiến, rất tốt.",
+      "advice": "Gia đạo: hưng vượng. Bản thân: tốt. Cầu tài: rất vượng. Giao dịch: thành. Hôn nhân: thành. Sinh con: trai. Người đi xa: về. Tằm tang: lợi. Gia súc: hưng thịnh. Tìm người: gặp. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: tìm được. Bệnh: yên. Mồ mả: đại cát.",
+      "story": "Điển rồng xanh gặp tiên, hình ảnh người có tài gặp được quý nhân nâng đỡ."
+    },
+    {
+      "number": 91,
+      "title": "Tam anh chiến Lã Bố",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Như triển sầu mi xuất chúng lai",
+        "Tiền đồ cải biến hỉ đa tài",
+        "Nhất điều đại lộ như thiên khoát",
+        "Phàm hữu thi vi tận xứng hoài"
+      ],
+      "poem_han": [
+        "如展愁眉出众来",
+        "前途改变喜多财",
+        "一条大路如天阔",
+        "凡有施为尽称怀"
+      ],
+      "meaning": [
+        "Như giãn mày sầu, nổi bật hơn người",
+        "Tiền đồ đổi thay, mừng nhiều của cải",
+        "Một con đường lớn rộng như trời",
+        "Mọi việc làm đều vừa ý"
+      ],
+      "interpretation": "Một con đường rộng mở phía trước. Quẻ tiền đồ hiển đạt, việc trong lòng chính đại quang minh nên thông suốt, rất tốt.",
+      "advice": "Gia đạo: tốt. Bản thân: thuận. Cầu tài: có, giao dịch thành. Hôn nhân: hợp. Sinh con: trai. Người đi xa: về. Tằm tang: lợi. Gia súc: vượng. Tìm người: gặp. Kiện tụng: có lý. Dời chỗ: tốt. Mất đồ: thấy. Bệnh: yên. Mồ mả: tốt.",
+      "story": "Lưu Bị, Quan Vũ, Trương Phi ba anh em đại chiến Lã Bố ở Hổ Lao quan trong Tam Quốc."
+    },
+    {
+      "number": 92,
+      "title": "Thái Khanh báo ân",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Tự ấu vi thương nhậm thiết mưu",
+        "Tài lộc doanh phong bất dụng cầu",
+        "Nhược thị chích thân mưu vọng sự",
+        "Tú tài xuất khứ trạng nguyên hồi"
+      ],
+      "poem_han": [
+        "自幼为商任设谋",
+        "财禄盈丰不用求",
+        "若是只身谋望事",
+        "秀才出去状元回"
+      ],
+      "meaning": [
+        "Từ nhỏ làm nghề buôn, mặc sức mưu tính",
+        "Tài lộc đầy đủ, không cần cầu",
+        "Nếu một thân đi mưu cầu việc",
+        "Tú tài đi ra, trạng nguyên trở về"
+      ],
+      "interpretation": "Từ nhỏ đến lớn không trở ngại. Quẻ có hình ảnh làm thương nhân từ bé, mưu sự đắc ý, danh vẫn còn, cần kiệm thì không lo.",
+      "advice": "Gia đạo: yên. Bản thân: thư thái. Cầu tài: thuận lợi. Giao dịch: thắng. Hôn nhân: thành. Sinh con: trai. Người đi xa: động thân. Tằm tang: được mùa. Gia súc: vượng. Tìm người: gặp. Kiện tụng: thắng. Dời chỗ: như ý. Mất đồ: còn ở đó. Bệnh: khỏi ngay. Mồ mả: đại cát.",
+      "story": "Điển Thái Khanh báo ân, tích về người đền đáp ơn nghĩa, nay chỉ còn nhắc lại tên tích."
+    },
+    {
+      "number": 93,
+      "title": "Cao Quân Bảo chiêu thân",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Phượng hoàng tường mao vũ lâm ly",
+        "Đương thời khước bị tước nhi khi",
+        "Chung giáo nhất nhật vân tiêu tán",
+        "Y cựu hoàn quân chỉnh vũ y"
+      ],
+      "poem_han": [
+        "凤凰翔毛雨淋漓",
+        "当时却被雀儿欺",
+        "终教一日云消散",
+        "依旧还君整羽衣"
+      ],
+      "meaning": [
+        "Lông phượng hoàng bay, mưa tầm tã",
+        "Lúc ấy lại bị chim sẻ bắt nạt",
+        "Rốt cuộc một ngày mây tan",
+        "Vẫn trả lại ngài bộ áo lông chỉnh tề"
+      ],
+      "interpretation": "Tiểu nhân ngày càng thịnh thì quân tử chớ làm gì. Quẻ có hình ảnh phượng hoàng gặp mưa, chỉ nên giữ mình đợi thời, đợi đến lúc thì lợi lớn.",
+      "advice": "Gia đạo: kém lợi. Bản thân: cần đề phòng. Cầu tài: bị cản. Giao dịch: đợi thời. Hôn nhân: chậm trễ. Sinh con: có hư. Người đi xa: động thân. Tằm tang: muộn. Gia súc: tổn hại. Tìm người: khó. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: xấu. Bệnh: kéo dài. Mồ mả: nên đổi.",
+      "story": "Điển Cao Quân Bảo kén rể (Cao Quân Bảo chiêu thân) trong truyện dân gian."
+    },
+    {
+      "number": 94,
+      "title": "Bá Nha phỏng hữu",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Quân tử mạc thể tiểu nhân vi",
+        "Sự nhược sai trì đa thị phi",
+        "Cầm minh tu dụng tri âm thính",
+        "Thủ thường an tĩnh đắc y hi"
+      ],
+      "poem_han": [
+        "君子莫体小人为",
+        "事若差池多是非",
+        "琴鸣须用知音听",
+        "守常安静得依稀"
+      ],
+      "meaning": [
+        "Quân tử chớ làm theo kẻ tiểu nhân",
+        "Việc nếu sai lệch thì nhiều thị phi",
+        "Tiếng đàn cần người tri âm nghe",
+        "Giữ lẽ thường, yên tĩnh thì được tạm ổn"
+      ],
+      "interpretation": "Chuyện nhàn chỉ nói với người tri kỷ, việc khác đừng can dự. Quẻ nói cần gặp được tri kỷ, đợi quý nhân thì vui, giữ lẽ thường thì tốt.",
+      "advice": "Gia đạo: nên hạn chế ra ngoài. Bản thân: có tiểu nhân. Cầu tài: đợi thời. Giao dịch: thận trọng. Hôn nhân: nên chậm. Sinh con: gái. Người đi xa: động thân. Gia súc: tổn hại. Tìm người: tích cực. Kiện tụng: hòa. Mất đồ: tìm nhanh. Bệnh: bị cách trở. Mồ mả: bất lợi.",
+      "story": "Du Bá Nha đi thăm bạn tri âm Chung Tử Kỳ, người nghe hiểu tiếng đàn của ông."
+    },
+    {
+      "number": 95,
+      "title": "Tào Phi xưng đế",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Chí khí công danh tại thử triêu",
+        "Mạc hiềm giá quý bất kiên lao",
+        "Nhược kiến kim kê báo quân ngữ",
+        "Tiền tài phúc lộc dữ quân chiêu"
+      ],
+      "poem_han": [
+        "志气功名在此朝",
+        "莫嫌价贵不坚牢",
+        "若见金鸡报君语",
+        "钱财福禄与君招"
+      ],
+      "meaning": [
+        "Chí khí công danh ở buổi sớm này",
+        "Chớ chê giá đắt, không bền chắc",
+        "Nếu thấy gà vàng báo tin cho ngài",
+        "Tiền tài phúc lộc đến với ngài"
+      ],
+      "interpretation": "Chí khí siêng năng giữ mình thì chưa muộn. Quẻ chí khí nên danh, gà vàng báo tin thì đều vui, giữ lẽ thường là rất tốt.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: trung bình. Cầu tài: nhọc lòng. Giao dịch: sớm quyết. Hôn nhân: chờ thành. Sinh con: yên. Tằm tang: muộn nhưng thắng. Gia súc: thành. Tìm người: khó. Kiện tụng: nên quyết gấp. Dời chỗ: giữ cũ. Mất đồ: ở xa. Bệnh: kéo dài. Mồ mả: tốt.",
+      "story": "Tào Phi, con Tào Tháo, phế Hán Hiến Đế, lên ngôi hoàng đế nước Ngụy."
+    },
+    {
+      "number": 96,
+      "title": "Đậu Yên Sơn tích thiện",
+      "category": "good",
+      "level": "Thượng",
+      "poem": [
+        "Nguy nguy bảo tháp bất tầm thường",
+        "Bát diện linh lung tận phóng quang",
+        "Khuyến quân lập chí cần đỉnh lễ",
+        "Tác thiện thương thiên giáng phúc tường"
+      ],
+      "poem_han": [
+        "巍巍宝塔不寻常",
+        "八面玲珑尽放光",
+        "劝君立志勤顶礼",
+        "作善苍天降福祥"
+      ],
+      "meaning": [
+        "Bảo tháp cao vời chẳng tầm thường",
+        "Tám mặt linh lung đều tỏa sáng",
+        "Khuyên ngài lập chí chăm lễ bái",
+        "Làm thiện thì trời xanh giáng phúc lành"
+      ],
+      "interpretation": "Tu phúc thì mọi người đều thấy. Quẻ có hình ảnh phúc đức hiện thân, không cần lo vội, phúc đức đã định trước, rất tốt rất lợi.",
+      "advice": "Gia đạo: nên tạ nguyện. Bản thân: bình an. Cầu tài: chính đáng thì thắng. Giao dịch: đại cát. Hôn nhân: hòa hợp. Sinh con: mừng. Người đi xa: động thân. Tằm tang: bình ổn. Gia súc: kém lợi. Tìm người: gặp. Kiện tụng: hòa. Dời chỗ: tốt. Bệnh: lễ giải sao. Mồ mả: bình thường.",
+      "story": "Đậu Vũ Quân (Đậu Yên Sơn) đời Hậu Chu nổi tiếng làm việc thiện, dạy con thành đạt."
+    },
+    {
+      "number": 97,
+      "title": "Lục xuất Kỳ Sơn",
+      "category": "neutral",
+      "level": "Trung",
+      "poem": [
+        "Đương phong điểm chúc không sơ ảnh",
+        "Hoảng hốt phô thành kính lý hoa",
+        "Lũy lũy hà sơn đãi thu thập",
+        "Chẩm tri chỉ thị ảo phù tra"
+      ],
+      "poem_han": [
+        "当风点烛空疏影",
+        "恍惚铺成镜里花",
+        "累累河山待收拾",
+        "怎知只是幻浮槎"
+      ],
+      "meaning": [
+        "Thắp nến trước gió chỉ có bóng thưa",
+        "Mơ hồ như hoa trong gương",
+        "Non sông chồng chất đang chờ thu gom",
+        "Nào ngờ chỉ là chiếc bè phù ảo"
+      ],
+      "interpretation": "Giàu sang tại trời, nghèo là mệnh. Quẻ có hình ảnh thắp đèn trước gió, không cần cầu mưu vì đều do trời định, việc hư danh ít lợi.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: thận trọng. Cầu tài: được lợi. Giao dịch: cẩn trọng. Hôn nhân: trung bình. Sinh con: có kinh động. Người đi xa: bặt tin. Tằm tang, gia súc: tổn hại. Tìm người: không dấu vết. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: xấu. Bệnh: phạm âm. Mồ mả: nên đổi.",
+      "story": "Gia Cát Lượng sáu lần xuất quân ra Kỳ Sơn đánh Ngụy nhưng chưa thành công."
+    },
+    {
+      "number": 98,
+      "title": "Cát Bình ngộ nạn",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Xuất nhập cầu mưu sự nghi trì",
+        "Chỉ khủng nhàn sầu nhạ thị phi",
+        "Như điểu phi nhập la võng lý",
+        "Tương phùng năng hữu kỷ đa thì"
+      ],
+      "poem_han": [
+        "出入求谋事宜迟",
+        "只恐闲愁惹是非",
+        "如鸟飞入罗网里",
+        "相逢能有几多时"
+      ],
+      "meaning": [
+        "Ra vào cầu mưu việc nên chậm",
+        "Chỉ sợ sầu vẩn vơ gây thị phi",
+        "Như chim bay vào trong lưới",
+        "Gặp nhau được bao lâu"
+      ],
+      "interpretation": "Giữ cũ tùy duyên, đợi quý nhân đến. Quẻ nói mọi việc đều chậm, không như ý, chủ về hung.",
+      "advice": "Gia đạo: nghi ngờ. Bản thân: có tiểu nhân. Cầu tài: phá tán. Giao dịch: tổn thất. Hôn nhân: không lâu bền. Sinh con: hình tổn. Người đi xa: khốn đốn. Tằm tang, gia súc: tổn hại. Tìm người: sẽ đến. Kiện tụng: thiệt. Dời chỗ: chớ động. Mất đồ: xấu. Bệnh: phạm la võng. Mồ mả: xấu.",
+      "story": "Thầy thuốc Cát Bình thời Tam Quốc gặp nạn vì dính vào mưu diệt Tào Tháo."
+    },
+    {
+      "number": 99,
+      "title": "Đào Tam Xuân quải soái",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Lặc mã trì tiên trực quá lai",
+        "Bán hữu ưu nguy bán hữu tai",
+        "Kháp tự tao hỏa phần thiêu ốc",
+        "Thiên giáng thời vũ đãng thành hôi"
+      ],
+      "poem_han": [
+        "勒马持鞭直过来",
+        "半有忧危半有灾",
+        "恰似遭火焚烧屋",
+        "天降时雨荡成灰"
+      ],
+      "meaning": [
+        "Ghìm ngựa cầm roi đi thẳng tới",
+        "Nửa có lo nguy, nửa có tai họa",
+        "Như nhà bị lửa thiêu",
+        "Trời mưa đúng lúc cuốn thành tro"
+      ],
+      "interpretation": "Suốt đời nhọc sức, chớ bận tâm chuyện phải trái. Quẻ nửa lo nửa mừng, xiềng xích vào thân, oán trách tự đến, chỉ nên làm thiện.",
+      "advice": "Gia đạo: cầu bảo hộ. Bản thân: giữ cũ. Cầu tài: phá tán. Giao dịch: bị cản. Hôn nhân: hình khắc. Tằm tang, gia súc: tổn hại. Sinh con: hiểm. Người đi xa: khốn đốn. Tìm người: gây họa. Kiện tụng: thiệt. Dời chỗ: giữ cũ. Mất đồ: xấu. Bệnh: nguy. Mồ mả: nên đổi.",
+      "story": "Đào Tam Xuân là nữ tướng trong truyện Tống sơ, được phong làm soái."
+    },
+    {
+      "number": 100,
+      "title": "Tam giáo đàm đạo",
+      "category": "bad",
+      "level": "Hạ",
+      "poem": [
+        "Phật thần linh biến dữ quân tri",
+        "Si nhân thuyết sự chuyển hôn mê",
+        "Lão nhân cầu đắc linh thiêm khứ",
+        "Bất như thủ cựu đãi thời lai"
+      ],
+      "poem_han": [
+        "佛神灵变与君知",
+        "痴人说事转昏迷",
+        "老人求得灵签去",
+        "不如守旧待时来"
+      ],
+      "meaning": [
+        "Phật thần linh biến để ngài biết",
+        "Kẻ si nói chuyện càng thêm mê muội",
+        "Người già xin được quẻ thiêng mang đi",
+        "Chẳng bằng giữ cũ đợi thời đến"
+      ],
+      "interpretation": "Quẻ linh viên mãn báo cho ngài biết. Quẻ dạy giữ lẽ thường, chớ động, tin theo đó mà đợi thời đến thì tiến lên là tốt.",
+      "advice": "Gia đạo: cầu phúc. Bản thân: giữ cũ. Cầu tài: chậm. Giao dịch: khó. Hôn nhân: bị cản. Sinh con: hư kinh. Người đi xa: bị cản. Tằm tang: bình. Gia súc: tổn hại. Tìm người: khó. Kiện tụng: hòa. Dời chỗ: giữ cũ. Mất đồ: khó tìm. Bệnh: cầu phúc. Mồ mả: yên.",
+      "story": "Điển ba giáo Nho, Phật, Đạo cùng đàm luận về đạo lý."
+    }
+  ]
+}

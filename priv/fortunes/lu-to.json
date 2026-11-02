@@ -1,0 +1,2986 @@
+{
+  "collection": "lu-to",
+  "order": 2,
+  "name": "Lữ Tổ Linh Xăm",
+  "total": 100,
+  "sample": false,
+  "source": "https://github.com/unluckynike/qing_qian (chỉ phần cổ văn: thơ, giải viết, quẻ tượng); dịch tiếng Việt. Cấp quẻ do nguồn suy ra.",
+  "fortunes": [
+    {
+      "number": 1,
+      "title": "Vương Mẫu chúc thọ",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Bồng Lai đông các ngọc đào hương",
+        "Thuận thủy hành chu tiên tứ phương",
+        "Nghi nam chính hảo đồ toàn kế",
+        "Bất tất tha phương bốc địa trường"
+      ],
+      "poem_han": [
+        "蓬莱东阁玉桃香",
+        "顺水行舟仙赐方",
+        "宜男正好图全计",
+        "不必他方卜地长"
+      ],
+      "meaning": [
+        "Gác đông Bồng Lai, hoa đào ngọc thơm ngát",
+        "Thuận dòng chèo thuyền, tiên ban cho phương thuốc",
+        "Hợp việc sinh con trai, đúng lúc lo tính chu toàn",
+        "Không cần tìm nơi khác để xem đất lâu dài"
+      ],
+      "interpretation": "Các vị tiên tụ hội, nhạc trời vang lên, đó là điềm báo của việc cát khánh. Quẻ ứng với rồng hiện ở ruộng, lợi gặp bậc đại nhân, người xem được điềm đại cát tường.",
+      "advice": "Cứ lo liệu chu toàn ngay tại chỗ, không cần tìm nơi khác.",
+      "story": "Điển Tây Vương Mẫu mở tiệc chúc thọ, các vị tiên cùng đến dự."
+    },
+    {
+      "number": 2,
+      "title": "Tiềm long biến hóa",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Tiềm tàng tự hữu quang minh nhật",
+        "Thủ nại vô như đãi Bính Đinh",
+        "Long hổ tương tranh sinh định số",
+        "Xuân phong nhất chuyển tiệm phi kinh"
+      ],
+      "poem_han": [
+        "潜藏自有光明日",
+        "守耐无如待丙丁",
+        "龙虎相争生定数",
+        "春风一转渐飞惊"
+      ],
+      "meaning": [
+        "Ẩn náu rồi ắt có ngày sáng rõ",
+        "Kiên nhẫn giữ mình, không gì bằng chờ đến Bính Đinh",
+        "Rồng hổ tranh nhau, số đã định sẵn",
+        "Gió xuân vừa chuyển, dần bay vút lên"
+      ],
+      "interpretation": "Tiềm long là ẩn mình, biến là thông suốt; cửu ngũ rồng bay trên trời, lợi gặp bậc đại nhân. Bính Đinh là lúc ngày tháng giờ gặp thời. Quẻ nói quân tử xem thì tốt, tiểu nhân xem thì xấu, mọi việc đợi đúng thời sẽ sáng sủa, hành động hợp thời biến là được.",
+      "advice": "Ẩn nhẫn chờ thời, đến lúc hợp thời biến thì mới hành động.",
+      "story": "Điển rồng ẩn mình dưới vực rồi biến hóa, lấy từ quẻ Kiền trong Kinh Dịch."
+    },
+    {
+      "number": 3,
+      "title": "Đường Minh Hoàng du Nguyệt điện",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Minh nguyệt đương tam ngũ",
+        "Thiên địa tự vô tư",
+        "Nhất dương lai dĩ phục",
+        "Đắc ý tại thu thời"
+      ],
+      "poem_han": [
+        "明月当三五",
+        "天地自无私",
+        "一阳来已复",
+        "得意在秋时"
+      ],
+      "meaning": [
+        "Trăng sáng đúng đêm rằm",
+        "Trời đất vốn không riêng tư",
+        "Một dương đã trở lại",
+        "Đắc ý vào lúc mùa thu"
+      ],
+      "interpretation": "Đường Minh Hoàng du điện Nguyệt, lòng có điều tư riêng mờ tối, trăng tối một lúc khiến tâm kinh sợ, nên cần danh chính ngôn thuận. Người được quẻ này không sao, cầu vào tháng tám, tháng chín càng tốt. Quẻ nói dương bị âm chế, việc gì cũng không nên tranh giành, nhẫn nhịn là hay, giữ lòng ngay thẳng thì mới cảm động được thần linh.",
+      "advice": "Nhẫn nhịn, không tranh giành, giữ lòng kiên chính ngay thẳng.",
+      "story": "Điển vua Đường Minh Hoàng dạo chơi cung trăng."
+    },
+    {
+      "number": 4,
+      "title": "Đường Tam Tạng thủ kinh",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Chính đại hữu quỷ thần chi trợ",
+        "Cát tường thành trung hậu chi báo",
+        "Bất phạ tà ma tiểu túy",
+        "Chỉ khán thu thu đông tàng"
+      ],
+      "poem_han": [
+        "正大有鬼神之助",
+        "吉祥成忠厚之报",
+        "不怕邪魔小崇",
+        "只看秋收冬藏"
+      ],
+      "meaning": [
+        "Chính đại thì có quỷ thần giúp đỡ",
+        "Cát tường là quả báo của sự trung hậu",
+        "Không sợ tà ma quấy phá nhỏ",
+        "Chỉ chờ xem thu gặt đông cất"
+      ],
+      "interpretation": "Trải qua hiểm trở, chịu nhiều gian khổ, may có quỷ thần che chở, lòng thần tốt lành, mùa thu có lợi. Quẻ là trong hiểm có cứu, gặp dữ hóa lành, người xem nên lưu ý tránh né.",
+      "advice": "Giữ lòng chính đại trung hậu, không sợ tà ma và lưu ý tránh điều hiểm.",
+      "story": "Điển Đường Tam Tạng vượt gian nan sang Tây Thiên thỉnh kinh."
+    },
+    {
+      "number": 5,
+      "title": "Kháng long đắc thủy",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhu thuận nhi tĩnh",
+        "Khôn chi lục hào giai cát",
+        "Âm thịnh ư dương",
+        "Bất phạ kháng long chi hối",
+        "Nhược thử tiêu tức",
+        "Chỉ đãi dương thố tương nghi"
+      ],
+      "poem_han": [
+        "柔顺而静",
+        "坤之六爻皆吉",
+        "阴盛于阳",
+        "不怕亢龙之悔",
+        "若此消息",
+        "只待羊兔相宜"
+      ],
+      "meaning": [
+        "Mềm thuận mà tĩnh lặng",
+        "Sáu hào quẻ Khôn đều tốt",
+        "Âm thịnh hơn dương",
+        "Không sợ cái hối của rồng bay quá cao",
+        "Tin tức là như vậy",
+        "Chỉ đợi tuổi dê và thỏ hợp nhau"
+      ],
+      "interpretation": "Mọi việc cẩn thận thì tốt; kháng là cao quá, cũng là hạn hán, kháng long hữu hối ở quẻ Kiền nghĩa là ngôi cao thế nguy. Quẻ nói chính thắng tà, vạn sự yên ổn, lười biếng thì phải đề phòng hiểm, nên tùy ngộ mà an, không nên cưỡng cầu.",
+      "advice": "Làm việc cẩn thận, tùy hoàn cảnh mà an, không cưỡng cầu.",
+      "story": "Điển rồng bay cao gặp nước, lấy ý từ quẻ Kiền trong Kinh Dịch."
+    },
+    {
+      "number": 6,
+      "title": "Lưu Bị thủ Tây Xuyên",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Như tranh như chiến",
+        "Trưởng tử khắc gia",
+        "Tòng cát nhi trinh",
+        "Đương tri thiên tòng nhân nguyện",
+        "Bất tất nhị nhị tam tam"
+      ],
+      "poem_han": [
+        "如争如战",
+        "长子克家",
+        "从吉而贞",
+        "当知天从人愿",
+        "不必二二三三"
+      ],
+      "meaning": [
+        "Như tranh như đánh",
+        "Con trưởng gánh vác được nhà",
+        "Theo điều lành mà giữ chính",
+        "Nên biết trời theo ý nguyện của người",
+        "Không cần do dự hai ba lần"
+      ],
+      "interpretation": "Chính phụ tranh hùng, bất lợi cho tiểu nhân; khắc gia là được Tây Xuyên, nhị nhị tam tam là tranh luận do dự. Quẻ là tượng bước thẳng lên mây xanh, mưu sự hòa hợp ắt được, đại cát; bạn bè không nên ghen ghét cũng không cần nghi ngờ, lòng rộng trí xa là hay.",
+      "advice": "Đừng do dự, đừng ghen ghét nghi kỵ, giữ lòng rộng và trí xa.",
+      "story": "Điển Lưu Bị lấy đất Tây Xuyên thời Tam Quốc."
+    },
+    {
+      "number": 7,
+      "title": "Bàn Cổ sơ khai",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Lâm vật dị dữ",
+        "Thiên địa nhân hợp",
+        "Nhất đáo xuân phong",
+        "Bách tường biền tập"
+      ],
+      "poem_han": [
+        "临物易与",
+        "天地人合",
+        "一到春风",
+        "百祥骈集"
+      ],
+      "meaning": [
+        "Đến với vật thì dễ hòa hợp",
+        "Trời đất và người hợp nhất",
+        "Khi gió xuân vừa đến",
+        "Trăm điều lành cùng tụ về"
+      ],
+      "interpretation": "Bàn Cổ vừa mở trời, vạn sự chưa đầy đủ; ai cầu được quẻ này thì xuân chưa đến, giữa chừng ắt bị trở ngại. Quẻ nói danh lợi song thu, đúng thời thì trăm việc thỏa lòng, là điềm đại cát, vạn vật đến mà không bị ngăn trở.",
+      "advice": "Đợi xuân đến, vì chưa tới thời thì giữa chừng dễ bị cản trở.",
+      "story": "Điển Bàn Cổ mở trời lập đất lúc khai thiên lập địa."
+    },
+    {
+      "number": 8,
+      "title": "Văn Tự trúng Tam nguyên",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Hỉ hỉ hỉ",
+        "Xuân phong đào lý",
+        "Thước táo thiềm tiền",
+        "Cẩm y quy lý",
+        "Dậu Tuất tương khán",
+        "Thiên hựu hảo tử"
+      ],
+      "poem_han": [
+        "喜喜喜",
+        "春凤桃李",
+        "鹊噪檐前",
+        "锦衣归里",
+        "酉戍相看",
+        "天佑好子"
+      ],
+      "meaning": [
+        "Mừng mừng mừng",
+        "Gió xuân, hoa đào hoa mận",
+        "Chim thước kêu trước hiên",
+        "Áo gấm về làng",
+        "Dậu Tuất nhìn nhau",
+        "Trời phù hộ con hiền"
+      ],
+      "interpretation": "Mọi việc đại cát; Luân Văn Tự là trạng nguyên đầu tiên của Quảng Đông. Quẻ nói yên ổn vững vàng, không làm mà được, tuy không giàu sang đột ngột nhưng bền lâu, không lo thay đổi giữa chừng; đây là thượng cát, danh lợi song toàn, việc gì cũng tốt.",
+      "advice": "Cứ giữ yên ổn vững vàng, thành quả sẽ bền lâu.",
+      "story": "Luân Văn Tự là trạng nguyên đầu tiên của Quảng Đông, đỗ Tam nguyên."
+    },
+    {
+      "number": 9,
+      "title": "Nhạc Phi xuất thế",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Côn hóa vi bằng nhất nhiệm phi",
+        "Trường An lộ thượng hảo quang huy",
+        "Âm mưu âm bốc giai như hử",
+        "Thuận thủy hành chu định hảo quy"
+      ],
+      "poem_han": [
+        "鲲化为鹏一任飞",
+        "长安路上好光辉",
+        "阴谋阴卜皆如许",
+        "顺水行舟定好归"
+      ],
+      "meaning": [
+        "Cá côn hóa chim bằng, mặc sức bay",
+        "Trên đường Trường An rạng rỡ",
+        "Mưu kín, bói kín đều như thế",
+        "Thuận nước chèo thuyền ắt về tốt đẹp"
+      ],
+      "interpretation": "Chìm bảy châu là cùng cực, mọi việc kinh hiểm, trước dữ sau lành, có quý nhân giúp đỡ, ngay thẳng thì được. Nhạc Phi tự Bằng Cử, người Thang Âm đời Tống, lúc sinh khóc ba ngày, mẹ bế vào chum, gặp lũ mà thoát. Quẻ nói trong hiểm có cứu, khó mà thành dễ, nên an phận chứ chưa thể cưỡng đi; một khi bay lên thì tiền đồ sáng sủa, cầu mưu thuận lợi.",
+      "advice": "Giữ lòng ngay thẳng, an phận, không nên cưỡng làm.",
+      "story": "Nhạc Phi, tự Bằng Cử, danh tướng nhà Tống, người Thang Âm."
+    },
+    {
+      "number": 10,
+      "title": "Cổ Thành tương hội",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Vấn tiên tu yếu thù thiên địa",
+        "Bách sự như tâm định hữu lợi",
+        "Quả năng xuân thu lưỡng xứ hảo",
+        "Long hổ trình tường",
+        "Phong vân tế hội"
+      ],
+      "poem_han": [
+        "问仙须要酬天地",
+        "百事如心定有利",
+        "果能春秋两处好",
+        "龙虎呈祥",
+        "风云际会"
+      ],
+      "meaning": [
+        "Hỏi tiên cần phải tạ ơn trời đất",
+        "Trăm việc như ý ắt có lợi",
+        "Nếu xuân thu hai nơi đều tốt",
+        "Rồng hổ trình điềm lành",
+        "Gió mây gặp hội"
+      ],
+      "interpretation": "Ban đầu ắt có chuyện lạ, rốt cuộc được đoàn viên. Quẻ nói danh lợi đều có, trăm việc thành tựu, nhưng mọi mưu tính phải nhờ cần kiệm, khổ nhọc mà có, nếu không thì chẳng thể thành công.",
+      "advice": "Sống cần kiệm, chịu khó, và nhớ tạ ơn trời đất.",
+      "story": "Điển Quan Vũ, Trương Phi hội ngộ ở Cổ Thành thời Tam Quốc."
+    },
+    {
+      "number": 11,
+      "title": "Hợp binh phá Tào",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất cá thố nhi nhất cá kê",
+        "Đẳng toàn vô bất hợp nhân tư",
+        "Hữu triêu ngộ trước đông phong lực",
+        "Thả khán thiên công tạo hóa cơ"
+      ],
+      "poem_han": [
+        "一个兔儿一个鸡",
+        "等全无不合人思",
+        "有朝遇着东风力",
+        "且看天公造化机"
+      ],
+      "meaning": [
+        "Một con thỏ, một con gà",
+        "Chờ cho đầy đủ thì chẳng gì không hợp ý người",
+        "Có ngày gặp được sức gió đông",
+        "Hãy xem cơ tạo hóa của trời"
+      ],
+      "interpretation": "Mỗi bên đều ôm lòng nghi ngờ, ắt có dối trá, đại để là nửa đẩy nửa chịu, bàn bạc việc gì cũng không thật lòng. Quẻ nói thuận gió thì được lợi, người xem là tượng đại cát.",
+      "advice": "Chờ thời gió thuận, xem cơ trời mà làm, bàn bạc cần thật lòng.",
+      "story": "Điển hai nhà Tôn Lưu hợp binh đánh quân Tào Tháo."
+    },
+    {
+      "number": 12,
+      "title": "Lưu Nguyễn ngộ tiên",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Thập nhật tọa",
+        "Nhất nhật hành",
+        "Cơ đầu hữu thủy",
+        "Bất ngại lợi tiền trình",
+        "Vấn đáo như hà cảnh",
+        "Lưu Nguyễn Thiên Thai bất ngộ nhân"
+      ],
+      "poem_han": [
+        "十日坐",
+        "一日行",
+        "矶头有水",
+        "不碍利前程",
+        "问到如何境",
+        "刘阮天台不误人"
+      ],
+      "meaning": [
+        "Mười ngày ngồi",
+        "Một ngày đi",
+        "Đầu ghềnh có nước",
+        "Không cản trở đường tiến lợi",
+        "Hỏi đến cảnh ra sao",
+        "Lưu Nguyễn ở Thiên Thai không làm lỡ người"
+      ],
+      "interpretation": "Lưu Nguyễn du Thiên Thai, nhìn thấu thế tình, danh lợi không thông, hỏi bệnh thì có thầy chữa. Quẻ rất hợp việc đi xa, có quý nhân giúp, trải qua gập ghềnh rồi sẽ thẳng đến đường lớn; nên đừng quyến luyến quê cũ, mưu tính xa thì đại cát đại lợi.",
+      "advice": "Nên đi xa, đừng quyến luyến quê cũ.",
+      "story": "Điển Lưu Thần, Nguyễn Triệu vào núi Thiên Thai gặp tiên."
+    },
+    {
+      "number": 13,
+      "title": "Bảo kiếm xuất hạp",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Hữu kiếm khai thần lộ",
+        "Hà yêu cảm phạm thần",
+        "Quân tử đạo trường",
+        "Tiểu nhân đạo tiêu",
+        "Nguyệt minh chung hữu vọng",
+        "Hà thượng nhiệm tiêu dao"
+      ],
+      "poem_han": [
+        "有剑开神路",
+        "何妖敢犯神",
+        "君子道长",
+        "小人道消",
+        "月明终有望",
+        "河上任逍遥"
+      ],
+      "meaning": [
+        "Có kiếm mở đường thần",
+        "Yêu nào dám phạm đến thần",
+        "Đạo quân tử lớn mạnh",
+        "Đạo tiểu nhân tiêu tan",
+        "Trăng sáng rốt cuộc có hy vọng",
+        "Trên sông mặc sức thong dong"
+      ],
+      "interpretation": "Giấu đi thì vô dụng, lộ ra thì có uy; mọi việc trước hiểm sau lành. Quẻ nói nên hiếu đễ hòa thuận, vun trồng gốc rễ, người thiện thì cát tường, người nhân thì giàu sang; ai hiếu với cha mẹ, kính nhường anh em thì tự nhiên gặp cảnh hay.",
+      "advice": "Giữ hiếu đễ hòa thuận, vun gốc rễ và làm điều thiện.",
+      "story": "Điển thanh bảo kiếm được rút khỏi vỏ thì lộ uy."
+    },
+    {
+      "number": 14,
+      "title": "Ngưu Cao chiến Ngột Truật",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất hổ xuất sơn",
+        "Nhất long phi thiên",
+        "Thiên duyên nhân duyên",
+        "Thượng quốc thu hiền",
+        "Sinh dục chi mỹ",
+        "Tạo hóa lưỡng toàn"
+      ],
+      "poem_han": [
+        "一虎出山",
+        "一龙飞天",
+        "天缘人缘",
+        "上国收贤",
+        "生育之美",
+        "造化两全"
+      ],
+      "meaning": [
+        "Một hổ ra khỏi núi",
+        "Một rồng bay lên trời",
+        "Duyên trời duyên người",
+        "Thượng quốc thu nạp người hiền",
+        "Cái đẹp của việc sinh dưỡng",
+        "Tạo hóa vẹn cả hai bề"
+      ],
+      "interpretation": "Rồng hổ tranh nhau thì sao khỏi tổn thương, sau hổ cưỡi lưng rồng, đại để là điềm không lành, nên đoán theo hai chữ tạo hóa. Quẻ nói nhân thời mà dậy, vừa dễ vừa nhanh, ngày sau thành tựu chưa thể lường được.",
+      "advice": "Nhân đúng thời mà dậy, và xem xét ở chữ tạo hóa.",
+      "story": "Điển tướng Ngưu Cao nhà Tống giao chiến với Ngột Truật của quân Kim."
+    },
+    {
+      "number": 15,
+      "title": "Tiên cơ tương hội",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nguyệt đáo thiên tâm nhân hữu vọng",
+        "Ngưu Lang xảo hợp thuộc thiên thành",
+        "Bất tu triển chuyển cầu lương ngẫu",
+        "Thiên hỷ tòng nhân mệnh tự vinh"
+      ],
+      "poem_han": [
+        "月到天心人有望",
+        "牛郎巧合属天成",
+        "不须辗转求良偶",
+        "天喜从人命自荣"
+      ],
+      "meaning": [
+        "Trăng tới giữa trời, người có hy vọng",
+        "Ngưu Lang gặp gỡ khéo là do trời tác thành",
+        "Không cần trằn trọc tìm bạn lành",
+        "Trời mừng theo ý người, mệnh tự vẻ vang"
+      ],
+      "interpretation": "Đêm thất tịch Ngưu Nữ qua sông Ngân, nhà nhà xỏ kim cầu xảo; tháng bảy mùa thu đại cát, mọi việc bình an, là điềm lành. Quẻ nói bằng bay muôn dặm, có niềm vui bất ngờ, có tượng tiến lên cao.",
+      "advice": "Không cần trằn trọc tìm kiếm, cứ thuận theo trời, tháng bảy mùa thu là tốt.",
+      "story": "Điển Ngưu Lang Chức Nữ gặp nhau trên sông Ngân đêm thất tịch."
+    },
+    {
+      "number": 16,
+      "title": "Vương Bột trúng trạng nguyên",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Thời lai phong tống Đằng Vương các",
+        "Vận chí hà ưu khóa tiên hạc",
+        "Giáp Ất lưỡng vận thiên vân thê",
+        "Dã tri quế hương vị tảo trác"
+      ],
+      "poem_han": [
+        "时来风送滕王阁",
+        "运至何忧跨仙鹤",
+        "甲乙两运天云梯",
+        "也知桂香味早卓"
+      ],
+      "meaning": [
+        "Thời đến, gió đưa tới gác Đằng Vương",
+        "Vận tới, lo gì không cưỡi được hạc tiên",
+        "Hai vận Giáp Ất là thang mây lên trời",
+        "Cũng biết hương quế sớm vượt trội"
+      ],
+      "interpretation": "Đứng đầu Trung Hoa nhưng thị phi không ít; lấy hai chữ Giáp Ất, cầu các đường được vận là tốt. Quẻ nói gió xuân đắc ý, gấm thêm hoa, việc gì cũng như ý; nếu người xem tích đức hành nhân thì tự nhiên hưng thịnh, gặp dữ hóa lành.",
+      "advice": "Tích đức hành nhân thì tự nhiên hưng thịnh, gặp dữ hóa lành.",
+      "story": "Vương Bột là danh sĩ đời Đường, nổi tiếng với bài tự về gác Đằng Vương."
+    },
+    {
+      "number": 17,
+      "title": "Trương Phi hát đoạn Trường Bản kiều",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất đán lôi thanh chấn",
+        "Tứ phương giai hữu khánh",
+        "Chuyển cát hựu tăng tường",
+        "Nhâm Quý Tý Ngọ định"
+      ],
+      "poem_han": [
+        "一旦雷声震",
+        "四方皆有庆",
+        "转吉又增祥",
+        "壬癸子午定"
+      ],
+      "meaning": [
+        "Một khi tiếng sấm vang",
+        "Bốn phương đều có mừng vui",
+        "Chuyển lành lại thêm điềm tốt",
+        "Nhâm Quý, Tý Ngọ đã định"
+      ],
+      "interpretation": "Trương Phi một tiếng quát lui quân Tào, khiến cầu Trường Bản gãy. Quẻ nói mở đầu không khó, giữ thành mới gian nan, nếu không khéo giữ ắt đổ mất; muốn giữ được thì phải cần cù và khiêm tốn.",
+      "advice": "Siêng năng và khiêm tốn để giữ gìn thành quả.",
+      "story": "Điển Trương Phi quát lui quân Tào Tháo ở cầu Trường Bản, cầu gãy."
+    },
+    {
+      "number": 18,
+      "title": "Khổng Minh tá đông phong",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Thập nhật than đầu sinh",
+        "Nhất nhật quá cửu than",
+        "Đông phong tu trước lực",
+        "Nhân sự tự hoàn toàn"
+      ],
+      "poem_han": [
+        "十日滩头生",
+        "一日过九滩",
+        "东风须着力",
+        "人事自完全"
+      ],
+      "meaning": [
+        "Mười ngày sinh ra ở đầu thác",
+        "Một ngày qua chín thác",
+        "Gió đông cần phải dốc sức",
+        "Việc người tự nhiên vẹn toàn"
+      ],
+      "interpretation": "Khổng Minh mượn gió đông giúp Chu Du hỏa thiêu Xích Bích; mọi việc nên đề phòng tiểu nhân. Quẻ nói lá rụng về cội, người già rồi cũng chết, giàu nghèo cũng là không, lo lắng chỉ tự khổ; thật thật giả giả là bí mật của nhà tiên, người xem không cần mừng rỡ cũng không cần buồn rầu.",
+      "advice": "Dốc sức làm việc người, đề phòng tiểu nhân, không mừng không lo quá.",
+      "story": "Điển Khổng Minh lập đàn mượn gió đông giúp Chu Du hỏa công ở Xích Bích."
+    },
+    {
+      "number": 19,
+      "title": "Thôi Mộng Hùng đắc đệ",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Hỉ đắc thu phong vạn sự túc",
+        "Nhất cử thành trúng thiên hạ phúc",
+        "Phượng hoàng ngũ thái lợi phi hành",
+        "Chỉ khán Tý Ngọ thời nhật bốc"
+      ],
+      "poem_han": [
+        "喜得秋风万事足",
+        "一举成中天下福",
+        "风凰五彩利飞行",
+        "只看子午时日卜"
+      ],
+      "meaning": [
+        "Mừng gặp gió thu, vạn sự đủ đầy",
+        "Một lần đỗ đạt, phúc cho thiên hạ",
+        "Phượng hoàng năm sắc lợi bay đi",
+        "Chỉ xem giờ ngày Tý Ngọ mà bói"
+      ],
+      "interpretation": "Lời giải nói rằng nếu lòng người không mong cầu may mắn lạ thì đâu có chuyện nghi ngờ mộng quái. Quẻ nói thời đến vận tới, gió xuân dạt dào, danh lợi thành tựu, người xem làm việc như ý; cần gắng sức bền lòng, việc có đầu có cuối mới thành đại cát.",
+      "advice": "Gắng sức bền lòng, việc có đầu có cuối, đừng mong cầu may mắn lạ.",
+      "story": "Điển Thôi Mộng Hùng đỗ đạt (đắc đệ)."
+    },
+    {
+      "number": 20,
+      "title": "Vương đạo nhân luyện đan",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhân chuyển đan thành bạch nhật thăng",
+        "Thần tiên hữu số lợi nhân doanh",
+        "Nhất triêu tẩu mã long hành hội",
+        "Thử thị vinh hoa nhất mỹ nhân"
+      ],
+      "poem_han": [
+        "人转丹成白日升",
+        "神仙有数利人营",
+        "一朝走马龙行会",
+        "此是荣华一美因"
+      ],
+      "meaning": [
+        "Người xoay luyện đan thành, ban ngày bay lên",
+        "Thần tiên có số, lợi cho người mưu cầu",
+        "Một sớm ngựa chạy, rồng gặp hội",
+        "Đây là nhân tốt đẹp của vinh hoa"
+      ],
+      "interpretation": "Đại để là khó; người tu đạo luyện đan phải kiên tâm giữ tiết mới thành đạo, và lúc luyện đan là quan trọng nhất. Quẻ nói tiến một bước tốt một bước, đến đâu hơn đó, đi mãi đi mãi chớ dừng chân; lời giải cũng nhắc giữ lòng nhân.",
+      "advice": "Kiên tâm giữ tiết, cứ tiến lên và không dừng chân.",
+      "story": "Điển Vương đạo nhân tu đạo luyện đan."
+    },
+    {
+      "number": 21,
+      "title": "Vĩnh Lạc vương đăng cơ",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Cát nhân thiên tướng",
+        "Tý Sửu tương đương",
+        "Tây Bắc hữu vinh",
+        "Phong hành thủy thượng"
+      ],
+      "poem_han": [
+        "吉人天相",
+        "子丑相当",
+        "西北有荣",
+        "风行水上"
+      ],
+      "meaning": [
+        "Người lành được trời giúp",
+        "Tý Sửu tương hợp",
+        "Tây Bắc có vinh quang",
+        "Gió thổi trên mặt nước"
+      ],
+      "interpretation": "Hồng Vũ có được thiên hạ; Vĩnh Lạc vương sau khi bị biếm, đến khi Hồng Vũ qua đời thì lên ngôi, trước khó sau dễ. Quẻ nói mây tan trời mở, ánh sáng trong trẻo kéo đến, mọi việc hanh thông.",
+      "advice": "Chịu khó lúc đầu, về sau mọi việc sẽ thuận lợi.",
+      "story": "Điển Vĩnh Lạc vương lên ngôi sau thời Hồng Vũ."
+    },
+    {
+      "number": 22,
+      "title": "Thuận Trị quá giang",
+      "category": "good",
+      "level": "Thượng thượng",
+      "poem": [
+        "Thượng thượng đẳng",
+        "Lợi hữu du vãng",
+        "Nhất nhật ngộ hợp",
+        "Thử ngưu tương phóng",
+        "Hảo hảo cơ hội",
+        "Danh đăng thiên bảng"
+      ],
+      "poem_han": [
+        "上上等",
+        "利有攸往",
+        "一日遇合",
+        "鼠牛相放",
+        "好好机会",
+        "名登天榜"
+      ],
+      "meaning": [
+        "Hạng thượng thượng",
+        "Có lợi khi tiến tới",
+        "Một ngày gặp gỡ hợp ý",
+        "Chuột và trâu cùng nhau",
+        "Cơ hội thật tốt",
+        "Tên đề bảng trời"
+      ],
+      "interpretation": "Buông tay mà được thiên hạ, việc gì cũng tốt. Quẻ là tượng nhà tranh ra công hầu, mọi việc nên gắng sức tu tiến, kiện ắt thắng, danh lợi thành, bệnh tự khỏi, hôn nhân hợp, sinh quý tử, gia đạo nên. Nhưng đừng ghen ghét, tu đức hành nhân thì trăm việc đều tốt.",
+      "advice": "Gắng sức tu tiến, đừng ghen ghét, tu đức hành nhân.",
+      "story": "Điển vua Thuận Trị nhà Thanh qua sông."
+    },
+    {
+      "number": 23,
+      "title": "Chử tửu luận anh hùng",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Hải thượng nhất long phi",
+        "Xuân phong đắc ý hồi",
+        "Tòng thử hân vinh ngộ",
+        "Chỉ đãi nhất Nhâm lai"
+      ],
+      "poem_han": [
+        "海上一龙飞",
+        "春风得意回",
+        "从此欣荣遇",
+        "只待一壬来"
+      ],
+      "meaning": [
+        "Trên biển một rồng bay",
+        "Gió xuân đắc ý trở về",
+        "Từ nay gặp cảnh vinh vui",
+        "Chỉ đợi một chữ Nhâm đến"
+      ],
+      "interpretation": "Rơi đũa vì sấm, trong hiểm có cứu; đó là bậc chân mệnh chủ của thế chân vạc, Tào A Man cũng chẳng làm gì được, nhưng rốt cuộc vẫn khổ. Quẻ nói có tai họa bất ngờ, nên kín miệng; danh lợi có, kiện tan, hôn chưa hợp, người đi tiến, bệnh có thầy chữa, song vẫn khó tránh trở ngại.",
+      "advice": "Kín miệng, thận trọng trong mọi việc.",
+      "story": "Điển Tào Tháo và Lưu Bị nấu rượu luận anh hùng, Lưu Bị làm rơi đũa vì tiếng sấm."
+    },
+    {
+      "number": 24,
+      "title": "Trần Vạn Niên tái thế nhân duyên",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Thuyết đáo long xà mã hựu lai",
+        "Khán khán vô bất toại tâm hoài",
+        "Tiền sinh câu thị hữu duyên phận",
+        "Cập đáo kim thời vận dĩ cai"
+      ],
+      "poem_han": [
+        "说到龙蛇马又来",
+        "看看无不遂心怀",
+        "前生俱是有缘份",
+        "及到今时运已该"
+      ],
+      "meaning": [
+        "Nói đến rồng rắn rồi ngựa lại đến",
+        "Xem ra không gì không thỏa lòng",
+        "Kiếp trước đều có duyên phận",
+        "Đến nay vận đã tới"
+      ],
+      "interpretation": "Trần Vạn Niên nhà nghèo, vợ suýt chết đói, sau phát phẫn học hành, mười năm đèn sách đỗ tiến sĩ và gặp lại vợ. Người được quẻ này trước dữ sau lành, năm tháng Thìn Tị Ngọ vận tốt, mưu việc đều như ý, nhưng phải giữ vững chí, nếu hai lòng ba ý thì có giàu sang cũng không hưởng lâu. Quẻ cũng nói nhìn thấu thế tình, chớ nóng vội, trước chịu thiệt là được lợi lớn, giữ phận là tốt.",
+      "advice": "Giữ vững chí hướng, chớ nóng vội, giữ phận là tốt.",
+      "story": "Điển Trần Vạn Niên nghèo khó, đỗ tiến sĩ rồi gặp lại vợ."
+    },
+    {
+      "number": 25,
+      "title": "Phùng Thành Tu cáo lão",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Trư thử tương hợp",
+        "Mão Dậu tương đồng",
+        "Nhất thuyền mãn tải",
+        "Tải tải bất không",
+        "Đắc tâm ứng thủ",
+        "Chỉ tại tam tứ ngũ thành công"
+      ],
+      "poem_han": [
+        "猪鼠相合",
+        "卯酉相同",
+        "一船满载",
+        "载载不空",
+        "得心应手",
+        "只在三四五成功"
+      ],
+      "meaning": [
+        "Hợi Tý hợp nhau",
+        "Mão Dậu cùng nhau",
+        "Một thuyền chở đầy",
+        "Chở mãi không rỗng",
+        "Thuận tay ứng lòng",
+        "Chỉ ở ba, bốn, năm là thành công"
+      ],
+      "interpretation": "Lời giải nhắc chuyện Trần Vạn Niên nhà nghèo, vợ chết đói, sau đỗ tiến sĩ, vợ chồng gặp lại, trước dữ sau lành. Quẻ nói nhìn thấu thế tình, danh lợi có, chớ nóng vội, kiện nên hòa giải, trước chịu thiệt là hơn. Hôn nhân thành, người đi xa, bệnh kéo dài, giàu sang có lúc, giữ phận là tốt.",
+      "advice": "Chớ nóng vội, chịu thiệt trước, giữ phận là tốt.",
+      "story": "Điển Phùng Thành Tu cáo lão, xin về hưu."
+    },
+    {
+      "number": 26,
+      "title": "Lương Hạo lỗi khí vãn thành",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất thiên hỉ khí nhất môn cát",
+        "Nhất nhân hữu khánh giai thụ ích",
+        "Nhất tiễn trúng hồng tâm",
+        "Công danh thành toại chuyển",
+        "Tường phong sinh tứ bích",
+        "Môn đình quang dịch dịch"
+      ],
+      "poem_han": [
+        "一天喜气一门吉",
+        "一人有庆皆受益",
+        "一箭中红心",
+        "功名成遂转",
+        "祥风生四壁",
+        "门庭光奕奕"
+      ],
+      "meaning": [
+        "Khí vui đầy trời, cả nhà đều tốt lành",
+        "Một người có việc mừng, mọi người cùng được lợi",
+        "Một mũi tên trúng hồng tâm",
+        "Công danh thành đạt, vận chuyển theo hướng tốt",
+        "Gió lành nổi lên khắp bốn bề",
+        "Cửa nhà rạng rỡ sáng ngời"
+      ],
+      "interpretation": "Quẻ nói mọi việc như ý, hợp với người có khí chất chín chắn, đại khí vãn thành. Việc đi hay ở là do trời định, tiến được thì tiến, nên dừng thì dừng, mọi sự cứ thuận theo tự nhiên, không cưỡng cầu. Kiện tụng nên hòa giải chứ đừng đeo đuổi, bệnh nên tìm thầy chữa, hôn nhân có thể thuận hòa.",
+      "advice": "Đừng cưỡng cầu, thuận theo thời mà tiến hay dừng. Làm việc gì cũng nên cẩn trọng.",
+      "story": "Điển tích Lương Hạo, người học giỏi nhưng thành đạt muộn."
+    },
+    {
+      "number": 27,
+      "title": "Biện Hòa tiến bảo",
+      "category": "neutral",
+      "level": "Trung bình",
+      "poem": [
+        "Phượng chú Đan Sơn báo hiểu thời",
+        "Nhân sinh đắc ý thị kỳ kỳ",
+        "Khán lai tự hữu thám long bảo",
+        "Nhật nguyệt quang huy Thân dữ Kê"
+      ],
+      "poem_han": [
+        "凤翥丹山报晓时",
+        "人生得意是奇奇",
+        "看来自有探龙宝",
+        "日月光辉申与鸡"
+      ],
+      "meaning": [
+        "Phượng bay lên núi Đan Sơn vào lúc báo sáng",
+        "Đời người đắc ý quả là điều kỳ lạ",
+        "Xem ra vốn có báu vật để tìm nơi rồng ở",
+        "Nhật nguyệt sáng rạng, ứng vào năm Thân và năm Dậu"
+      ],
+      "interpretation": "Quẻ nói dâng ngọc quý mà thành danh, một lòng trung vì nước, nhưng khó khăn không nhỏ, là quẻ trước hung sau cát. Cần yên phận chờ thời, đừng vì việc chưa thành mà oán than nản lòng, vì hết cực thì đến thái, cảnh tốt sắp đến trước mắt.",
+      "advice": "An phận chờ thời, giữ lòng kiên định và biết nhẫn nại thì việc mới thành. Bệnh nên cẩn thận chọn thầy chữa.",
+      "story": "Điển tích Biện Hòa dâng ngọc quý, chịu nhiều gian nan rồi mới được công nhận."
+    },
+    {
+      "number": 28,
+      "title": "Triệu Tử Long tá Lưu Bị",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Tiền sinh nguyên thị thử gia nhân",
+        "Kim thế tương phùng định hữu nhân",
+        "Long hổ trình tường toại thiên tử",
+        "Ngũ tam lục nhị thị kỳ kỳ"
+      ],
+      "poem_han": [
+        "前生原是此家人",
+        "今世相逢定有因",
+        "龙虎呈祥遂天子",
+        "五三六二是奇期"
+      ],
+      "meaning": [
+        "Kiếp trước vốn là người một nhà này",
+        "Đời này gặp nhau ắt có nhân duyên",
+        "Rồng hổ hiện điềm lành, theo về bậc thiên tử",
+        "Năm, ba, sáu, hai là kỳ hạn kỳ diệu"
+      ],
+      "interpretation": "Quẻ nhắc chuyện tướng quân Triệu Vân lúc đầu phò Công Tôn Toản, sau một lòng trung thành giữ chí giúp nhà Hán. Công danh phú quý được thần minh che chở. Kiện tụng nên hòa giải, nếu không sẽ kéo dài khó xong; hòa khí thì sinh tài, rất tốt.",
+      "advice": "Nên hòa giải trong kiện tụng, giữ hòa khí với mọi người.",
+      "story": "Điển tích Triệu Vân (Tử Long) lúc đầu theo Công Tôn Toản, sau phò tá Lưu Bị."
+    },
+    {
+      "number": 29,
+      "title": "Tôn chân nhân hành y",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Hầu nhi lai",
+        "Thố nhi khứ",
+        "Long ngâm hổ khiếu",
+        "Nãi thị thu thành giai ngộ",
+        "Bất tu cầu tế"
+      ],
+      "poem_han": [
+        "猴儿来",
+        "兔儿去",
+        "龙呤虎啸",
+        "乃是收成佳遇",
+        "不须求际"
+      ],
+      "meaning": [
+        "Năm Khỉ đến",
+        "Năm Thỏ đi",
+        "Rồng ngâm hổ gầm",
+        "Ấy là duyên lành của lúc thu hoạch",
+        "Không cần phải cầu mong cơ hội"
+      ],
+      "interpretation": "Lời giải của quẻ là những câu ẩn dụ khó hiểu về rồng, gà và trứng. Phần quẻ nói người cùng chí hướng thì làm được việc lớn, danh lợi đều thành, là tượng cùng hoạn nạn cùng an vui. Việc gì cũng gặp trở ngại lúc đầu, nhưng về sau ắt có cơ duyên tốt, tìm thầy chữa bệnh thì có cứu.",
+      "advice": "Việc gì lúc đầu cũng bị cản trở, cứ kiên trì thì về sau sẽ gặp cơ duyên. Không cần cố cầu mong.",
+      "story": "Điển tích Tôn chân nhân (Tôn Tư Mạc) làm nghề thầy thuốc chữa bệnh cứu người."
+    },
+    {
+      "number": 30,
+      "title": "Tương Tử đắc đạo",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Càn tam hào",
+        "Tiệm tam hào",
+        "Nhất thời ngộ hợp",
+        "Hạc minh cửu cao"
+      ],
+      "poem_han": [
+        "干三爻",
+        "渐三爻",
+        "一时遇合",
+        "鹤鸣九皋"
+      ],
+      "meaning": [
+        "Hào ba của quẻ Càn",
+        "Hào ba của quẻ Tiệm",
+        "Một lúc nào đó gặp gỡ hợp duyên",
+        "Hạc kêu nơi chằm sâu chín lớp"
+      ],
+      "interpretation": "Lời giải nói về số mười gồm chín cộng một, như Bá Nhạc biết nhận ra con ngựa quý, gặp số sáu và số mười thì gọi là gặp gỡ hợp duyên. Quẻ cho thấy tài vận hanh thông nhưng danh chưa rạng, bệnh không cần dùng thuốc, hôn nhân chưa hợp, mọi việc an nhàn thoải mái.",
+      "advice": "Việc gặp số sáu và số mười là lúc gặp gỡ hợp duyên. Cứ giữ lòng an nhiên.",
+      "story": "Điển tích Hàn Tương Tử, một trong Bát Tiên, tu hành đắc đạo."
+    },
+    {
+      "number": 31,
+      "title": "Khương Duy phụ Thục",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Thủy thượng thuận phong xuy",
+        "Cao tài đắc ý huy",
+        "Học thành văn võ nghệ",
+        "Tự hữu hảo tài bồi"
+      ],
+      "poem_han": [
+        "水上顺风吹",
+        "高才得意挥",
+        "学成文武艺",
+        "自有好栽培"
+      ],
+      "meaning": [
+        "Trên mặt nước gió thuận thổi",
+        "Người tài cao đắc ý thi thố",
+        "Học thành nghề văn võ",
+        "Tự khắc có người vun đắp tốt"
+      ],
+      "interpretation": "Lời giải nhắc chuyện Gia Cát Vũ Hầu truyền lại ấn tín cho Khương Duy, ông một lòng phò tá nên chín lần đánh Trung Nguyên. Quẻ có tượng gian hung và ganh ghét, chỉ nên thận trọng giữ mình để tránh họa, tuyệt đối không tham cầu bừa bãi. Nếu từ nay tích đức làm điều nhân, hướng thiện thì có thể xoay chuyển vận khí, đổi họa thành lành.",
+      "advice": "Gặp việc phải nhẫn nhịn, chịu thiệt là có lợi, tích đức hướng thiện và làm gì cũng cẩn thận.",
+      "story": "Điển tích Khương Duy được Gia Cát Lượng truyền lại sự nghiệp, trung thành phò nhà Thục Hán."
+    },
+    {
+      "number": 32,
+      "title": "Quách Gia di kế định Liêu Đông",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Vinh hoa quý",
+        "Phú quý lai",
+        "Thiên địa sinh thành",
+        "Đa cát thiểu hối",
+        "Tam cửu toại tâm hoài",
+        "Kiền hứa thiện công phúc tự lai"
+      ],
+      "poem_han": [
+        "荣华贵",
+        "富贵来",
+        "天地生成",
+        "多吉少悔",
+        "三九遂心怀",
+        "虔许善功福自来"
+      ],
+      "meaning": [
+        "Vinh hoa sang quý",
+        "Phú quý đến",
+        "Trời đất sinh thành",
+        "Nhiều điều lành, ít điều hối hận",
+        "Ba chín thỏa lòng mong",
+        "Thành tâm hứa làm việc thiện thì phúc tự đến"
+      ],
+      "interpretation": "Lời giải kể Quách Gia, tự Phụng Hiếu, để lại kế sách cho Tào Tháo, làm theo kế thì thành công. Quẻ cho biết hiện đang khốn khó, mỗi bước đều khó đi, phải đợi sao xấu qua hết thì mới không còn trở ngại. Kiện tụng cuối cùng tốt, danh lợi chậm, bệnh đang ở lúc hiểm, hôn nhân chưa hợp.",
+      "advice": "Nên chờ thời, đừng hấp tấp tiến lên. Sớm phát lòng từ thiện, làm việc thiện thì có thể tiêu trừ nguy hiểm.",
+      "story": "Điển tích Quách Gia để lại kế sách cho Tào Tháo, sau đó dẹp yên Liêu Đông."
+    },
+    {
+      "number": 33,
+      "title": "Mai hoa khai nhị độ",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Mai chiếm hoa khôi cập đệ nguy",
+        "Thiên sinh phúc lộc lộc đồng huy",
+        "Vấn đáo chung thân hà sở tựu",
+        "Tam thất chi nội thị vinh hoa"
+      ],
+      "poem_han": [
+        "梅占花魁及第巍",
+        "天生福禄禄同辉",
+        "问到终身何所就",
+        "三七之内是荣华"
+      ],
+      "meaning": [
+        "Hoa mai chiếm ngôi đứng đầu các loài hoa, đỗ đạt cao vời",
+        "Trời sinh phúc lộc cùng tỏa sáng",
+        "Hỏi cả đời sẽ thành tựu điều gì",
+        "Trong khoảng ba bảy sẽ là vinh hoa"
+      ],
+      "interpretation": "Quẻ khuyên mọi việc phải hết sức nhẫn nhịn, không được cưỡng làm, tự khắc có điềm lành. Quẻ có tượng mất chỗ nương tựa. Kiện tụng đừng tranh, bệnh có nguy, danh và lợi đừng tham cầu, người đi xa còn bị cản trở.",
+      "advice": "Nên nhẫn nhịn, đừng gượng ép, đừng tham danh lợi. Nên tu thiện, thần sẽ giúp đỡ.",
+      "story": "Tên điển tích là hoa mai nở hai lần, được hiểu là cảnh tốt lại đến."
+    },
+    {
+      "number": 34,
+      "title": "Long mã phụ đồ",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Tự tòng Hà Lạc chu thiên số",
+        "Diễn đáo xuất môn giao hữu công",
+        "Nhất sinh tế ngộ tu long mã",
+        "Bất dụng trù trừ tự hợp hành"
+      ],
+      "poem_han": [
+        "自从河洛周天数",
+        "演到出门交有功",
+        "一生际遇须龙马",
+        "不用踌躇自合行"
+      ],
+      "meaning": [
+        "Từ khi có số Hà Đồ Lạc Thư vận hành khắp trời",
+        "Suy diễn đến lúc ra cửa thì có công",
+        "Cơ duyên cả đời nhờ vào long mã",
+        "Không cần do dự, tự hợp mà đi"
+      ],
+      "interpretation": "Lời giải kể thời Phục Hy, long mã mang đồ hình từ sông Hà hiện lên, dùng năm số sinh thống nhất thành số thành để vạch ra bát quái. Quẻ cho thấy vận đến thời đến, nên cố gắng tiến lên thì rất tốt. Tuy vậy kiện tụng có điều lo, bệnh chưa khỏi, danh lợi còn chờ thời, hôn nhân chớ vội cầu.",
+      "advice": "Nên phát phấn cố gắng tiến lên, nhưng phải đề phòng miệng tiếng thị phi.",
+      "story": "Điển tích long mã mang Hà Đồ hiện ra ở sông Hà thời Phục Hy."
+    },
+    {
+      "number": 35,
+      "title": "Bạch mã khiêu Đàn Khê",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Âm đức bất thị phi phàm sự",
+        "Tích thiện chi gia độ hữu dư",
+        "Ách khứ phúc lai thiên tấu xảo",
+        "Long phi hổ dược nhất kê đề"
+      ],
+      "poem_han": [
+        "阴德不是非凡事",
+        "积善之家度有余",
+        "厄去福来天凑巧",
+        "龙飞虎跃一鸡啼"
+      ],
+      "meaning": [
+        "Âm đức không phải chuyện tầm thường",
+        "Nhà tích thiện thì đời sống dư dả",
+        "Tai ách qua đi phúc đến, trời run rủi đúng lúc",
+        "Rồng bay hổ nhảy, một tiếng gà gáy"
+      ],
+      "interpretation": "Lời giải nói Huyền Đức bị quân truy đuổi đến suối Đàn Khê, may nhờ cưỡi ngựa trắng nhảy qua, thoát hiểm gặp sống; việc gì cũng cẩn thận thì có quý nhân, tốt lành. Quẻ có tượng anh em bất hòa, nên phải đề phòng tiểu nhân, nguy rồi mới yên. Kiện tụng thì xấu, bệnh có hiểm, làm việc thiện thì có cứu.",
+      "advice": "Phải cẩn thận đề phòng tiểu nhân, làm việc thiện, giữ lời ăn tiếng nói và hành xử thận trọng.",
+      "story": "Điển tích Lưu Bị cưỡi ngựa Đích Lô nhảy qua suối Đàn Khê thoát nạn."
+    },
+    {
+      "number": 36,
+      "title": "Trương Cửu Linh xuất thế",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Cần hương lộc minh",
+        "Bất viễn bất cận",
+        "Nhị ngũ chi nội",
+        "Tự nhiên hữu hạnh",
+        "Thiên hỷ Văn Xương chiếu mệnh"
+      ],
+      "poem_han": [
+        "芹香鹿鸣",
+        "不远不近",
+        "二五之内",
+        "自然有幸",
+        "天喜文昌照命"
+      ],
+      "meaning": [
+        "Rau cần thơm, hươu kêu",
+        "Không xa không gần",
+        "Trong khoảng hai, năm",
+        "Tự nhiên có may mắn",
+        "Sao Thiên Hỷ và Văn Xương chiếu mệnh"
+      ],
+      "interpretation": "Quẻ nói về bậc thần đồng thông tuệ, ánh sáng rạng khắp trong nước, rất tốt. Quẻ có tượng khí tím từ phương đông đến, muôn vật đều như mùa xuân, danh lợi đến muộn. Kiện tụng được lẽ phải, bệnh sẽ hanh thông, tin tức xa sớm có hồi âm, hôn nhân thành.",
+      "advice": "Việc tốt đang đến, cứ giữ vững mà làm, danh lợi sẽ đến muộn.",
+      "story": "Điển tích Trương Cửu Linh, danh thần nhà Đường, từ nhỏ nổi tiếng thông minh."
+    },
+    {
+      "number": 37,
+      "title": "Đại Thuấn canh điền",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Hoàng kim tự trọng",
+        "Nhân thiên lưỡng ánh",
+        "Xuân hoa thu quả",
+        "Hà hối hà lận"
+      ],
+      "poem_han": [
+        "黄金自重",
+        "人天雨映",
+        "春花秋果",
+        "何悔何吝"
+      ],
+      "meaning": [
+        "Vàng ròng tự có giá trị",
+        "Người và trời cùng soi chiếu",
+        "Xuân có hoa, thu có quả",
+        "Có gì phải hối hận, tiếc nuối"
+      ],
+      "interpretation": "Lời giải kể chín con trai hai con gái, trăm quan, trâu dê kho lẫm đều đủ để giúp Thuấn cày cấy, mùa thu thu hoạch là được, cuối cùng tốt lành. Quẻ có tượng khốn đã lâu sắp được vươn lên, sớm tối có tin mừng. Kiện tụng hòa thì tốt, bệnh sẽ yên, danh rất rõ, lợi bình thường, hôn nhân chậm, người đi xa sẽ về.",
+      "advice": "Nên hướng về điều thiện, đi đường thủy bộ đều yên ổn, không bị trở ngại.",
+      "story": "Điển tích vua Thuấn thuở hàn vi cày ruộng ở núi Lịch Sơn."
+    },
+    {
+      "number": 38,
+      "title": "Lý ngư hóa long",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Thời hành vận toại bất tu sầu",
+        "Nhất đáo đào hoa giai tự do",
+        "Quả nhiên uyên nội long phi dược",
+        "Thoát tục siêu hóa thủy xuất đầu"
+      ],
+      "poem_han": [
+        "时行运遂不须愁",
+        "一到桃花皆自由",
+        "果然渊内龙飞跃",
+        "脱俗超化始出头"
+      ],
+      "meaning": [
+        "Thời đến vận thông, không cần phải lo buồn",
+        "Đến mùa hoa đào thì mọi sự đều tự do",
+        "Quả nhiên trong vực sâu rồng bay vọt",
+        "Thoát tục biến hóa vượt lên, bấy giờ mới nổi bật"
+      ],
+      "interpretation": "Rút được quẻ này thì việc gì cũng rất tốt. Quẻ có tượng hết cực thì đến thái, đi nhỏ về lớn. Người thường làm việc thiện thì sự sang quý không thể nói hết.",
+      "advice": "Hãy thường xuyên làm việc thiện thì được quý hiển.",
+      "story": "Điển tích cá chép vượt Vũ Môn hóa thành rồng."
+    },
+    {
+      "number": 39,
+      "title": "Tam cố thảo lư",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Tiên sách Trường An lộ",
+        "Thiên tiên đệ nhất ban",
+        "Dĩ cập thời",
+        "Xuân phong đào lý tính danh kỳ",
+        "Nhất chi độc chiếm mai hoa thượng",
+        "Thứ đệ xuân phong đáo thảo lư",
+        "Tam thập lục cung xuân",
+        "Thượng quốc định quan quang"
+      ],
+      "poem_han": [
+        "鞭策长安路",
+        "天仙第一班",
+        "已及时",
+        "春风桃李姓名奇",
+        "一枝独占梅花上",
+        "次第春风到草芦",
+        "三十六宫春",
+        "上国定观光"
+      ],
+      "meaning": [
+        "Quất roi trên đường đến Trường An",
+        "Đứng đầu hàng như tiên trời",
+        "Đã kịp thời",
+        "Gió xuân đào mận, tên tuổi rạng rỡ",
+        "Một cành độc chiếm đầu hoa mai",
+        "Lần lượt gió xuân đến nhà tranh",
+        "Ba mươi sáu cung đều xuân",
+        "Chốn thượng quốc ắt được ngắm cảnh sáng"
+      ],
+      "interpretation": "Lời giải kể Lưu Huyền Đức ba lần mời Khổng Minh ra làm quân sư, việc gì cũng tốt lành. Quẻ có tượng vui mà chẳng phải vui, lo cũng chẳng phải lo, khuyết rồi lại tròn, lìa rồi lại hợp, mới vào được cảnh đẹp. Đây là quẻ tốt, danh lợi đợi thời, bệnh cần chọn thầy, kiện tụng nên hòa giải.",
+      "advice": "Làm việc phải kiên nhẫn chịu khó, danh lợi đợi thời, bệnh phải chọn thầy, kiện tụng nên hòa giải.",
+      "story": "Điển tích Lưu Bị ba lần đến lều tranh mời Gia Cát Lượng."
+    },
+    {
+      "number": 40,
+      "title": "Đào viên kết nghĩa",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Phú quý công danh các hữu kỳ",
+        "Long hổ tương phùng kê khuyển nghi",
+        "Quả sát thái hoạch tiên nhân thủ",
+        "Tự thị kim lân thượng ngọc thời"
+      ],
+      "poem_han": [
+        "富贵功名各有期",
+        "龙虎相逢鸡犬宜",
+        "果煞采获仙人手",
+        "自是金麟上玉时"
+      ],
+      "meaning": [
+        "Phú quý công danh đều có kỳ hạn",
+        "Rồng hổ gặp nhau, gà chó đều hợp",
+        "Quả chín hái được nhờ tay người tiên",
+        "Vốn là lúc kỳ lân vàng lên ngọc"
+      ],
+      "interpretation": "Lời giải nhắc Lưu, Quan, Trương kết nghĩa anh em vườn đào, việc gì cũng rất tốt, cầu lợi mà hợp tác với bạn thì càng có lợi. Quẻ có tượng ánh sáng chiếu thẳng, danh thành lợi toại, việc gì cũng tốt.",
+      "advice": "Cầu lợi thì nên hợp tác cùng bạn bè thì càng có lợi.",
+      "story": "Điển tích Lưu Bị, Quan Vũ, Trương Phi kết nghĩa anh em ở vườn đào."
+    },
+    {
+      "number": 41,
+      "title": "Mã Siêu truy Tào",
+      "category": "neutral",
+      "level": "Trung bình",
+      "poem": [
+        "Viên hựu khuyết",
+        "Khuyết hựu viên",
+        "Liên hựu đoạn",
+        "Đoạn hựu liên",
+        "Ngộ độ kiều",
+        "Chu tại tiền",
+        "Dã tu thận ngôn",
+        "Phương đắc chu toàn"
+      ],
+      "poem_han": [
+        "圆又缺",
+        "缺又圆",
+        "连又断",
+        "断又连",
+        "遇渡桥",
+        "舟在前",
+        "也须慎言",
+        "方得周全"
+      ],
+      "meaning": [
+        "Tròn rồi lại khuyết",
+        "Khuyết rồi lại tròn",
+        "Nối rồi lại đứt",
+        "Đứt rồi lại nối",
+        "Gặp cầu qua sông",
+        "Thuyền ở phía trước",
+        "Cũng cần thận trọng lời nói",
+        "Mới được vẹn toàn"
+      ],
+      "interpretation": "Lời giải kể Mã Siêu đuổi theo Tào Tháo, Tháo cắt râu bỏ áo ở Đồng Quan, sau được tinh cây liễu cứu, trong nguy có cứu, việc gì cũng phải thận trọng. Quẻ chỉ ở mức bình thường: danh lợi không có hy vọng, bệnh có cứu, hôn nhân không phải duyên tốt.",
+      "advice": "Việc gì cũng phải thận trọng, bớt nóng vội và nói năng cẩn thận. Hướng thiện thì giữ được yên ổn.",
+      "story": "Điển tích Mã Siêu đuổi theo Tào Tháo, Tào Tháo cắt râu bỏ áo bào ở Đồng Quan."
+    },
+    {
+      "number": 42,
+      "title": "Xích Bích ao binh",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Chỉ thuyết hữu sầu phiền",
+        "Sự đáo kỳ trung hứng bất lan",
+        "Phùng Ngọ phương khả lương",
+        "Bất tất loạn trương hoàng"
+      ],
+      "poem_han": [
+        "只说有愁烦",
+        "事到其中兴不阑",
+        "逢午方可良",
+        "不必乱张惶"
+      ],
+      "meaning": [
+        "Chỉ nói là có lo buồn",
+        "Việc đến giữa chừng, hứng khởi không tàn",
+        "Gặp Ngọ mới tốt",
+        "Không cần hoảng hốt lung tung"
+      ],
+      "interpretation": "Lời giải kể Chu Du dùng lửa đánh lui quân Tào ở Xích Bích, thắng lớn, công rất lớn. Chữ Ngọ thuộc hỏa, gặp năm, tháng, ngày Ngọ thì xem quẻ này rất tốt. Quẻ có tượng nghĩ ngợi lung tung như người mê nói mơ, việc chưa trải qua thì chưa biết khó; về già có niềm vui.",
+      "advice": "Giữ lòng kiên nhẫn chờ đợi thì tốt, đừng hoảng hốt lo nghĩ lung tung.",
+      "story": "Điển tích trận Xích Bích, Chu Du dùng hỏa công đánh bại quân Tào Tháo."
+    },
+    {
+      "number": 43,
+      "title": "Lưu Bị trí thủ Kinh Châu",
+      "category": "neutral",
+      "level": "Trung bình",
+      "poem": [
+        "Thiên hữu thời",
+        "Địa hữu thời",
+        "Nhân thượng thiểu kỳ",
+        "Yếu đắc hảo thời",
+        "Dã khán tam lục cửu kỳ",
+        "Ưu chuyển hi hi"
+      ],
+      "poem_han": [
+        "天有时",
+        "地有时",
+        "人尚少期",
+        "要得好时",
+        "也看三六九期",
+        "忧转嘻嘻"
+      ],
+      "meaning": [
+        "Trời có thời",
+        "Đất có thời",
+        "Người còn thiếu thời cơ",
+        "Muốn gặp thời tốt",
+        "Cũng phải xem kỳ ba, sáu, chín",
+        "Lo buồn đổi thành vui cười"
+      ],
+      "interpretation": "Lời giải kể sau khi Chu Du phá Tào ở Xích Bích, Lưu Bị dùng mưu lấy Kinh Châu nhưng ở không lâu; quẻ này bình thường, cũng không trở ngại gì. Quẻ cho biết thời cơ chưa hợp, lúc đầu giật mình sau mới vui, trước hết cần nhẫn nại, gắng sức nâng đỡ, cơ hội khó gặp.",
+      "advice": "Phải nhẫn nại, an phận, chờ thời, đừng vội vàng cầu công danh, coi chừng vấp ngã.",
+      "story": "Điển tích Lưu Bị dùng mưu lấy Kinh Châu sau trận Xích Bích."
+    },
+    {
+      "number": 44,
+      "title": "Giai nhân cách trướng sa",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Mạc cô nghi",
+        "Sự tại khả nghi",
+        "Hữu khả nghi",
+        "Bất tật bất từ",
+        "Tự hữu xuất đầu nhật tử",
+        "Đương khán kim hoa nhất nhị chi"
+      ],
+      "poem_han": [
+        "莫孤疑",
+        "事在可疑",
+        "有可疑",
+        "不疾不徐",
+        "自有出头日子",
+        "当看金花一二枝"
+      ],
+      "meaning": [
+        "Đừng một mình nghi ngờ",
+        "Việc có chỗ đáng ngờ",
+        "Có điều đáng ngờ",
+        "Không vội không chậm",
+        "Tự có ngày ngóc đầu lên",
+        "Hãy xem một hai cành hoa vàng"
+      ],
+      "interpretation": "Lời giải kể hai vợ chồng gặp nhau ở chùa Thanh Sơn, chồng đề thơ, vợ nối câu, nói trời đất cũng biết cách biệt lâu nên cho gió mưa giữ người ở lại. Quẻ có tượng chạy đông chạy tây, mưu cầu không thành, chỉ khi có quý nhân nâng đỡ mới tránh được nguy. Nhiều thị phi, gian truân lớn.",
+      "advice": "Gặp kiện tụng thì chịu thiệt là phúc, nên giải chứ đừng kết. Phải hướng thiện, không giữ ác ý.",
+      "story": "Điển tích hai vợ chồng gặp nhau ở chùa Thanh Sơn, đề thơ và nối thơ với nhau."
+    },
+    {
+      "number": 45,
+      "title": "Lý Long tầm thê",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Thiên thời nhân sự",
+        "Chính thị hảo giai kỳ",
+        "Hựu khủng khiêu hề",
+        "Đãn khán song nhập Mão Kim nghi",
+        "Chỉ đãi thập bát tử nhất đề huề"
+      ],
+      "poem_han": [
+        "天时人事",
+        "正是好佳期",
+        "又恐跷蹊",
+        "但看双入卯金宜",
+        "只待十八子一提携"
+      ],
+      "meaning": [
+        "Thiên thời nhân sự",
+        "Đúng là kỳ hẹn tốt",
+        "Lại sợ có điều kỳ quặc",
+        "Chỉ thấy hai chữ vào Mão Kim (chữ Lưu) là hợp",
+        "Chỉ đợi người họ Lý (chữ Mười Tám Tử) nâng đỡ"
+      ],
+      "interpretation": "Lời giải khuyên việc gì cũng đừng quên gốc thì mới thành tựu, rốt cuộc đều là tượng tốt lành. Quẻ có tượng gặp may mắn lạ thường, nên thấy việc thiện thì mạnh dạn làm, phải hiểu nghĩa đầy thì hao, khiêm tốn thì được lợi.",
+      "advice": "Làm việc đừng quên cái gốc, nên khiêm tốn và mạnh dạn làm việc thiện.",
+      "story": "Điển tích Lý Long đi tìm vợ, nhưng chỉ xác nhận được tên điển tích."
+    },
+    {
+      "number": 46,
+      "title": "Thái Trung Hưng tu kiến cầu Lạc Dương",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Kiều dĩ đoạn",
+        "Lộ bất thông",
+        "Nhược yếu thông thời",
+        "Dã hậu tam ngũ chi trung",
+        "Hứa hạ thiện công tức bất cùng"
+      ],
+      "poem_han": [
+        "桥已断",
+        "路不通",
+        "若要通时",
+        "也候三五之中",
+        "许下善功息不穷"
+      ],
+      "meaning": [
+        "Cầu đã đứt",
+        "Đường không thông",
+        "Nếu muốn thông",
+        "Cũng phải đợi trong khoảng ba, năm",
+        "Hứa làm việc thiện thì lợi tức không cùng"
+      ],
+      "interpretation": "Lời giải nói được Quan Âm hóa bạc giúp, thần lực nâng đỡ, việc gì giữ lòng thành kính thì tốt. Quẻ cho biết nên giữ và chờ thời, ắt có niềm vui bất ngờ, thu hoạch sẽ tốt. Danh lợi đợi thời, bệnh cầu thầy giỏi, người đi xa còn lâu, hôn nhân chưa thành.",
+      "advice": "Nên giữ yên chờ thời, làm nhiều việc thiện để vun gốc phúc cho bền.",
+      "story": "Điển tích Thái Trung Hưng xây cầu Lạc Dương, được Quan Âm hóa bạc giúp đỡ."
+    },
+    {
+      "number": 47,
+      "title": "Tào Hồng thất Đồng Quan",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Dĩ thành liễu",
+        "Hựu nan bảo",
+        "Chỉ đãi chu tế thuận phong hành bào",
+        "Mỗi sự đa phiền não",
+        "Kiền tâm thần tiền tu tỉnh Trường An bảo"
+      ],
+      "poem_han": [
+        "已成了",
+        "又难保",
+        "只待舟济顺风行跑",
+        "每事多烦恼",
+        "虔心神前修省长安保"
+      ],
+      "meaning": [
+        "Đã thành rồi",
+        "Lại khó giữ",
+        "Chỉ đợi thuyền qua sông, thuận gió mà đi nhanh",
+        "Việc gì cũng nhiều phiền não",
+        "Thành tâm trước thần tu sửa, tự xét mình thì giữ được bình an"
+      ],
+      "interpretation": "Lời giải khuyên việc gì cũng nên giữ lòng thành kính trước thần. Quẻ khuyên an phận giữ mình, lấy tĩnh làm tốt, không can thiệp thị phi, nếu không biết răn thì hối hận không kịp. Không được cầu bậy, phải hết sức cẩn thận. Kiện tụng đừng gây, e bị hình phạt; tiền của đừng tham thì được yên.",
+      "advice": "Nên yên phận giữ mình, giữ lòng hướng thiện, không làm điều ác thì được thần phù hộ.",
+      "story": "Điển tích Tào Hồng để mất Đồng Quan."
+    },
+    {
+      "number": 48,
+      "title": "Trần Vạn Niên bất đệ",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Nhất chi dĩ báo hiểu",
+        "Khủng nan đắc",
+        "Thời thượng tảo",
+        "Hữu cá thành tựu chi thời",
+        "Tu hướng thần tiền khẩn cáo"
+      ],
+      "poem_han": [
+        "一枝已报晓",
+        "恐难得",
+        "时尚早",
+        "有个成就之时",
+        "须向神前恳告"
+      ],
+      "meaning": [
+        "Một cành đã báo sáng",
+        "Sợ khó đạt được",
+        "Thời còn sớm",
+        "Sẽ có lúc thành tựu",
+        "Cần đến trước thần khẩn cầu"
+      ],
+      "interpretation": "Lời giải nói Trần Vạn Niên thi mãi không đỗ, tên rớt khỏi bảng, việc gì cũng gian nan. Quẻ cho biết đang gặp khốn ách phải chờ thời, kiên trì rèn luyện thì tự thành tài, nhưng việc gì cũng vất vả.",
+      "advice": "Kiên trì rèn luyện, chờ thời, và thành tâm khẩn cầu trước thần.",
+      "story": "Điển tích Trần Vạn Niên thi mãi không đỗ."
+    },
+    {
+      "number": 49,
+      "title": "Đào Uyên Minh quy ẩn",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Tường đầu thảo",
+        "Ly hạ hoa",
+        "Sơn cùng thủy tận",
+        "Vị tất phồn hoa",
+        "Nhược yếu phồn hoa",
+        "Dã yếu quy gia",
+        "Phương khả như tâm đắc xa"
+      ],
+      "poem_han": [
+        "墙头草",
+        "篱下花",
+        "山穷水尽",
+        "未必繁华",
+        "若要繁华",
+        "也要归家",
+        "方可如心得奢"
+      ],
+      "meaning": [
+        "Cỏ đầu tường",
+        "Hoa dưới giậu",
+        "Núi cùng nước tận",
+        "Chưa chắc đã phồn hoa",
+        "Nếu muốn phồn hoa",
+        "Cũng phải về nhà",
+        "Mới được như lòng mong muốn"
+      ],
+      "interpretation": "Lời giải nói việc gì cũng lúc đầu khó sau dễ, nên lui là hay. Quẻ có tượng lui về sống an nhàn, danh lợi không có, nên nhẫn nại giữ gìn. Bệnh ở trước nguy ở sau, người đi xa còn lâu, hôn nhân chưa đến lúc.",
+      "advice": "Mọi việc nên lui là hay, nhẫn nại giữ gìn.",
+      "story": "Điển tích Đào Uyên Minh từ quan về quê ở ẩn."
+    },
+    {
+      "number": 50,
+      "title": "Thôi Oanh tiểu thư",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất thanh oanh báo Thượng Lâm xuân",
+        "Khủng thị hư thanh",
+        "Vị tất tranh vanh",
+        "Nhược yếu tranh vinh",
+        "Hoàn hậu Bính Đinh"
+      ],
+      "poem_han": [
+        "一声莺报上林春",
+        "恐是虚声",
+        "未必峥嵘",
+        "若要争荣",
+        "还候丙丁"
+      ],
+      "meaning": [
+        "Một tiếng oanh báo xuân vườn Thượng Lâm",
+        "Sợ chỉ là tiếng hão",
+        "Chưa chắc đã hiển đạt",
+        "Nếu muốn giành vinh hiển",
+        "Còn phải đợi Bính Đinh"
+      ],
+      "interpretation": "Lời giải kể cha của Thôi Oanh cáo lão về quê, giữa đường mất vì bệnh, linh cữu để ở chùa Tướng Quốc, bị gian nhân vây hãm, nguy cấp, sau nhờ công tử họ Trương nhờ Bạch Mã tướng quân xuất binh đẩy lui giặc rồi kết thành vợ chồng, trước hung sau cát. Quẻ có tượng chim oanh vàng báo sáng, mọi việc nên giữ làm quý; trong ngũ hành Bính Đinh thuộc hỏa, hỏa vượng vào mùa hạ nên đến mùa hạ thì có lợi.",
+      "advice": "Mọi việc nên giữ là quý, chờ đến lúc Bính Đinh, tức mùa hạ, thì có lợi.",
+      "story": "Điển tích Thôi Oanh trong chuyện Tây Sương Ký, được Trương công tử cứu giúp rồi kết thành vợ chồng."
+    },
+    {
+      "number": 51,
+      "title": "Tôn Tẫn bị hại",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Kính phá nguyệt khuyết",
+        "Tôn Sơn bảo đắc",
+        "Nhược yếu an khang",
+        "Thù thần miễn nghiệp"
+      ],
+      "poem_han": [
+        "镜破月缺",
+        "孙山保得",
+        "若要安康",
+        "酬神免业"
+      ],
+      "meaning": [
+        "Gương vỡ, trăng khuyết",
+        "Chỉ giữ được chút ít như Tôn Sơn",
+        "Muốn được bình an khỏe mạnh",
+        "Hãy tạ ơn thần linh để tránh nghiệp"
+      ],
+      "interpretation": "Quẻ ứng với cảnh Bàng Quyên mưu hại Tôn Tẫn, Tôn Tẫn phải giả điên mới thoát lưới, gian nan vô cùng. Quẻ tượng người lưu lạc xứ người, bơ vơ trắc trở, cầu mưu không những vô ích mà còn dễ hao tài, sinh họa; danh lợi chưa thành, bệnh gấp nên cầu thầy chữa, kiện tụng chịu thiệt mà hòa giải là thắng, người đi bị cản trở, hôn nhân chưa thành.",
+      "advice": "Nên hết sức nhẫn nại, tự khuây khỏa, tu đức làm lành thì được thần phù hộ bình an lâu dài.",
+      "story": "Tôn Tẫn bị Bàng Quyên hãm hại, phải giả điên để thoát thân."
+    },
+    {
+      "number": 52,
+      "title": "Nhân Quý phụ tử tương hội",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Hổ tọa trung đường",
+        "Kê thái tương náo",
+        "Thiên bất như nhân cầu",
+        "Phản tăng đa thiểu tiếu",
+        "An nhi bất nguy",
+        "Cúc hoa thiên đáo"
+      ],
+      "poem_han": [
+        "虎坐中堂",
+        "鸡太相闹",
+        "天不如人求",
+        "反增多少笑",
+        "安而不危",
+        "菊花天到"
+      ],
+      "meaning": [
+        "Hổ ngồi giữa nhà",
+        "Gà ầm ĩ cãi nhau",
+        "Trời không bằng người tự cầu",
+        "Lại càng thêm trò cười",
+        "Yên ổn mà không nguy hiểm",
+        "Hoa cúc nở là lúc đến"
+      ],
+      "interpretation": "Quẻ ứng với việc Nhân Quý về nhà, Đinh Sơn bắn nhạn nhưng lại bị Nhân Quý bắn trúng. Quẻ tượng trong lo ngoài họa cùng kéo đến, là điềm rất xấu, nhưng may có thần giúp nên tuy hiểm mà không hại; danh thành nhưng lợi chưa tới, kiện tụng nên dừng, người đi sẽ động, hôn nhân chưa hợp.",
+      "advice": "Việc gì cũng phải thận trọng, tuyệt đối đừng nóng vội hành sự.",
+      "story": "Tiết Nhân Quý trở về nhà, con là Đinh Sơn bắn nhạn nhưng bị cha bắn trúng, cha con gặp nhau."
+    },
+    {
+      "number": 53,
+      "title": "Đào Hoa tống dược",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất chi hảo hoa",
+        "Phong vũ vị đáo",
+        "Chỉ đãi Thanh minh hương khả vị",
+        "Thuận thủy quá độ"
+      ],
+      "poem_han": [
+        "一枝好花",
+        "风雨未到",
+        "只待清明香可味",
+        "顺水过渡"
+      ],
+      "meaning": [
+        "Một cành hoa đẹp",
+        "Gió mưa chưa tới",
+        "Chỉ đợi đến Thanh minh mới thưởng được hương",
+        "Thuận dòng nước mà qua sông"
+      ],
+      "interpretation": "Quẻ tượng thuốc đến thì hồi xuân, trong hiểm có cứu. Danh lợi cần chờ thời, hôn nhân có thể mong, kiện tụng không tốt, mọi việc cẩn thận thì không trở ngại.",
+      "advice": "Hãy chờ đúng thời, thuận theo thế mà đi và làm việc gì cũng cẩn thận.",
+      "story": "Điển tích Đào Hoa đem thuốc đến cứu người trong cơn nguy."
+    },
+    {
+      "number": 54,
+      "title": "Lưu Bị tá Kinh Châu",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất bán tựu",
+        "Nhất bán bất tựu",
+        "Nhạ đắc tranh đấu",
+        "Thủ chi bất hợp",
+        "Trị chi nghi tảo",
+        "Cát tường phương bảo",
+        "Dã yếu mạn tầm thảo"
+      ],
+      "poem_han": [
+        "一半就",
+        "一半不就",
+        "惹得争斗",
+        "取之不合",
+        "治之宜早",
+        "吉祥方保",
+        "也要慢寻讨"
+      ],
+      "meaning": [
+        "Một nửa thành",
+        "Một nửa không thành",
+        "Chuốc lấy tranh đấu",
+        "Lấy về thì không hợp",
+        "Xử lý nên sớm",
+        "Có vậy mới giữ được may mắn",
+        "Cũng phải từ từ tìm kiếm"
+      ],
+      "interpretation": "Quẻ ứng với việc chia ba thiên hạ, mọi việc đều tốt. Quẻ tượng người đi xa nhớ quê, muốn về nhưng núi non ngăn trở, nên giữ yên là hơn; là quẻ trung cát. Danh lợi nhỏ, bệnh kéo dài, kiện tụng sẽ giải, người đi bị cản, hôn nhân chưa thành.",
+      "advice": "Mọi việc nên kiên nhẫn giữ mình, ấy là thượng sách.",
+      "story": "Lưu Bị mượn Kinh Châu, thời Tam Quốc chia ba thiên hạ."
+    },
+    {
+      "number": 55,
+      "title": "Vương Thủ Nhân quy ẩn",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nguyệt tại thiên tâm nhân tại thuyền",
+        "Danh dĩ tương đắc",
+        "Lợi dĩ tương thường",
+        "Hà bất nại phiền",
+        "Bất cửu khởi sàng",
+        "Dã yếu châm tường"
+      ],
+      "poem_han": [
+        "月在天心人在船",
+        "名已将得",
+        "利已将偿",
+        "何不耐烦",
+        "不久起床",
+        "也要斟详"
+      ],
+      "meaning": [
+        "Trăng giữa trời, người trên thuyền",
+        "Danh sắp có được",
+        "Lợi sắp được đền đáp",
+        "Sao không chịu khó nhẫn nại",
+        "Chẳng bao lâu sẽ dậy được",
+        "Cũng phải cân nhắc kỹ lưỡng"
+      ],
+      "interpretation": "Quẻ ứng với Vương Thủ Nhân, năng thần đời Minh, bị gian thần hãm hại nên giả đầu sông để chôn tên; sau gian thần bại lộ, ông lại ra làm tướng làm tướng quốc, biết nắm thời cơ thì đại cát. Quẻ tượng khiêm tốn có ích, người xem nên chăm tu tỉnh bản thân, việc gì cẩn thận thì tốt, lợi bình ổn, bệnh không ngại, hôn nhân chưa thành.",
+      "advice": "Hãy kiên nhẫn, cẩn thận cân nhắc và nắm đúng thời cơ.",
+      "story": "Vương Thủ Nhân đời Minh bị gian thần hại, giả chết ẩn danh rồi sau lại ra giúp nước."
+    },
+    {
+      "number": 56,
+      "title": "Viên Hữu Tín mại sài",
+      "category": "neutral",
+      "level": "Trung bình",
+      "poem": [
+        "Hoàng hoàng điển",
+        "Hỉ hỉ bí",
+        "Thiên cù bình thản",
+        "Chỉ đãi tiểu nhân đắc chí",
+        "Hưu đắc động phong",
+        "Tự nhiên Ký tế"
+      ],
+      "poem_han": [
+        "皇皇典",
+        "喜喜贲",
+        "天衢平坦",
+        "只待小人得志",
+        "休得动风",
+        "自然既济"
+      ],
+      "meaning": [
+        "Điển lớn rực rỡ",
+        "Vui vẻ trang sức tươi đẹp",
+        "Đường trời bằng phẳng",
+        "Chỉ chờ lúc kẻ tiểu nhân đắc chí",
+        "Đừng gây sóng gió",
+        "Tự nhiên sẽ thành Ký tế"
+      ],
+      "interpretation": "Quẻ khuyên mọi việc chớ tham lấy, nên giữ lòng trung hậu, lấy tín nghĩa làm gốc, an phận thì tự gặp điều tốt. Việc người không bằng mệnh trời: số có thì không mất, số không thì cầu cũng không đến; an phận theo mệnh là kế sách hay nhất của người hiền, vọng niệm không dứt thì vướng víu mãi, hôn nhân chưa được cho phép.",
+      "advice": "Giữ lòng trung hậu, sống có tín nghĩa, an phận, hướng thiện thì gặp dữ hóa lành.",
+      "story": "Điển tích Viên Hữu Tín bán củi, người sống an phận thủ tín."
+    },
+    {
+      "number": 57,
+      "title": "Kim Tinh hí Bảo Nhi",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Lạc dĩ vong ưu",
+        "Dã yếu trù trừ",
+        "Sự vị tất nguyệt tại lâu đầu",
+        "Na đắc yếu hưu yếu hưu",
+        "Khả hướng kim mộc nhân nhi nhất cấu"
+      ],
+      "poem_han": [
+        "乐以忘忧",
+        "也要踌躇",
+        "事未必月在楼头",
+        "那得要休要休",
+        "可向金木人儿一构"
+      ],
+      "meaning": [
+        "Vui mà quên lo",
+        "Cũng phải đắn đo",
+        "Việc chưa hẳn đã như trăng trên đầu lầu",
+        "Sao được thì thôi, thôi đi",
+        "Có thể tìm người mệnh Kim Mộc mà kết giao"
+      ],
+      "interpretation": "Quẻ ứng với việc Kim Tinh tiên giáng trần thử Đậu Nhi, rồi lên thiên giới sau lầu, cũng là điềm lành. Quẻ tượng Kim Mộc tương khắc, người xem nên khiêm hòa nhẫn nại giữ mình thì tốt; danh lợi không thành, kiện tụng rốt cuộc xấu nên hòa giải đừng tranh hơn, tuy hơi thiệt nhưng thần sẽ giúp, bệnh nên chọn thầy, hôn nhân nên chờ.",
+      "advice": "Mọi việc nên nhẫn nại giữ gìn, đừng tranh hơn thua.",
+      "story": "Kim Tinh giáng trần thử lòng Đậu Nhi rồi lên cõi tiên."
+    },
+    {
+      "number": 58,
+      "title": "Vĩnh Lạc Vương định Phiên bang",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Khả bãi tức bãi",
+        "Bất tu trảm tận sát tuyệt",
+        "Sự đáo vô khả nại hà",
+        "Dã yếu thủ cựu an hiết",
+        "Lực bảo vô thất khả đắc",
+        "Tam thất khả quyết"
+      ],
+      "poem_han": [
+        "可罢即罢",
+        "不须斩尽杀绝",
+        "事到无可奈何",
+        "也要守旧安歇",
+        "力保无失可得",
+        "三七可决"
+      ],
+      "meaning": [
+        "Có thể dừng thì dừng",
+        "Không cần diệt sạch giết tận",
+        "Việc đến chỗ bất đắc dĩ",
+        "Cũng phải giữ cái cũ mà nghỉ yên",
+        "Ra sức giữ gìn thì không mất mà còn được",
+        "Ba bảy có thể quyết định"
+      ],
+      "interpretation": "Quẻ ứng với lúc dẹp yên nước ngoài, về triều lên ngôi, là trung cát. Quẻ quý ở chỗ giữ, không nên làm càn, việc gì nóng vội thì e có điềm không lành, biết xét kỹ và ứng biến thì tốt; danh lợi có, kiện tụng có thể thắng, bệnh chóng khỏi, hôn nhân chưa thành.",
+      "advice": "Có thể dừng thì dừng, đừng làm tới cùng, hãy giữ nền cũ và thận trọng, không nóng vội.",
+      "story": "Vĩnh Lạc Vương dẹp yên nước ngoài rồi về triều lên ngôi."
+    },
+    {
+      "number": 59,
+      "title": "Tôn Quyền tọa trấn Đông Ngô",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Khứ đích khứ",
+        "Lai đích lai",
+        "Đông Nam nhất phương",
+        "Tự nhĩ toại y",
+        "Thiết mạc song nghi sai"
+      ],
+      "poem_han": [
+        "去的去",
+        "来的来",
+        "东南一方",
+        "自迩遂依",
+        "切莫双疑猜"
+      ],
+      "meaning": [
+        "Người đi cứ đi",
+        "Người đến cứ đến",
+        "Một phương Đông Nam",
+        "Gần gũi rồi tự nhiên nương tựa",
+        "Tuyệt đối đừng nghi ngờ hai bề"
+      ],
+      "interpretation": "Quẻ ứng với việc Tôn Quyền nối nghiệp Tôn Sách, làm vương hầu thái bình, đại cát. Quẻ tượng cái đẹp dồn cả về Đông Nam, rất thuận lợi; danh lợi thành tựu, bệnh khỏi không cần thuốc, kiện tụng sắp yên và có thể thắng, hôn nhân hòa hợp, người đi sẽ đến. Người xem càng hăng hái làm việc thiện thì phúc trạch càng vô hạn.",
+      "advice": "Đừng nghi ngờ hai lòng, hãy mạnh dạn làm việc thiện để giữ phúc.",
+      "story": "Tôn Quyền kế nghiệp Tôn Sách, trấn giữ vùng Đông Ngô thời Tam Quốc."
+    },
+    {
+      "number": 60,
+      "title": "Vũ Hầu phạt Ngụy",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Khổ nhi cam",
+        "Cam nhi cam",
+        "Nhất tý nhất ngọ",
+        "Tống hỉ bất tống ưu",
+        "Dã yếu tự tài sinh"
+      ],
+      "poem_han": [
+        "苦而甘",
+        "甘而甘",
+        "一子一午",
+        "送喜不送忧",
+        "也要自裁生"
+      ],
+      "meaning": [
+        "Đắng rồi ngọt",
+        "Ngọt lại ngọt",
+        "Một Tý một Ngọ",
+        "Đưa niềm vui chứ không đưa nỗi lo",
+        "Cũng phải tự mình cân nhắc mà sống"
+      ],
+      "interpretation": "Quẻ ứng với việc đánh Ngụy mà không được, lại còn thất lợi, chỉ ở mức bình thường. Quẻ tượng Thủy Hỏa Ký tế, mọi việc phải giữ lòng vững và cân nhắc, nếu không thì nhọc công vô ích.",
+      "advice": "Giữ lòng kiên định và cân nhắc kỹ, đừng làm bừa.",
+      "story": "Gia Cát Vũ Hầu đem quân bắc phạt nước Ngụy nhưng không thành công."
+    },
+    {
+      "number": 61,
+      "title": "Bình Quý hồng nhạn truyền thư",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Hồng phi thiên ngoại",
+        "Chu động vô phong",
+        "Nhân hữu nguyệt minh trung",
+        "Tự hữu hỉ tương phùng"
+      ],
+      "poem_han": [
+        "鸿飞天外",
+        "舟动无风",
+        "人有月明中",
+        "自有喜相逢"
+      ],
+      "meaning": [
+        "Chim hồng bay ngoài trời",
+        "Thuyền chạy không gió",
+        "Người ở dưới trăng sáng",
+        "Tự nhiên có niềm vui gặp lại"
+      ],
+      "interpretation": "Quẻ ứng với việc Tiết Bình Quý đi chinh Tây mười tám năm, sau nhờ hồng nhạn truyền thư, về nước vợ chồng đoàn tụ, trước hung sau cát. Quẻ tượng người co lâu được vươn, danh lợi thành, người đi về, kiện thắng, hôn nhân hòa hợp, bệnh có tin vui, sinh con trai, mọi việc đều tốt, trước khổ sau ngọt.",
+      "advice": "Chịu khó vượt qua lúc khổ thì về sau sẽ ngọt, mọi việc thuận lợi.",
+      "story": "Tiết Bình Quý đi chinh Tây mười tám năm, nhờ nhạn đưa thư mà vợ chồng đoàn tụ."
+    },
+    {
+      "number": 62,
+      "title": "Văn Xương tam thánh",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Cát cát cát",
+        "Ích ích ích",
+        "Bất tất đa cấp",
+        "Tự hữu văn chương Đông Bích",
+        "Chỉ tại sơ tam thập nhất",
+        "Phương khả tất",
+        "Phương khả tất"
+      ],
+      "poem_han": [
+        "吉吉吉",
+        "益益益",
+        "不必多急",
+        "自有文章东壁",
+        "只在初三十一",
+        "方可必",
+        "方可必"
+      ],
+      "meaning": [
+        "Tốt, tốt, tốt",
+        "Lợi, lợi, lợi",
+        "Không cần quá gấp",
+        "Tự có văn chương ở sao Đông Bích",
+        "Chỉ ở ngày mùng ba và ngày ba mươi mốt",
+        "Mới có thể chắc chắn",
+        "Mới có thể chắc chắn"
+      ],
+      "interpretation": "Khôi Tinh, Kim Giáp và Tử Đồng gọi là Tam thánh, ngày mùng ba và ba mươi mốt được Văn Xương chiếu cố nên đại thể là tốt, chỉ có lời trong thơ bảo không cần quá gấp, nên suy ngẫm. Quẻ tượng sao lành chiếu sáng, cây khô nở hoa.",
+      "advice": "Không cần vội vàng, hãy bình tĩnh chờ đúng ngày giờ mà làm.",
+      "story": "Văn Xương tam thánh gồm Khôi Tinh, Kim Giáp và Tử Đồng, là các thần chủ về văn chương khoa cử."
+    },
+    {
+      "number": 63,
+      "title": "Bạch Đế thành thác cô",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Long dĩ phi",
+        "Hổ dĩ quy",
+        "Sênh ca dĩ yết",
+        "Hưng nhi bất cửu",
+        "Vạn sự như hôi"
+      ],
+      "poem_han": [
+        "龙已飞",
+        "虎已归",
+        "笙歌已歇",
+        "兴而不久",
+        "万事如灰"
+      ],
+      "meaning": [
+        "Rồng đã bay",
+        "Hổ đã về",
+        "Đàn hát đã dứt",
+        "Hưng thịnh không lâu",
+        "Muôn việc như tro tàn"
+      ],
+      "interpretation": "Quẻ ứng với lúc Lưu Huyền Đức qua đời. Quẻ tượng việc việc đều tuyệt vọng, muôn việc đều không, chỉ có tu đức may ra mới mong chuyển nguy thành an.",
+      "advice": "Chỉ nên tu dưỡng đức hạnh, nhờ đó may ra chuyển nguy thành an.",
+      "story": "Lưu Bị lâm bệnh nặng ở thành Bạch Đế, gửi gắm con côi cho Gia Cát Lượng rồi qua đời."
+    },
+    {
+      "number": 64,
+      "title": "Hán Ngọc lộ phùng quải phiến",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Sinh chi thời đa lạc",
+        "Bán lộ thượng hạ bất tương phùng",
+        "Chỉ khán Vô Vọng chi quái",
+        "Phương khả hối lận phân minh"
+      ],
+      "poem_han": [
+        "生之时多乐",
+        "半路上下不相逢",
+        "只看无妄之卦",
+        "方可悔吝分明"
+      ],
+      "meaning": [
+        "Lúc sinh ra nhiều vui",
+        "Giữa đường trên dưới không gặp nhau",
+        "Chỉ xem quẻ Vô Vọng",
+        "Mới phân rõ hối và lận"
+      ],
+      "interpretation": "Giữa đường gặp kẻ lừa gạt thì quỷ thần cũng khó đỡ, chỉ mong người xem tu thiện giải nạn, cẩn thận giữ mình. Quẻ tượng có tiểu nhân xâm hại, đường đi kinh hiểm; người lương thiện thì không sao, giữ lòng ngay, thận trọng thì tốt, hung nhiều cát ít nên phải rất cẩn thận.",
+      "advice": "Tu thiện, giữ lòng ngay thẳng và hết sức cẩn thận.",
+      "story": "Điển tích Hán Ngọc giữa đường bị kẻ lừa gạt."
+    },
+    {
+      "number": 65,
+      "title": "Hạnh Nguyên hòa phiên",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Nhất thiên tinh đẩu xán huy hoàng",
+        "Phong vũ vị quang",
+        "Khởi nhi bất dương",
+        "Dã yếu lưỡng tam phiên"
+      ],
+      "poem_han": [
+        "一天星斗灿辉煌",
+        "风雨未光",
+        "起而不扬",
+        "也要两三番"
+      ],
+      "meaning": [
+        "Cả trời sao sáng rực rỡ",
+        "Gió mưa chưa sáng",
+        "Dấy lên mà chưa vươn lên",
+        "Cũng phải hai ba lần"
+      ],
+      "interpretation": "Làm lật đảo quá lớn thì tự nhiên có họa, nhưng trong hung ẩn cát nên không sao. Quẻ tượng liễu rậm hoa tươi, hết khổ thấy sáng, mọi việc khiêm hòa nhẫn nại thì tốt.",
+      "advice": "Khiêm hòa, nhẫn nại, đừng làm điều quá mức.",
+      "story": "Điển tích Hạnh Nguyên phải sang hòa thân với nước ngoài."
+    },
+    {
+      "number": 66,
+      "title": "Khương Tử Nha mại quái",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Đắc thất giai thiên định",
+        "Ưu hỉ tổng quy mệnh",
+        "Tri thiên tri mệnh",
+        "Thủ chi vi hạnh"
+      ],
+      "poem_han": [
+        "得失皆天定",
+        "忧喜总归命",
+        "知天知命",
+        "守之为幸"
+      ],
+      "meaning": [
+        "Được mất đều do trời định",
+        "Lo mừng rốt cuộc đều về mệnh",
+        "Biết trời biết mệnh",
+        "Giữ phận là may"
+      ],
+      "interpretation": "Mọi việc nên nhẫn nại giữ phận, chờ thời thì tốt. Quẻ tượng nhiều âm xáo trộn, mọi việc phải thận trọng, chớ hành sự nóng nảy; kiện tụng nên thôi tranh, thà chịu thiệt chính là thắng, danh không thành, lợi không tới, bệnh gấp tìm thầy, người đi chưa động.",
+      "advice": "Hết sức an phận giữ mình, nhẫn nại chờ thời thì tốt.",
+      "story": "Khương Tử Nha bán quẻ khi còn chưa gặp thời."
+    },
+    {
+      "number": 67,
+      "title": "Trương Phi chiến Trương Cáp",
+      "category": "neutral",
+      "level": "Trung bình",
+      "poem": [
+        "Nhất điệt phục nhất điệt",
+        "Chỉ khủng lỗ mãng liệt liệt",
+        "Quả năng tích đắc thốn kim",
+        "Dã yếu điều nhiếp"
+      ],
+      "poem_han": [
+        "一跌复一跌",
+        "只恐卤莽灭裂",
+        "果能惜得寸金",
+        "也要调摄"
+      ],
+      "meaning": [
+        "Ngã rồi lại ngã",
+        "Chỉ sợ lỗ mãng bừa bãi",
+        "Nếu biết tiếc từng đồng vàng",
+        "Cũng phải điều dưỡng giữ gìn"
+      ],
+      "interpretation": "Quẻ ứng với việc Trương Phi dùng trí đánh Trương Cáp, dũng mà có mưu, Trương Cáp cũng là kẻ có trí, việc gì cẩn thận thì rốt cuộc tốt. Quẻ tượng hòa khí đem lại điềm lành, cần nhẫn nhịn khiêm hòa thì tìm cát tránh hung; danh lợi chưa thành, bệnh e kéo dài, người đi chưa động, hôn nhân chưa thành.",
+      "advice": "Lấy hòa làm quý, nhẫn nhịn khiêm hòa và mọi việc cẩn thận.",
+      "story": "Trương Phi dùng mưu đánh Trương Cáp thời Tam Quốc."
+    },
+    {
+      "number": 68,
+      "title": "Lưu Thiện đăng vị",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Nhất môn thiên tứ bình an phúc",
+        "Chỉ khủng tiểu nhân bất lý",
+        "Phòng khuyển phòng ngưu",
+        "Ứng thủ bất thủ",
+        "Chỉ tại tam tuần lý",
+        "Dã hữu tam phân hỉ"
+      ],
+      "poem_han": [
+        "一门天赐平安福",
+        "只恐小人不理",
+        "防犬防牛",
+        "应取不取",
+        "只在三旬里",
+        "也有三分喜"
+      ],
+      "meaning": [
+        "Cả nhà được trời ban phúc bình an",
+        "Chỉ sợ kẻ tiểu nhân không chịu nghe",
+        "Đề phòng chó, đề phòng trâu",
+        "Đáng lấy mà không lấy",
+        "Chỉ trong vòng ba mươi ngày",
+        "Cũng có ba phần vui"
+      ],
+      "interpretation": "Lên ngôi bốn mươi hai năm, bậc chân mệnh chủ cũng được an lạc, nhưng năm tháng ngày giờ Sửu Tuất thì cầu không lợi. Quẻ tượng trong lo ngoài họa dồn ép, người xem việc gì cũng thận trọng, chỗ nào cũng đề phòng; danh lợi có thành, bệnh kéo dài, người đi về, hôn nhân thành, kiện tụng tốt, nhưng năm Sửu Tuất mà được quẻ này thì không tốt.",
+      "advice": "Mọi việc cẩn thận, chỗ nào cũng đề phòng.",
+      "story": "Lưu Thiện lên ngôi nối nghiệp Lưu Bị, ở ngôi bốn mươi hai năm."
+    },
+    {
+      "number": 69,
+      "title": "Ngũ Viên tẩu nạn dạ xuất Chiêu Quan",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Phòng khẩu thậm ư phòng xuyên",
+        "Bất đương ngoan ngoan",
+        "Cấp thủy mạc khai thuyền",
+        "Dã yếu hoàng hôn",
+        "Nãi mệnh đắc trường",
+        "Nhược tri tiêu tức",
+        "Phương yếu chu toàn đình đương",
+        "Đương tại nhị thất tam thượng"
+      ],
+      "poem_han": [
+        "防口甚于防川",
+        "不当顽顽",
+        "急水莫开船",
+        "也要黄昏",
+        "乃命得长",
+        "若知消息",
+        "方要周旋停当",
+        "当在二七三上"
+      ],
+      "meaning": [
+        "Giữ miệng còn khó hơn ngăn sông",
+        "Không nên ngoan cố",
+        "Nước xiết đừng cho thuyền đi",
+        "Cũng phải đợi đến hoàng hôn",
+        "Mệnh mới được dài",
+        "Nếu biết tin tức",
+        "Mới cần xoay xở cho ổn thỏa",
+        "Nên vào khoảng hai, bảy, ba"
+      ],
+      "interpretation": "Quẻ ứng với việc Tử Tư ban đêm ra Chiêu Quan, gian nan hiểm trở, việc gì cũng phải cẩn thận, đề phòng tiểu nhân mưu hại. Quẻ tượng người lành được trời giúp, gặp hiểm thì tai họa tiêu tan, việc gì đề phòng tiểu nhân và thận trọng thì tốt.",
+      "advice": "Giữ miệng, đề phòng tiểu nhân và việc gì cũng thận trọng.",
+      "story": "Ngũ Tử Tư trốn nạn, ban đêm vượt ải Chiêu Quan."
+    },
+    {
+      "number": 70,
+      "title": "Hải Thụy trúng Long đầu Phụng vĩ tiến sĩ",
+      "category": "good",
+      "level": "Thượng cát",
+      "poem": [
+        "Cẩm y vạn lý",
+        "Lao lao nhi hậu hỉ",
+        "Nhất triêu khả vọng sinh thành",
+        "Dã thị Văn Xương chiếu nhữ",
+        "Định thị giai nhân quý tử"
+      ],
+      "poem_han": [
+        "锦衣万里",
+        "劳劳而后喜",
+        "一朝可望生成",
+        "也是文昌照汝",
+        "定是佳人贵子"
+      ],
+      "meaning": [
+        "Áo gấm đi muôn dặm",
+        "Vất vả rồi sau mới mừng",
+        "Một sớm có thể mong thành",
+        "Cũng là Văn Xương soi chiếu cho ngươi",
+        "Chắc chắn có giai nhân, quý tử"
+      ],
+      "interpretation": "Quẻ nói cả đời trung hậu chí thành thì mọi việc đại cát. Quẻ tượng mây xanh mở đường, Đông Tây Nam Bắc đâu cũng thuận lợi.",
+      "advice": "Giữ lòng trung hậu chí thành cả đời.",
+      "story": "Hải Thụy đời Minh thi đậu tiến sĩ, nổi tiếng thanh liêm trung hậu."
+    },
+    {
+      "number": 71,
+      "title": "Hoàng Sào quy thiên",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Hắc vân mê kính nhân nan tẩu",
+        "Kiều đoạn phong xuy chu hựu nguy",
+        "Mạc tư bồi hồi",
+        "Thả khứ tự tư duy"
+      ],
+      "poem_han": [
+        "黑云迷径人难走",
+        "桥断风吹舟又危",
+        "莫思徘徊",
+        "且去自思维"
+      ],
+      "meaning": [
+        "Mây đen che đường, người khó đi",
+        "Cầu gãy, gió thổi, thuyền lại nguy",
+        "Đừng nghĩ ngợi quanh quẩn",
+        "Hãy lui về mà tự suy xét"
+      ],
+      "interpretation": "Hoàng Sào xuất thân giết người tám trăm vạn, sau tự vẫn ở núi Diệt Sào, mọi việc đều không tốt. Quẻ tượng chim bị nhốt trong lồng, người xem nên tu đức làm điều nhân, thấy thiện thì hăng hái làm, mới tránh được nỗi than về tai nguy.",
+      "advice": "Tu đức làm điều nhân, thấy việc thiện thì dũng cảm làm.",
+      "story": "Hoàng Sào là thủ lĩnh khởi nghĩa cuối đời Đường, cuối cùng tự vẫn."
+    },
+    {
+      "number": 72,
+      "title": "Hàn Tín vấn lộ trảm tiều phu",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Bạch nhật vũ như chú",
+        "Hành nhân dĩ tự thê",
+        "Văn đạo thiên cù thái",
+        "Hoàn hữu bất ninh cư",
+        "Hà tất hướng tiền tiến",
+        "Nguy thả đãi hồ"
+      ],
+      "poem_han": [
+        "白日雨如注",
+        "行人已自栖",
+        "闻道天衢泰",
+        "还有不宁居",
+        "何必向前进",
+        "危且殆乎"
+      ],
+      "meaning": [
+        "Ban ngày mưa như trút",
+        "Người đi đường đã tự nghỉ chân",
+        "Nghe nói đường trời thông thái",
+        "Vậy mà vẫn có nơi không yên",
+        "Cần gì phải tiến lên phía trước",
+        "Nguy hiểm và rình rập"
+      ],
+      "interpretation": "Quẻ tượng chim bị nhốt trong lồng, người xem nên tu đức làm điều nhân, thấy thiện thì hăng hái làm, mới tránh được nỗi than về tai nguy. Lời thơ cũng khuyên không nên tiến thêm vì nguy hiểm.",
+      "advice": "Đừng cố tiến lên, hãy tu đức làm điều nhân và thấy việc thiện thì làm.",
+      "story": "Điển tích Hàn Tín hỏi đường rồi giết người tiều phu."
+    },
+    {
+      "number": 73,
+      "title": "Vương đạo nhân thu yêu",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Quỷ mê thần bất hựu",
+        "Tu cầu thiên thần cứu",
+        "Lập thiện hành công thành",
+        "Hảo sự phương thành tựu",
+        "Tam tiếp kỳ họa",
+        "Đa hứa thành cầu"
+      ],
+      "poem_han": [
+        "鬼迷神不佑",
+        "须求天神救",
+        "立善行功成",
+        "好事方成就",
+        "三接其画",
+        "多许诚求"
+      ],
+      "meaning": [
+        "Quỷ mê hoặc, thần không phù hộ",
+        "Phải cầu thiên thần cứu giúp",
+        "Lập thiện, làm việc có công",
+        "Việc tốt mới thành",
+        "Ba lần tiếp nối nét vẽ",
+        "Hứa nhiều và thành tâm cầu"
+      ],
+      "interpretation": "Quẻ khuyên mọi việc cẩn trọng lời nói thì tốt. Quẻ tượng nghiệp ác đeo thân, chướng nghiệp rất nặng, nên mau sửa lỗi theo thiện, sớm tỉnh ngộ, quay đầu là bờ, sám hối thì có thể giải.",
+      "advice": "Cẩn trọng lời nói, mau sửa lỗi theo thiện và thành tâm sám hối.",
+      "story": "Điển tích đạo nhân họ Vương bắt yêu."
+    },
+    {
+      "number": 74,
+      "title": "Nhân Quý đầu quân",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Mãnh hổ phệ nhân",
+        "Ác khuyển khi sinh",
+        "Nhất cá hôn thiên",
+        "Như hà dương mi thổ khí"
+      ],
+      "poem_han": [
+        "猛虎噬人",
+        "恶犬欺生",
+        "一个昏天",
+        "如何扬眉吐气"
+      ],
+      "meaning": [
+        "Hổ dữ cắn người",
+        "Chó dữ ức hiếp người lạ",
+        "Một bầu trời mờ tối",
+        "Làm sao ngẩng mặt hả hơi"
+      ],
+      "interpretation": "Nhọc công vô ích, gặp năm Dần Thìn thì tốt; danh lợi không thành, người đi xa, hôn nhân không hòa, bệnh kéo dài, kiện tụng nên giải chứ không nên kết, mọi việc vất vả và tiểu nhân quá nặng. Trương Sĩ Quý nhiều lần che mất công lao của ông, việc gì cũng gian nan, đề phòng tiểu nhân thì rốt cuộc tốt.",
+      "advice": "Đề phòng tiểu nhân, kiện tụng nên giải hòa chứ đừng kết oán.",
+      "story": "Tiết Nhân Quý đầu quân, bị Trương Sĩ Quý nhiều lần che mất công lao."
+    },
+    {
+      "number": 75,
+      "title": "Tùy Dương Quảng dạ khán quỳnh hoa",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Thiên bất hựu chi",
+        "Thời bất hợp dã",
+        "Hoa bị phong chiết",
+        "Nhân tại hải để"
+      ],
+      "poem_han": [
+        "天不佑之",
+        "时不合也",
+        "花被风折",
+        "人在海底"
+      ],
+      "meaning": [
+        "Trời không phù hộ",
+        "Thời không hợp",
+        "Hoa bị gió bẻ gãy",
+        "Người ở đáy biển"
+      ],
+      "interpretation": "Hoa quỳnh từ trời giáng xuống, Tùy Dương Quảng đi thuyền trên đất liền, ngắm hoa chỉ là tình cờ, sau Lý Thế Dân xem xong thì tiểu quỷ thu hoa về, nói Dương Quảng có đi không có về, có hiểm không tốt. Quẻ là điềm không lành, người xem mọi việc nên thận trọng, tu đức may ra tiêu được tai, kỵ nhất ra khỏi nhà, việc gì cũng bị cản trở, không tốt.",
+      "advice": "Mọi việc thận trọng, tu đức, tránh ra khỏi nhà.",
+      "story": "Tùy Dương Đế Dương Quảng ban đêm đi ngắm hoa quỳnh."
+    },
+    {
+      "number": 76,
+      "title": "Lục xuất Kỳ Sơn",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Thủy lạc thạch xuất",
+        "Vinh hoa dĩ hĩ",
+        "Nhược đắc nhất thông",
+        "Trừ phi tái khởi",
+        "Bất nghi tiền tiến",
+        "Đương thủ thời thế"
+      ],
+      "poem_han": [
+        "水落石出",
+        "荣华已矣",
+        "若得一通",
+        "除非再起",
+        "不宜前进",
+        "当守时势"
+      ],
+      "meaning": [
+        "Nước rút thì đá lộ ra",
+        "Vinh hoa đã qua rồi",
+        "Nếu có được một lần thông suốt",
+        "Trừ phi vực dậy lần nữa",
+        "Không nên tiến lên",
+        "Nên giữ vững theo thời thế"
+      ],
+      "interpretation": "Lời giải nói Võ Hầu thất lợi đến cùng cực, mọi việc đều không tốt. Quẻ cho biết vận mệnh đã bế tắc, trong cát cũng có hung, không nên nóng vội tiến mạnh mà nên thận trọng, rốt cuộc việc gì cũng bất lợi.",
+      "advice": "Đừng vội tiến lên, hãy giữ vững theo thời thế và hành xử thận trọng.",
+      "story": "Điển Gia Cát Lượng (Võ Hầu) sáu lần xuất quân ra Kỳ Sơn."
+    },
+    {
+      "number": 77,
+      "title": "Vị Thủy phỏng hiền",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Tiền xa dĩ phúc",
+        "Đương vi Ân giám",
+        "An phận thủ mệnh",
+        "Tự nhiên thuận tiện"
+      ],
+      "poem_han": [
+        "前车已覆",
+        "当为殷鉴",
+        "安份守命",
+        "自然顺便"
+      ],
+      "meaning": [
+        "Xe trước đã lật",
+        "Nên lấy đó làm gương soi",
+        "Yên phận giữ mệnh",
+        "Tự nhiên mọi việc thuận lợi"
+      ],
+      "interpretation": "Lời giải kể Khương Thái Công tám mươi hai tuổi câu cá bên sông Vị, được Văn Vương mời ra làm tướng; mọi việc biết đợi thời thì tốt. Quẻ như giao long bị khốn, nên nhẫn nại giữ mình, không nên cưỡng làm, vì vận khí đã định, sức người khó thắng trời; người hiền hiểu lẽ thịnh suy, như thuyền cần có nước, có thời mới thấy lợi.",
+      "advice": "Nhẫn nại giữ mình, đợi đúng thời, không nên cưỡng làm.",
+      "story": "Điển Khương Thái Công câu cá ở sông Vị, được Chu Văn Vương tìm đến mời ra giúp."
+    },
+    {
+      "number": 78,
+      "title": "Triệu Tử Long cứu A Đẩu",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Tường khuynh ốc sách",
+        "Đại thế dĩ liệt",
+        "Phòng nhi vô hối",
+        "Thổ băng địa quyết"
+      ],
+      "poem_han": [
+        "墙倾屋拆",
+        "大势已裂",
+        "防而无悔",
+        "土崩地决"
+      ],
+      "meaning": [
+        "Tường nghiêng nhà đổ",
+        "Cục diện lớn đã rạn vỡ",
+        "Biết phòng bị thì không phải hối hận",
+        "Đất lở nền sụt"
+      ],
+      "interpretation": "Lời giải nói Triệu Tử Long giữa trăm vạn quân cứu A Đẩu, mọi việc đều hiểm trở gian nan. Quẻ nói đi vào chỗ hiểm như đi đất bằng, nguy mà vẫn yên được, nhưng việc gì cũng mang tượng hiểm trở khó khăn.",
+      "advice": "Hãy phòng bị trước để khỏi phải hối hận.",
+      "story": "Điển Triệu Tử Long một mình xông giữa quân địch cứu A Đẩu (con của Lưu Bị)."
+    },
+    {
+      "number": 79,
+      "title": "Trang Tử cổ bồn ca",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Bất thị tri âm bất dữ luận",
+        "Chỉ khán kính phá phong bất chính",
+        "Nghịch thủy mạc hành chu",
+        "Khí tán nghi đương tận"
+      ],
+      "poem_han": [
+        "不是知音不与论",
+        "只看镜破风不正",
+        "逆水莫行舟",
+        "气散宜当尽"
+      ],
+      "meaning": [
+        "Chẳng phải tri âm thì không bàn cùng",
+        "Chỉ thấy gương vỡ, gió không thuận",
+        "Ngược nước chớ chèo thuyền",
+        "Khí đã tan thì nên dừng hẳn"
+      ],
+      "interpretation": "Lời giải nói chuyện Trang Tử gõ chậu hát để thử lời vợ, là điềm không tốt. Quẻ là tượng gương vỡ khó lành lại, việc phần nhiều không thành.",
+      "advice": "Đừng cố đi ngược thế, không phải tri âm thì không nên bàn bạc.",
+      "story": "Điển Trang Tử gõ chậu ca hát khi vợ mất."
+    },
+    {
+      "number": 80,
+      "title": "Tam quốc phân tranh",
+      "category": "neutral",
+      "level": "Trung bình",
+      "poem": [
+        "Tam phân nhi dĩ",
+        "Hà tu vọng xa",
+        "Nhân yếu hồi gia",
+        "Chỉ đãi nhật tây tà"
+      ],
+      "poem_han": [
+        "三分而已",
+        "何须望奢",
+        "人要回家",
+        "只待日西斜"
+      ],
+      "meaning": [
+        "Chỉ chia ba phần mà thôi",
+        "Cần gì mong cầu xa xỉ",
+        "Người muốn về nhà",
+        "Chỉ đợi mặt trời xế về tây"
+      ],
+      "interpretation": "Lời giải nói Đông Ngô, Tây Thục, Bắc Ngụy chia thành ba nước, tranh chiến liên miên, mọi việc gian tân. Quẻ quý ở chỗ biết đủ, nếu không chỉ uổng phí tâm sức; rốt cuộc cũng chỉ được ba phần, không nên tham.",
+      "advice": "Hãy biết đủ, đừng tham.",
+      "story": "Điển thiên hạ chia thành ba nước Ngô, Thục, Ngụy, tranh đánh liên miên."
+    },
+    {
+      "number": 81,
+      "title": "Hợp binh phá Tào hỏa thiêu Xích Bích",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Hợp nhi phân",
+        "Phân nhi hợp",
+        "Thiên thời nhân sự",
+        "Tái châm chước"
+      ],
+      "poem_han": [
+        "合而分",
+        "分而合",
+        "天时人事",
+        "雨斟酌"
+      ],
+      "meaning": [
+        "Hợp rồi lại chia",
+        "Chia rồi lại hợp",
+        "Thiên thời và việc người",
+        "Cần cân nhắc thêm"
+      ],
+      "interpretation": "Lời giải nói đúng lúc hỏa thiêu Xích Bích, Tôn Quyền và Lưu Bị hợp binh phá Tào thắng lợi, cũng là điềm tốt. Tuy có ý trời giúp thành, vẫn cần người biết nắm thời cơ; việc không nên độc đoán, phải có người giúp mới tốt.",
+      "advice": "Đừng tự quyết một mình, hãy nhờ người giúp và cân nhắc kỹ.",
+      "story": "Điển Tôn Quyền, Lưu Bị liên minh, dùng hỏa công đánh bại Tào Tháo ở Xích Bích."
+    },
+    {
+      "number": 82,
+      "title": "Nê mã độ Khang Vương",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Nguyệt dĩ lạc",
+        "Phong hựu khẩn",
+        "Chu vô bồng",
+        "Thủy để ảnh",
+        "Nhược yếu như tâm",
+        "Tam xuân nhất cảnh"
+      ],
+      "poem_han": [
+        "月已落",
+        "风又紧",
+        "舟无蓬",
+        "水底影",
+        "若要如心",
+        "三春一景"
+      ],
+      "meaning": [
+        "Trăng đã lặn",
+        "Gió lại gấp",
+        "Thuyền không mui",
+        "Bóng dưới đáy nước",
+        "Nếu muốn được như lòng",
+        "Phải đợi ba xuân mới có một cảnh"
+      ],
+      "interpretation": "Lời giải nói hãy thành tâm cầu xin trước bàn thờ để giữ được yên ổn, mọi việc nên thận trọng. Quẻ là tượng trong hiểm có cứu, rốt cuộc tuy nguy nhưng vẫn được cứu.",
+      "advice": "Hãy thành tâm cầu khấn và thận trọng trong mọi việc.",
+      "story": "Điển truyền thuyết con ngựa đất sét cõng Khang Vương qua sông thoát nạn."
+    },
+    {
+      "number": 83,
+      "title": "Trương Sĩ Quý đầu quân",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Mã dĩ bì",
+        "Nhân hựu tật",
+        "Thiên bất tòng nhân",
+        "Hà tu cức cức"
+      ],
+      "poem_han": [
+        "马已疲",
+        "人又疾",
+        "天不从人",
+        "何须亟亟"
+      ],
+      "meaning": [
+        "Ngựa đã mệt",
+        "Người lại bệnh",
+        "Trời không theo ý người",
+        "Cần gì phải vội vã"
+      ],
+      "interpretation": "Lời giải nói việc cướp công của người áo bào trắng rốt cuộc gặp nghịch cảnh, không tốt. Quẻ cho biết muôn việc bất cát, gần như tuyệt vọng; nếu cố làm thì cuối cùng vẫn gặp nghịch cảnh.",
+      "advice": "Đừng cố gượng làm, cũng không cần vội vã.",
+      "story": "Điển Trương Sĩ Quý đầu quân, tương truyền đã giành công của người áo bào trắng."
+    },
+    {
+      "number": 84,
+      "title": "Mông Chính thưởng nguyệt",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Thu phong chính hảo nguyệt đương trung",
+        "Hốt bị vũ mông lung",
+        "Như hà vãng",
+        "Nan thành công",
+        "Bất nghi mưu",
+        "Tu thần công"
+      ],
+      "poem_han": [
+        "秋风正好月当中",
+        "忽被雨朦胧",
+        "如何往",
+        "难成功",
+        "不宜谋",
+        "须神工"
+      ],
+      "meaning": [
+        "Gió thu đang dịu, trăng giữa trời",
+        "Bỗng bị mưa làm mờ mịt",
+        "Làm sao mà đi",
+        "Khó thành công",
+        "Không nên mưu tính",
+        "Cần có thần giúp sức"
+      ],
+      "interpretation": "Lời giải nói cùng khốn đến cực điểm, bỗng thấy trăng đẹp trên đầu, cảnh gợi sầu, lòng đầy than thở, còn thưởng thức gì nữa. Quẻ như khách xa nhớ quê, ngoảnh nhìn núi nhà mà bi thán; danh lợi chưa toại, kiện tụng sẽ chịu thiệt, nên mau thôi tranh chấp, các việc khác nên ẩn mình dưỡng sức; mùa đông khá hơn.",
+      "advice": "Mau thôi tranh chấp, ẩn mình dưỡng sức, không nên mưu tính.",
+      "story": "Điển Lã Mông Chính thuở cùng khốn ngắm trăng."
+    },
+    {
+      "number": 85,
+      "title": "Luân Văn Tự bất đệ",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Nhất khứ trung trở",
+        "Vân vụ bất khai",
+        "Thả tự khoan hoài",
+        "Tu hứa thiện nguyện vô ngại"
+      ],
+      "poem_han": [
+        "一去中阻",
+        "云雾不开",
+        "且自宽怀",
+        "须许善愿无碍"
+      ],
+      "meaning": [
+        "Một khi đi thì giữa đường bị cản",
+        "Mây mù không tan",
+        "Hãy tự khoan lòng",
+        "Cần phát nguyện lành thì không trở ngại"
+      ],
+      "interpretation": "Lời giải nói gian khổ đến cùng cực, không tốt. Quẻ nói danh lợi còn phải đợi thời, nhẫn nại giữ mình thì tốt.",
+      "advice": "Hãy khoan lòng, nhẫn nại đợi thời và phát nguyện lành.",
+      "story": "Điển Luân Văn Tự thi không đỗ."
+    },
+    {
+      "number": 86,
+      "title": "Hòe âm phân biệt",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Tịch dĩ tán đường trung",
+        "Tịch mịch khủng nan khán",
+        "Nhược đắc trùng hoan",
+        "Chỉ đãi nhất luân nguyệt thượng"
+      ],
+      "poem_han": [
+        "席已散堂中",
+        "寂寞恐难看",
+        "若得重欢",
+        "只待一轮月上"
+      ],
+      "meaning": [
+        "Tiệc trong sảnh đã tan",
+        "Quạnh vắng e khó nhìn",
+        "Nếu muốn được vui lại",
+        "Chỉ đợi vầng trăng lên"
+      ],
+      "interpretation": "Lời giải kể Đổng Vĩnh bán mình chôn cha, sau đỗ trạng nguyên, tiên nữ đưa con đến rồi chia tay dưới bóng hòe, về sau khó gặp lại; hôn nhân không tốt. Quẻ là tượng ôm cây đợi thỏ, co lại để mong duỗi ra; mọi việc bình thường, hôn nhân không tốt.",
+      "advice": "Hãy kiên nhẫn chờ đợi, chớ vội.",
+      "story": "Điển Đổng Vĩnh bán mình chôn cha, sau gặp tiên nữ rồi chia tay dưới gốc hòe."
+    },
+    {
+      "number": 87,
+      "title": "Khổng Tử tại Trần",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Cẩm tú bất thành văn",
+        "Chỉ hận tu chi đoản",
+        "Vãn hồi thời mệnh",
+        "Kê thử trư ngưu",
+        "Dã nghi thôi nhượng",
+        "Vấn quá thu thành Tử Hãn thượng"
+      ],
+      "poem_han": [
+        "锦绣不成文",
+        "只恨修之短",
+        "挽回时命",
+        "鸡鼠猪牛",
+        "也宜推让",
+        "问过收成子罕上"
+      ],
+      "meaning": [
+        "Gấm vóc thêu chưa thành hoa văn",
+        "Chỉ giận công tu dưỡng còn ngắn",
+        "Cứu vãn thời vận",
+        "Tuổi gà, chuột, heo, trâu",
+        "Cũng nên nhường nhịn",
+        "Hỏi chuyện thu hoạch thì xem thiên Tử Hãn"
+      ],
+      "interpretation": "Lời giải kể Khổng Tử chu du liệt quốc, ở đất Trần hết lương, Tử Lộ than oán, Khổng Tử đáp rằng quân tử vốn chịu cùng, tiểu nhân cùng thì làm bậy; vận chưa thông nên gặp ách này, việc gì cũng chớ vội. Quẻ có điềm gặp hung hóa cát, nhưng đừng nóng lòng, hãy đợi thời đến.",
+      "advice": "Đừng nóng vội, hãy nhường nhịn và đợi thời đến.",
+      "story": "Điển Khổng Tử chu du liệt quốc, bị tuyệt lương ở đất Trần."
+    },
+    {
+      "number": 88,
+      "title": "Bá Nha phỏng hữu",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Hối vong hối vong",
+        "Không hao lưỡng nan",
+        "Nhân tại đông",
+        "Tây hà khả ngộ",
+        "Mạc lao tâm lực đãi thời ngộ"
+      ],
+      "poem_han": [
+        "悔亡悔亡",
+        "空耗两难",
+        "人在东",
+        "西何可遇",
+        "莫劳心力待时遇"
+      ],
+      "meaning": [
+        "Hối hận tiêu tan, hối hận tiêu tan",
+        "Hao phí vô ích, cả hai đều khó",
+        "Người ở phía đông",
+        "Phía tây làm sao gặp được",
+        "Đừng nhọc tâm sức, hãy đợi thời gặp gỡ"
+      ],
+      "interpretation": "Lời giải kể Bá Nha gảy đàn trên sông, gặp Chung Tử Kỳ hiểu tiếng đàn, kết làm anh em, hẹn rằm tháng tám gặp lại; không ngờ Tử Kỳ chết sớm, Bá Nha tìm không gặp, tế trước mộ rồi đập đàn, là điềm không tốt. Quẻ như tráng sĩ lạc đường khó tìm tri âm, như thiếu nữ nghèo thương xuân không biết cầu ở đâu; hôn nhân bất lợi, mọi việc không tốt, phải thận trọng mới được.",
+      "advice": "Đừng nhọc tâm sức, hãy đợi thời gặp gỡ và thận trọng.",
+      "story": "Điển Bá Nha đập đàn tạ tri âm Chung Tử Kỳ."
+    },
+    {
+      "number": 89,
+      "title": "Thất cầm Mạnh Hoạch",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Cách liễu kỷ trùng sơn dữ thủy",
+        "Tiền đồ chung thị cách nan hành",
+        "Chỉ đãi thảo đầu nhân",
+        "Phương khả lưỡng thành mưu"
+      ],
+      "poem_han": [
+        "隔了几重山与水",
+        "前途终是隔难行",
+        "只待草头人",
+        "方可两成谋"
+      ],
+      "meaning": [
+        "Cách mấy lớp núi và sông",
+        "Đường phía trước rốt cuộc cách trở khó đi",
+        "Chỉ đợi người \"đầu cỏ\"",
+        "Mới có thể cả hai cùng thành việc"
+      ],
+      "interpretation": "Lời giải nói mọi việc gian tân lao nhọc đến cùng cực, nhưng vẫn là trung cát. Quẻ là tượng núi sông gặp nhau thành tri kỷ, việc phần nhiều đều tốt.",
+      "advice": "Hãy chờ người hợp sức (người \"đầu cỏ\") rồi cùng mưu việc.",
+      "story": "Điển Gia Cát Lượng bảy lần bắt, bảy lần thả Mạnh Hoạch."
+    },
+    {
+      "number": 90,
+      "title": "Sinh tế Lý Ngạn Quý",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Vũ đả lê hoa",
+        "Nhân tại thiên nhai",
+        "Công danh đa phí lực",
+        "Đồ sự bất năng thành",
+        "Âm dương phản phục",
+        "Thời quá linh nhân ta"
+      ],
+      "poem_han": [
+        "雨打梨花",
+        "人在天涯",
+        "功名多费力",
+        "图事不能成",
+        "阴阳反复",
+        "时过令人嗟"
+      ],
+      "meaning": [
+        "Mưa đập hoa lê",
+        "Người ở chân trời",
+        "Công danh tốn nhiều sức",
+        "Mưu việc không thể thành",
+        "Âm dương đảo ngược",
+        "Qua thời khiến người than tiếc"
+      ],
+      "interpretation": "Lời giải nói mười phần nguy hiểm, may được cứu. Quẻ cho biết vận trắc trở, thời nghịch, âm dương đảo ngược, các việc kém tốt, chỉ có nơi nơi cẩn thận; trong hiểm có cứu, giữ lòng thành với thần thì có thể bình an.",
+      "advice": "Hãy cẩn thận ở mọi nơi và giữ lòng thành với thần.",
+      "story": "Điển Lý Ngạn Quý được lập lễ tế sống."
+    },
+    {
+      "number": 91,
+      "title": "Lý Đán thụ kiếp",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Mạc cấp tẩu",
+        "Khán bạn điệt",
+        "Vân yểm phong mai",
+        "Chung thị nhất trường oan nghiệp",
+        "Nhược oan nghiệp",
+        "Tu tỉnh phương miễn đắc"
+      ],
+      "poem_han": [
+        "莫急走",
+        "看绊跌",
+        "云掩风霾",
+        "终是一场冤业",
+        "若冤业",
+        "修省方免得"
+      ],
+      "meaning": [
+        "Chớ vội chạy",
+        "Coi chừng vấp ngã",
+        "Mây che gió bụi mù mịt",
+        "Rốt cuộc là một trận oan nghiệp",
+        "Nếu là oan nghiệp",
+        "Tu tỉnh mới tránh được"
+      ],
+      "interpretation": "Lời giải kể chuyện giả điên đến phủ họ Đào kể tình, sau nhờ Mã Chu tìm chủ đưa về triều, gian tân đến cực, cuối cùng đều tốt. Quẻ nói vận mệnh truân chuyên, thuyền vỡ gió dữ, mọi việc gian nan đến cùng nhưng sau cùng đều tốt, vì bậc chân mệnh thiên tử có trăm thần hộ trợ.",
+      "advice": "Đừng vội vàng, hãy tu tỉnh bản thân.",
+      "story": "Điển Lý Đán gặp nạn."
+    },
+    {
+      "number": 92,
+      "title": "Huyền Đức ly Hử Đô",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Lôi thanh đại",
+        "Vũ điểm tiểu",
+        "Túng hảo bất hảo",
+        "Sự tại giải linh nhân",
+        "Phúc tự cải quá",
+        "Đa hành thiện khả bảo"
+      ],
+      "poem_han": [
+        "雷声大",
+        "雨点小",
+        "纵好不好",
+        "事在解铃人",
+        "福自改过",
+        "多行善可保"
+      ],
+      "meaning": [
+        "Sấm to",
+        "Giọt mưa nhỏ",
+        "Dù tốt cũng chẳng tốt",
+        "Việc nằm ở người cởi chuông",
+        "Phúc đến từ việc sửa lỗi",
+        "Làm nhiều việc thiện thì có thể giữ được"
+      ],
+      "interpretation": "Lời giải nói mọi việc cẩn thận thì sẽ xem được điềm lành. Quẻ có thơ rằng giặc cướp trăm nghìn lòng hổ lang, gươm giáo dùng sức rất sâu, từ nay dấu vết lục lâm thu lại, một phương mới khỏi tai họa xâm hại.",
+      "advice": "Mọi việc cẩn thận, sửa lỗi và làm nhiều việc thiện.",
+      "story": "Điển Lưu Huyền Đức rời Hử Đô."
+    },
+    {
+      "number": 93,
+      "title": "Lương Sơn Bá lộ dao phỏng hữu",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Tâm cấp mã hành trì",
+        "Vọng can hà hữu ích",
+        "Thả tự an phận",
+        "Thiên thần hộ cát"
+      ],
+      "poem_han": [
+        "心急马行迟",
+        "妄干何有益",
+        "且自安份",
+        "天神护吉"
+      ],
+      "meaning": [
+        "Lòng nóng mà ngựa đi chậm",
+        "Làm càn thì có ích gì",
+        "Hãy tự yên phận",
+        "Thần trời che chở được lành"
+      ],
+      "interpretation": "Lời giải nói có duyên thì gặp, qua rồi khó cầu. Quẻ nói yên phận giữ mình còn sợ mắc lỗi, mọi việc phải hết sức đề phòng, mau mau hướng thiện thì tránh được tai hại.",
+      "advice": "Hãy yên phận, hết sức đề phòng và mau hướng thiện.",
+      "story": "Điển Lương Sơn Bá đi đường xa tìm bạn."
+    },
+    {
+      "number": 94,
+      "title": "Mông Chính lao trai",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Sự dĩ như thử",
+        "Hối chi hà cập",
+        "Túng hữu bất tường",
+        "Hoàn nghi âm chất"
+      ],
+      "poem_han": [
+        "事已如此",
+        "悔之何及",
+        "纵有不祥",
+        "还宜阴骘"
+      ],
+      "meaning": [
+        "Việc đã như vậy",
+        "Hối hận sao kịp",
+        "Dù có điều chẳng lành",
+        "Vẫn nên tích âm đức"
+      ],
+      "interpretation": "Lời giải kể Mông Chính cùng cực vào chùa ăn chực, sau sư vô nhân, ăn xong mới đánh chuông khiến ông không có cơm ăn; về sau Mông Chính đỗ trạng nguyên, mọi việc trước khó sau dễ, cuối cùng tốt. Quẻ là tượng trước khổ sau ngọt, ai tu đức làm nhân thì phúc sẽ đến về sau.",
+      "advice": "Hãy tu đức, tích âm đức, phúc sẽ đến về sau.",
+      "story": "Điển Lã Mông Chính thuở nghèo vào chùa ăn chực."
+    },
+    {
+      "number": 95,
+      "title": "Mạnh Thường Quân bị hại",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Dĩ nhập lung",
+        "Hà khả thoát",
+        "Dĩ lạc không",
+        "Nan mịch trước",
+        "Ngộ kê thử",
+        "Tự tri giác",
+        "Bệnh quả khởi",
+        "Vật phục dược"
+      ],
+      "poem_han": [
+        "已入笼",
+        "何可脱",
+        "已落空",
+        "难觅着",
+        "遇鸡鼠",
+        "自知觉",
+        "病果起",
+        "勿服药"
+      ],
+      "meaning": [
+        "Đã vào lồng",
+        "Làm sao thoát",
+        "Đã rơi vào chỗ trống",
+        "Khó tìm được chỗ bám",
+        "Gặp tuổi gà, chuột",
+        "Tự mình sẽ nhận ra",
+        "Bệnh nếu phát",
+        "Đừng uống thuốc"
+      ],
+      "interpretation": "Lời giải nói may có lòng lành, dân tâm thành phục, nhờ Phùng Hoan lập công nên dân chúng cảm ơn ra đón; có tiểu nhân cũng có quý nhân, nhưng phải cẩn thận. Quẻ là tượng gà vàng báo sáng, gặp hung hóa cát; Mạnh Thường Quân mua nghĩa, đốt hết khế nợ nên giải được ách, người xem quẻ tích nhiều âm đức cũng chuyển họa thành phúc, trong hiểm có cứu.",
+      "advice": "Hãy giữ lòng lành, tích âm đức và cẩn thận.",
+      "story": "Điển Mạnh Thường Quân, nhờ Phùng Hoan đốt khế nợ mua nghĩa mà được dân cảm phục."
+    },
+    {
+      "number": 96,
+      "title": "Mạnh Khương Nữ tầm phu",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Đàm thâm ngư bất nhị",
+        "Điểu phi nan dặc hoạch",
+        "Thời thế dĩ như thử",
+        "Nhất tiếu hựu nhất khốc"
+      ],
+      "poem_han": [
+        "潭深鱼不饵",
+        "鸟飞难弋获",
+        "时势已如此",
+        "一笑又一哭"
+      ],
+      "meaning": [
+        "Đầm sâu cá không cắn mồi",
+        "Chim bay khó bắn được",
+        "Thời thế đã như vậy",
+        "Một lần cười lại một lần khóc"
+      ],
+      "interpretation": "Lời giải nói một được một mất, tự hối vì không có chí. Quẻ là tượng cá chim đều trống không, mọi việc bất lợi, nên thận trọng đề phòng, tích đức làm lành thì giải được.",
+      "advice": "Hãy thận trọng đề phòng, tích đức làm lành.",
+      "story": "Điển Mạnh Khương Nữ đi tìm chồng."
+    },
+    {
+      "number": 97,
+      "title": "Phạm Trọng Yêm mại tự",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Cát hung tương bán nhân nghi thức",
+        "Mạc nhậm lao lao tổn vô ích",
+        "Hữu thời thiên vận nhất hồi hoàn",
+        "Tự nhiên thiên đạo vô ngân tích"
+      ],
+      "poem_han": [
+        "吉凶相半人宜识",
+        "莫任劳劳损无益",
+        "有时天运一回还",
+        "自然天道无痕迹"
+      ],
+      "meaning": [
+        "Cát hung ngang nhau, người nên biết",
+        "Chớ cứ nhọc nhằn, tổn mà vô ích",
+        "Có lúc vận trời xoay lại một lần",
+        "Đạo trời tự nhiên không để dấu vết"
+      ],
+      "interpretation": "Lời giải kể thuở trước nhà nghèo phải bán chữ, đến khi vận thông thì làm tể tướng, cuối cùng đều tốt. Lời thơ cho biết cát hung chia nửa, đừng cứ nhọc nhằn vô ích, có lúc vận trời sẽ xoay lại.",
+      "advice": "Đừng nhọc nhằn vô ích, hãy chờ lúc vận trời xoay lại.",
+      "story": "Điển Phạm Trọng Yêm thuở nghèo bán chữ, sau làm tể tướng."
+    },
+    {
+      "number": 98,
+      "title": "Khương Thái Công Vị Thủy điếu ngư",
+      "category": "neutral",
+      "level": "Trung cát",
+      "poem": [
+        "Đông bất như tây",
+        "Dã yếu thức thời",
+        "Thị nãi hữu mệnh",
+        "Khả bất tri chi",
+        "Tri thời mệnh",
+        "Cửu mưu tự hợp nghi"
+      ],
+      "poem_han": [
+        "东不如西",
+        "也要识时",
+        "是乃有命",
+        "可不知之",
+        "知时命",
+        "久谋自合宜"
+      ],
+      "meaning": [
+        "Đông chẳng bằng tây",
+        "Cũng phải biết thời",
+        "Đó là có mệnh",
+        "Há có thể không biết",
+        "Biết thời và mệnh",
+        "Mưu lâu dài tự khắc thích hợp"
+      ],
+      "interpretation": "Lời giải nói mọi việc nhẫn nại giữ mình, đợi thời thì tốt. Quẻ tượng có phong ba bất ngờ, rốt cuộc đều khó, việc dù thành cũng tốn nhiều tâm sức, chi bằng tạm chờ đợi, thuận theo tự nhiên thì tốt.",
+      "advice": "Nhẫn nại giữ mình, đợi thời và thuận theo tự nhiên.",
+      "story": "Điển Khương Thái Công câu cá ở sông Vị chờ thời."
+    },
+    {
+      "number": 99,
+      "title": "Đặng Ngải Chung Hội nhập Xuyên",
+      "category": "neutral",
+      "level": "Trung hạ",
+      "poem": [
+        "Khả dĩ chuyển di",
+        "Khả dĩ liễu kết",
+        "Chỉ hận vận mệnh truân chuyên",
+        "Cố thử nhất đắc nhất thất"
+      ],
+      "poem_han": [
+        "可以转移",
+        "可以了结",
+        "只恨运命屯邅",
+        "故此一得一失"
+      ],
+      "meaning": [
+        "Có thể chuyển dời",
+        "Có thể kết thúc",
+        "Chỉ hận vận mệnh truân chuyên",
+        "Vì vậy một được một mất"
+      ],
+      "interpretation": "Lời giải nói chớ nóng vội, lắng lòng nhún nhường thì có lợi không hại, việc trước hung sau cát. Quẻ nói khi gặp lỡ cơ hội chớ chùn chí, tai họa kỳ quái cũng không ngại, thận trọng tiến thủ vẫn còn có thể làm được.",
+      "advice": "Đừng nóng vội, lắng lòng nhún nhường và thận trọng tiến thủ.",
+      "story": "Điển Đặng Ngải và Chung Hội đem quân Ngụy vào đánh Thục."
+    },
+    {
+      "number": 100,
+      "title": "Khổng Minh cầu thọ",
+      "category": "bad",
+      "level": "Hạ hạ",
+      "poem": [
+        "Nguyệt lạc tinh trầm",
+        "Phong sinh vũ chí",
+        "Chỉ yếu long hổ bất tương tranh",
+        "Phương khả như thời lợi"
+      ],
+      "poem_han": [
+        "月落星沉",
+        "风生雨至",
+        "只要龙虎不相争",
+        "方可如时利"
+      ],
+      "meaning": [
+        "Trăng lặn sao chìm",
+        "Gió nổi mưa đến",
+        "Chỉ cần rồng hổ không tranh nhau",
+        "Mới có thể thuận lợi theo thời"
+      ],
+      "interpretation": "Lời giải nói Khổng Minh cầu thọ nhưng bị Ngụy Diên đá đổ đèn thọ, là điềm mọi việc không tốt. Quẻ là tượng đại hung, nên tu thân tự xét thì mới không hại; đá tắt đèn thọ, mọi việc bất cát.",
+      "advice": "Hãy tu thân tự xét để khỏi bị hại.",
+      "story": "Điển Gia Cát Lượng lập đàn cầu thọ, đèn thọ bị Ngụy Diên đá đổ."
+    }
+  ]
+}

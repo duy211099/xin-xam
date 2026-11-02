@@ -1,0 +1,106 @@
+:root {
+  --paper: #fbf3dc;
+  --ink: #2b1a10;
+  --red: #b3261e;
+  --gold: #d6a53a;
+  --gold-text: #8c6418;
+  --page: #f3eee4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 16px;
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'Noto Serif', 'Times New Roman', Georgia, serif;
+  line-height: 1.6;
+}
+
+.slip {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 28px 24px 24px;
+  background: var(--paper);
+  border: 6px solid var(--red);
+  outline: 2px solid var(--gold);
+  outline-offset: -12px;
+  border-radius: 4px;
+  box-shadow: 0 12px 36px rgba(43, 26, 16, 0.25);
+  text-align: center;
+}
+
+.slip p { margin: 0 0 10px; }
+
+.slip-collection {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+
+.slip-heading {
+  margin: 4px 0 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--red);
+}
+
+.slip-number { margin: 2px 0 6px; font-size: 20px; font-weight: 700; }
+.slip-title { font-size: 18px; font-style: italic; }
+
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 99px;
+  background: #e8e1c8;
+  font: 700 12px/1 system-ui, sans-serif;
+  letter-spacing: 0.06em;
+}
+.badge-good { background: #f7d774; }
+.badge-neutral { background: #e8e1c8; }
+.badge-bad { background: #e6b3a8; }
+
+.slip-poem {
+  margin: 14px auto;
+  padding: 10px 0;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.slip-poem p { margin: 0; }
+
+.slip h2 {
+  margin: 16px 0 4px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+
+.slip-sample {
+  margin-top: 16px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold-text);
+}
+
+.slip-button {
+  display: block;
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 6px;
+  background: var(--red);
+  color: #fff;
+  font: 700 20px/1.2 'Noto Serif', Georgia, serif;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+.slip-button:hover, .slip-button:focus-visible { background: #8f1d17; }
