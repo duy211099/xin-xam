@@ -70,7 +70,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  max-width: 808px;
+  max-width: 968px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -81,7 +81,7 @@ body {
 @media (min-width: 700px) {
   .arch-posts { margin: 0 12px; padding: 48px 28px 32px; border-width: 14px; }
   .machines { gap: 16px; }
-  .machines li { flex: 0 0 190px; }
+  .machines li { flex: 0 0 230px; }
 }
 
 .machine {
@@ -110,7 +110,7 @@ body {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border: 3px solid var(--ink);
-  background: var(--accent);
+  background: color-mix(in srgb, var(--accent) 22%, #fbf3dc);
 }
 
 .machine-name {
