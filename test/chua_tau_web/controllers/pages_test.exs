@@ -111,15 +111,19 @@ defmodule ChuaTauWeb.PagesTest do
   end
 
   describe "site files" do
-    test "sitemap lists gate, figure and the written, non-sample fortunes only", %{conn: conn} do
+    test "sitemap lists gate, machines, certificates and the written, non-sample fortunes only",
+         %{conn: conn} do
       conn = get(conn, ~p"/sitemap.xml")
       assert response_content_type(conn, :xml) =~ "xml"
       body = response(conn, 200)
-      assert length(Regex.scan(~r{<loc>}, body)) == 202
+      assert length(Regex.scan(~r{<loc>}, body)) == 206
       assert body =~ ~r{<loc>http://localhost[^<]*/</loc>}
       assert body =~ ~r{<loc>http://localhost[^<]*/xin-xam</loc>}
       assert body =~ ~r{<loc>http://localhost[^<]*/que/quan-am/100</loc>}
       assert body =~ "/que/lu-to/100"
+      assert body =~ ~r{<loc>http://localhost[^<]*/giai-nghiep</loc>}
+
+      for loai <- ~w(than khau y), do: assert(body =~ "/giai-nghiep/#{loai}</loc>")
     end
 
     test "robots.txt allows all and points at the sitemap", %{conn: conn} do

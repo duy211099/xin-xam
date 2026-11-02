@@ -16,6 +16,8 @@ defmodule ChuaTauWeb.Router do
 
     get "/", GateController, :home
     get "/xin-xam", FigureController, :xin_xam
+    get "/giai-nghiep", GiaiNghiepController, :machine
+    get "/giai-nghiep/:loai", GiaiNghiepController, :show
     get "/que/:set/:n", ShareController, :show
   end
 end

@@ -19,6 +19,7 @@ mix test
 - `ChuaTauWeb.FigurePage` splices the server into `priv/figure/index.html` at three markers only: `</head>`, the `ct-fortunes` script body and `</body>`. Do not rely on anything else in that file, it gets replaced by newer builds. Boot raises if a marker is missing or duplicated. The JSON is encoded with `escape: :html_safe`.
 - `ChuaTauWeb.Seo` renders head tags for the gate, the figure and the share pages. Share pages with `sample == true` are `noindex` and left out of the sitemap.
 - `ChuaTauWeb.Machines` is the machine list. `/` is the gate (`GateController`, styled by `priv/static/css/gate.css`). The fortune figure lives at `/xin-xam` and gets a back link spliced in before `</body>`. Old `/?col=…` style links redirect there.
+- `ChuaTauWeb.GiaiNghiepPage` splices SEO at the single `</head>` of `priv/giai-nghiep/index.html` and strips its `<title>`. `ChuaTauWeb.Certificate` holds the three kinds (than, khau, y). `/giai-nghiep/:loai` is the certificate share page, styled by `priv/static/css/certificate.css`. `window.ctCertificate.draw` is the canvas contract that the OG images are rendered from.
 - Share page styling is plain CSS in `priv/static/css/share.css`.
 
 ## Rules

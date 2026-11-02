@@ -3,7 +3,7 @@ defmodule ChuaTauWeb.MetaController do
   use ChuaTauWeb, :controller
 
   alias ChuaTau.Fortunes
-  alias ChuaTauWeb.{Machines, Seo}
+  alias ChuaTauWeb.{Certificate, Machines, Seo}
 
   def sitemap(conn, _params) do
     share_paths =
@@ -12,10 +12,12 @@ defmodule ChuaTauWeb.MetaController do
           do: "/que/#{c.id}/#{n}"
 
     machine_paths =
-      for m <- Machines.all(), m.slug == "xin-xam", do: Machines.path(m)
+      Enum.map(Machines.all(), &Machines.path/1)
+
+    certificate_paths = for {loai, _} <- Certificate.kinds(), do: "/giai-nghiep/" <> loai
 
     urls =
-      for path <- ["/" | machine_paths] ++ share_paths do
+      for path <- ["/" | machine_paths] ++ certificate_paths ++ share_paths do
         "  <url><loc>#{Plug.HTML.html_escape(Seo.absolute(path))}</loc></url>\n"
       end
 

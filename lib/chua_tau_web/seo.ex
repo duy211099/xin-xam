@@ -8,6 +8,9 @@ defmodule ChuaTauWeb.Seo do
   @xin_xam_title "Xin xăm online · Quan Âm Linh Xăm 100 quẻ"
   @xin_xam_description "Xin xăm online với máy xin xăm ảo: thành tâm khấn nguyện, bỏ đồng xu, nhận viên nang vàng rồi đọc lời xăm. Hai bộ Quan Âm và Lữ Tổ Linh Xăm, mỗi bộ 100 quẻ, có lời thơ, lời giải và lời khuyên."
 
+  @giai_nghiep_title "Máy giải nghiệp online · Nhanh, gọn, có kết quả"
+  @giai_nghiep_description "Máy giải nghiệp online: chọn nghiệp thân, khẩu hoặc ý, nhét tiền vào máy, đợi máy giải rồi nhận kết quả và giấy chứng nhận đã giải nghiệp. Nhanh, gọn, có kết quả."
+
   defstruct [:title, :description, :url, noindex: false, json_ld: nil, image: "/images/og.png"]
 
   def site_name, do: @site_name
@@ -19,6 +22,24 @@ defmodule ChuaTauWeb.Seo do
       title: @xin_xam_title,
       description: @xin_xam_description,
       url: absolute("/xin-xam")
+    }
+  end
+
+  def giai_nghiep do
+    %__MODULE__{
+      title: @giai_nghiep_title,
+      description: @giai_nghiep_description,
+      url: absolute("/giai-nghiep")
+    }
+  end
+
+  def certificate(loai, label) do
+    %__MODULE__{
+      title: "Giấy chứng nhận đã giải nghiệp · Loại #{label} · Máy giải nghiệp",
+      description:
+        "Giấy chứng nhận đã giải nghiệp, loại #{label}, hiệu lực đến lần sau. Tự giải nghiệp của mình ở máy giải nghiệp online.",
+      url: absolute("/giai-nghiep/#{loai}"),
+      image: "/images/giai-nghiep/#{loai}.png"
     }
   end
 

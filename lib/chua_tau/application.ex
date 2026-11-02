@@ -9,6 +9,7 @@ defmodule ChuaTau.Application do
   def start(_type, _args) do
     ChuaTau.Fortunes.load!()
     ChuaTauWeb.FigurePage.load!()
+    ChuaTauWeb.GiaiNghiepPage.load!()
 
     children = [
       ChuaTauWeb.Telemetry,
