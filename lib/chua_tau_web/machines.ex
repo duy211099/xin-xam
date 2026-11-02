@@ -24,7 +24,7 @@ defmodule ChuaTauWeb.Machines do
       %__MODULE__{
         slug: "giai-nghiep",
         name: "Giải nghiệp",
-        tagline: "Nhanh · Gọn · Có hóa đơn",
+        tagline: "Nhanh · Gọn · Có kết quả",
         thumb: "/images/machines/giai-nghiep.png",
         accent: "#e5533d"
       }

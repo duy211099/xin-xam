@@ -52,7 +52,7 @@ Machine entries (exact):
 | slug | name | tagline | thumb | accent |
 |---|---|---|---|---|
 | `xin-xam` | `Xin xăm` | `Thành tâm khấn nguyện, bỏ đồng xu, nhận quẻ.` | `/images/machines/xin-xam.png` | `#d6a53a` |
-| `giai-nghiep` | `Giải nghiệp` | `Nhanh · Gọn · Có hóa đơn` | `/images/machines/giai-nghiep.png` | `#e5533d` |
+| `giai-nghiep` | `Giải nghiệp` | `Nhanh · Gọn · Có kết quả` | `/images/machines/giai-nghiep.png` | `#e5533d` |
 
 - [ ] **Step 1: Write failing tests.** In `gate_test.exs`:
   - `GET /` renders one `a.machine` per `Machines.all()`, with hrefs `["/xin-xam", "/giai-nghiep"]` in that order. Each link contains its name and an `img` whose `src` is the thumb.
@@ -99,7 +99,7 @@ Machine entries (exact):
 
 - [ ] **Step 1: Write the failing test** `giai_nghiep_figure_test.exs`. Read the file as a UTF-8 binary and assert:
   - `String.normalize(html, :nfc) == html`.
-  - It contains each of these exact strings: `MÁY GIẢI NGHIỆP`, `Nhanh · Gọn · Có hóa đơn`, `THÂN`, `KHẨU`, `Ý`, `NẶNG`, `NHÉT TIỀN VÀO ĐÂY`, `CHỌN NGHIỆP`, `ĐANG GIẢI...`, `XONG!`, `HÓA ĐƠN`, `KHÔNG HOÀN TIỀN`, `GIẤY CHỨNG NHẬN ĐÃ GIẢI NGHIỆP`, `Hiệu lực: đến lần sau.`, `HẾT TIỀN?`, `Hộp tiền`, `Máy in hóa đơn`, `Búa chuông`, `Bộ xịt khói`, `Đèn kệ`, `Mô-tơ rung kệ`, `Thanh giữ hàng`, `Khoảng trống`, `Lưu giấy`, `Chia sẻ`, `← Cổng chùa`, `ctCertificate`.
+  - It contains each of these exact strings: `MÁY GIẢI NGHIỆP`, `Nhanh · Gọn · Có kết quả`, `THÂN`, `KHẨU`, `Ý`, `NẶNG`, `NHÉT TIỀN VÀO ĐÂY`, `CHỌN NGHIỆP`, `ĐANG GIẢI...`, `XONG!`, `KẾT QUẢ`, `KHÔNG HOÀN TIỀN`, `GIẤY CHỨNG NHẬN ĐÃ GIẢI NGHIỆP`, `Hiệu lực: đến lần sau.`, `HẾT TIỀN?`, `Hộp tiền`, `Máy in kết quả`, `Búa chuông`, `Bộ xịt khói`, `Đèn kệ`, `Mô-tơ rung kệ`, `Thanh giữ hàng`, `Khoảng trống`, `Lưu giấy`, `Chia sẻ`, `← Cổng chùa`, `ctCertificate`.
   - Exactly one `</head>` and exactly one `<title>`.
   - No outside requests: refute `~r/(src|href)\s*=\s*["']\s*(https?:)?\/\//i`, `~r/url\(\s*["']?(https?:)?\/\//i`, `~r/@import/` and `~r/fetch\(|XMLHttpRequest/`.
 - [ ] **Step 2: Run `mix test test/chua_tau_web/giai_nghiep_figure_test.exs`.** Expected: FAIL, file missing.
@@ -110,7 +110,7 @@ Machine entries (exact):
   - Overpay is kept, and the counter resets to 0 after the run.
   - State machine `idle → chosen → paying → running → done`. Input during `running` is ignored. "HẾT TIỀN?" goes back to `idle` from any state and clears all timers. The cash box keeps its fill level: money never leaves it.
   - A type change during `chosen`/`paying` re-prices. If paid ≥ the new price, go straight to `running`.
-  - Each see-through label lights while its part runs: coin → Hộp tiền; type → Đèn kệ; run → Mô-tơ rung kệ, Búa chuông, Bộ xịt khói, Máy in hóa đơn. Thanh giữ hàng and Khoảng trống are static labels.
+  - Each see-through label lights while its part runs: coin → Hộp tiền; type → Đèn kệ; run → Mô-tơ rung kệ, Búa chuông, Bộ xịt khói, Máy in kết quả. Thanh giữ hàng and Khoảng trống are static labels.
   - Clicking the receipt in the tray opens the certificate overlay. It has Lưu giấy, Chia sẻ and a close button. Close returns to `idle` with the tray empty.
   - Chia sẻ tries `navigator.share({url})`, then `navigator.clipboard.writeText(url)` with the note "Đã chép link". If neither works, it shows the URL in a read-only selectable `<input>`.
   - Body is tomato red `#e5533d` with mustard `#d6a53a` accents, plus the skill's usual swatches. The dented corner and the "KHÔNG HOÀN TIỀN" side sticker are as the spec says.

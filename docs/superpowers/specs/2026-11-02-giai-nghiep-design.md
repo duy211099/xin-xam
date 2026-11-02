@@ -81,7 +81,7 @@ Built with the **colorfigures** skill as one self-contained HTML file at `priv/g
 **Body.** A tall, slightly worn street vending machine, the kind outside a pagoda gate. Default body colour tomato red with mustard accents, and the usual colorfigures swatches. Slightly dented corner. One sticker on the side: "KHÔNG HOÀN TIỀN".
 
 **Front panel.**
-- Header sign "MÁY GIẢI NGHIỆP", subline "Nhanh · Gọn · Có hóa đơn".
+- Header sign "MÁY GIẢI NGHIỆP", subline "Nhanh · Gọn · Có kết quả".
 - Glass window, three shelves with price tags:
   - Shelf 1 "THÂN" (red): small wax figures of a person
   - Shelf 2 "KHẨU" (yellow): paper tongues / little talk-bubble cards
@@ -89,7 +89,7 @@ Built with the **colorfigures** skill as one self-contained HTML file at `priv/g
 - Keypad: three big buttons THÂN / KHẨU / Ý, plus a small round button "NẶNG" that doubles the price.
 - Coin slot labelled "NHÉT TIỀN VÀO ĐÂY", and a bill slot.
 - LCD strip: "CHỌN NGHIỆP" at rest → price → "ĐANG GIẢI..." → "XONG!".
-- Dispensing tray at the bottom labelled "HÓA ĐƠN".
+- Dispensing tray at the bottom labelled "KẾT QUẢ".
 - Small brass bell on the side.
 - Incense-holder bracket on a top corner with one stick (optional).
 
@@ -105,7 +105,7 @@ Overpaying: the extra is kept, not returned, as the sticker says. *(my call)* Pr
 
 **See-through (deadpan).** Behind the busy front there is almost nothing. Labelled parts, each label lights while its part runs:
 - "Hộp tiền": cash box. Coins fall straight into it. It's the largest part inside and gets fuller with each coin.
-- "Máy in hóa đơn": small thermal printer with a paper roll, feeding the tray.
+- "Máy in kết quả": small thermal printer with a paper roll, feeding the tray.
 - "Búa chuông": tiny solenoid that taps the bell.
 - "Bộ xịt khói": small bellows that puffs the smoke.
 - "Đèn kệ": three LEDs, one per shelf.
