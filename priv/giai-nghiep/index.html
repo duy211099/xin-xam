@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Máy giải nghiệp</title>
+<link rel="icon" href="data:,">
+<style>
+body{padding-top:46px!important;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif!important}
+header,.made-with,.ctl:has(#wb){display:none!important}
+.act,.toast,.stat,.chip,.controls,.controls button{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif!important}
+.act{min-height:34px}
+#fig .tag text{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif!important}
+.gn-gate{position:fixed;top:8px;left:8px;z-index:50;padding:4px 8px;font:13px/1.2 'Noto Serif','Times New Roman',Georgia,serif;color:#2b1a10;background:#fbf3dc;border:2px solid #2b1a10;border-radius:4px;text-decoration:none}
+.gn-modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(35,22,14,.55)}
+.gn-modal.show{display:flex}
+.gn-sheet{width:min(680px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#f2efe7;border:2px solid #2b1a10;border-radius:10px;padding:14px;box-shadow:0 18px 50px rgba(0,0,0,.4);text-align:center}
+.gn-sheet canvas{display:block;width:100%;height:auto;border-radius:4px;box-shadow:0 2px 0 #2b1a10}
+.gn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.gn-row button{font:600 14px system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;padding:9px 18px;min-height:42px;border-radius:99px;border:2px solid #2b1a10;background:#fff4d6;color:#2b1a10;cursor:pointer}
+.gn-row button.pri{background:#b3261e;color:#fff4d6}
+.gn-note{font:600 13px system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:#2b1a10;margin:10px 0 0}
+.gn-url{display:block;width:100%;margin:10px 0 0;padding:9px 10px;font:14px ui-monospace,Menlo,monospace;border:2px solid #2b1a10;border-radius:6px;background:#fff;color:#2b1a10}
+.gn-note[hidden],.gn-url[hidden]{display:none}
+@media (max-width:560px){.gn-modal{padding:10px}.gn-sheet{padding:10px}}
+</style>
+<style>.mcap{display:none!important}@media (max-width:560px){.stat .v{font-size:20px!important}.stats{align-items:flex-end}}@media (min-width:561px){.vset{top:4px!important}#stats{top:var(--vset-h,44px)!important}}</style><style>@media (max-width:560px){body > header{display:none}}</style><script>window.FIG_A = () => innerWidth <= 560 ? 1.1 : .75;</script><script>window.LBL_U = () => { if (innerWidth > 560) return 0; const s = document.getElementById("fig"); return s && s.clientWidth && s.viewBox.baseVal.width ? s.viewBox.baseVal.width / s.clientWidth : 0; };</script></head><body>
+<script>
+/* ============================================================
+   Colorfigures core: projection, shapes, shading, ink, labels, page shell.
+   A figure page includes this file (scripts/build.py inlines it), then calls mountFigure({...}).
+   See SKILL.md for the drawing contract and conventions.
+   One fixed view (front-left-top) and one fixed light (from above, behind the viewer's right shoulder: the front is lit,
+   the left side is in shade, and cast shadows fall toward the lower left of the screen).
+   ============================================================ */
+
+/* ---------- palettes ---------- */
+const PALS = {
+  mustard: { l:'#f4b829', m:'#d49c1f', d:'#4e4a18' },
+  tomato:  { l:'#ef6a4c', m:'#cf5038', d:'#4a2219' },
+  mint:    { l:'#93d3b0', m:'#71b693', d:'#1f4034' },
+  cobalt:  { l:'#76a0e2', m:'#5a82c6', d:'#1c2948' },
+  blush:   { l:'#f3a6bb', m:'#d8869c', d:'#4b2430' },
+};
+const METAL   = { l:'#eef0f0', m:'#c6ccce', d:'#8f989b' };
+const CLEAR   = { l:'#e4f2f4', m:'#c4dfe4', d:'#97b9c0' };
+const CERAMIC = { l:'#fbfaf3', m:'#e3e0d2', d:'#bdb8a6' };
+const DARK    = { l:'#55504a', m:'#3d3935', d:'#272421' };
+const INK = '#231e16';
+const SHADOW = '#41538f';
+
+/* ---------- projection (x = depth toward viewer-right, y = toward viewer-left, z = up) ---------- */
+const C = Math.cos(Math.PI/6), S = Math.sin(Math.PI/6);
+let OX = 0, OY = 0;
+/* Free orthographic camera (internal names start with CAM_ / cam so they never clash with a figure's own names). YAW turns the viewer around the vertical axis (45° = the classic front-left view),
+   PITCH is how far it looks down (35.26° = true isometric). At the defaults P() is exactly the old isometric
+   projection, so every figure drawn for it still lines up. Drag the figure to orbit; double-click to reset.
+   rotV(n) maps a world direction into the default view's frame, so vis / tone / any "sum of rotV > 0" test keep
+   working at every angle: the viewer is always (1,1,1) and the light stays put relative to the viewer. */
+let VIEW = 0, RC = [0, 0], RCZ = 0;
+const VIEW_NAMES = ['front', 'left side', 'back', 'right side'];
+const TURNS = [0, 2];
+const YAW0 = 45, PITCH0 = Math.atan(1/Math.SQRT2) * 180/Math.PI, CAM_K = Math.sqrt(1.5);
+let YAW = YAW0, PITCH = PITCH0, CAM_R, CAM_U, CAM_V, CAM_D;                       // right, up, toward viewer, screen-down
+const camBasis = (yaw, pitch) => { const t = yaw*Math.PI/180, p = pitch*Math.PI/180, ct = Math.cos(t), st = Math.sin(t), cp = Math.cos(p), sp2 = Math.sin(p);
+  return { R:[st,-ct,0], U:[-sp2*ct,-sp2*st,cp], V:[cp*ct,cp*st,sp2] }; };
+const CAM_B0 = camBasis(YAW0, PITCH0);
+// CAM_LIM: how far (deg) the camera may turn either side of the front view; null = all the way round (set per figure)
+let CAM_LIM = null;
+function setCam(yaw, pitch){ YAW = CAM_LIM == null ? yaw : Math.max(YAW0 - CAM_LIM, Math.min(YAW0 + CAM_LIM, yaw));
+  PITCH = CAM_LIM == null ? Math.max(6, Math.min(78, pitch)) : Math.max(15, Math.min(62, pitch)); const b = camBasis(YAW, PITCH); CAM_R = b.R; CAM_U = b.U; CAM_V = b.V; CAM_D = CAM_U.map(v => -v); }
+setCam(YAW0, PITCH0);
+const camDot = (a,b) => a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const rotV = n => { const r = camDot(n,CAM_R), u = camDot(n,CAM_U), v = camDot(n,CAM_V); return [0,1,2].map(i => CAM_B0.R[i]*r + CAM_B0.U[i]*u + CAM_B0.V[i]*v); };
+// the light's ground direction turns with the viewer's yaw only (shadows always fall toward the lower left of the screen)
+const yawTurn = ([x,y]) => { const t = (YAW - YAW0)*Math.PI/180, c = Math.cos(t), s = Math.sin(t); return [x*c - y*s, x*s + y*c]; };
+const rotXY = (x,y) => [x, y];                                                // kept for old callers
+const P0 = (x,y,z) => [(x-y)*C + OX, (x+y)*S - z + OY];                       // raw iso
+const P  = (x,y,z) => { const q = [x-RC[0], y-RC[1], z-RCZ];
+  return [CAM_K*camDot(q,CAM_R) + (RC[0]-RC[1])*C + OX, CAM_K*camDot(q,CAM_D) + (RC[0]+RC[1])*S - RCZ + OY]; };
+const Dv = (x,y,z) => [CAM_K*camDot([x,y,z],CAM_R), CAM_K*camDot([x,y,z],CAM_D)];
+// distance toward the viewer: draw parts with smaller depth first
+const depthOf = p => camDot(p, CAM_V);
+// sort [{at:[x,y,z], svg}] back-to-front for the current camera. A part may also give box:[[x0,y0,z0],[x1,y1,z1]]:
+// when two boxes are separated along x, y or z, the one on the viewer's side goes last (a centre point alone gets long
+// or wrapping parts wrong: a pole beside a row of keys, a spout reaching past a cup).
+const boxMid = b => [0,1,2].map(k => (b[0][k] + b[1][k]) / 2);
+const sepOrder = (p, q) => { if (!p.box || !q.box) return 0;
+  for (let k = 0; k < 3; k++){ if (p.box[1][k] <= q.box[0][k] + 1e-6) return CAM_V[k] >= 0 ? -1 : 1; if (q.box[1][k] <= p.box[0][k] + 1e-6) return CAM_V[k] >= 0 ? 1 : -1; }
+  return 0; };
+const byDepth = parts => parts.filter(Boolean).sort((p,q) => sepOrder(p,q) || (depthOf(p.at || boxMid(p.box)) - depthOf(q.at || boxMid(q.box)))).map(p => p.svg).join('');
+// the half of a vertical ring that faces the viewer / is turned away, as [from, to] angles in degrees (0 = +x, 90 = +y)
+const nearHalf = () => [YAW - 90, YAW + 90], farHalf = () => [YAW + 90, YAW + 270];
+// an open container (cup, bin, cone, drum) between two rings: far inner wall, then its contents, then the near outer wall
+const openShell = (A, B, colour, contents = '') => loft(A, B, colour, true) + contents + loft(A, B, colour);
+const f  = v => v.toFixed(1);
+const pd = (pts, close=true) => 'M' + pts.map(p => { const q = P(p[0],p[1],p[2]); return f(q[0])+' '+f(q[1]); }).join('L') + (close ? 'Z' : '');
+const sp = pts => 'M' + pts.map(q => f(q[0])+' '+f(q[1])).join('L') + 'Z';
+
+/* ---------- 2D shapes in a plane's (u,v) coords (v up), mapped to 3D by a plane ---------- */
+const arcUV  = (cu,cv,r,a0,a1,n=7) => { const o=[]; for (let i=0;i<=n;i++){ const a=(a0+(a1-a0)*i/n)*Math.PI/180; o.push([cu+r*Math.cos(a), cv+r*Math.sin(a)]); } return o; };
+const rrUV   = (u0,v0,u1,v1,r,n=7) => r <= 0 ? rectUV(u0,v0,u1,v1) : [...arcUV(u1-r,v0+r,r,-90,0,n), ...arcUV(u1-r,v1-r,r,0,90,n), ...arcUV(u0+r,v1-r,r,90,180,n), ...arcUV(u0+r,v0+r,r,180,270,n)];
+const rectUV = (u0,v0,u1,v1) => [[u0,v0],[u1,v0],[u1,v1],[u0,v1]];
+const ellUV  = (cu,cv,ru,rv,n=24) => Array.from({length:n}, (_,i) => { const a=i/n*2*Math.PI; return [cu+ru*Math.cos(a), cv+rv*Math.sin(a)]; });
+const PX = x => ([u,v]) => [x,u,v];      // front-facing plane x = const   (u = y, v = z)
+const PY = y => ([u,v]) => [u,y,v];      // side plane y = const           (u = x, v = z)
+const PZ = z => ([u,v]) => [u,v,z];      // horizontal plane z = const     (u = x, v = y)
+const on = (plane, uv) => uv.map(plane);
+
+/* ---------- vectors + shading ---------- */
+const sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]], dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
+const norm=a=>{ const l=Math.hypot(...a)||1; return a.map(v=>v/l); };
+const avg=ps=>ps.reduce((s,p)=>[s[0]+p[0]/ps.length,s[1]+p[1]/ps.length,s[2]+p[2]/ps.length],[0,0,0]);
+const vis = n => { const r = rotV(n); return r[0]+r[1]+r[2] > 1e-6; };   // viewer looks from (+1,+1,+1) after the turn
+const facing = vis;                                                       // readable alias: is this face toward the viewer?
+const SHADOW_K = 0.85, AZ_MIN = 20, AZ_MAX = 160;
+// cast shadows are drawn shorter than the shading light implies (0.45 × height instead of 0.85 ×): long shadows of tall
+// parts on thin supports (a lamp shade, a fan head) land far from the object and read as separate blobs
+const SHADOW_LEN = 0.45;
+let L = [0,0,1], SH = [0,0];
+function setLight(deg){ const a=deg*Math.PI/180; SH=[SHADOW_K*Math.cos(a), SHADOW_K*Math.sin(a)]; L=norm([-SH[0],-SH[1],1]); }
+const LIN = norm([.6,.2,1]);                       // fixed light for interiors / small props
+// Three flat tones, but blended across a narrow band at each step, so a face that turns past a threshold while the
+// figure rotates fades between tones instead of snapping (at rest almost every face still sits on a pure tone).
+const SOFT = .18;
+const step3 = (d, hi, lo, m) => { const ss = (a, b, x) => { const k = Math.min(1, Math.max(0, (x - a)/(b - a))); return k*k*(3 - 2*k); };
+  const a = ss(hi - SOFT, hi + SOFT, d), b = ss(lo - SOFT, lo + SOFT, d);
+  return a >= 1 ? m.l : b <= 0 ? m.d : a > 0 ? mix(m.m, m.l, a) : b < 1 ? mix(m.d, m.m, b) : m.m; };
+const tone  = (n,m) => step3(dot(rotV(n),L),   -.15, -.45, m);   // exterior, follows the sun
+const toneI = (n,m) => step3(dot(rotV(n),LIN),  .6,   .05, m);   // interior / props
+const mix = (a,b,t) => '#' + [1,3,5].map(i => Math.round(parseInt(a.substr(i,2),16)*(1-t) + parseInt(b.substr(i,2),16)*t).toString(16).padStart(2,'0')).join('');
+const matOf = hex => ({ l:hex, m:mix(hex,'#000000',.16), d:mix(hex,'#000000',.42) });
+const ease = t => t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
+
+/* ---------- drawing primitives (all return SVG strings) ---------- */
+const ink   = (d,w=1.0) => `<path d="${d}" fill="none" stroke="${INK}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"/>`;
+const fill  = (d,c,extra='') => `<path d="${d}" fill="${c}" ${extra}/>`;
+const face  = (d,c) => `<path d="${d}" fill="${c}" stroke="${c}" stroke-width=".7" stroke-linejoin="round"/>`;
+const shape = (pts,c,w=.9) => fill(pd(pts),c) + (w ? ink(pd(pts),w) : '');
+const line  = (pts,w=.9) => ink(pd(pts,false),w);
+// Loft between two rings of equal length (closed). colour(n) picks each strip's fill; flip = seen from inside.
+function loft(A, B, colour, flip=false){
+  const n=A.length, cen=avg(A.concat(B)); let s='';
+  for (let i=0;i<n;i++){
+    const a0=A[i], a1=A[(i+1)%n], b1=B[(i+1)%n], b0=B[i];
+    let nr = norm(cross(sub(a1,a0), sub(b0,a0)));
+    if (!isFinite(nr[0])) continue;
+    if (dot(nr, sub(avg([a0,a1,b1,b0]), cen)) < 0) nr = nr.map(v=>-v);
+    if (flip) nr = nr.map(v=>-v);
+    if (vis(nr)) s += face(pd([a0,a1,b1,b0]), colour(nr));
+  }
+  return s;
+}
+function hull(pts){
+  pts = pts.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+  const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]); const lo=[], up=[];
+  for (const p of pts){ while(lo.length>=2 && cr(lo[lo.length-2],lo[lo.length-1],p)<=0) lo.pop(); lo.push(p); }
+  for (const p of pts.reverse()){ while(up.length>=2 && cr(up[up.length-2],up[up.length-1],p)<=0) up.pop(); up.push(p); }
+  lo.pop(); up.pop(); return lo.concat(up);
+}
+// Silhouette ink, weighted by how thick the part is on screen (like a hand inker): the w you pass is the most it gets.
+// Thickness = 2 × area / perimeter of the outline (a rod's diameter, about half a box's width), as a share of the
+// frame width. A long thin rod, a handle or a knob stays light (~1–1.5); a grinder, kettle or machine body gets the
+// heavy ~2.4–2.8. Thin parts stay thin and parts keep air between them.
+const hullInk = (pts3, w=1.4) => { const h = hull(pts3.map(p=>P(...p))); let a = 0, per = 0;
+  for (let i = 0; i < h.length; i++){ const p = h[i], q = h[(i+1) % h.length]; a += p[0]*q[1] - q[0]*p[1]; per += Math.hypot(q[0]-p[0], q[1]-p[1]); }
+  const thick = per ? Math.abs(a) / per / (INK_K * INK_REF_VB) : 0;
+  return ink(sp(h), Math.min(w, .9 + 20*thick)); };
+// Axis-aligned box: three visible faces, shaded, each outlined. shade = tone (sunlit) or toneI (interior).
+function box(x0,y0,z0,x1,y1,z1,m,shade=toneI,w=.9){
+  // all six faces, drawn only when they face the viewer (sides first, then top) — correct in every VIEW
+  const F = [
+    [[0,1,0],  [[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]]],
+    [[1,0,0],  [[x1,y0,z0],[x1,y1,z0],[x1,y1,z1],[x1,y0,z1]]],
+    [[0,-1,0], [[x0,y0,z0],[x1,y0,z0],[x1,y0,z1],[x0,y0,z1]]],
+    [[-1,0,0], [[x0,y0,z0],[x0,y1,z0],[x0,y1,z1],[x0,y0,z1]]],
+    [[0,0,1],  [[x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1]]] ];
+  return F.filter(([n]) => vis(n)).map(([n,q]) => shape(q, shade(n,m), w)).join('');
+}
+// Rounded-profile extrusion: profile (u=y, v=z) swept along x from x0 to x1. Body of most machines.
+function extrude(profileUV, x0, x1, m, shade=tone){ return loft(on(PX(x0),profileUV), on(PX(x1),profileUV), n=>shade(n,m)); }
+// Vertical cylinder (axis z) centred (x,y), radius r from z0 to z1, with top cap.
+function cyl(x,y,z0,z1,r,m,shade=toneI,w=1.2,n=24){
+  const A=on(PZ(z0),ellUV(x,y,r,r,n)), B=on(PZ(z1),ellUV(x,y,r,r,n));
+  return loft(A,B,nr=>shade(nr,m)) + fill(pd(B),shade([0,0,1],m)) + hullInk([...A,...B],w) + ink(pd(B),w*.8);
+}
+// Cylinder lying along x (e.g. a knob or dial sticking out of a front face): centred (y,z), from x0 to x1.
+function cylX(x0,x1,y,z,r,m,shade=toneI,w=1.1,n=20){
+  const A=on(PX(x0),ellUV(y,z,r,r,n)), B=on(PX(x1),ellUV(y,z,r,r,n));
+  // cap on whichever end faces the viewer (the +x end in VIEW 0)
+  const capB = vis([1,0,0]), cap = capB ? B : A, cn = capB ? [1,0,0] : [-1,0,0];
+  return loft(A,B,nr=>shade(nr,m)) + (vis(cn) ? fill(pd(cap),shade(cn,m)) : '') + hullInk([...A,...B],w) + (vis(cn) ? ink(pd(cap),w*.8) : '');
+}
+// Cylinder between any two 3D points a and b (a lamp arm, a rod, a pipe at an angle, a handle bar), radius r.
+// The end facing the viewer gets a cap. For a tapered part (a cone, a lamp shade) pass r1 for the radius at b.
+function rod(a, b, r, m, shade=toneI, w=1, r1=r, n=16){
+  const d = norm(sub(b, a)), u = norm(cross(d, Math.abs(d[2]) < .9 ? [0,0,1] : [1,0,0])), v = cross(d, u);
+  const ring = (p, rr) => Array.from({length:n}, (_,i) => { const t = i/n*2*Math.PI, c = Math.cos(t)*rr, s2 = Math.sin(t)*rr;
+    return [p[0] + u[0]*c + v[0]*s2, p[1] + u[1]*c + v[1]*s2, p[2] + u[2]*c + v[2]*s2]; });
+  const A = ring(a, r), B = ring(b, r1), capB = vis(d), cap = capB ? B : A, cn = capB ? d : d.map(x => -x);
+  return loft(A, B, nr => shade(nr, m)) + (Math.max(r, r1) > 0 ? fill(pd(cap), shade(cn, m)) + ink(pd(cap), w*.8) : '') + hullInk([...A, ...B], w);
+}
+// Text lying flat on a front plane x = const, centred at (y,z) baseline; reads left-to-right on screen.
+// text sits on a face: if its reading direction comes out mirrored (or edge-on), that face is turned away, so the text is hidden
+const txM = (o, U, V) => (U[0]*V[1] - U[1]*V[0]) <= .02 * Math.hypot(...U) * Math.hypot(...V) ? `matrix(0 0 0 0 ${f(o[0])} ${f(o[1])})` : `matrix(${U[0].toFixed(4)} ${U[1].toFixed(4)} ${V[0].toFixed(4)} ${V[1].toFixed(4)} ${f(o[0])} ${f(o[1])})`;
+const tx = (x,y,z,str,size,col=INK,weight=700) => { const o=P(x,y,z);
+  return `<text transform="${txM(o, Dv(0,-1,0), Dv(0,0,-1))}" font-size="${size}" fill="${col}" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-weight="${weight}" letter-spacing=".04em">${str}</text>`; };
+// Text on a side plane y = const, centred at (x,z).
+const txY = (x,y,z,str,size,col=INK,weight=700) => { const o=P(x,y,z);
+  return `<text transform="${txM(o, Dv(1,0,0), Dv(0,0,-1))}" font-size="${size}" fill="${col}" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-weight="${weight}" letter-spacing=".04em">${str}</text>`; };
+// Cast shadow of a set of 3D points (any outline of the object), pushed along the light onto z = 0.
+// the light stays put relative to the viewer, so the shadow is cast in turned coordinates
+// z0: the surface it falls on (a board, a counter); clip it to that surface with clipTo(...) if it could spill off.
+// clip: the 3D outline of the surface it falls on (e.g. boardTop(...)), so it can't spill over the edge.
+const castShadow = (pts3, z0=0, clip=null) => { const k = SHADOW_LEN / SHADOW_K, [sx, sy] = yawTurn(SH);
+  const s = fill(sp(hull(pts3.map(([x,y,z]) => P(x+(z-z0)*sx*k, y+(z-z0)*sy*k, z0)))), SHADOW);
+  return clip ? clipTo(clip, s) : s; };
+// A board for the object to stand on (a tray, a desk top, a counter): a rounded slab from (x0,y0) to (x1,y1), h thick.
+// Draw it first; then castShadow(points, h, boardTop(x0,y0,x1,y1,h,r)) so shadows lie on it and stop at its edge.
+const BOARD = { l:'#e6e1d4', m:'#cfc8b8', d:'#aaa293' }, WOOD = { l:'#d9a86c', m:'#bf8a4f', d:'#8e6236' };
+const boardTop = (x0,y0,x1,y1,h=3,r=5) => on(PZ(h), rrUV(x0,y0,x1,y1,r));
+function board(x0,y0,x1,y1,h=3,r=5,m=BOARD){
+  const A = on(PZ(0), rrUV(x0,y0,x1,y1,r)), B = boardTop(x0,y0,x1,y1,h,r);
+  return loft(A, B, n => toneI(n, m)) + fill(pd(B), m.l) + ink(pd(B), 1) + hullInk([...A, ...B], 1.8);
+}
+// Group helpers: clickable target, clip to an opening.
+const act  = (name, inner, data='') => `<g data-act="${name}" ${data}>${inner}</g>`;
+let _clipN = 0;
+// Part label (for "how does it work" figures): a cream pill with a leader line to a 3D point on the part.
+// dx, dy = where the pill sits, in screen units at the reference zoom (they scale with the figure like stroke widths).
+// on = that part is working right now (the pill turns the accent colour). Labels can be hidden with the Labels switch.
+function tag(p3, dx, dy, text, on=false){
+  // on a phone (LBL_U = drawing units per screen px) the pill is a numbered badge and the names go in a legend under the figure
+  const u = window.LBL_U ? LBL_U() : 0, n = ((window.__ln || (window.__ln = {}))[text] || (__ln[text] = Object.keys(__ln).length + 1));
+  const k = INK_K, [X,Y] = P(...p3), fs = u ? 10*u : 8.6*k, h = u ? 17*u : fs*1.8, w = u ? h*(n > 9 ? 1.3 : 1) : text.length*fs*.62 + fs*1.5, cx = X + dx*k, cy = Y + dy*k;
+  return `<g class="tag${on ? ' on' : ''}" data-n="${n}" data-t="${text}"><path d="M${f(X)} ${f(Y)}L${f(cx)} ${f(cy)}" fill="none" stroke="${INK}" stroke-width="1"/>`
+    + `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(1.3*k)}" fill="${INK}"/>`
+    + `<rect x="${f(cx-w/2)}" y="${f(cy-h/2)}" width="${f(w)}" height="${f(h)}" rx="${f(h/2)}" fill="${on ? 'var(--accent,#f4b829)' : '#fff4d6'}" stroke="${INK}" stroke-width="1.2"/>`
+    + `<text x="${f(cx)}" y="${f(cy+fs*.36)}" font-size="${f(fs)}" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-weight="800" letter-spacing=".04em" fill="${INK}">${u ? n : text}</text></g>`;
+}
+const clipTo = (pts3, inner) => { const id = 'k' + (++_clipN); return `<clipPath id="${id}"><path d="${pd(pts3)}"/></clipPath><g clip-path="url(#${id})">${inner}</g>`; };
+
+/* ---------- constant on-screen line weight ----------
+   Stroke widths are written in model units, and each figure is zoomed to fill the frame, so a small
+   object would get fat lines. INK_K rescales every stroke-width (and the wobble/grain filter) so all
+   figures match the reference zoom of the booth / vending machine (viewBox ≈ 585 units wide). */
+const INK_REF_VB = 585;
+let INK_K = 1;
+const inkScale = svg => INK_K === 1 ? svg : svg.replace(/stroke-width="([\d.]+)"/g, (_, w) => `stroke-width="${(+w * INK_K).toFixed(2)}"`);
+
+/* ---------- page shell ---------- */
+const CORE_CSS = `
+  :root{--paper:#f2efe7;--ink:#231e16;--muted:#857d6e;--rule:#ddd6c8}
+  *{box-sizing:border-box} html,body{margin:0;height:100%}
+  body{background-color:var(--paper);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .42  0 0 0 0 .39  0 0 0 0 .33  .16 0 0 0 0'/></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>");
+    overflow-x:hidden;color:var(--ink);font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;display:flex;flex-direction:column;align-items:center;padding:24px 16px 32px}
+  header{width:100%;max-width:760px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  header h1{font-size:13px;font-weight:600;margin:0;letter-spacing:.02em} header span{color:var(--muted)}
+  #fig{width:100%;max-width:760px;height:auto;display:block;margin:4px 0 8px;user-select:none;overflow:visible}
+  #fig{cursor:grab;touch-action:pan-y} #fig.drag{cursor:grabbing} #fig [data-act]{cursor:pointer}
+  #readout, .idea{display:none}   /* status line + big idea are off: the buttons and motion tell the story */
+  .idea{width:100%;max-width:760px;margin:-6px 0 16px;font-size:12.5px;line-height:1.5;text-align:center;color:var(--ink)}
+  .idea strong{letter-spacing:.12em;text-transform:uppercase;font-size:11px;margin-right:8px}
+  #readout{position:relative;min-height:1.4em;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;text-align:center;text-shadow:0 0 3px var(--paper),0 0 6px var(--paper),0 0 10px var(--paper)}
+  .stage{position:relative;width:100%;max-width:760px}
+  .actions{position:absolute;top:4px;left:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px;z-index:2;max-width:220px}
+  .actions .cap{color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 2px}
+  html.nolabels #fig .tag{display:none}
+  .ctl[hidden]{display:none}
+  /* ui.flash(text): a short note under the buttons ("the can is empty — refill it"); the status line itself stays hidden */
+  .toast{position:absolute;left:0;z-index:3;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;background:var(--paper);
+    border:1.5px solid var(--ink);border-radius:8px;padding:4px 9px;box-shadow:2px 2px 0 var(--ink);opacity:0;transition:opacity .2s;pointer-events:none;max-width:240px}
+  .toast.show{opacity:1}
+  .made-with{width:100%;max-width:760px;margin-top:18px;text-align:right;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+  .made-with a{color:var(--muted);text-decoration:none} .made-with a:hover{color:var(--ink)}
+  .stats{position:absolute;top:4px;right:0;display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:2;text-align:right}
+  .stat .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .stat .v{font-size:34px;font-weight:800;line-height:1.05;letter-spacing:-.01em;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .stat.small .v{font-size:20px}
+  .stat .v.bump{animation:bump .35s ease-out}
+  @keyframes bump{0%{transform:scale(1.18)}100%{transform:none}}
+  .stepwrap{position:relative;display:flex;align-items:center;gap:8px}
+  .act{font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer;white-space:nowrap}
+  .act:hover{background:color-mix(in srgb,var(--paper) 92%,var(--ink))}
+  .act .car{margin-left:6px;font-size:10px}
+  .act:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .chips{display:none;flex-wrap:wrap;gap:6px;background:var(--paper);border:2px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);
+    padding:8px;width:max-content;max-width:min(300px,62vw);position:absolute;left:calc(100% + 10px);top:-4px;z-index:3}
+  .stepwrap.open .chips{display:flex}
+  .chip{white-space:nowrap;font:inherit;font-size:11.5px;font-weight:700;color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:4px 8px;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+  .chip:hover{background:var(--accent,#f4b829);transform:translate(-1px,-1px)}
+  .chip.current{background:var(--ink);color:var(--paper)} .chip.current:hover{background:var(--ink);transform:none}
+  .chip.off{opacity:.45} .chip.off:hover{transform:none;background:var(--paper)}
+  
+  @media (max-width:560px){body{padding:14px 12px 24px}header span,.actions .cap{display:none}.actions{flex-direction:row;flex-wrap:wrap;gap:6px}.act{font-size:12px;padding:4px 11px}.stats{position:static;flex-direction:row;justify-content:flex-end;gap:18px;margin-bottom:4px}.actions{position:static;max-width:none;margin:6px 0 4px}.chips{left:0;top:calc(100% + 8px)}}
+  .controls{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px 28px;border-top:1px solid var(--rule);padding-top:16px}
+  .ctl{display:flex;flex-direction:column;gap:6px}
+  .ctl label{color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+  input[type=range]{width:100%;accent-color:var(--ink)}
+  .row{display:flex;gap:8px;flex-wrap:wrap}
+  button{font:inherit;color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+  button:hover{background:#0000000d}
+  button[aria-pressed=true]:not(.sw){background:var(--ink);color:var(--paper)}
+  .sw{width:26px;height:26px;padding:0;border-radius:50%} .sw[aria-pressed=true]{outline:2px solid var(--ink);outline-offset:2px}`;
+
+const filterFor = k => `<filter id="hand" x="-3%" y="-3%" width="106%" height="106%" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="${(0.045/k).toFixed(4)}" numOctaves="2" seed="4" result="warp"/>
+  <feDisplacementMap id="wob" in="SourceGraphic" in2="warp" scale="${(2.4*k).toFixed(2)}" xChannelSelector="R" yChannelSelector="G" result="wob"/>
+  <feTurbulence type="fractalNoise" baseFrequency="${(0.9/k).toFixed(4)}" numOctaves="3" seed="11" result="n1"/>
+  <feColorMatrix in="n1" type="matrix" values=".3 0 0 0 .84  .3 0 0 0 .84  .3 0 0 0 .84  0 0 0 0 1" result="grain"/>
+  <feTurbulence type="fractalNoise" baseFrequency="${(0.012/k).toFixed(4)}" numOctaves="2" seed="7" result="n2"/>
+  <feColorMatrix in="n2" type="matrix" values=".3 0 0 0 .85  .3 0 0 0 .85  .3 0 0 0 .85  0 0 0 0 1" result="blot"/>
+  <feBlend in="wob" in2="grain" mode="multiply" result="g1"/><feBlend in="g1" in2="blot" mode="multiply" result="g2"/>
+  <feComposite in="g2" in2="wob" operator="in"/></filter>`;
+
+/* mountFigure({
+     fig:'03', title:'Photo booth', hint:'click the curtain…',
+     size:[W,D,H],                 // bounding box, used to frame the view (shadow range included)
+     palette:'mustard',            // default PALS key
+     state:{...},                  // figure state (st.pal is built in)
+     scene: (st, m) => svgString,  // m = current palette {l,m,d}
+     readout: st => 'text',        // status line under the figure
+     buttons: [{label, onClick(st, ui)}      // listed in the order the user should do them
+               | {label, choices: st => [{label, onClick(st,ui), current?, disabled?, why?}]}],   // opens a picker
+     stats: st => [{label, value, small?}],   // optional: big numbers top-right (credit, change, score)
+     credit: false,                // optional: hide the small "Made with Colorfigures" link
+     acts: { name(st, el, ui){} },  // clicks on act(name, …) groups; el has dataset
+     params(st, q){}               // optional: read URLSearchParams for screenshot states
+   })  -> ui = { st, render, animate(stepFn), flash(text,ms) }
+   animate(step): calls step(dt seconds) every frame and re-renders until step returns false. */
+addEventListener('error', e => { document.documentElement.dataset.errors = (document.documentElement.dataset.errors || '') + ' ' + e.message + ';'; });
+/* The hand-drawn filter's noise never changes, but browsers recompute every feTurbulence each time the drawing changes
+   (on phones SVG filters run on the CPU, so this is most of the cost of a frame). bakeNoise renders each noise layer once
+   into an image and swaps it in: coarse layers as one small image over the whole view (they are smooth, so scaling up
+   is invisible), fine grain as a seamless tile. If anything fails (an old browser), the live filter simply stays. */
+function bakeNoise(svg){
+  const fl = document.getElementById('hand'); if (!fl || typeof Image === 'undefined') return;
+  const NS = 'http://www.w3.org/2000/svg', vb = svg.viewBox.baseVal;
+  const x0 = vb.x - vb.width*.35, y0 = vb.y - vb.height*.35, w0 = vb.width*1.7, h0 = vb.height*1.7;
+  for (const t of [...fl.querySelectorAll('feTurbulence')]){
+    const fq = parseFloat(t.getAttribute('baseFrequency')), oct = +(t.getAttribute('numOctaves') || 1);
+    if (!(fq > 0)) continue;
+    const fine = fq * Math.max(w0, h0) > 80;
+    if (fine) continue;   // fine grain stays live: a repeated tile leaves faint seams on some GPUs
+    const rx = fine ? 0 : x0, ry = fine ? 0 : y0, rw = fine ? 48 / fq : w0, rh = fine ? 48 / fq : h0;
+    const ppu = fq * (fine ? 7 : 5) * Math.pow(2, Math.max(0, oct - 1) * .5), PW = Math.ceil(rw * ppu), PH = Math.ceil(rh * ppu);
+    if (PW * PH > 1200 * 1200) continue;
+    const tb = t.cloneNode(); tb.removeAttribute('result'); if (fine) tb.setAttribute('stitchTiles', 'stitch');
+    const src = `<svg xmlns="${NS}" width="${PW}" height="${PH}" viewBox="${rx} ${ry} ${rw} ${rh}"><filter id="n" filterUnits="userSpaceOnUse" x="${rx}" y="${ry}" width="${rw}" height="${rh}" color-interpolation-filters="sRGB">${tb.outerHTML}</filter><rect x="${rx}" y="${ry}" width="${rw}" height="${rh}" filter="url(#n)"/></svg>`;
+    const img = new Image();
+    img.onload = () => { try {
+      const c = document.createElement('canvas'); c.width = PW; c.height = PH; const g = c.getContext('2d'); g.drawImage(img, 0, 0);
+      // store the noise's colour values fully opaque: the filter reads its colour channels, and an image with
+      // see-through pixels would be read premultiplied (darker) by some browsers
+      const px = g.getImageData(0, 0, PW, PH); for (let i = 3; i < px.data.length; i += 4) px.data[i] = 255; g.putImageData(px, 0, 0);
+      const url = c.toDataURL('image/png'), res = t.getAttribute('result');
+      const im = document.createElementNS(NS, 'feImage');
+      // a tile must sit inside the filter's region (the drawing's box) or it gets clipped: anchor it at the drawing's
+      // centre, snapped to whole tiles so the grain keeps the same phase as the live noise would
+      let ox = rx, oy = ry;
+      if (fine){ const bb = svg.getElementById ? document.getElementById('art').getBBox() : { x: 0, y: 0, width: 0, height: 0 };
+        ox = Math.floor((bb.x + bb.width/2) / rw) * rw; oy = Math.floor((bb.y + bb.height/2) / rh) * rh; }
+      for (const [k, v] of [['x', ox], ['y', oy], ['width', rw], ['height', rh], ['preserveAspectRatio', 'none']]) im.setAttribute(k, v);
+      im.setAttribute('href', url); im.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', url);
+      if (!t.isConnected) return;
+      if (fine){ im.setAttribute('result', res + '_tile'); const tl = document.createElementNS(NS, 'feTile'); tl.setAttribute('in', res + '_tile'); tl.setAttribute('result', res); t.replaceWith(im, tl); }
+      else { im.setAttribute('result', res); t.replaceWith(im); }
+    } catch (e) {} };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(src);
+  }
+}
+function mountFigure(cfg){
+  document.title = cfg.title;
+  const style = document.createElement('style'); style.textContent = CORE_CSS; document.head.appendChild(style);
+  document.body.innerHTML = `
+    <header><h1>Fig. ${cfg.fig} — ${cfg.title}</h1></header>
+    <div class="stage">
+      ${cfg.buttons && cfg.buttons.length ? `<div class="actions" id="btns"></div>` : ''}
+      ${cfg.stats ? '<div class="stats" id="stats"></div>' : ''}
+      <div class="toast" id="toast" role="status"></div>
+      <svg id="fig" role="img" aria-label="${cfg.title}"><defs id="fdefs"></defs><g id="art" filter="url(#hand)"></g></svg>
+    </div>
+    <div id="readout"></div>
+    ${cfg.idea ? `<p class="idea"><strong>The big idea</strong>${cfg.idea}</p>` : ''}
+    <div class="controls">
+      <div class="ctl"><label for="wb">Hand-drawn wobble</label><input id="wb" type="range" min="0" max="7" step="0.1" value="2.4"></div>
+      <div class="ctl"><label>Colour</label><div class="row" id="pals"></div></div>
+      <div class="ctl"><label>View</label><div class="row"><button id="vreset">Front view</button><button id="vspin" aria-pressed="false">Turntable</button></div></div>
+      <div class="ctl" id="lblctl" hidden><label>Labels</label><div class="row"><button id="lbl" aria-pressed="true">On</button></div></div>
+    </div>
+    ${cfg.credit === false ? '' : ''}`;
+  const st = cfg.state || {};            // kept as the same object, so a figure may hold on to it
+  if (!st.pal) st.pal = cfg.palette || 'mustard';
+  if (st.az == null) st.az = 105;
+  const q = new URLSearchParams(location.search);
+  // a figure turns all the way round only once it has been checked from every side (turn:'full'); otherwise it turns
+  // +-60 deg around the front, where it was drawn. ?free=1 unlocks it for testing.
+  CAM_LIM = cfg.turn === 'full' || q.get('free') === '1' ? null : 60;
+  if (PALS[q.get('pal')]) st.pal = q.get('pal');
+  if (cfg.params) cfg.params(st, q);
+
+  // frame on the object itself: centred, filling ~60% of the width / ~78% of the height of a 4:3 view.
+  // The cast shadow is allowed to spill outside the frame (svg overflow is visible).
+  const [W,D,H] = cfg.size, pts = [];
+  OX = OY = 0; RC = cfg.center || [W/2, D/2]; RCZ = H/2;
+  VIEW = 0; setCam(YAW0, PITCH0);
+  for (const x of [0,W]) for (const y of [0,D]) for (const z of [0,H]) pts.push(P(x,y,z));
+  const xs=pts.map(p=>p[0]), ys=pts.map(p=>p[1]);
+  const bw = Math.max(...xs)-Math.min(...xs), bh = Math.max(...ys)-Math.min(...ys);
+  // the object fills ~74% of the width / ~88% of the height, nudged right of centre so the buttons (top left) stay clear
+  // on a phone (FIG_A, from the gallery) the frame grows taller than 4:3, as far as the object needs, so tall machines fill it;
+  // the spare height goes mostly below; the object stays centred (its shadow may run off the edge, by the owner's call)
+  const PA = window.FIG_A ? FIG_A() : .75, A = PA === .75 ? .75 : Math.min(PA, Math.max(.75, bh/.88/(bw/.74)*1.08)), vbW = Math.max(bw/.74, bh/.88/A), vbH = vbW*A;
+  OX = (vbW-bw)/2 + (PA === .75 ? vbW*.06 : 0) - Math.min(...xs); OY = (PA === .75 ? vbH*.04 : (vbH - bh)*.3) - Math.min(...ys);   // sit a little high: shadows fall downward
+  const svg = document.getElementById('fig');
+  svg.setAttribute('viewBox', `0 0 ${f(vbW)} ${f(vbH)}`);
+  INK_K = vbW / INK_REF_VB;
+  document.getElementById('fdefs').innerHTML = filterFor(INK_K);
+  bakeNoise(svg);
+
+  const art = document.getElementById('art'), readout = document.getElementById('readout');
+  const ui = { st };
+  ui.render = () => { _clipN = 0; document.documentElement.style.setProperty('--accent', PALS[st.pal].l); art.innerHTML = inkScale(cfg.scene(st, PALS[st.pal])); if (!ui._flash) readout.textContent = cfg.readout ? cfg.readout(st) : ''; if (ui.drawStats) ui.drawStats(); };
+  // big numbers in the top-right corner (credit, change, score…); a value that changes gets a little bump
+  const statsEl = document.getElementById('stats'), prevStats = {};
+  ui.drawStats = () => { if (!statsEl) return;
+    const list = cfg.stats(st).filter(Boolean), html = list.map(x => `<div class="stat${x.small ? ' small' : ''}"><div class="k">${x.label}</div><div class="v" data-k="${x.label}">${x.value}</div></div>`).join('');
+    if (statsEl._html !== html){ statsEl._html = html; statsEl.innerHTML = html;
+      statsEl.querySelectorAll('.v').forEach(v => { if (prevStats[v.dataset.k] != null && prevStats[v.dataset.k] !== v.textContent) v.classList.add('bump'); prevStats[v.dataset.k] = v.textContent; }); } };
+  let flashT = 0;
+  const toast = document.getElementById('toast');
+  ui.flash = (text, ms=1600) => { ui._flash = true; readout.textContent = text; toast.textContent = text;
+    toast.style.top = ((document.getElementById('btns') ? document.getElementById('btns').offsetTop + document.getElementById('btns').offsetHeight : 0) + 8) + 'px'; toast.classList.add('show');
+    clearTimeout(flashT); flashT = setTimeout(() => { ui._flash = false; toast.classList.remove('show'); ui.render(); }, ms); };
+  // One frame driver for every running animation: each frame runs all the steps, then draws once (two animations at
+  // the same time no longer draw twice). It follows the screen's frames, with a timer fallback for when frames don't
+  // come (headless shots, a hidden tab). ui.invalidate() asks for one redraw on the next frame (used while dragging).
+  const steps = new Set(); let driving = false, lastT = 0, fbT = 0;
+  const frame = () => { if (!driving) return; driving = false; clearTimeout(fbT);
+    const now = performance.now(), dt = Math.max(0, Math.min(.05, (now - lastT) / 1000)); lastT = now;
+    for (const s of [...steps]) if (s(dt) === false) steps.delete(s);
+    ui.render(); if (steps.size) drive(); };
+  const drive = () => { if (driving) return; driving = true; requestAnimationFrame(frame); fbT = setTimeout(frame, 60); };
+  ui.animate = step => { if (!steps.size && !driving) lastT = performance.now(); steps.add(step); drive(); };
+  ui.invalidate = () => drive();
+
+  // clickable parts react on press, not on click: while something animates, the scene is redrawn every frame, so the
+  // element under the pointer is replaced between press and release and a 'click' would never fire
+  svg.addEventListener('pointerdown', e => { if (e.button) return; const a = e.target.closest('[data-act]'); if (!a || !cfg.acts || !cfg.acts[a.dataset.act]) return;
+    e.preventDefault(); cfg.acts[a.dataset.act](st, a, ui); ui.render(); });
+  // orbit: drag anywhere that is not a clickable part (the machine turns the way the finger moves); arrow keys nudge; double-click eases back to the front view
+  let drag = null, spin = false, camAnim = 0;
+  const camTo = (y, p, ms=700) => { const y0 = YAW, p0 = PITCH, dy = ((y - y0 + 540) % 360) - 180, id = ++camAnim; let t = 0;
+    ui.animate(dt => { if (id !== camAnim) return false; t += dt*1000; const k = Math.min(1, t / ms), e = ease(k); setCam(y0 + dy*e, p0 + (p - p0)*e); return k < 1; }); };
+  ui.camTo = camTo;
+  svg.addEventListener('pointerdown', e => { if (e.button || e.target.closest('[data-act]')) return;
+    camAnim++; drag = { x:e.clientX, y:e.clientY, yaw:YAW, pitch:PITCH }; svg.classList.add("drag"); try { svg.setPointerCapture(e.pointerId); } catch {} });
+  svg.addEventListener('pointermove', e => { if (!drag) return; const k = 300 / svg.getBoundingClientRect().width;
+    setCam(drag.yaw + (e.clientX - drag.x)*.55*k, drag.pitch + (e.clientY - drag.y)*.35*k); ui.invalidate(); });
+  const endDrag = () => { drag = null; svg.classList.remove('drag'); };
+  svg.addEventListener('pointerup', endDrag); svg.addEventListener('pointercancel', endDrag);
+  svg.addEventListener('dblclick', e => { if (!e.target.closest('[data-act]')) camTo(YAW0, PITCH0); });
+  addEventListener('keydown', e => { const k = { ArrowLeft:[-15,0], ArrowRight:[15,0], ArrowUp:[0,8], ArrowDown:[0,-8] }[e.key];
+    if (!k || window.GAME_KEYS || /input|textarea/i.test(e.target.tagName)) return; e.preventDefault(); camTo(YAW + k[0], PITCH + k[1], 260); });   // a game figure keeps the arrows for play
+  document.getElementById('vreset').onclick = () => { spin = false; vsp.setAttribute('aria-pressed', false); camTo(YAW0, PITCH0); };
+  const vsp = document.getElementById('vspin');
+  vsp.onclick = () => { spin = !spin; vsp.setAttribute('aria-pressed', spin); camAnim++;
+    let dir = 1;   // with a turning limit, the turntable swings back and forth inside it
+    if (spin) ui.animate(dt => { if (!spin) return false; if (!drag){ let y = YAW + dir*dt*18;
+      if (CAM_LIM != null && Math.abs(y - YAW0) >= CAM_LIM - .5){ dir = -dir; y = YAW + dir*dt*18; } setCam(y, PITCH); } return true; }); };
+  if (q.has('yaw') || q.has('pitch')) setCam(+(q.get('yaw') ?? YAW0), +(q.get('pitch') ?? PITCH0));
+  const btns = document.getElementById('btns');
+  const stepEls = [];
+  if (btns) cfg.buttons.forEach((b, i) => {
+    const wrap = document.createElement('div'); wrap.className = 'stepwrap';
+    const el = document.createElement('button'); el.className = 'act';
+    el.innerHTML = `${b.label}${b.choices ? '<span class="car">▾</span>' : ''}`;
+    wrap.appendChild(el); btns.appendChild(wrap); stepEls.push(el);
+    if (!b.choices){ el.onclick = () => { closeChips(); b.onClick(st, ui); ui.render(); }; return; }
+    const chips = document.createElement('div'); chips.className = 'chips'; wrap.appendChild(chips);
+    el.onclick = e => { e.stopPropagation(); const open = !wrap.classList.contains('open'); closeChips();
+      if (!open) return;
+      chips.innerHTML = '';
+      // every choice stays clickable, so nothing silently ignores a press:
+      //   current:true  = the one in use (shown selected); a press just says so
+      //   disabled:true = not possible right now (shown faded); a press says why (c.why, or a generic note)
+      for (const c of b.choices(st)){ const ch = document.createElement('button'); ch.className = 'chip' + (c.current ? ' current' : c.disabled ? ' off' : ''); ch.textContent = c.label;
+        if (c.current) ch.setAttribute('aria-pressed', 'true');
+        ch.onclick = ev => { ev.stopPropagation(); closeChips();
+          if (c.current) return ui.flash(`${c.label} — already set`);
+          if (c.disabled) return ui.flash(c.why || `${c.label} isn't possible right now`);
+          c.onClick(st, ui); ui.render(); }; chips.appendChild(ch); }
+      wrap.classList.add('open'); };
+  });
+  function closeChips(){ document.querySelectorAll('.stepwrap.open').forEach(w => w.classList.remove('open')); }
+  document.addEventListener('click', closeChips);
+
+  document.getElementById('wb').oninput = e => document.getElementById('wob').setAttribute('scale', (e.target.value * INK_K).toFixed(2));
+  const pals = document.getElementById('pals');
+  for (const [k,p] of Object.entries(PALS)){
+    const b = document.createElement('button'); b.className='sw'; b.title=k; b.style.background=p.l; b.setAttribute('aria-pressed', k===st.pal);
+    b.onclick = () => { st.pal=k; [...pals.children].forEach(c=>c.setAttribute('aria-pressed', c===b)); ui.render(); };
+    pals.appendChild(b);
+  }
+  // labels: the switch appears when the figure draws any tag(); ?labels=0 starts with them hidden
+  const lblctl = document.getElementById('lblctl'), lbl = document.getElementById('lbl');
+  const setLabels = on => { document.documentElement.classList.toggle('nolabels', !on); lbl.textContent = on ? 'On' : 'Off'; lbl.setAttribute('aria-pressed', on); };
+  lbl.onclick = () => setLabels(document.documentElement.classList.contains('nolabels'));
+  if (q.get('labels') === '0') setLabels(false);
+  // testing: ?press=Label@ms,Label@ms clicks the buttons whose text starts with Label at those times after load
+  // (any order, repeats allowed); Label>Choice picks a choice from a picker button (?press=Speed>3@300).
+  // Script errors and unknown labels are recorded on <html data-errors="…">
+  window.__st = st;
+  const noteErr = m => { document.documentElement.dataset.errors = (document.documentElement.dataset.errors || '') + ' ' + m + ';'; };
+  const starts = (el, t) => el.textContent.trim().toLowerCase().startsWith(t.trim().toLowerCase());
+  if (q.has('press')) q.get('press').split(',').forEach(item => { const [what, ms] = item.split('@'), [label, choice] = what.split('>');
+    setTimeout(() => { const b = [...document.querySelectorAll('.act')].find(b => starts(b, label));
+      if (!b) return noteErr(`no button "${label}"`);
+      b.click(); if (choice == null) return;
+      const c = [...b.parentElement.querySelectorAll('.chip')].find(c => starts(c, choice));
+      if (c && !c.disabled) c.click(); else noteErr(`no choice "${choice}" in "${label}"`); }, +ms || 0); });
+  setLight(st.az); ui.render();
+  if (art.querySelector('.tag')) lblctl.hidden = false;
+  return ui;
+}
+
+/* ---------- see-through + labels kit (shared; the figure supplies its own working parts) ----------
+   xrCallouts(items, B): pills in two columns either side of the object, sorted top to bottom so leaders never cross.
+     items: [{ at:[x,y,z], text, on }], B: the object's bounds [x0, x1, y0, y1, z0, z1].
+   xrGhost(body, mech, k, OUTp, x0, x1, m): far walls faintly, the working parts, then the case as a ghost over them.
+   xrMount(getUI, caption): the See-through / Labels switches (top right), the caption under the figure, label hiding. */
+function xrCallouts(items, B){
+  const pts = []; for (const x of [B[0], B[1]]) for (const y of [B[2], B[3]]) for (const z of [B[4], B[5]]) pts.push(P(x, y, z));
+  const xmin = Math.min(...pts.map(p => p[0])), xmax = Math.max(...pts.map(p => p[0])), cx = (xmin + xmax)/2;
+  // on a phone (LBL_U = drawing units per screen px) each label is a numbered badge and the names go in a legend under the figure
+  const k = INK_K, u = window.LBL_U ? LBL_U() : 0, fs = u ? 10*u : 8.6*k, hgt = u ? 17*u : fs*1.8, gap = hgt + (u ? 3*u : 3*k);
+  const L = [], R = [];
+  const svgEl = document.getElementById('fig'), vb = svgEl.viewBox.baseVal, btn = document.getElementById('btns');
+  const wMax = u ? hgt*1.3 + 12*k : Math.max(...items.map(it => it.text.length))*fs*.62 + fs*1.5 + 12*k;
+  const roomL = xmin - vb.x >= wMax, roomR = vb.x + vb.width - xmax >= wMax;
+  for (const it of items){ const [X, Y] = P(...it.at); ((X < cx && roomL) || !roomR ? L : R).push({ ...it, X, Y }); }
+  let s = '';
+  let top = { [-1]: fs, [1]: fs + 30*k };
+  if (btn && svgEl.getScreenCTM()){ const r = btn.getBoundingClientRect(), q = new DOMPoint(r.right, r.bottom + 50).matrixTransform(svgEl.getScreenCTM().inverse());
+    if (q.y > 0) top[-1] = q.y + hgt; }
+  for (const [col, side] of [[L, -1], [R, 1]]){
+    col.sort((a, b) => a.Y - b.Y);
+    let y = -1e9; for (const c of col){ c.py = Math.max(c.Y, y + gap, top[side]); y = c.py; }
+    const shift = col.length ? Math.max(0, col.reduce((a, c) => a + c.py - c.Y, 0) / col.length) : 0;
+    const room = col.length ? col[0].py - top[side] : 0; for (const c of col) c.py -= Math.min(shift, room);
+    for (const c of col){
+      c.n = ((window.__ln || (window.__ln = {}))[c.text] || (__ln[c.text] = Object.keys(__ln).length + 1)); const w = u ? hgt*(c.n > 9 ? 1.3 : 1) : c.text.length*fs*.62 + fs*1.5;
+      let px = side < 0 ? xmin - 10*k - w/2 : xmax + 10*k + w/2; px = Math.max(vb.x + w/2 + 2*k, Math.min(vb.x + vb.width - w/2 - 2*k, px));
+      const ex = px - side*w/2;
+      s += `<g class="tag${c.on ? ' on' : ''}" data-n="${c.n}" data-t="${c.text}"><path d="M${f(c.X)} ${f(c.Y)}L${f(ex + side*-4*k)} ${f(c.py)}L${f(ex)} ${f(c.py)}" fill="none" stroke="${INK}" stroke-width="1"/>`
+        + `<circle cx="${f(c.X)}" cy="${f(c.Y)}" r="${f(1.4*k)}" fill="${INK}"/>`
+        + `<rect x="${f(px - w/2)}" y="${f(c.py - hgt/2)}" width="${f(w)}" height="${f(hgt)}" rx="${f(hgt/2)}" fill="${c.on ? 'var(--accent,#f4b829)' : '#fff4d6'}" stroke="${INK}" stroke-width="1.2"/>`
+        + `<text x="${f(px)}" y="${f(c.py + fs*.36)}" font-size="${f(fs)}" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-weight="800" letter-spacing=".04em" fill="${INK}">${u ? c.n : c.text}</text></g>`;
+    }
+  }
+  return s;
+}
+function xrGhost(body, mech, k, OUTp, x0, x1, m){
+  const fF = facing([1,0,0]), fB = facing([-1,0,0]);
+  const far = `<g opacity="${f(.5*k)}">` + loft(on(PX(x0), OUTp), on(PX(x1), OUTp), n => mix(toneI(n.map(v => -v), m), '#f2efe7', .55), true)
+    + (fF ? fill(pd(on(PX(x0), OUTp)), mix(m.d, '#f2efe7', .5)) : '') + (fB ? fill(pd(on(PX(x1), OUTp)), mix(m.d, '#f2efe7', .5)) : '') + `</g>`;
+  return far + mech + `<g opacity="${f(1 - .8*k)}">${body}</g>` + `<g opacity="${f(.6*k)}">` + hullInk([...on(PX(x0), OUTp), ...on(PX(x1), OUTp)], 2.8) + `</g>`;
+}
+function xrMount(getUI, caption, opt = {}){   // opt.labelsOnly: only the Labels switch (the insides are on show already)
+  const ui = getUI(), q = new URLSearchParams(location.search), html = document.documentElement;
+  if (q.get('labels') !== '1') html.classList.add('nolabels');
+  if (ui.st.xr == null){ ui.st.xr = 0; ui.st.xrT = 0; }
+  if (q.get('xr') === '1') ui.st.xr = ui.st.xrT = 1;
+  const old = document.getElementById('lblctl'); if (old) old.style.display = 'none';
+  const vset = document.createElement('div'); vset.className = 'vset';
+  vset.innerHTML = '<div class="vrow">' + (opt.labelsOnly ? '' : '<button class="act" id="xrb" aria-pressed="false">See-through</button>') + '<button class="act" id="lblb" aria-pressed="false">Labels</button></div>';
+  document.querySelector('.stage').appendChild(vset);
+  // pages with a stats panel in the top right: the switches go just under it
+  const place = () => { const sp = document.getElementById('stats'); vset.style.top = sp ? (sp.offsetTop + sp.offsetHeight + 10) + 'px' : ''; };
+  place(); new ResizeObserver(place).observe(document.getElementById('stats') || vset);
+  const xrb = document.getElementById('xrb'), lblb = document.getElementById('lblb');
+  const sync = () => { if (xrb) xrb.setAttribute('aria-pressed', !!getUI().st.xrT); lblb.setAttribute('aria-pressed', !html.classList.contains('nolabels')); };
+  if (xrb) xrb.onclick = () => { const u = getUI(), st = u.st; st.xr = st.xr || 0; st.xrT = st.xrT ? 0 : 1; sync();
+    u.animate(dt => { const g = Math.sign(st.xrT - st.xr); st.xr = Math.min(1, Math.max(0, st.xr + g*dt/.7)); return st.xr !== st.xrT; }); };
+  lblb.onclick = () => { html.classList.toggle('nolabels'); sync(); };
+  sync();
+  const cap = document.createElement('p'); cap.className = 'mcap'; document.querySelector('.stage').after(cap);
+  const css = document.createElement('style');
+  css.textContent = '.vset{position:absolute;top:4px;right:0;z-index:2}.vrow{display:flex;gap:6px}.vset .act[aria-pressed=true]{background:var(--ink);color:var(--paper)}'
+    + 'html.nolabels #fig .tag{display:none}.mcap{width:100%;max-width:760px;min-height:3em;margin:0 0 14px;font-size:12.5px;line-height:1.5;text-align:center;transition:opacity .3s}'
+    + '@media (max-width:560px){.vset{position:static;margin:4px 0}}';
+  document.head.appendChild(css);
+  const r0 = ui.render; ui.render = () => { r0(); const st = getUI().st; cap.style.opacity = st.xr > .5 ? 1 : 0; cap.textContent = caption(st); };
+  ui.render();
+}
+// same, for a body lofted between two horizontal rings A (bottom) and B (top)
+function xrGhostRings(body, mech, k, A, B, m){
+  const far = `<g opacity="${f(.5*k)}">` + loft(A, B, n => mix(toneI(n.map(v => -v), m), '#f2efe7', .55), true) + fill(pd(A), mix(m.d, '#f2efe7', .5)) + `</g>`;
+  return far + mech + `<g opacity="${f(1 - .8*k)}">${body}</g>` + `<g opacity="${f(.6*k)}">` + hullInk([...A, ...B], 2.8) + `</g>`;
+}
+// generic see-through for any figure: the whole drawing fades back and the inside parts show over it.
+//   opts: { mech(st, k) -> svg, inside(st) -> label items, surface(st) -> label items (optional), B: bounds, getSt() }
+// washer-style ghost for an object without a single box case: its inside parts first, then the object pale over them
+const xrUnder = (svg, mech, k) => `<g opacity="${f(k)}">${mech}</g><g opacity="${f(1 - .62*k)}">${svg}</g>`;
+function xrWrap(sceneFn, opts){
+  return function(){
+    let s = sceneFn.apply(this, arguments);
+    const st = opts.getSt(), k = ease(st.xr || 0);
+    if (k > 0 && opts.under) s = xrUnder(s, opts.mech(st, k), k);   // the whole drawing is the object
+    else if (k > 0 && !opts.inline) s = `<g opacity="${f(1 - .5*k)}">${s}</g><g opacity="${f(k)}">${opts.mech(st, k)}</g>`;   // inline: the figure ghosts its own case
+    const items = k > .6 ? opts.inside(st) : opts.surface ? opts.surface(st) : [];
+    return s + (items.length ? xrCallouts(items, opts.B) : '');
+  };
+}
+
+/* ---------- game keypad: mountKeypad({ rows, hub:[col,row], action:'DROP', keys:[{ key:'ArrowLeft', glyph:'\u25c0', name, at:[col,row] }] })
+   An inked pad under the buttons that sends the same keyboard events as the arrows and space (set window.GAME_KEYS = true
+   so the arrows play instead of turning the camera). ---------- */
+function mountKeypad(spec){
+  const host = document.getElementById('btns'); if (!host) return;
+  const css = document.createElement('style');
+  css.textContent = `.kpad{display:flex;align-items:center;gap:16px;margin-top:6px;padding:10px 12px;border:1.5px solid var(--ink);border-radius:14px;
+      background:var(--paper);box-shadow:0 3px 0 var(--ink);touch-action:none;user-select:none;-webkit-user-select:none}
+    .kpad .dp{display:grid;grid-template-columns:repeat(3,34px);grid-template-rows:repeat(var(--rows),34px);gap:3px}
+    .kpad .k{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:34px;height:34px;cursor:pointer;
+      background:#fbf7ea;border:1.5px solid var(--ink);border-radius:7px;box-shadow:0 3px 0 var(--ink);color:var(--ink);font:700 13px ui-monospace,Menlo,monospace;
+      transition:transform .05s,box-shadow .05s,background .05s}
+    .kpad .hub{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+    .kpad .hub i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);background:#e6e0d1}
+    .kpad .go{all:unset;box-sizing:border-box;width:62px;height:62px;border-radius:50%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:#e2483d;border:1.5px solid var(--ink);box-shadow:0 4px 0 var(--ink),inset 0 -5px 0 rgba(0,0,0,.18);color:#fff;font:800 12px ui-monospace,Menlo,monospace;letter-spacing:.06em;
+      transition:transform .05s,box-shadow .05s}
+    .kpad .go small{font:700 8px ui-monospace,Menlo,monospace;opacity:.85;letter-spacing:.08em;margin-top:2px}
+    .kpad .down{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+    .kpad .k.down{background:var(--accent,#f4b829)}
+    .kpad .go.down{transform:translateY(3px);box-shadow:0 1px 0 var(--ink),inset 0 -3px 0 rgba(0,0,0,.18)}
+    @media (max-width:560px){.kpad{gap:22px;padding:10px 16px}.kpad .dp{grid-template-columns:repeat(3,44px);grid-template-rows:repeat(var(--rows),44px)}
+      .kpad .k,.kpad .hub{width:44px;height:44px;font-size:15px}.kpad .go{width:74px;height:74px}}`;
+  document.head.appendChild(css);
+  const pad = document.createElement('div'); pad.className = 'kpad'; pad.setAttribute('role', 'group'); pad.setAttribute('aria-label', 'Keypad');
+  const dp = document.createElement('div'); dp.className = 'dp'; dp.style.setProperty('--rows', spec.rows);
+  const els = {};
+  for (const k of spec.keys){
+    const b = document.createElement('button'); b.className = 'k'; b.textContent = k.glyph; b.setAttribute('aria-label', k.name);
+    b.style.gridColumn = k.at[0] + 1; b.style.gridRow = k.at[1] + 1; dp.appendChild(b); els[k.key] = b; }
+  if (spec.hub){ const h = document.createElement('div'); h.className = 'hub'; h.innerHTML = '<i></i>'; h.style.gridColumn = spec.hub[0] + 1; h.style.gridRow = spec.hub[1] + 1; dp.appendChild(h); }
+  const go = document.createElement('button'); go.className = 'go'; go.innerHTML = `${spec.action}<small>SPACE</small>`; go.setAttribute('aria-label', spec.action);
+  els[' '] = go;
+  pad.append(dp, go); host.appendChild(pad);
+  const send = (type, key) => dispatchEvent(new KeyboardEvent(type, { key, bubbles: true }));
+  for (const [key, el] of Object.entries(els)){
+    let held = null;
+    el.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); if (held != null) return; held = e.pointerId;
+      try { el.setPointerCapture(e.pointerId); } catch (_) {} send('keydown', key); });
+    const release = e => { if (held == null || (e && e.pointerId !== held)) return; held = null; send('keyup', key); };
+    el.addEventListener('pointerup', release); el.addEventListener('pointercancel', release); el.addEventListener('lostpointercapture', release);
+    el.addEventListener('click', e => e.preventDefault());
+    el.addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); send('keydown', key); setTimeout(() => send('keyup', key), 120); } });
+  }
+  // space belongs to the game: a button that still has the focus from a click must not be pressed by it too
+  addEventListener('keydown', e => { if (e.key === ' ' && e.target && e.target.closest && e.target.closest('button')) e.preventDefault(); }, true);
+  addEventListener('keyup', e => { if (e.key === ' ' && e.target && e.target.closest && e.target.closest('button')) e.preventDefault(); }, true);
+  // light the keys for real key presses too (and for the pad's own, which arrive the same way)
+  addEventListener('keydown', e => { const el = els[e.key]; if (el) el.classList.add('down'); });
+  addEventListener('keyup', e => { const el = els[e.key]; if (el) el.classList.remove('down'); });
+  addEventListener('blur', () => Object.values(els).forEach(el => el.classList.remove('down')));
+}
+
+</script>
+<script>
+/* Máy giải nghiệp: a street vending machine that clears karma. Owner's spec (docs/superpowers/specs/2026-11-02-giai-nghiep-design.md).
+   x = depth (front face at x = W), y = width (+y = viewer-left), z = up. 1 unit = 1 cm: 64 deep, 84 wide, 180 tall.
+
+   How it really works (and where everything is after each step):
+   1. A keypad button (THÂN / KHẨU / Ý) lights that shelf's LED and the LCD shows the price. NẶNG doubles it.
+   2. A coin goes in the slot, rolls down a short chute and drops straight into the cash box. A bill goes in the bill
+      slot, slides down its guide and drops into the same box. The LCD counter adds it up. Money never leaves the box.
+   3. Paid enough: the LCD says ĐANG GIẢI..., the one motor under the shelves shakes the chosen shelf (2 s), the solenoid
+      pushes its plunger out through the side wall and taps the bell once, the bellows squeezes and puffs smoke out of
+      the top vent, then the thermal printer feeds a receipt down into the tray. LCD: XONG!
+   4. Nothing on the shelves moves anywhere: a fixed bar in front of each shelf holds the items in.
+
+   Parts list:
+   CASE       body (rounded box) . header sign . glass window with bezel . keypad plate . LCD strip . coin plate + slot .
+              bill plate + slot . tray recess + label . kick plate . dent at the top front right . side sticker . vents .
+              back service panel . top vent . power cord
+   OUTSIDE    brass bell on a bracket (left side) . incense holder with one stick (top front left corner)
+   SHELVES    four corner posts . back panel . top board . three shelf boards with coloured lips and price tags .
+              three wax figures, three paper cards (tongue / talk bubbles), three paper clouds . three holding bars .
+              three LEDs
+   INSIDE     cash box (open top, the largest part) . coin chute . bill guide . thermal printer + paper roll + paper path .
+              tray cup . shaker motor with its eccentric weight and bracket . bell solenoid + plate + plunger .
+              bellows on a bracket + tube to the top vent . the empty space */
+
+const W = 64, D = 84, H = 180;
+const OUT = rrUV(0, 0, D, H, 4);
+const GN_MUST = '#d6a53a', GN_PAPER = '#fbf3dc', GN_RED = '#b3261e', GN_INKB = '#2b1a10';
+const GN_SERIF = "'Noto Serif','Times New Roman',Georgia,serif", GN_SANS = "system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif";
+PALS.tomato = { l:'#e5533d', m:'#c8432f', d:'#5a2118' };
+const MUSTM = { l:'#ecc15a', m:'#d6a53a', d:'#8f6a1c' }, BRASS = { l:'#f0c75a', m:'#d4a33a', d:'#8a6420' };
+const WAX = { l:'#f6e6c6', m:'#e6cfa4', d:'#b79a6c' }, TCOP = { l:'#f0b07a', m:'#d08a52', d:'#9a5a2c' };
+const GN_TYPES = { than:{ label:'THÂN', col:'#d9412b', i:0 }, khau:{ label:'KHẨU', col:'#f2c230', i:1 }, y:{ label:'Ý', col:'#3f7fd0', i:2 } };
+const GN_KEYS = ['than', 'khau', 'y'];
+const GN_PRICE = 50000, GN_COIN = 10000, GN_BILL = 50000;
+const GN_SHAKE = 2000, GN_BELL = 2000, GN_SMOKE = 2300, GN_DONE = 3300, GN_END = 4300;
+const gnPrice = st => st.loai ? GN_PRICE * (st.nang ? 2 : 1) : 0;
+const gnFmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + 'đ';
+const gnClamp = v => Math.max(0, Math.min(1, v));
+
+/* ---------- front panel frame: u to the right, v down, on the plane x = W + dx ---------- */
+const FL = (u, v, dx = .3) => [W + dx, D - u, H - v];
+const gnLoc = (pts, dx) => pts.map(([u, v]) => FL(u, v, dx));
+const lrr = (u, v, w, h, r = 0, dx = .3) => gnLoc(r > 0 ? rrUV(u, v, u + w, v + h, Math.min(r, w/2, h/2), 4) : rectUV(u, v, u + w, v + h), dx);
+const lcirc = (cu, cv, r, dx = .3, n = 16) => gnLoc(ellUV(cu, cv, r, r, n), dx);
+// text in a system font (the engine's tx uses a monospace font); hidden when its face turns away
+const gnText = (o, U, V, str, size, col, weight, font) => `<text transform="${txM(o, U, V)}" font-size="${size}" fill="${col}" text-anchor="middle" font-family="${font}" font-weight="${weight}">${str}</text>`;
+const gnTx = (x, y, z, str, size, col = INK, weight = 700, font = GN_SANS) => gnText(P(x, y, z), Dv(0,-1,0), Dv(0,0,-1), str, size, col, weight, font);
+const gnTxY = (x, y, z, str, size, col = INK, weight = 700, font = GN_SANS) => gnText(P(x, y, z), Dv(1,0,0), Dv(0,0,-1), str, size, col, weight, font);
+const gnTxF = (u, v, str, size, col, weight, font, dx = .45) => gnTx(...FL(u, v, dx), str, size, col, weight, font);
+const gnBoxOf = pts => [[0,1,2].map(i => Math.min(...pts.map(p => p[i]))), [0,1,2].map(i => Math.max(...pts.map(p => p[i])))];
+const gnPart = (b, svg) => ({ box: b, svg });
+const gnBx = (x0, y0, z0, x1, y1, z1, m, w = .8) => gnPart([[x0, y0, z0], [x1, y1, z1]], box(x0, y0, z0, x1, y1, z1, m, toneI, w));
+function gnBall(c, r, m, w = .7){
+  const rings = [];
+  for (let i = 0; i <= 6; i++){ const a = -Math.PI/2 + Math.PI*i/6, rr = Math.max(.02, r*Math.cos(a)); rings.push(on(PZ(c[2] + r*Math.sin(a)), ellUV(c[0], c[1], rr, rr, 14))); }
+  let s = ''; for (let i = 0; i < 6; i++) s += loft(rings[i], rings[i + 1], n => toneI(n, m));
+  return s + hullInk(rings.flat(), w);
+}
+// a flat cut-out on the plane x = const whose pieces merge into one outline: ink under, fill over
+const gnCut = (x, polys, col, w = 1.1) => { const d = polys.map(p => pd(on(PX(x), p))).join('');
+  return `<path d="${d}" fill="${col}" stroke="${INK}" stroke-width="${w}" stroke-linejoin="round"/><path d="${d}" fill="${col}"/>`; };
+// projected radius of a small round thing (smoke, coins on screen)
+const gnR = r => Math.hypot(...Dv(0, r, 0));
+
+/* ---------- time since the run started (ms), -1 when not running ---------- */
+const gnRunT = st => st.runAt ? performance.now() - st.runAt : -1;
+const gnWin = (st, a, b) => { const t = gnRunT(st); return t >= a && t < b; };
+
+/* ---------- the shelves: three compartments behind the glass ---------- */
+const WIN = { u0: 6, v0: 36, w: 50, h: 78 };                // window opening on the front
+const CY0 = D - (WIN.u0 + WIN.w), CY1 = D - WIN.u0;           // 28 .. 78
+const CZ0 = H - (WIN.v0 + WIN.h), CZ1 = H - WIN.v0;           // 66 .. 144
+const CX0 = 36;                                               // back panel of the shelf cavity
+const SHELF_Z = [118, 92, 66];                                // top of each shelf board: THÂN, KHẨU, Ý
+const ITEM_Y = [38, 53, 68], ITEM_X = 50;
+const BAR_X = W - 4.5;
+
+function gnWax(x, y, z){
+  const nearL = vis([0,1,0]);
+  const arm = sgn => rod([x, y + sgn*1.8, z + 5.4], [x + .4, y + sgn*3, z + 2.6], .5, WAX, toneI, .5);
+  return (nearL ? arm(-1) : arm(1)) + cyl(x, y, z, z + 6, 1.9, WAX, toneI, .7, 16) + rod([x, y, z + 6], [x, y, z + 6.6], .7, WAX, toneI, .4)
+    + gnBall([x, y, z + 8.2], 1.7, WAX) + (nearL ? arm(1) : arm(-1))
+    + box(x - 1.1, y - 2.1, z - .01, x + 1.1, y + 2.1, z + .6, WAX, toneI, .5);
+}
+function gnBubble(x, y, z, tongue){
+  let s = box(x - 1, y - 2, z, x + 1, y + 2, z + 1.2, WOOD, toneI, .5) + rod([x, y, z + 1.2], [x, y, z + 2.6], .3, WOOD, toneI, .3);
+  if (tongue){
+    s += gnCut(x, [ellUV(y, z + 7, 2.7, 4.4, 18)], '#ee8f8c', .9);
+    s += ink(pd([[x + .02, y, z + 9.6], [x + .02, y, z + 6]], false), .5);
+  } else {
+    s += gnCut(x, [ellUV(y, z + 7.4, 4.2, 3.1, 18), [[y + .6, z + 5], [y + 2.6, z + 2.6], [y + 2.4, z + 5.4]]], '#fff4d6', .9);
+    s += ink(pd([[x + .02, y + 2.4, z + 8.3], [x + .02, y - 2.4, z + 8.3]], false) + pd([[x + .02, y + 2.6, z + 6.6], [x + .02, y - 1.4, z + 6.6]], false), .45);
+  }
+  return s;
+}
+function gnCloud(x, y, z){
+  return box(x - 1, y - 2, z, x + 1, y + 2, z + 1.2, WOOD, toneI, .5) + rod([x, y, z + 1.2], [x, y, z + 3.4], .3, WOOD, toneI, .3)
+    + gnCut(x, [ellUV(y - 2.2, z + 5.2, 2.4, 2, 16), ellUV(y + .2, z + 6.6, 2.9, 2.6, 16), ellUV(y + 2.5, z + 5.3, 2.3, 1.9, 16), rectUV(y - 3.6, z + 3.4, y + 3.8, z + 5)], '#e8f1fb', .9);
+}
+function gnShelfParts(st){
+  const parts = [], t = gnRunT(st);
+  const lip = (zb, col) => gnBx(W - 2.4, CY0, zb - 1.5, W - 1.5, CY1, zb + .5, matOf(col), .7);
+  for (const key of GN_KEYS){ const T = GN_TYPES[key], zb = SHELF_Z[T.i], top = zb + 26;
+    const shaking = st.loai === key && t >= 0 && t < GN_SHAKE;
+    const dy = shaking ? Math.sin(t*.09)*.75 : 0, dz = shaking ? Math.abs(Math.sin(t*.13))*.35 : 0;
+    parts.push(gnBx(CX0 + 1, CY0, zb - 1.5, W - 2.4, CY1, zb, matOf('#efe6d2'), .7));
+    parts.push(lip(zb, T.col));
+    // price tag clipped on the lip
+    const ty = (CY0 + CY1)/2;
+    parts.push(gnPart([[W - 1.5, ty - 11, zb - 1.3], [W - 1.3, ty + 11, zb + 3.6]],
+      shape(on(PX(W - 1.45), rectUV(ty - 11, zb - 1.3, ty + 11, zb + 3.6)), '#fff4d6', .6)
+      + gnTx(W - 1.4, ty + 4.5, zb + .2, T.label, 2.6, key === 'khau' ? '#8a6410' : T.col, 800)
+      + gnTx(W - 1.4, ty - 4.8, zb + .2, '50.000đ', 2.4, GN_INKB, 700)));
+    // the things on display
+    for (let j = 0; j < 3; j++){ const y = ITEM_Y[j] + dy, z = zb + dz;
+      const svg = key === 'than' ? gnWax(ITEM_X, y, z) : key === 'khau' ? gnBubble(ITEM_X, y, z, j === 1) : gnCloud(ITEM_X, y, z);
+      parts.push(gnPart([[ITEM_X - 2.2, y - 4.4, z], [ITEM_X + 2.2, y + 4.4, z + 11]], svg)); }
+    // holding bar between the front posts
+    parts.push(gnPart([[BAR_X - .5, CY0, zb + 5], [BAR_X + .5, CY1, zb + 6]], rod([BAR_X, CY0 + .5, zb + 5.5], [BAR_X, CY1 - .5, zb + 5.5], .5, METAL, toneI, .5)));
+    // the shelf's LED under the board above
+    const lit = st.loai === key && st.phase !== 'idle';
+    const ledM = lit ? { l:'#fff6b0', m:'#ffe27a', d:'#e0b23a' } : { l:'#bdb9ae', m:'#9b978c', d:'#6d6a62' };
+    const lz = top - 1.5;
+    parts.push(gnPart([[W - 7.2, ty - 1.2, lz - 1.6], [W - 4.8, ty + 1.2, lz]], cyl(W - 6, ty, lz - 1.6, lz, 1.1, ledM, toneI, .6, 14)));
+  }
+  parts.push(gnBx(CX0 + 1, CY0, CZ1, W - 1, CY1, CZ1 + 1.5, matOf('#efe6d2'), .7));          // top board
+  for (const x of [CX0, W - 2]) for (const y of [CY0 - 1, CY1]) parts.push(gnBx(x, y, CZ0 - 2, x + 1, y + 1, CZ1 + 1.5, METAL, .6));   // corner posts
+  return parts;
+}
+// the glow of the chosen shelf, on the back panel
+function gnShelfGlow(st){
+  if (!st.loai || st.phase === 'idle') return '';
+  const T = GN_TYPES[st.loai], zb = SHELF_Z[T.i], t = gnRunT(st);
+  const a = t >= 0 && t < GN_SHAKE ? .45 + .25*Math.sin(t*.02) : .3;
+  return fill(pd(on(PX(CX0 + .05), rectUV(CY0, zb, CY1, zb + 24.5))), mix(T.col, '#fff6b0', .55), `opacity="${f(a)}"`)
+    + fill(pd(on(PX(W - 2.6), rectUV(CY0, zb, CY1, zb + 24.5))), '#fff6b0', `opacity="${f(a*.35)}"`);
+}
+function gnWindowInside(st){
+  // what is seen through the glass: the cavity (inner walls facing the viewer), then the shelves, sorted
+  const back = '#5b3a2c', side = '#6e4836';
+  let s = fill(pd(on(PX(CX0), rectUV(CY0, CZ0, CY1, CZ1))), back);
+  if (vis([0,1,0])) s += fill(pd(on(PY(CY0), rectUV(CX0, CZ0, W, CZ1))), side);
+  if (vis([0,-1,0])) s += fill(pd(on(PY(CY1), rectUV(CX0, CZ0, W, CZ1))), side);
+  s += fill(pd(on(PZ(CZ0 - 2), rectUV(CX0, CY0, W, CY1))), side);
+  s += gnShelfGlow(st) + byDepth(gnShelfParts(st));
+  return clipTo(lrr(WIN.u0, WIN.v0, WIN.w, WIN.h, 1.5, .1), s);
+}
+
+/* ---------- front panel ---------- */
+function gnFront(st, m, k){
+  const front = tone([1,0,0], m), t = gnRunT(st);
+  let s = fill(pd(on(PX(W), OUT)), front);
+  // wear: a dent in the top right corner, a few scuffs
+  s += fill(pd(gnLoc([[75, .6], [83.4, .6], [83.4, 11], [80, 9.5], [76.5, 5]], .32)), mix(front, '#000000', .16));
+  s += ink(pd(gnLoc([[76.6, 1.6], [79.6, 5.4], [83, 9.4]], .34), false), .9) + ink(pd(gnLoc([[79.5, 1.2], [81.2, 4.6]], .34), false), .6);
+  s += `<path d="${pd(gnLoc([[9, 166], [15, 165.2]], .33), false) + pd(gnLoc([[70, 160], [74.5, 161.5]], .33), false) + pd(gnLoc([[4, 120], [4.6, 128]], .33), false)}" fill="none" stroke="#ffffff" stroke-width=".8" opacity=".45" stroke-linecap="round"/>`;
+  // header sign
+  s += shape(lrr(4, 5, 76, 27, 2.5), GN_MUST, 1.4);
+  s += shape(lrr(6.5, 7.5, 71, 22, 1.5, .38), GN_PAPER, .8);
+  s += gnTxF(42, 19.4, 'MÁY GIẢI NGHIỆP', 6.6, GN_RED, 800, GN_SERIF);
+  s += gnTxF(42, 26.4, 'Nhanh · Gọn · Có kết quả', 3.5, GN_INKB, 600, GN_SANS);
+  // glass window: bezel, the shelves inside, the glass
+  s += shape(lrr(WIN.u0 - 2, WIN.v0 - 2, WIN.w + 4, WIN.h + 4, 3), GN_MUST, 1.4);
+  s += gnWindowInside(st);
+  const g = lrr(WIN.u0, WIN.v0, WIN.w, WIN.h, 1.5, .4);
+  s += fill(pd(g), '#cfe9f0', 'opacity=".2"');
+  s += `<path d="${pd(gnLoc([[12, 104], [30, 40]], .42), false) + pd(gnLoc([[18, 108], [35, 48]], .42), false)}" fill="none" stroke="#ffffff" stroke-width="2.2" opacity=".38" stroke-linecap="round"/>`;
+  s += ink(pd(g), 1.7);
+  // keypad plate and lamps (the buttons themselves stick out, see gnMounted)
+  s += shape(lrr(59.5, 34, 21.5, 82, 2.5), '#4a2c22', 1.3);
+  for (const key of GN_KEYS){ const i = GN_TYPES[key].i, on = st.loai === key && st.phase !== 'idle';
+    s += shape(lcirc(61.6, 43 + 15*i, .9, .4), on ? '#ffe27a' : '#7d6a5c', .5); }
+  s += shape(lcirc(61.6, 96, .9, .4), st.nang && st.loai ? '#ff9a3c' : '#7d6a5c', .5);
+  // LCD strip: status on the left, the counter on the right
+  s += shape(lrr(4, 118, 77, 16, 2.5), GN_MUST, 1.3);
+  s += shape(lrr(6.5, 120.5, 72, 11, 1.2, .38), '#1d2a26', .8);
+  s += shape(lrr(55, 122, 22, 8, .8, .42), '#24352f', .5);
+  s += gnTxF(30.5, 128.1, gnLcd(st), 5.2, '#8af0ae', 700, GN_SANS, .5);
+  s += gnTxF(66, 127.7, gnFmt(st.paid), 3.6, '#8af0ae', 700, GN_SANS, .5);
+  // coin plate: label, slot (clickable)
+  const coinOn = st.fly.some(c => c.kind === 'coin' && performance.now() - c.t0 < 250);
+  s += act('coin', shape(lrr(4, 137, 37, 16, 2), METAL.l, 1.1) + gnTxF(22.5, 141.6, 'NHÉT TIỀN VÀO ĐÂY', 2.55, GN_INKB, 800, GN_SANS)
+    + shape(lrr(19.5, 143.4, 6, 8.6, 2, .36), METAL.d, .8) + shape(lrr(21.8, 144.4, 1.4, 6.6, .6, .42), coinOn ? '#ffe27a' : '#1a1410', .6));
+  // bill slot (clickable)
+  const billOn = st.fly.some(c => c.kind === 'bill' && performance.now() - c.t0 < 250);
+  s += act('bill', shape(lrr(44, 137, 37, 16, 2), METAL.l, 1.1)
+    + shape(lrr(47.5, 142.2, 30, 5.4, 2, .36), METAL.d, .8) + shape(lrr(49.5, 144.1, 26, 1.5, .6, .42), billOn ? '#8fc79a' : '#1a1410', .6)
+    + shape(lrr(58, 148.2, 8, 2.6, .5, .4), '#8fc79a', .5));
+  // dispensing tray
+  s += shape(lrr(29, 154.3, 26, 5.2, 1, .36), GN_PAPER, .7);
+  s += gnTxF(42, 158.1, 'KẾT QUẢ', 3.3, GN_INKB, 800, GN_SANS);
+  s += act('tray', shape(lrr(18, 160.5, 48, 13.5, 3), GN_MUST, 1.3) + shape(lrr(20, 162, 44, 10.5, 2, .38), '#2a1d17', 1));
+  // kick plate
+  s += fill(pd(lrr(1.5, 175, 81, 4.5, 1.5, .32)), mix(front, '#000000', .35));
+  return s;
+}
+const gnLcd = st => st.phase === 'running' ? 'ĐANG GIẢI...' : st.phase === 'done' ? 'XONG!' : st.loai ? gnFmt(gnPrice(st)) : 'CHỌN NGHIỆP';
+
+// things that stick out of the front: the keypad buttons, NẶNG, the receipt in the tray
+function gnMounted(st){
+  const parts = [], pr = key => st.press === key ? 1.6 : 0;
+  for (const key of GN_KEYS){ const T = GN_TYPES[key], v0 = 37 + 15*T.i, x1 = W + 2.6 - pr(key);
+    const y0 = D - 79, y1 = D - 63.5, z0 = H - (v0 + 12), z1 = H - v0, on = st.loai === key && st.phase !== 'idle';
+    const m = matOf(T.col);
+    const svg = box(W, y0, z0, x1, y1, z1, m, toneI, 1.1) + (on ? ink(pd(on2(PX(x1 + .05), rectUV(y0 + .8, z0 + .8, y1 - .8, z1 - .8))), 1.2).replace(INK, '#fff6b0') : '')
+      + gnTx(x1 + .06, (y0 + y1)/2, z0 + 4.4, T.label, 4.4, key === 'khau' ? GN_INKB : '#fff8e8', 800);
+    parts.push({ box: [[W, y0, z0], [x1, y1, z1]], svg: act(key, svg) }); }
+  { const x1 = W + 2.2 - pr('nang'), y = D - 71.2, z = H - 96, lit = st.nang && st.loai;
+    const svg = cylX(W, x1, y, z, 4.4, matOf(lit ? '#ff9a3c' : '#f2efe7'), toneI, 1.1, 22) + gnTx(x1 + .06, y, z - .9, 'NẶNG', 2.3, GN_INKB, 800);
+    parts.push({ box: [[W, y - 4.4, z - 4.4], [x1, y + 4.4, z + 4.4]], svg: act('nang', svg) }); }
+  if (st.receipt > 0){ const out = 13*st.receipt, x1 = W - 1 + out, PAPER = { l:'#fffdf6', m:'#efe9da', d:'#cfc6b0' };
+    let svg = box(W - 1, 36, 10.6, x1, 48, 11.1, PAPER, toneI, .8);
+    if (vis([0,0,1])){ let ln = '';
+      for (let i = 0; i < 4; i++){ const x = x1 - 2.2 - 2.4*i; if (x > W) ln += pd([[x, 46 - (i ? 2 : 0), 11.15], [x, 38 + (i === 3 ? 4 : 0), 11.15]], false); }
+      if (ln) svg += ink(ln, .5).replace(INK, i => '#8a7f6c'); }
+    parts.push({ box: [[W - 1, 36, 10.6], [x1, 48, 11.1]], svg: act('tray', svg) }); }
+  return byDepth(parts);
+}
+const on2 = on;
+
+/* ---------- other faces ---------- */
+function gnLeft(m){                          // y = D: sticker and vents
+  const sm = tone([0,1,0], m);
+  let s = fill(pd(on(PY(D + .2), [[12, 99], [52, 101.5], [51.6, 112.5], [11.6, 110]])), '#f6d55c') + ink(pd(on(PY(D + .2), [[12, 99], [52, 101.5], [51.6, 112.5], [11.6, 110]])), 1);
+  s += gnTxY(31.8, D + .3, 103.4, 'KHÔNG HOÀN TIỀN', 3.6, GN_RED, 800);
+  let v = ''; for (let z = 20; z <= 36; z += 4) v += pd([[14, D + .2, z], [50, D + .2, z]], false);
+  s += `<path d="${v}" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".6"/>`;
+  s += fill(pd(on(PY(D + .2), [[52, 70], [55, 72], [53, 76]])), mix(sm, '#ffffff', .2), 'opacity=".5"');
+  return s;
+}
+function gnRight(m){                         // y = 0: vents and the dent running round the corner
+  const sm = tone([0,-1,0], m);
+  let v = ''; for (let z = 20; z <= 36; z += 4) v += pd([[14, -.2, z], [50, -.2, z]], false);
+  return `<path d="${v}" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".6"/>`
+    + fill(pd(on(PY(-.2), [[W, H - .6], [W - 7, H - .6], [W - 4, H - 6], [W, H - 10]])), mix(sm, '#000000', .18))
+    + ink(pd([[W - 1, -.25, H - 2], [W - 4, -.25, H - 5.5]], false), .8);
+}
+function gnBack(m){
+  const tb = tone([-1,0,0], m);
+  let s = fill(pd(on(PX(0), OUT)), tb);
+  s += shape(on(PX(-.2), rrUV(14, 30, 70, 150, 3)), mix(tb, '#ffffff', .1), 1.2);
+  let sc = ''; for (const [y, z] of [[18, 34], [66, 34], [18, 146], [66, 146]]) sc += shape(on(PX(-.3), ellUV(y, z, 1, 1, 10)), METAL.m, .5);
+  let v = ''; for (let z = 120; z <= 140; z += 4) v += pd([[-.3, 28, z], [-.3, 56, z]], false);
+  return s + sc + `<path d="${v}" fill="none" stroke="${INK}" stroke-width="1.1" opacity=".6"/>`;
+}
+function gnTop(){
+  if (!vis([0,0,1])) return '';
+  let s = shape(on(PZ(H + .05), ellUV(28, 13, 3.4, 3.4, 18)), '#2a1d17', 1);
+  s += ink(pd([[25.6, 13, H + .1], [30.4, 13, H + .1]], false) + pd([[28, 10.6, H + .1], [28, 15.4, H + .1]], false), .6).replace(INK, '#7d6a5c');
+  return s;
+}
+
+/* ---------- outside parts ---------- */
+const BELL_X = W - 14, BELL_Y = D + 7.5, BELL_TOP = 166;
+function gnBell(st){
+  const t = gnRunT(st), ring = t >= GN_BELL && t < GN_BELL + 700, e = ring ? (t - GN_BELL)/700 : 0;
+  const sw = ring ? Math.sin((t - GN_BELL)/38)*(1 - e)*1.1 : 0, hit = ring && t < GN_BELL + 160 ? 1 : 0;
+  const prof = [[0, .7], [.8, 2.2], [2.5, 3.2], [5.5, 3.7], [8.4, 4.6], [9.2, 5]];
+  const rings = prof.map(([dz, r]) => on(PZ(BELL_TOP - dz), ellUV(BELL_X, BELL_Y + sw*dz/9, r, r, 20)));
+  let bell = ''; for (let i = 0; i < rings.length - 1; i++) bell += loft(rings[i], rings[i + 1], n => toneI(n, BRASS));
+  bell += hullInk(rings.flat(), 1.1);
+  const arm = rod([BELL_X, D, BELL_TOP + 1.2], [BELL_X, BELL_Y, BELL_TOP + 1.2], .7, METAL, toneI, .8) + rod([BELL_X, BELL_Y, BELL_TOP + 1.2], [BELL_X, BELL_Y, BELL_TOP - .2], .45, METAL, toneI, .5);
+  const plunger = rod([BELL_X, D, 160.5], [BELL_X, D + 2.4 + 1.1*hit, 160.5], .45, METAL, toneI, .5);
+  let waves = '';
+  if (ring){ const [X, Y] = P(BELL_X, BELL_Y, BELL_TOP - 4), r = gnR(7 + 6*e);
+    waves = `<g opacity="${f(1 - e)}" fill="none" stroke="${INK}" stroke-width="1"><path d="M${f(X - r)} ${f(Y - r*.4)}q${f(-r*.25)} ${f(r*.4)} 0 ${f(r*.8)}"/><path d="M${f(X + r)} ${f(Y - r*.4)}q${f(r*.25)} ${f(r*.4)} 0 ${f(r*.8)}"/></g>`; }
+  // the plunger is nearer the wall than the bell: draw it first when the bell is in front of it
+  return (vis([0,1,0]) ? plunger + arm + bell : bell + arm + plunger) + waves;
+}
+function gnIncense(){
+  const x = W - 7, y = D - 7;
+  let s = box(x - 3.5, y - 3.5, H, x + 3.5, y + 3.5, H + .8, BRASS, toneI, .8) + cyl(x, y, H + .8, H + 4.2, 2.3, BRASS, toneI, .9, 18);
+  s += rod([x, y, H + 4.2], [x - .6, y - .4, H + 26], .35, matOf('#8a4b2a'), toneI, .5);
+  const [X, Y] = P(x - .6, y - .4, H + 26);
+  s += `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(gnR(.55))}" fill="#ff6a2a"/>`;
+  const w = [[x - .6, y - .4, H + 26.5], [x - .2, y - 1.4, H + 29], [x - 1, y - .6, H + 31.5], [x - .4, y - 1.8, H + 34]];
+  s += `<path d="${pd(w, false)}" fill="none" stroke="#a89f92" stroke-width="1" opacity=".5" stroke-linecap="round"/>`;
+  return s;
+}
+function gnSmoke(st){
+  const t = gnRunT(st); if (t < GN_SMOKE) return '';
+  let s = '';
+  for (let i = 0; i < 5; i++){ const a = (t - GN_SMOKE - i*170)/1500; if (a <= 0 || a >= 1) continue;
+    const [X, Y] = P(28 + 3*a + (i % 2 ? 1.5 : -1.5)*a, 13 - 4*a, H + 2 + 32*a);
+    s += `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(gnR(1.8 + 5.5*a))}" fill="#ece7dd" stroke="${INK}" stroke-width=".8" opacity="${f(.85*(1 - a))}"/>`; }
+  return s;
+}
+function gnCord(){
+  const pts = [[-.5, 12, 14], [-3, 12.5, 10], [-5, 13, 3], [-7, 14, 1], [-14, 16, 1], [-20, 13, 1.2]];
+  const d = pd(pts, false);
+  return cylX(-2.5, 0, 12, 14, 1.8, DARK, toneI, .8, 14) + `<path d="${d}" fill="none" stroke="${INK}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/><path d="${d}" fill="none" stroke="${DARK.m}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+
+/* ---------- see-through: almost nothing behind the busy front ---------- */
+const BOX = { x0: 4, x1: 38, y0: 6, y1: 78, z0: 2, z1: 28 };     // the cash box: the largest part inside
+const COIN_Y = D - 22.5, BILL_Y = D - 62.5, SLOT_Z = H - 147.5, CHUTE_END = 33, CHUTE_Z = 30.5;
+const gnLevel = st => Math.min(22, st.cash / GN_COIN * .7);
+const PRN = { x0: 40, x1: 56, y0: 30, y1: 54, z0: 24, z1: 34 };
+const MOTOR = { x0: 42, x1: 54, y: 53, z: 61, r: 3 };
+const SOL = { x0: BELL_X - 3, x1: BELL_X + 3, y0: D - 10, y1: D - 2, z0: 158, z1: 163 };
+const BLW = { x0: 22, x1: 34, y0: 6, y1: 20, z0: 160 };
+// where a coin or bill in flight is: along its chute, then straight down into the box
+function gnFlyPos(st, c, now){
+  const a = (now - c.t0)/1000, y = c.kind === 'coin' ? COIN_Y : BILL_Y;
+  if (a < .25){ const e = a/.25; return [W - 1 - (W - 1 - CHUTE_END + 2)*e, y, SLOT_Z + (CHUTE_Z - SLOT_Z)*e]; }
+  const e = Math.min(1, (a - .25)/.3);
+  return [CHUTE_END - 2, y, CHUTE_Z - (CHUTE_Z - BOX.z0 - .5 - gnLevel(st))*e*e];
+}
+function gnFlySvg(c, p){
+  if (c.kind === 'coin') return cyl(p[0], p[1], p[2], p[2] + .5, 1.4, BRASS, toneI, .6, 14);
+  return box(p[0] - 3, p[1] - 6, p[2], p[0] + 3, p[1] + 6, p[2] + .3, matOf('#8fc79a'), toneI, .6);
+}
+function gnBin(st, inner){
+  const b = BOX, m = { l:'#8d969b', m:'#6c757a', d:'#454c50' };
+  const faces = [
+    [[1,0,0],  [[b.x1,b.y0,b.z0],[b.x1,b.y1,b.z0],[b.x1,b.y1,b.z1],[b.x1,b.y0,b.z1]]],
+    [[-1,0,0], [[b.x0,b.y0,b.z0],[b.x0,b.y1,b.z0],[b.x0,b.y1,b.z1],[b.x0,b.y0,b.z1]]],
+    [[0,1,0],  [[b.x0,b.y1,b.z0],[b.x1,b.y1,b.z0],[b.x1,b.y1,b.z1],[b.x0,b.y1,b.z1]]],
+    [[0,-1,0], [[b.x0,b.y0,b.z0],[b.x1,b.y0,b.z0],[b.x1,b.y0,b.z1],[b.x0,b.y0,b.z1]]] ];
+  let s = '';
+  for (const [n, q] of faces) if (!vis(n)) s += shape(q, toneI(n.map(v => -v), m), .8);       // far walls, inside face
+  const lv = gnLevel(st);
+  if (lv > .05){ const top = b.z0 + lv;
+    s += box(b.x0 + .3, b.y0 + .3, b.z0, b.x1 - .3, b.y1 - .3, top, BRASS, toneI, .6);
+    if (vis([0,0,1])){ let c = ''; const n = Math.min(40, Math.round(st.cash / GN_COIN));
+      for (let i = 0; i < n; i++){ const x = b.x0 + 3 + ((i*37) % 29), y = b.y0 + 4 + ((i*53) % 64);
+        c += shape(on(PZ(top + .05), ellUV(x, y, 1.4, 1.4, 10)), i % 3 ? BRASS.l : BRASS.m, .4); }
+      s += c; } }
+  s += inner;
+  for (const [n, q] of faces) if (vis(n)) s += shape(q, toneI(n, m), .9);
+  s += ink(pd([[b.x0,b.y0,b.z1],[b.x1,b.y0,b.z1],[b.x1,b.y1,b.z1],[b.x0,b.y1,b.z1]]), 1.1);
+  return s;
+}
+let GN_LABELS = '';
+function gnMech(st, k){
+  const parts = [], now = performance.now(), t = gnRunT(st);
+  // cash box, with whatever is falling inside it
+  let inBox = '';
+  for (const c of st.fly){ const p = gnFlyPos(st, c, now);
+    if (p[2] < BOX.z1) inBox += gnFlySvg(c, p);
+    else parts.push(gnPart([[p[0] - 3, p[1] - 6, p[2]], [p[0] + 3, p[1] + 6, p[2] + .6]], gnFlySvg(c, p))); }
+  parts.push(gnPart([[BOX.x0, BOX.y0, BOX.z0], [BOX.x1, BOX.y1, BOX.z1]], gnBin(st, inBox)));
+  // coin chute and bill guide, from the slots down to the box's open top
+  parts.push(gnPart([[CHUTE_END, COIN_Y - 1.8, CHUTE_Z - 1.6], [W, COIN_Y + 1.8, SLOT_Z + 1.6]], rod([W - .5, COIN_Y, SLOT_Z], [CHUTE_END, COIN_Y, CHUTE_Z], 1.6, METAL, toneI, .7)));
+  { const q = [[W - .5, BILL_Y - 6.5, SLOT_Z - .5], [W - .5, BILL_Y + 6.5, SLOT_Z - .5], [CHUTE_END, BILL_Y + 6.5, CHUTE_Z - 1], [CHUTE_END, BILL_Y - 6.5, CHUTE_Z - 1]];
+    parts.push(gnPart([[CHUTE_END, BILL_Y - 6.5, CHUTE_Z - 1.2], [W, BILL_Y + 6.5, SLOT_Z - .3]], shape(q, toneI([0,0,1], METAL), .7))); }
+  // thermal printer: body on a bracket from the floor, paper roll in its cradle, the paper path down to the tray cup
+  const printing = t >= GN_DONE && t < GN_END;
+  parts.push(gnBx(PRN.x0 + 4, PRN.y0 + 2, 0, PRN.x0 + 6, PRN.y1 - 2, PRN.z0, METAL, .6));
+  parts.push(gnPart([[PRN.x0, PRN.y0, PRN.z0], [PRN.x1, PRN.y1, PRN.z1]], box(PRN.x0, PRN.y0, PRN.z0, PRN.x1, PRN.y1, PRN.z1, DARK, toneI, .9)
+    + (vis([1,0,0]) ? shape(on(PX(PRN.x1 + .05), rectUV(35, PRN.z0 + 1.2, 49, PRN.z0 + 2.2)), '#120d0a', .4) + shape(on(PX(PRN.x1 + .05), ellUV(51, PRN.z1 - 2, .7, .7, 8)), printing ? '#43c25c' : '#3b3631', .3) : '')));
+  parts.push(gnPart([[PRN.x0 + 3.4, PRN.y0 + 2, PRN.z1], [PRN.x0 + 10.6, PRN.y1 - 2, PRN.z1 + 7.2]],
+    rod([PRN.x0 + 7, PRN.y0 + 2, PRN.z1 + 3.6], [PRN.x0 + 7, PRN.y1 - 2, PRN.z1 + 3.6], 3.6, { l:'#fffdf6', m:'#efe9da', d:'#cfc6b0' }, toneI, .8)));
+  parts.push(gnBx(W - 8, 20, 8, W - .5, 64, 9, DARK, .7));                         // tray cup floor, behind the front recess
+  if (printing || st.receipt > 0){ const q = [[PRN.x1, 36, PRN.z0 + 1.6], [PRN.x1, 48, PRN.z0 + 1.6], [W - 1, 48, 10.6], [W - 1, 36, 10.6]];
+    parts.push(gnPart([[PRN.x1, 36, 10.6], [W - 1, 48, PRN.z0 + 1.6]], shape(q, '#fffdf6', .6))); }
+  // shaker motor under the bottom shelf, with its eccentric weight
+  const run = t >= 0 && t < GN_SHAKE, wob = run ? .35 : 0, ang = run ? t*.06 : .6;
+  const mz = MOTOR.z + Math.sin(ang*1.3)*wob, my = MOTOR.y + Math.cos(ang)*wob;
+  parts.push(gnBx(MOTOR.x0 + 3, MOTOR.y - 3, MOTOR.z + 3, MOTOR.x1 - 3, MOTOR.y + 3, SHELF_Z[2] - 1.5, METAL, .6));
+  parts.push(gnPart([[MOTOR.x0 - 1.8, MOTOR.y - 3.6, MOTOR.z - 3.6], [MOTOR.x1, MOTOR.y + 3.6, MOTOR.z + 3]],
+    (vis([-1,0,0]) ? '' : '') + cylX(MOTOR.x0 + .5, MOTOR.x1, my, mz, MOTOR.r, { l:'#c9cfd2', m:'#a3abaf', d:'#6d7579' }, toneI, .8, 18)
+    + cylX(MOTOR.x0 - 1.6, MOTOR.x0 + .5, my + Math.cos(ang)*1.1, mz + Math.sin(ang)*1.1, 1.8, BRASS, toneI, .6, 12)));
+  // the shelf cavity's back panel and the shelves
+  parts.push(gnBx(CX0 - .8, CY0, CZ0 - 2, CX0, CY1, CZ1 + 1.5, { l:'#7a5444', m:'#5b3a2c', d:'#3a241b' }, .7));
+  for (const p of gnShelfParts(st)) parts.push(p);
+  // bell solenoid on its plate against the left wall, plunger out through the wall (the outer end is drawn with the bell)
+  const hitting = t >= GN_BELL && t < GN_BELL + 400;
+  parts.push(gnBx(SOL.x0 - 1, SOL.y1, SOL.z0 - 1.5, SOL.x1 + 1, SOL.y1 + .8, SOL.z1 + 1.5, METAL, .6));
+  parts.push(gnPart([[SOL.x0 - .2, SOL.y0, SOL.z0 - .2], [SOL.x1 + .2, SOL.y1, SOL.z1 + .2]], box(SOL.x0, SOL.y0, SOL.z0, SOL.x1, SOL.y1, SOL.z1, DARK, toneI, .7)
+    + box(SOL.x0 - .2, SOL.y0 + 2, SOL.z0 - .2, SOL.x1 + .2, SOL.y1 - 2, SOL.z1 + .2, hitting ? { l:'#ffc48a', m:'#e89a5a', d:'#a4602c' } : TCOP, toneI, .6)));
+  parts.push(gnPart([[BELL_X - .5, SOL.y1 + .8, 160], [BELL_X + .5, D, 161]], rod([BELL_X, SOL.y1 + .8, 160.5], [BELL_X, D, 160.5], .45, METAL, toneI, .5)));
+  // bellows on a bracket from the right wall, tube up to the top vent
+  const sq = gnWin(st, GN_SMOKE, GN_SMOKE + 700) ? Math.sin((t - GN_SMOKE)/700*Math.PI) : 0, bz1 = BLW.z0 + 10 - 4*sq;
+  parts.push(gnBx(BLW.x0 - 1, 0, BLW.z0 - 1.5, BLW.x1 + 1, BLW.y1 + 1, BLW.z0, METAL, .6));
+  { let s = box(BLW.x0, BLW.y0, BLW.z0, BLW.x1, BLW.y1, BLW.z0 + 1, WOOD, toneI, .6);
+    const n = 4; for (let i = 0; i < n; i++){ const za = BLW.z0 + 1 + (bz1 - 1 - BLW.z0 - 1)*i/n, zb = BLW.z0 + 1 + (bz1 - 1 - BLW.z0 - 1)*(i + 1)/n, inset = i % 2 ? 0 : .8;
+      s += box(BLW.x0 + inset, BLW.y0 + inset, za, BLW.x1 - inset, BLW.y1 - inset, zb, { l:'#c98d6a', m:'#a86d4c', d:'#6e432c' }, toneI, .5); }
+    s += box(BLW.x0, BLW.y0, bz1 - 1, BLW.x1, BLW.y1, bz1, WOOD, toneI, .6);
+    parts.push(gnPart([[BLW.x0, BLW.y0, BLW.z0], [BLW.x1, BLW.y1, bz1]], s)); }
+  parts.push(gnPart([[26.8, 11.8, bz1], [29.2, 14.2, H]], rod([28, 13, bz1], [28, 13, H - .2], 1.1, { l:'#5c5650', m:'#46413c', d:'#2a2724' }, toneI, .6)));
+  const svg = byDepth(parts);
+  const coinT = st.fly.length > 0;
+  GN_LABELS = k <= .6 ? '' : xrCallouts([
+    { at: [BOX.x1, 50, BOX.z1 - 4], text: 'Hộp tiền', on: coinT },
+    { at: [PRN.x1, 44, PRN.z1], text: 'Máy in kết quả', on: printing },
+    { at: [BELL_X, SOL.y0, SOL.z1], text: 'Búa chuông', on: hitting },
+    { at: [BLW.x1, BLW.y1, bz1], text: 'Bộ xịt khói', on: gnWin(st, GN_SMOKE, GN_DONE) },
+    { at: [W - 6, 53, SHELF_Z[0] + 23], text: 'Đèn kệ', on: !!st.loai && st.phase !== 'idle' },
+    { at: [MOTOR.x1, MOTOR.y, MOTOR.z - MOTOR.r], text: 'Mô-tơ rung kệ', on: run },
+    { at: [BAR_X, CY0 + 3, SHELF_Z[1] + 5.5], text: 'Thanh giữ hàng', on: false },
+    { at: [16, 42, 110], text: 'Khoảng trống', on: false } ], [0, W + 4, -2, D + 12, 0, H + 26]);
+  return svg;
+}
+
+/* ---------- scene ---------- */
+function scene(st, m){
+  const FRONT = facing([1,0,0]), BACK = facing([-1,0,0]), LEFT = facing([0,1,0]), RIGHT = facing([0,-1,0]);
+  const k = ease(st.xr || 0);
+  let s = castShadow([...on(PX(0), OUT), ...on(PX(W), OUT)]);
+  let body = extrude(OUT, 0, W, m);
+  if (BACK) body += gnBack(m);
+  if (LEFT) body += gnLeft(m);
+  if (RIGHT) body += gnRight(m);
+  body += gnTop();
+  if (FRONT) body += gnFront(st, m, k);
+  if (FRONT) body += ink(pd(on(PX(W), OUT)), 2.2);
+  if (BACK) body += ink(pd(on(PX(0), OUT)), 2.2);
+  body += hullInk([...on(PX(0), OUT), ...on(PX(W), OUT)], 2.8);
+  if (k > 0) body = xrGhost(body, '', k, OUT, 0, W, m) + `<g opacity="${f(k)}">${gnMech(st, k)}</g>`;
+  else GN_LABELS = '';
+  const mounted = gnMounted(st), bell = gnBell(st), cord = gnCord();
+  s += (FRONT ? '' : mounted) + (LEFT ? '' : bell) + (BACK ? '' : cord);
+  s += body;
+  s += (FRONT ? mounted : '') + (LEFT ? bell : '') + (BACK ? cord : '');
+  s += gnIncense() + gnSmoke(st);
+  if (k > .6) s += GN_LABELS;
+  return s;
+}
+
+/* ---------- sound: made in the browser, the audio context starts on the first press ---------- */
+let gnAC = null;
+function gnAudio(){
+  if (!gnAC){ const A = window.AudioContext || window.webkitAudioContext; if (A) try { gnAC = new A(); } catch (e) { gnAC = null; } }
+  if (gnAC && gnAC.state === 'suspended') gnAC.resume();
+}
+addEventListener('pointerdown', gnAudio, true);
+addEventListener('keydown', gnAudio, true);
+function gnTone(freq, dur, type, vol, when = 0){
+  if (!gnAC) return;
+  const t = gnAC.currentTime + when, o = gnAC.createOscillator(), g = gnAC.createGain();
+  o.type = type; o.frequency.value = freq;
+  g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .005); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+  o.connect(g); g.connect(gnAC.destination); o.start(t); o.stop(t + dur + .05);
+}
+const gnClink = () => { gnTone(2900, .12, 'triangle', .16); gnTone(4150, .09, 'sine', .08, .035); gnTone(2500, .1, 'triangle', .06, .3); };
+const gnRustle = () => { gnTone(260, .07, 'square', .03); gnTone(190, .09, 'square', .025, .06); };
+const gnDing = () => { gnTone(1320, 1.8, 'sine', .22); gnTone(1320*2.76, .9, 'sine', .06); gnTone(1320*5.4, .45, 'sine', .03); };
+
+/* ---------- behaviour: idle -> chosen -> paying -> running -> done ---------- */
+let ui, gnRunId = 0, gnTimers = [], gnFlyOn = false;
+function gnPress(st, key){
+  st.press = key; const at = st.pressAt = performance.now();
+  ui.animate(() => { if (st.pressAt !== at) return false; if (performance.now() - at < 160) return true; st.press = null; return false; });
+}
+function gnCheck(st){ if (st.loai && st.paid >= gnPrice(st)) gnRun(st); }
+function gnChoose(st, key){
+  if (st.phase === 'running') return;
+  gnPress(st, key);
+  if (st.phase === 'done') return ui.flash('Lấy KẾT QUẢ trước');
+  st.loai = key; st.phase = st.paid > 0 ? 'paying' : 'chosen';
+  gnCheck(st);
+}
+function gnNang(st){
+  if (st.phase === 'running') return;
+  gnPress(st, 'nang');
+  if (st.phase === 'done') return ui.flash('Lấy KẾT QUẢ trước');
+  if (!st.loai) return;
+  st.nang = !st.nang;
+  gnCheck(st);
+}
+function gnPay(st, kind){
+  if (st.phase === 'running') return;
+  if (st.phase === 'done') return ui.flash('Lấy KẾT QUẢ trước');
+  st.paid += kind === 'coin' ? GN_COIN : GN_BILL;
+  st.fly.push({ kind, t0: performance.now(), v: kind === 'coin' ? GN_COIN : GN_BILL });
+  kind === 'coin' ? gnClink() : gnRustle();
+  st.phase = 'paying';
+  if (!gnFlyOn){ gnFlyOn = true;
+    ui.animate(() => { const now = performance.now();
+      st.fly = st.fly.filter(c => { if (now - c.t0 < 560) return true; st.cash += c.v; return false; });
+      if (!st.fly.length) gnFlyOn = false;
+      return gnFlyOn; }); }
+  gnCheck(st);
+}
+function gnRun(st){
+  st.phase = 'running'; st.runAt = performance.now(); st.receipt = 0;
+  const id = ++gnRunId; let rang = false;
+  ui.animate(() => {
+    if (id !== gnRunId) return false;
+    const t = gnRunT(st);
+    if (!rang && t >= GN_BELL){ rang = true; gnDing(); }
+    if (t >= GN_DONE && st.phase === 'running'){ st.phase = 'done'; st.paid = 0; }
+    if (t >= GN_DONE) st.receipt = gnClamp((t - GN_DONE)/(GN_END - GN_DONE));
+    if (t >= GN_SMOKE + 2400){ st.receipt = 1; st.runAt = 0; return false; }
+    return true; });
+}
+function gnTake(st){
+  if (st.phase !== 'done' || st.receipt < .3) return st.phase === 'running' ? undefined : ui.flash('Khay trống');
+  gnOpenCert(st.loai);
+}
+function gnReset(st){
+  gnRunId++; gnTimers.forEach(clearTimeout); gnTimers = [];
+  for (const c of st.fly) st.cash += c.v;                  // money already in the slot still lands in the box
+  st.fly = [];
+  Object.assign(st, { phase: 'idle', loai: null, nang: false, paid: 0, receipt: 0, runAt: 0, press: null });
+  gnCloseCert(false);
+}
+
+/* ---------- the certificate (style B): window.ctCertificate.draw(canvas, { loai, date }) ---------- */
+const GN_LOAI_LABEL = { than: 'THÂN', khau: 'KHẨU', y: 'Ý' };
+window.ctCertificate = {
+  draw(canvas, opts = {}){
+    const g = canvas.getContext('2d'), w = canvas.width, h = canvas.height, s = Math.min(w/1200, h/630);
+    const SERIF = "'Noto Serif','Times New Roman',Georgia,serif", SANS = "system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif";
+    const gold = '#c9962e', red = '#b3261e', ink = '#2b1a10';
+    g.save();
+    g.fillStyle = '#fbf3dc'; g.fillRect(0, 0, w, h);
+    g.translate((w - 1200*s)/2, (h - 630*s)/2); g.scale(s, s);
+    g.strokeStyle = gold; g.lineWidth = 8; g.strokeRect(24, 24, 1152, 582);
+    g.lineWidth = 2.5; g.strokeRect(42, 42, 1116, 546);
+    g.fillStyle = gold;
+    for (const [x, y] of [[42, 42], [1158, 42], [42, 588], [1158, 588]]){ g.save(); g.translate(x, y); g.rotate(Math.PI/4); g.fillRect(-7, -7, 14, 14); g.restore(); }
+    const fit = (str, max, size, font) => { let z = size; g.font = font(z); while (g.measureText(str).width > max && z > 10){ z -= 1; g.font = font(z); } return z; };
+    g.textAlign = 'center'; g.textBaseline = 'alphabetic';
+    if ('letterSpacing' in g) g.letterSpacing = '6px';
+    g.fillStyle = '#8c6418'; g.font = `700 26px ${SANS}`; g.fillText('MÁY GIẢI NGHIỆP', 600, 112);
+    if ('letterSpacing' in g) g.letterSpacing = '0px';
+    g.fillStyle = red; fit('GIẤY CHỨNG NHẬN ĐÃ GIẢI NGHIỆP', 1000, 68, z => `700 ${z}px ${SERIF}`);
+    g.fillText('GIẤY CHỨNG NHẬN ĐÃ GIẢI NGHIỆP', 600, 214);
+    g.strokeStyle = gold; g.lineWidth = 2.5; g.beginPath(); g.moveTo(380, 252); g.lineTo(580, 252); g.moveTo(620, 252); g.lineTo(820, 252); g.stroke();
+    g.fillStyle = gold; g.beginPath(); g.arc(600, 252, 6, 0, Math.PI*2); g.fill();
+    g.fillStyle = ink; g.font = `600 54px ${SERIF}`;
+    g.fillText('Loại: ' + (GN_LOAI_LABEL[opts.loai] || ''), 600, 348);
+    g.font = `italic 400 40px ${SERIF}`; g.fillText('Hiệu lực: đến lần sau.', 600, 420);
+    if (opts.date){ g.textAlign = 'left'; g.fillStyle = '#5a4630'; g.font = `500 28px ${SANS}`; g.fillText('Ngày ' + opts.date, 110, 540); }
+    // the seal: a tilted red round stamp
+    g.save(); g.translate(985, 478); g.rotate(-.24);
+    g.globalAlpha = .88; g.strokeStyle = '#c8281e'; g.fillStyle = 'rgba(200,40,30,.07)';
+    g.lineWidth = 7; g.beginPath(); g.arc(0, 0, 90, 0, Math.PI*2); g.fill(); g.stroke();
+    g.lineWidth = 2.5; g.beginPath(); g.arc(0, 0, 76, 0, Math.PI*2); g.stroke();
+    g.fillStyle = '#c8281e'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    fit('ĐÃ GIẢI', 130, 42, z => `800 ${z}px ${SERIF}`); g.fillText('ĐÃ GIẢI', 0, 2);
+    for (const a of [Math.PI/2, -Math.PI/2]){ g.beginPath(); g.arc(Math.cos(a)*50, Math.sin(a)*50 + 2, 4, 0, Math.PI*2); g.fill(); }
+    g.restore();
+    g.restore();
+  }
+};
+const gnToday = () => { const d = new Date(), p = n => String(n).padStart(2, '0'); return `${p(d.getDate())}/${p(d.getMonth() + 1)}/${d.getFullYear()}`; };
+let gnCertLoai = null;
+function gnOpenCert(loai){
+  gnCertLoai = loai;
+  const md = document.getElementById('gnModal');
+  window.ctCertificate.draw(document.getElementById('gnCert'), { loai, date: gnToday() });
+  document.getElementById('gnNote').hidden = true; document.getElementById('gnUrl').hidden = true;
+  md.classList.add('show'); document.getElementById('gnSave').focus();
+}
+function gnCloseCert(reset){
+  const md = document.getElementById('gnModal'); if (!md || !md.classList.contains('show')) return;
+  md.classList.remove('show'); gnCertLoai = null;
+  if (reset){ gnReset(ui.st); ui.render(); }
+}
+function gnSave(){
+  if (!gnCertLoai) return;
+  const c = document.createElement('canvas'); c.width = 1200; c.height = 630;
+  window.ctCertificate.draw(c, { loai: gnCertLoai, date: gnToday() });
+  const a = document.createElement('a'); a.download = 'giai-nghiep-' + gnCertLoai + '.png'; a.href = c.toDataURL('image/png');
+  document.body.appendChild(a); a.click(); a.remove();
+}
+async function gnShare(){
+  if (!gnCertLoai) return;
+  const url = location.origin + '/giai-nghiep/' + gnCertLoai, note = document.getElementById('gnNote'), box = document.getElementById('gnUrl');
+  note.hidden = true; box.hidden = true;
+  if (typeof navigator.share === 'function'){
+    try { await navigator.share({ url }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+  if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
+    try { await navigator.clipboard.writeText(url); note.textContent = 'Đã chép link'; note.hidden = false; return; } catch (e) {} }
+  box.value = url; box.hidden = false; box.focus(); box.select();
+}
+
+/* ---------- page ---------- */
+const gnTitle = document.title;
+ui = mountFigure({
+  fig: 'GN', turn: 'full', title: 'Máy giải nghiệp', credit: false,
+  size: [W + 14, D + 13, H + 34], center: [W/2, D/2], palette: 'tomato',
+  state: { phase: 'idle', loai: null, nang: false, paid: 0, cash: 0, fly: [], receipt: 0, runAt: 0, press: null, pressAt: 0 },
+  scene,
+  stats: st => [{ label: 'Đã nhét', value: gnFmt(st.paid) }],
+  buttons: [
+    { label: 'THÂN', onClick: st => gnChoose(st, 'than') },
+    { label: 'KHẨU', onClick: st => gnChoose(st, 'khau') },
+    { label: 'Ý', onClick: st => gnChoose(st, 'y') },
+    { label: 'NẶNG', onClick: st => gnNang(st) },
+    { label: 'Xu 10.000đ', onClick: st => gnPay(st, 'coin') },
+    { label: 'Tiền giấy 50.000đ', onClick: st => gnPay(st, 'bill') },
+    { label: 'Lấy kết quả', onClick: st => gnTake(st) },
+    { label: 'HẾT TIỀN?', onClick: st => gnReset(st) },
+  ],
+  acts: { than: st => gnChoose(st, 'than'), khau: st => gnChoose(st, 'khau'), y: st => gnChoose(st, 'y'), nang: st => gnNang(st),
+    coin: st => gnPay(st, 'coin'), bill: st => gnPay(st, 'bill'), tray: st => gnTake(st) },
+  params: (st, q) => {
+    if (GN_TYPES[q.get('loai')]) { st.loai = q.get('loai'); st.phase = 'chosen'; }
+    if (q.get('nang') === '1') st.nang = true;
+    if (q.has('paid')) { st.paid = +q.get('paid') || 0; if (st.paid) st.phase = 'paying'; }
+    if (q.has('cash')) st.cash = +q.get('cash') || 0;
+    if (q.get('receipt') === '1' && st.loai) { st.phase = 'done'; st.receipt = 1; st.paid = 0; }
+  },
+});
+document.title = gnTitle || document.title;
+xrMount(() => ui, () => '');
+
+// Vietnamese UI around the figure, the back link, the certificate sheet
+{ const lab = document.querySelectorAll('.controls .ctl label');
+  for (const el of lab){ if (el.textContent === 'Colour') el.textContent = 'Màu'; else if (el.textContent === 'View') el.textContent = 'Góc nhìn'; }
+  const vr = document.getElementById('vreset'), vs = document.getElementById('vspin'), xb = document.getElementById('xrb'), lb = document.getElementById('lblb');
+  if (vr) vr.textContent = 'Mặt trước'; if (vs) vs.textContent = 'Xoay vòng';
+  if (xb) xb.textContent = 'Nhìn xuyên'; if (lb) lb.textContent = 'Nhãn';
+  document.body.insertAdjacentHTML('afterbegin', '<a class="gn-gate" href="/">← Cổng chùa</a>');
+  document.body.insertAdjacentHTML('beforeend', `<div class="gn-modal" id="gnModal" role="dialog" aria-modal="true" aria-label="GIẤY CHỨNG NHẬN ĐÃ GIẢI NGHIỆP"><div class="gn-sheet">
+    <canvas id="gnCert" width="1200" height="630"></canvas>
+    <div class="gn-row"><button class="pri" id="gnSave">Lưu giấy</button><button id="gnShare">Chia sẻ</button><button id="gnClose">Đóng</button></div>
+    <p class="gn-note" id="gnNote" role="status" hidden></p><input class="gn-url" id="gnUrl" readonly hidden aria-label="Link"></div></div>`);
+  document.getElementById('gnSave').onclick = gnSave;
+  document.getElementById('gnShare').onclick = gnShare;
+  document.getElementById('gnClose').onclick = () => gnCloseCert(true);
+  document.getElementById('gnModal').addEventListener('click', e => { if (e.target.id === 'gnModal') gnCloseCert(true); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') gnCloseCert(true); });
+  // the keypad buttons above the figure show what is chosen
+  const btn = t => [...document.querySelectorAll('#btns .act')].find(b => b.textContent.trim() === t);
+  const sync = () => { const st = ui.st;
+    for (const key of GN_KEYS){ const b = btn(GN_TYPES[key].label); if (b) b.setAttribute('aria-pressed', st.loai === key && st.phase !== 'idle'); }
+    const n = btn('NẶNG'); if (n) n.setAttribute('aria-pressed', !!(st.nang && st.loai)); };
+  const r0 = ui.render; ui.render = () => { r0(); sync(); };
+  ui.render();
+}
+</script><style>@media (max-width:560px),(pointer:coarse){#art{filter:none!important}.ctl:has(#wb){display:none!important}}</style><style>@media (max-width:560px){html body .kpad{width:100%;box-sizing:border-box;justify-content:space-between;gap:10px;margin:10px 0 0;padding:0;border:0;background:none;box-shadow:none}
+html body .kpad .dp{display:flex;gap:8px}html body .kpad .hub{display:none}
+html body .kpad .k{width:46px;height:42px;font-size:14px;border-radius:9px}
+html body .kpad .go{width:auto;height:42px;padding:0 26px;border-radius:999px;flex-direction:row;font-size:13px;box-shadow:0 3px 0 var(--ink),inset 0 -4px 0 rgba(0,0,0,.18)}
+html body .kpad .go small{display:none}html body .kpad .go.down{transform:translateY(2px);box-shadow:0 1px 0 var(--ink),inset 0 -2px 0 rgba(0,0,0,.18)}}</style>
+<script>requestAnimationFrame(() => { const o = { "◀": 0, "▲": 1, "▼": 2, "▶": 3 }; for (const k of document.querySelectorAll(".kpad .k")) k.style.order = o[k.textContent] ?? 0; });</script><style>@media (max-width:560px){.vset{margin:8px 0 2px!important}}</style><script>requestAnimationFrame(() => { const v = document.querySelector(".vset"), s = document.getElementById("stats"), z = document.querySelector(".zwrap"); if (!v) return; if (z && z.parentNode === v.parentNode){ const kp = document.querySelector(".kpad"); if (kp && innerWidth <= 560){ z.after(kp); kp.after(v); } else z.after(v); } else if (s && s.parentNode) s.parentNode.insertBefore(v, s); });</script><script>(() => { const fit = () => { const fig = document.getElementById("fig"); if (!fig) return;
+  fig.style.maxHeight = ""; if (innerWidth <= 560) return;
+  const extra = document.documentElement.scrollHeight - fig.clientHeight, room = innerHeight - extra - 12;
+  if (room < fig.clientHeight) fig.style.maxHeight = Math.max(320, room) + "px"; };
+  addEventListener("load", () => requestAnimationFrame(fit)); addEventListener("resize", fit); setTimeout(fit, 400); })();</script><style>.zwrap{position:relative}.zwrap.on{overflow:hidden}@media (min-width:561px){.zwrap.on{overflow:visible}html.zoomed,html.zoomed body{overflow:hidden}}.zwrap #fig{transform-origin:0 0}
+.zchip{position:absolute;right:2px;bottom:6px;display:flex;align-items:center;gap:2px;font:600 11px ui-monospace,Menlo,monospace;
+ background:rgba(242,239,231,.88);border:1px solid rgba(35,30,22,.25);border-radius:999px;padding:2px;z-index:3;user-select:none}
+.zchip button{all:unset;cursor:pointer;min-width:22px;height:22px;line-height:22px;text-align:center;border-radius:999px;color:#231e16}
+.zchip button:hover{background:rgba(35,30,22,.08)}.zchip .zp{min-width:44px}</style>
+<script>(() => { const fig = document.getElementById("fig"); if (!fig) return;
+  const wrap = document.createElement("div"); wrap.className = "zwrap"; fig.parentNode.insertBefore(wrap, fig); wrap.appendChild(fig);
+  const chip = document.createElement("div"); chip.className = "zchip";
+  chip.innerHTML = '<button class="zm" aria-label="Zoom out">−</button><button class="zp" aria-label="Reset zoom">100%</button><button class="zi" aria-label="Zoom in">+</button>';
+  wrap.appendChild(chip);
+  let s = 1, tx = 0, ty = 0;
+  const box = () => ({ w: fig.clientWidth, h: fig.clientHeight });
+  const apply = () => { const { w, h } = box(); s = Math.min(5, Math.max(1, s));
+    if (s <= 1.001){ s = 1; tx = ty = 0; } else { tx = Math.min(0, Math.max(w - w*s, tx)); ty = Math.min(0, Math.max(h - h*s, ty)); }
+    fig.style.transform = s === 1 ? "" : `translate(${tx}px,${ty}px) scale(${s})`; wrap.classList.toggle("on", s > 1); document.documentElement.classList.toggle("zoomed", s > 1);   /* desktop: nothing is cut off, the page just does not scroll while zoomed */
+    chip.querySelector(".zp").textContent = Math.round(s*100) + "%"; grain(); };
+  // the paper grain is noise in drawing units: zoomed, it would blow up into blotches, so its frequency rises with the
+  // zoom and it stays the same fine grain on screen (the filter is rebuilt on resize, so this re-applies then too)
+  const grain = () => { const fl = document.getElementById("hand"); if (!fl) return;
+    const ts = [...fl.querySelectorAll("feTurbulence")]; if (!ts.length) return;
+    const g = ts.find(t => t.getAttribute("result") === "n1") || ts.reduce((a, b) => parseFloat(b.getAttribute("baseFrequency")) > parseFloat(a.getAttribute("baseFrequency")) ? b : a);
+    if (!g.dataset.f0) g.dataset.f0 = g.getAttribute("baseFrequency");
+    const v = (parseFloat(g.dataset.f0) * s).toFixed(4); if (g.getAttribute("baseFrequency") !== v) g.setAttribute("baseFrequency", v); };
+  const fd = document.getElementById("fdefs"); if (fd) new MutationObserver(() => grain()).observe(fd, { childList: true, subtree: true });
+  const zoomAt = (k, px, py) => { const s2 = Math.min(5, Math.max(1, s*k)); tx = px - (px - tx)*s2/s; ty = py - (py - ty)*s2/s; s = s2; apply(); };
+  const local = e => { const r = wrap.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  wrap.addEventListener("wheel", e => {
+    if (e.ctrlKey || e.metaKey){ e.preventDefault(); const [x, y] = local(e); zoomAt(Math.exp(-Math.max(-50, Math.min(50, e.deltaY))*.006), x, y);   /* a wheel notch ~1.35x, a pinch stays smooth */ }
+    else if (s > 1){ e.preventDefault(); tx -= e.deltaX; ty -= e.deltaY; apply(); } }, { passive: false });
+  const center = () => { const { w, h } = box(); return [w/2, h/2]; };
+  chip.querySelector(".zi").onclick = () => zoomAt(1.5, ...center());
+  chip.querySelector(".zm").onclick = () => zoomAt(1/1.5, ...center());
+  chip.querySelector(".zp").onclick = () => { s = 1; apply(); };
+  chip.addEventListener("pointerdown", e => e.stopPropagation());
+  // two fingers: pinch to zoom and move to pan; the figure's own one-finger turn waits while they are down
+  const pts = new Map(); let pinch = null;
+  const two = () => { const [a, b] = [...pts.values()]; return { d: Math.hypot(a.x - b.x, a.y - b.y), x: (a.x + b.x)/2, y: (a.y + b.y)/2 }; };
+  wrap.addEventListener("pointerdown", e => { if (e.pointerType !== "touch") return; pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pts.size === 2){ pinch = two(); e.stopPropagation(); } }, true);
+  wrap.addEventListener("pointermove", e => { if (!pts.has(e.pointerId)) return; pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch && pts.size === 2){ e.stopPropagation(); e.preventDefault(); const n = two(), r = wrap.getBoundingClientRect();
+      tx += n.x - pinch.x; ty += n.y - pinch.y; zoomAt(n.d / pinch.d, n.x - r.left, n.y - r.top); pinch = n; } }, true);
+  const up = e => { pts.delete(e.pointerId); if (pts.size < 2) pinch = null; };
+  wrap.addEventListener("pointerup", up, true); wrap.addEventListener("pointercancel", up, true);
+  addEventListener("resize", apply);
+})();</script><style>.toast{position:absolute!important;left:50%!important;right:auto!important;top:6%!important;bottom:auto!important;z-index:4!important;
+  transform:translate(-50%,8px)!important;opacity:0!important;pointer-events:none!important;display:flex!important;align-items:center;gap:8px;
+  width:max-content;max-width:min(86%,440px);white-space:normal!important;font:600 12.5px/1.35 ui-monospace,Menlo,monospace!important;
+  letter-spacing:.01em!important;text-transform:none!important;color:#231e16!important;background:#fff1bf!important;
+  border:1px solid rgba(35,30,22,.28)!important;border-radius:8px!important;box-shadow:0 8px 22px rgba(35,30,22,.16)!important;
+  padding:7px 13px 7px 9px!important;transition:opacity .18s ease,transform .18s ease!important}
+.toast::before{content:"!";flex:none;width:17px;height:17px;border-radius:50%;background:#231e16;color:#fff1bf;font:800 11px/17px ui-monospace,Menlo,monospace;text-align:center}
+.toast.show{opacity:1!important;transform:translate(-50%,0)!important}</style>
+<script>(() => { const cap = () => { const t = document.getElementById("toast"); if (!t) return; const s = t.textContent;
+  if (s && s[0] !== s[0].toUpperCase()) t.textContent = s[0].toUpperCase() + s.slice(1); };
+  let seen = null; const watch = () => { const t = document.getElementById("toast"); if (!t || t === seen) return; seen = t;
+    const zw = document.querySelector(".zwrap"); if (zw && t.parentNode !== zw) zw.appendChild(t);   // sits on the figure itself
+    new MutationObserver(cap).observe(t, { childList: true, characterData: true, subtree: true }); cap(); };
+  watch(); const st = document.querySelector(".stage"); if (st) new MutationObserver(watch).observe(st, { childList: true }); })();</script><script>(() => { const fix = () => { const art = document.getElementById('art'); if (!art) return;
+    for (const el of art.querySelectorAll('[fill="#41538f" i]')){ let top = null, a = el.parentElement;
+      while (a && a !== art){ const o = a.getAttribute('opacity'); if (o !== null && +o < 1) top = a; a = a.parentElement; }
+      if (top) top.parentNode.insertBefore(el, top); } };
+  const go = () => { const art = document.getElementById('art'); if (!art) return setTimeout(go, 50); fix(); new MutationObserver(fix).observe(art, { childList: true }); };
+  if (document.readyState === 'loading') addEventListener('DOMContentLoaded', go); else go(); })();</script><style>.lgd{display:none}@media (max-width:560px){html:not(.nolabels) .lgd.has{display:grid}}
+.lgd{grid-template-columns:1fr 1fr;gap:2px 8px;margin:4px 0 12px;font:700 10.5px/1.25 ui-monospace,Menlo,monospace;letter-spacing:.03em;color:#231e16}
+.lgd button{all:unset;display:flex;align-items:center;gap:6px;cursor:pointer;padding:4px;border-radius:7px;-webkit-tap-highlight-color:transparent}
+.lgd b{flex:none;min-width:17px;height:17px;padding:0 3px;box-sizing:border-box;border-radius:999px;border:1.2px solid #231e16;background:#fff4d6;text-align:center;font:800 10px/15px ui-monospace,Menlo,monospace}
+.lgd .on b{background:var(--accent,#f4b829)}.lgd .sel{background:rgba(35,30,22,.09)}.lgd .sel b{background:#231e16;color:#fff4d6}</style>
+<script>(() => { const fig = document.getElementById("fig"); if (!fig) return;
+  const lg = document.createElement("div"); lg.className = "lgd"; const at = document.querySelector(".zwrap") || fig; at.parentNode.insertBefore(lg, at.nextSibling);
+  const hs = document.createElement("style"); document.head.appendChild(hs);
+  let sig = "", sel = 0, q = 0, names = "", num = new Map();
+  // the figure's own numbers count every label it has ever drawn; here they are reset to 1, 2, 3... down the left
+  // column then the right, each time the set of labels changes (so they hold still while the figure turns)
+  const renum = () => { if (innerWidth > 560) return; const gs = [...fig.querySelectorAll(".tag[data-t]")];
+    const key = gs.map(g => g.dataset.t).sort().join("|");
+    if (key !== names){ names = key; num = new Map(); const vb = fig.viewBox.baseVal, cx = vb.x + vb.width/2;
+      const at = g => { const r = g.querySelector("rect"); return r ? [+r.getAttribute("x") + r.getAttribute("width")/2, +r.getAttribute("y")] : [0, 0]; };
+      gs.map(g => [g.dataset.t, ...at(g)]).sort((a, b) => ((a[1] > cx) - (b[1] > cx)) || a[2] - b[2]).forEach(([t]) => { if (!num.has(t)) num.set(t, num.size + 1); }); }
+    for (const g of gs){ const n = String(num.get(g.dataset.t)); if (g.dataset.n !== n){ g.dataset.n = n; const t = g.querySelector("text"); if (t) t.textContent = n; } } };
+  const mark = () => { hs.textContent = sel ? `#fig .tag[data-n="${sel}"] rect{fill:#231e16!important}#fig .tag[data-n="${sel}"] text{fill:#fff4d6}#fig .tag[data-n="${sel}"] path{stroke-width:2.4}` : "";
+    for (const x of lg.children) x.classList.toggle("sel", +x.dataset.n === sel); };
+  const upd = () => { q = 0; const m = new Map();
+    if (innerWidth <= 560) for (const g of fig.querySelectorAll(".tag[data-n]")){ const n = +g.dataset.n; if (!m.has(n)) m.set(n, [g.dataset.t, g.classList.contains("on")]); }
+    const a = [...m].sort((x, y) => x[0] - y[0]), s = JSON.stringify(a); if (s === sig) return; sig = s;
+    lg.classList.toggle("has", a.length > 0);
+    lg.innerHTML = a.map(([n, [t, on]]) => `<button data-n="${n}" class="${on ? "on" : ""}"><b>${n}</b><span>${t}</span></button>`).join(""); mark(); };
+  lg.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; sel = sel === +b.dataset.n ? 0 : +b.dataset.n; mark(); });
+  new MutationObserver(() => { renum(); if (!q) q = requestAnimationFrame(upd); }).observe(fig, { childList: true, subtree: true }); renum();
+  addEventListener("resize", () => { if (!q) q = requestAnimationFrame(upd); }); upd(); })();</script></body></html>
