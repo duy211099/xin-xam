@@ -1,5 +1,5 @@
 defmodule ChuaTauWeb.Seo do
-  @moduledoc "Head tags shared by the figure page and the share pages."
+  @moduledoc "Head tags shared by the gate, the figure page and the share pages."
   use Phoenix.Component
 
   @site_name "Cổng chùa · Máy xin xăm và máy giải nghiệp"

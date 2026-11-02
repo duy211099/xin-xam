@@ -27,8 +27,8 @@ defmodule ChuaTauWeb.GateTest do
 
   test "old figure query links redirect to /xin-xam", %{conn: conn} do
     for key <- ~w(col free pal labels xr welcome phase press step) do
-      conn = get(conn, "/?#{key}=lu-to&free=1")
-      assert redirected_to(conn, 302) == "/xin-xam?#{key}=lu-to&free=1"
+      conn = get(conn, "/?#{key}=1&utm_source=fb")
+      assert redirected_to(conn, 302) == "/xin-xam?#{key}=1&utm_source=fb"
     end
 
     conn = get(conn, "/?col=lu-to&free=1")
@@ -36,6 +36,7 @@ defmodule ChuaTauWeb.GateTest do
   end
 
   test "unrelated query params keep the gate", %{conn: conn} do
-    assert conn |> get("/?utm_source=fb") |> html_response(200) =~ "a class=\"machine\""
+    doc = conn |> get("/?utm_source=fb") |> html_response(200) |> Floki.parse_document!()
+    assert [_, _] = Floki.find(doc, "a.machine")
   end
 end
