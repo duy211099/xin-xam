@@ -31,7 +31,6 @@ defmodule ChuaTauWeb.GiaiNghiepFigureTest do
     "Chia sẻ",
     "← Cổng chùa",
     "ctCertificate",
-    "Máy giải nghiệp",
     "Chọn nghiệp, nhét tiền, nhận giấy chứng nhận. Ba bước, không hoàn tiền.",
     "Bắt đầu",
     "Hướng dẫn",
@@ -55,6 +54,13 @@ defmodule ChuaTauWeb.GiaiNghiepFigureTest do
     for s <- @strings do
       assert String.contains?(html, s), "missing #{inspect(s)}"
     end
+  end
+
+  test "has the welcome card and the step bar", %{html: html} do
+    assert html =~ ~r/<h2[^>]*>Máy giải nghiệp<\/h2>/
+    assert String.contains?(html, "'giainghiep.welcomed'")
+    assert html =~ ~r/id="gnGo"/
+    assert html =~ ~r/id="gnPick"/
   end
 
   test "never calls the output a bill", %{html: html} do

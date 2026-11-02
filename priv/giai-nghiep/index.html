@@ -23,7 +23,6 @@ body.gn-open .tag,body.gn-open .stage svg .tag{visibility:hidden}
 @media (max-width:560px){.gn-modal{padding:10px}.gn-sheet{padding:10px}}
 /* the journey, like xin xăm: one fixed bar at the bottom, the welcome card, one see-through toggle */
 body{padding-bottom:calc(var(--gnj-h,170px) + 12px)!important}
-.controls,#btns,.actions,#stats,#lblb,.zchip{display:none!important}
 #fig{margin:0 auto!important}
 .vset{position:fixed!important;top:8px!important;right:8px!important;left:auto!important;margin:0!important;z-index:40}
 .vset #xrb{min-height:34px;padding:6px 14px;font:600 13px system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
@@ -40,10 +39,10 @@ body{padding-bottom:calc(var(--gnj-h,170px) + 12px)!important}
 .gnj .line{flex:1;margin:0;font:600 15.5px/1.35 'Noto Serif','Times New Roman',Georgia,serif;text-align:center;min-height:1.35em}
 .gnj .lnk{flex:none;font:600 12px system-ui,sans-serif;background:none;border:0;color:#857d6e;text-decoration:underline;cursor:pointer;padding:6px 2px}
 .gnj .cho{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:8px}
-.gnj .cho[hidden]{display:none}
+.gnj .chos{display:grid}.gnj .chos>.cho{grid-area:1/1}.gnj .cho.off{visibility:hidden}
 .gnj .cho button{font:600 13.5px system-ui,sans-serif;padding:8px 14px;border-radius:999px;border:1.5px solid #231e16;background:#f2efe7;color:#231e16;cursor:pointer;min-height:40px}
 .gnj .cho button[aria-pressed=true]{background:#231e16;color:#fff4d6}
-.gnj .cho .nang{border-style:dashed}
+.gnj .cho .nang{border-style:dashed}.gnj .cho button:disabled{opacity:.4;cursor:default}
 .gnj .cho .nang[aria-pressed=true]{border-style:solid;background:#ff9a3c;color:#231e16}
 .gnj .go{display:block;width:100%;margin-top:10px;min-height:50px;border-radius:999px;border:2px solid #231e16;background:#b3261e;color:#fff4d6;font:700 16px system-ui,sans-serif;cursor:pointer;box-shadow:0 3px 0 #231e16;animation:gnnext 1.8s ease-in-out infinite}
 .gnj .go:disabled{background:#e6dcc4;color:#5f574a;box-shadow:none;animation:none;cursor:default}
@@ -60,7 +59,7 @@ body{padding-bottom:calc(var(--gnj-h,170px) + 12px)!important}
 .gn-wel p{font:15.5px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0 0 10px}
 .gn-wel button{margin-top:6px;font:600 14px system-ui,sans-serif;padding:9px 22px;border-radius:99px;border:2px solid #2b1a10;background:#b3261e;color:#fff4d6;cursor:pointer;min-height:42px}
 </style>
-<style>.mcap{display:none!important}@media (max-width:560px){.stat .v{font-size:20px!important}.stats{align-items:flex-end}}@media (min-width:561px){.vset{top:4px!important}#stats{top:var(--vset-h,44px)!important}}</style><style>@media (max-width:560px){body > header{display:none}}</style><script>window.FIG_A = () => innerWidth <= 560 ? 1.1 : .75;</script><script>window.LBL_U = () => { if (innerWidth > 560) return 0; const s = document.getElementById("fig"); return s && s.clientWidth && s.viewBox.baseVal.width ? s.viewBox.baseVal.width / s.clientWidth : 0; };</script></head><body>
+<style>.mcap{display:none!important}@media (max-width:560px){.stat .v{font-size:20px!important}.stats{align-items:flex-end}}</style><style>@media (max-width:560px){body > header{display:none}}</style><script>window.FIG_A = () => innerWidth <= 560 ? 1.1 : .75;</script><script>window.LBL_U = () => { if (innerWidth > 560) return 0; const s = document.getElementById("fig"); return s && s.clientWidth && s.viewBox.baseVal.width ? s.viewBox.baseVal.width / s.clientWidth : 0; };</script></head><body>
 <script>
 /* ============================================================
    Colorfigures core: projection, shapes, shading, ink, labels, page shell.
@@ -815,10 +814,10 @@ function gnShelfParts(st){
     parts.push(lip(zb, T.col));
     // price tag clipped on the lip
     const ty = (CY0 + CY1)/2;
-    parts.push(gnPart([[W - 1.5, ty - 11, zb - 1.3], [W - 1.3, ty + 11, zb + 3.6]],
-      shape(on(PX(W - 1.45), rectUV(ty - 11, zb - 1.3, ty + 11, zb + 3.6)), '#fff4d6', .6)
-      + gnTx(W - 1.4, ty + 4.5, zb + .2, T.label, 2.6, key === 'khau' ? '#8a6410' : T.col, 800)
-      + gnTx(W - 1.4, ty - 4.8, zb + .2, '50.000đ', 2.4, GN_INKB, 700)));
+    parts.push(gnPart([[W - 1.5, ty - 7, zb - 1.3], [W - 1.3, ty + 7, zb + 6.4]],
+      shape(on(PX(W - 1.45), rectUV(ty - 7, zb - 1.3, ty + 7, zb + 6.4)), '#fff4d6', .6)
+      + gnTx(W - 1.4, ty, zb + 3.9, T.label, 2.6, key === 'khau' ? '#8a6410' : T.col, 800)
+      + gnTx(W - 1.4, ty, zb + .4, '50.000đ', 2.1, GN_INKB, 700)));
     // the things on display
     for (let j = 0; j < 3; j++){ const y = ITEM_Y[j] + dy, z = zb + dz;
       const svg = key === 'than' ? gnWax(ITEM_X, y, z) : key === 'khau' ? gnBubble(ITEM_X, y, z, j === 1) : gnCloud(ITEM_X, y, z);
@@ -1260,7 +1259,9 @@ function gnCloseCert(reset){
   md.classList.remove('show'); document.body.classList.remove('gn-open'); gnCertLoai = null;
   const back = gnOpener; gnOpener = null;
   if (reset){ gnReset(ui.st); ui.render(); }
-  if (back && back.isConnected) back.focus();
+  const usable = el => el && el.isConnected && !el.disabled && el.offsetParent !== null && getComputedStyle(el).visibility !== 'hidden';
+  const to = usable(back) ? back : gnJ && [...gnJ.querySelectorAll('button')].find(usable);
+  if (to) to.focus();
 }
 function gnSave(){
   if (!gnCertLoai) return;
@@ -1289,7 +1290,6 @@ ui = mountFigure({
   size: [W + 14, D + 13, H + 34], center: [W/2, D/2], palette: 'tomato',
   state: { phase: 'idle', loai: null, nang: false, paid: 0, cash: 0, fly: [], receipt: 0, runAt: 0, press: null, pressAt: 0, go: false },
   scene,
-  stats: st => [{ label: 'Đã nhét', value: gnFmt(st.paid) }],
   buttons: [],
   acts: { than: st => gnChoose(st, 'than'), khau: st => gnChoose(st, 'khau'), y: st => gnChoose(st, 'y'), nang: st => gnNang(st),
     coin: st => gnPay(st, 'coin'), bill: st => gnPay(st, 'bill'), tray: st => gnTake(st) },
@@ -1317,8 +1317,8 @@ function gnBuildJourney(){
   gnJ = document.createElement('nav'); gnJ.className = 'gnj'; gnJ.setAttribute('aria-label', 'Các bước giải nghiệp');
   gnJ.innerHTML = `<div class="gnj-in"><ol>${[1, 2, 3, 4].map(n => `<li><button type="button" aria-label="Bước ${n}"></button></li>`).join('')}</ol>
     <div class="say"><button type="button" class="lnk" id="gnReset">HẾT TIỀN?</button><p class="line" aria-live="polite"></p><button type="button" class="lnk" id="gnHelp">Hướng dẫn</button></div>
-    <div class="cho" id="gnPick">${GN_KEYS.map(k => `<button type="button" data-k="${k}">${GN_TYPES[k].label}</button>`).join('')}<button type="button" class="nang" data-k="nang">NẶNG</button></div>
-    <div class="cho" id="gnPayRow"><button type="button" data-k="coin">Xu 10.000đ</button><button type="button" data-k="bill">Tiền giấy 50.000đ</button></div>
+    <div class="chos"><div class="cho" id="gnPick">${GN_KEYS.map(k => `<button type="button" data-k="${k}">${GN_TYPES[k].label}</button>`).join('')}<button type="button" class="nang" data-k="nang">NẶNG</button></div>
+    <div class="cho" id="gnPayRow"><button type="button" data-k="coin">Xu 10.000đ</button><button type="button" data-k="bill">Tiền giấy 50.000đ</button></div></div>
     <button type="button" class="go" id="gnGo"></button></div>`;
   document.body.appendChild(gnJ);
   const st = () => ui.st, redo = () => ui.render();
@@ -1341,8 +1341,9 @@ function gnDrawJourney(){
     li.setAttribute('aria-current', i === s.i ? 'step' : 'false'); li.firstChild.disabled = !(i === 0 && s.i === 1); });
   const line = gnJ.querySelector('.line'); if (line.textContent !== s.line) line.textContent = s.line;
   const pick = gnJ.querySelector('#gnPick'), pay = gnJ.querySelector('#gnPayRow');
-  pick.hidden = !s.pick; pay.hidden = !s.pay;
+  pick.classList.toggle('off', !s.pick); pay.classList.toggle('off', !s.pay);
   for (const b of pick.children) b.setAttribute('aria-pressed', b.dataset.k === 'nang' ? !!st.nang : st.loai === b.dataset.k);
+  pick.querySelector('.nang').disabled = !st.loai;
   const go = gnJ.querySelector('#gnGo'); if (go.textContent !== s.go) go.textContent = s.go;
   go.disabled = !s.run || s.ok === false;
   const g = s.part && (st.xr || 0) < .5 && vis([1, 0, 0]) ? GN_GLOW[s.part] : null, key = g ? s.part + YAW + PITCH : '';
@@ -1385,7 +1386,8 @@ function gnFrame(){
 function gnFit(){
   const svg = document.getElementById('fig'); if (!svg) return;
   const top = svg.getBoundingClientRect().top + scrollY, bar = gnJ ? gnJ.offsetHeight : 0;
-  svg.style.height = Math.max(260, innerHeight - top - bar - 10) + 'px';
+  const lg = document.querySelector('.lgd'), lh = lg && lg.offsetParent !== null ? lg.offsetHeight + 16 : 0;
+  svg.style.height = Math.max(220, innerHeight - top - bar - lh - 10) + 'px';
 }
 
 // Vietnamese UI around the figure, the back link, the certificate sheet
@@ -1411,22 +1413,18 @@ function gnFit(){
     if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); } });
   addEventListener('keydown', e => { if (e.key !== 'Escape') return; gnCloseCert(true); gnWelClose(); });
+  // the engine's colour, view and Labels controls are wired at mount; this page has none of them
+  for (const el of document.querySelectorAll('.controls, #lblb')) el.remove();
+  document.addEventListener('DOMContentLoaded', () => { for (const el of document.querySelectorAll('.zchip')) el.remove(); });
   gnFrame(); gnBuildJourney();
   const r0 = ui.render; ui.render = () => { r0(); gnDrawJourney(); };
   ui.render();
+  document.addEventListener('DOMContentLoaded', () => { const lg = document.querySelector('.lgd'); if (lg) new ResizeObserver(gnFit).observe(lg); });
   addEventListener('resize', gnFit); addEventListener('load', () => requestAnimationFrame(gnFit)); setTimeout(gnFit, 400);
   const q = new URLSearchParams(location.search); if (q.get('welcome') !== '0') gnWelcome(q.get('welcome') === '1');
 }
-</script><style>@media (max-width:560px),(pointer:coarse){#art{filter:none!important}.ctl:has(#wb){display:none!important}}</style><style>@media (max-width:560px){html body .kpad{width:100%;box-sizing:border-box;justify-content:space-between;gap:10px;margin:10px 0 0;padding:0;border:0;background:none;box-shadow:none}
-html body .kpad .dp{display:flex;gap:8px}html body .kpad .hub{display:none}
-html body .kpad .k{width:46px;height:42px;font-size:14px;border-radius:9px}
-html body .kpad .go{width:auto;height:42px;padding:0 26px;border-radius:999px;flex-direction:row;font-size:13px;box-shadow:0 3px 0 var(--ink),inset 0 -4px 0 rgba(0,0,0,.18)}
-html body .kpad .go small{display:none}html body .kpad .go.down{transform:translateY(2px);box-shadow:0 1px 0 var(--ink),inset 0 -2px 0 rgba(0,0,0,.18)}}</style>
-<script>requestAnimationFrame(() => { const o = { "◀": 0, "▲": 1, "▼": 2, "▶": 3 }; for (const k of document.querySelectorAll(".kpad .k")) k.style.order = o[k.textContent] ?? 0; });</script><style>@media (max-width:560px){.vset{margin:8px 0 2px!important}}</style><script>requestAnimationFrame(() => { const v = document.querySelector(".vset"), s = document.getElementById("stats"), z = document.querySelector(".zwrap"); if (!v) return; if (z && z.parentNode === v.parentNode){ const kp = document.querySelector(".kpad"); if (kp && innerWidth <= 560){ z.after(kp); kp.after(v); } else z.after(v); } else if (s && s.parentNode) s.parentNode.insertBefore(v, s); });</script><script>(() => { const fit = () => { const fig = document.getElementById("fig"); if (!fig) return;
-  fig.style.maxHeight = ""; if (innerWidth <= 560) return;
-  const extra = document.documentElement.scrollHeight - fig.clientHeight, room = innerHeight - extra - 12;
-  if (room < fig.clientHeight) fig.style.maxHeight = Math.max(320, room) + "px"; };
-  addEventListener("load", () => requestAnimationFrame(fit)); addEventListener("resize", fit); setTimeout(fit, 400); })();</script><style>.zwrap{position:relative}.zwrap.on{overflow:hidden}@media (min-width:561px){.zwrap.on{overflow:visible}html.zoomed,html.zoomed body{overflow:hidden}}.zwrap #fig{transform-origin:0 0}
+</script><style>@media (max-width:560px),(pointer:coarse){#art{filter:none!important}.ctl:has(#wb){display:none!important}}</style>
+<style>.zwrap{position:relative}.zwrap.on{overflow:hidden}@media (min-width:561px){.zwrap.on{overflow:visible}html.zoomed,html.zoomed body{overflow:hidden}}.zwrap #fig{transform-origin:0 0}
 .zchip{position:absolute;right:2px;bottom:6px;display:flex;align-items:center;gap:2px;font:600 11px ui-monospace,Menlo,monospace;
  background:rgba(242,239,231,.88);border:1px solid rgba(35,30,22,.25);border-radius:999px;padding:2px;z-index:3;user-select:none}
 .zchip button{all:unset;cursor:pointer;min-width:22px;height:22px;line-height:22px;text-align:center;border-radius:999px;color:#231e16}
