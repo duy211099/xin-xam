@@ -24,7 +24,7 @@
   (() => {
     const stage = document.querySelector(".stage");
     const still = () =>
-      matchMedia("(prefers-reduced-motion: reduce)").matches || matchMedia("(max-width: 699px)").matches;
+      matchMedia("(prefers-reduced-motion: reduce)").matches || matchMedia("(max-width: 699.98px)").matches;
 
     stage.addEventListener("click", (e) => {
       const a = e.target.closest("a.machine");

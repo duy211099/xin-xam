@@ -70,10 +70,8 @@ body::after {
 
   .stage {
     position: relative;
-    width: 100%;
-    max-width: 1200px;
+    width: min(100%, 1200px, 150vh);
     aspect-ratio: 3 / 2;
-    max-height: 100vh;
     margin: auto;
   }
 
@@ -114,6 +112,10 @@ body::after {
 
   .machine-tagline { display: none; }
 
+  @media (hover: none) {
+    .machine-name { opacity: 1; }
+  }
+
   .stage { transition: transform 300ms ease-in; }
   .stage .scene { transition: filter 300ms ease-in; }
   .stage.zooming { transform: scale(1.8); }
@@ -122,14 +124,14 @@ body::after {
 
 /* ---------------------------------------------------------------- phone */
 
-@media (max-width: 699px) {
+@media (max-width: 699.98px) {
   .gate { padding: 0; }
 
   .stage { display: flex; flex-direction: column; }
 
   .scene { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-  .vignette { display: block; width: 100%; height: auto; }
+  .vignette { display: block; width: 100%; height: auto; --bases: none; }
 
   .machines { display: flex; flex-direction: column; gap: 28px; padding: 24px 16px 32px; }
 
@@ -151,6 +153,7 @@ body::after {
 
   .machine::after {
     content: "Vào";
+    content: "Vào" / "";
     margin-top: 14px;
     padding: 8px 28px;
     font-weight: 600;
