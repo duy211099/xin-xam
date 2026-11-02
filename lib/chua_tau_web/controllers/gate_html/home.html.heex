@@ -20,3 +20,23 @@
     <.vignette part="hall" />
   </div>
 </main>
+<script>
+  (() => {
+    const stage = document.querySelector(".stage");
+    const still = () =>
+      matchMedia("(prefers-reduced-motion: reduce)").matches || matchMedia("(max-width: 699px)").matches;
+
+    stage.addEventListener("click", (e) => {
+      const a = e.target.closest("a.machine");
+      if (!a || e.defaultPrevented || e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || still()) return;
+      e.preventDefault();
+      const style = getComputedStyle(a);
+      stage.style.transformOrigin = `${style.getPropertyValue("--x")} ${style.getPropertyValue("--y")}`;
+      stage.classList.add("zooming");
+      setTimeout(() => location.assign(a.href), 300);
+    });
+
+    addEventListener("pageshow", () => stage.classList.remove("zooming"));
+  })();
+</script>

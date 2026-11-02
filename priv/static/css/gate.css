@@ -113,6 +113,11 @@ body::after {
   .machine:focus-visible .machine-name { opacity: 1; }
 
   .machine-tagline { display: none; }
+
+  .stage { transition: transform 300ms ease-in; }
+  .stage .scene { transition: filter 300ms ease-in; }
+  .stage.zooming { transform: scale(1.8); }
+  .stage.zooming .scene { filter: blur(2px); }
 }
 
 /* ---------------------------------------------------------------- phone */
