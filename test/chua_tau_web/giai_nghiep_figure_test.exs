@@ -30,7 +30,16 @@ defmodule ChuaTauWeb.GiaiNghiepFigureTest do
     "Lưu giấy",
     "Chia sẻ",
     "← Cổng chùa",
-    "ctCertificate"
+    "ctCertificate",
+    "Máy giải nghiệp",
+    "Chọn nghiệp, nhét tiền, nhận giấy chứng nhận. Ba bước, không hoàn tiền.",
+    "Bắt đầu",
+    "Hướng dẫn",
+    "Chọn nghiệp cần giải.",
+    "Nhét tiền vào máy.",
+    "Lấy kết quả.",
+    "Tiếp tục",
+    "Còn thiếu"
   ]
 
   setup_all do
