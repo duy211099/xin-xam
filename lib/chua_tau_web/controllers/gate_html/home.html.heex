@@ -11,7 +11,7 @@
           href={Machines.path(m)}
           style={"--x: #{elem(m.scene, 0)}%; --y: #{elem(m.scene, 1)}%; --accent: #{m.accent}"}
         >
-          <img src={m.thumb} alt="" width={elem(m.thumb_size, 0)} height={elem(m.thumb_size, 1)} />
+          <img src={ChuaTauWeb.StaticPath.versioned(m.thumb)} alt="" width={elem(m.thumb_size, 0)} height={elem(m.thumb_size, 1)} />
           <span class="machine-name">{m.name}</span>
           <span class="machine-tagline">{m.tagline}</span>
         </a>
