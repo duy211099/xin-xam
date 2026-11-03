@@ -15,6 +15,33 @@ defmodule ChuaTauWeb.GateTest do
     end
   end
 
+  test "each machine is placed at its scene point", %{conn: conn} do
+    doc = conn |> get(~p"/") |> html_response(200) |> Floki.parse_document!()
+
+    for {link, m} <- Enum.zip(Floki.find(doc, "a.machine"), Machines.all()) do
+      [style] = Floki.attribute(link, "style")
+      {x, y} = m.scene
+      assert style =~ "--x: #{x}%"
+      assert style =~ "--y: #{y}%"
+    end
+  end
+
+  test "the scene is decorative and holds no links", %{conn: conn} do
+    doc = conn |> get(~p"/") |> html_response(200) |> Floki.parse_document!()
+    [svg] = Floki.find(doc, "svg.scene")
+    assert Floki.attribute(svg, "aria-hidden") == ["true"]
+    assert Floki.find(svg, "a") == []
+    assert ["true", "true", "true"] == doc |> Floki.find("svg.vignette") |> Floki.attribute("aria-hidden")
+  end
+
+  test "each machine link appears once", %{conn: conn} do
+    doc = conn |> get(~p"/") |> html_response(200) |> Floki.parse_document!()
+
+    for m <- Machines.all() do
+      assert [_] = Floki.find(doc, ~s(a[href="#{Machines.path(m)}"]))
+    end
+  end
+
   test "GET / is a plain gate page", %{conn: conn} do
     html = conn |> get(~p"/") |> html_response(200)
     doc = Floki.parse_document!(html)

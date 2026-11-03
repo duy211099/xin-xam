@@ -29,3 +29,4 @@ chua_tau-*.tar
 
 /.superpowers/
 /.playwright-mcp/
+/scripts/capture-machines/node_modules/
