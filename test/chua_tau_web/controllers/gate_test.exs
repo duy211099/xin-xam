@@ -11,7 +11,7 @@ defmodule ChuaTauWeb.GateTest do
 
     for {link, m} <- Enum.zip(links, Machines.all()) do
       assert Floki.text(link) =~ m.name
-      assert [m.thumb] == link |> Floki.find("img") |> Floki.attribute("src")
+      assert [ChuaTauWeb.StaticPath.versioned(m.thumb)] == link |> Floki.find("img") |> Floki.attribute("src")
     end
   end
 
