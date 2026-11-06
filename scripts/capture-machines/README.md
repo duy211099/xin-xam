@@ -12,4 +12,4 @@ npx playwright install chromium
 node capture.mjs                    # or: node capture.mjs http://localhost:4001
 ```
 
-Re-run it after replacing `priv/figure/index.html` or `priv/giai-nghiep/index.html`.
+Re-run it after replacing `priv/figure/index.html`, `priv/giai-nghiep/index.html` or `priv/cau-nang/index.html`.

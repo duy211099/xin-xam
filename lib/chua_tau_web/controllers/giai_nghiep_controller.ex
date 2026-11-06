@@ -1,7 +1,7 @@
 defmodule ChuaTauWeb.GiaiNghiepController do
   use ChuaTauWeb, :controller
 
-  alias ChuaTauWeb.{Certificate, GiaiNghiepPage, Seo}
+  alias ChuaTauWeb.{Certificate, MachinePage, Seo}
 
   plug :put_root_layout, html: {ChuaTauWeb.Layouts, :root}
   plug :put_layout, false
@@ -10,7 +10,7 @@ defmodule ChuaTauWeb.GiaiNghiepController do
     conn
     |> put_root_layout(false)
     |> put_resp_content_type("text/html")
-    |> send_resp(200, GiaiNghiepPage.render())
+    |> send_resp(200, MachinePage.render("giai-nghiep", Seo.giai_nghiep()))
   end
 
   def show(conn, %{"loai" => loai}) do

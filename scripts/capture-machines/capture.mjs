@@ -11,6 +11,7 @@ const HEIGHT = 520;
 const MACHINES = [
   { slug: 'xin-xam', path: '/xin-xam' },
   { slug: 'giai-nghiep', path: '/giai-nghiep' },
+  { slug: 'cau-nang', path: '/cau-nang', query: '&backdrop=0&phase=clearing&u=1' },
 ];
 
 const SHADOW_DECL = 'const castShadow = (pts3, z0=0, clip=null) => {';
@@ -20,7 +21,7 @@ const HIDE_ALL_BUT_FIGURE = `
   html, body, #fig { background: transparent !important; }
   body * { visibility: hidden !important; }
   #fig, #fig * { visibility: visible !important; }
-  #gnglow { display: none !important; } /* giải nghiệp's "touch here" hint ring */
+  #gnglow, #cnglow { display: none !important; } /* the "touch here" hint rings */
 `;
 
 async function trimAndScale(page, png, height) {
@@ -68,8 +69,8 @@ try {
     await route.fulfill({ response: res, body: html.replace(SHADOW_DECL, NO_SHADOW) });
   });
 
-  for (const { slug, path } of MACHINES) {
-    await page.goto(base + path + '?welcome=0', { waitUntil: 'networkidle' });
+  for (const { slug, path, query = '' } of MACHINES) {
+    await page.goto(base + path + '?welcome=0' + query, { waitUntil: 'networkidle' });
     await page.addStyleTag({ content: HIDE_ALL_BUT_FIGURE });
     await page.evaluate(() => document.fonts.ready);
     await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));

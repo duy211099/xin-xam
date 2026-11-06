@@ -116,12 +116,13 @@ defmodule ChuaTauWeb.PagesTest do
       conn = get(conn, ~p"/sitemap.xml")
       assert response_content_type(conn, :xml) =~ "xml"
       body = response(conn, 200)
-      assert length(Regex.scan(~r{<loc>}, body)) == 206
+      assert length(Regex.scan(~r{<loc>}, body)) == 207
       assert body =~ ~r{<loc>http://localhost[^<]*/</loc>}
       assert body =~ ~r{<loc>http://localhost[^<]*/xin-xam</loc>}
       assert body =~ ~r{<loc>http://localhost[^<]*/que/quan-am/100</loc>}
       assert body =~ "/que/lu-to/100"
       assert body =~ ~r{<loc>http://localhost[^<]*/giai-nghiep</loc>}
+      assert body =~ ~r{<loc>http://localhost[^<]*/cau-nang</loc>}
 
       for loai <- ~w(than khau y), do: assert(body =~ "/giai-nghiep/#{loai}</loc>")
     end
@@ -152,7 +153,8 @@ defmodule ChuaTauWeb.PagesTest do
             "/css/share.css",
             "/css/gate.css",
             "/images/machines/xin-xam.png",
-            "/images/machines/giai-nghiep.png"
+            "/images/machines/giai-nghiep.png",
+            "/images/machines/cau-nang.png"
           ] do
         assert conn |> get(path) |> response(200)
       end

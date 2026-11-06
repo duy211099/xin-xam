@@ -1,0 +1,589 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Miếu cầu nắng</title>
+<style>
+.cnmodal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(35,22,14,.55)}
+.cnmodal.show{display:flex}
+.cnmodal [hidden]{display:none!important}
+.cnslip{position:relative;width:min(440px,100%);max-height:calc(100vh - 32px);overflow:auto;-webkit-overflow-scrolling:touch;background:#fdf6df;color:#2b1a10;
+  border:6px solid #d9791f;outline:2px solid #f2c14e;outline-offset:-12px;border-radius:4px;padding:26px 24px 20px;box-shadow:0 18px 50px rgba(0,0,0,.4);
+  font-family:'Noto Serif','Times New Roman',Georgia,serif;text-align:center}
+.cnslip .col{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#8c6418;margin:0}
+.cnslip .hd{font-size:26px;font-weight:700;color:#c4561a;letter-spacing:.1em;margin:4px 0 0}
+.cnslip .msg{font-size:34px;font-weight:700;line-height:1.25;margin:22px 0 10px}
+.cnslip .note{font:12px/1.4 system-ui,sans-serif;color:#7a5a3a;margin:14px 0 0}
+.cnslip .row{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.cnslip button{font:600 14px system-ui,sans-serif;padding:9px 16px;border-radius:99px;border:2px solid #2b1a10;background:#fff4d6;color:#2b1a10;cursor:pointer;min-height:40px}
+.cnslip button.pri{background:#d9791f;color:#fffaf0}
+#cnfx{pointer-events:none}
+#cnfx .sm{fill:none;stroke:#a89f92;stroke-linecap:round;opacity:0;transform-box:fill-box;transform-origin:50% 100%;animation:cnsm 5.5s linear infinite}
+#cnfx .sm:nth-child(2){animation-delay:1.8s}#cnfx .sm:nth-child(3){animation-delay:3.6s}
+#cnfx.burst .sm{animation-duration:2.2s}
+@keyframes cnsm{0%{opacity:0;transform:translate(0,0) scale(.5,.6)}20%{opacity:.55}100%{opacity:0;transform:translate(3px,-14px) scale(1.3,1.5)}}
+@media (prefers-reduced-motion:reduce){#cnfx .sm{animation:none;opacity:.3}}
+.cnslip .row a,.cnslip .row button{text-decoration:none}
+@media (max-width:560px){.cnmodal{padding:0}.cnslip{width:100%;height:100%;max-height:none;border-radius:0;outline-offset:-14px;padding:34px 22px calc(24px + env(safe-area-inset-bottom))}}
+/* the back link to the sibling machine: small and quiet */
+.cnback{align-self:center;width:100%;max-width:760px;margin:0 0 8px;font:600 12.5px system-ui,-apple-system,'Segoe UI',sans-serif;color:#857d6e;text-decoration:none}
+.cnback:hover{color:#231e16;text-decoration:underline}
+/* the journey: five steps, one instruction line, the next button lit, the part to touch glowing */
+.cnj{width:100%;max-width:760px;margin:2px 0 6px;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#231e16}
+.cnj ol{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.cnj li{flex:1;display:flex;align-items:center;gap:7px;min-width:0;padding:5px 9px 5px 5px;border-radius:999px;border:1.5px solid rgba(35,30,22,.22);font-size:12.5px;font-weight:600;color:#857d6e;white-space:nowrap}
+.cnj li b{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:11px}
+.cnj li span{overflow:hidden;text-overflow:ellipsis}
+.cnj li.done{color:#231e16}.cnj li.done b{background:#231e16;border-color:#231e16;color:#f2efe7}
+.cnj li.now{color:#231e16;border-color:#231e16;background:#fff1bf}.cnj li.now b{background:#d9791f;border-color:#d9791f;color:#fffaf0}
+.cnj .say{display:flex;align-items:center;gap:10px;margin:8px 2px 0}
+.cnj .line{flex:1;margin:0;font:600 15.5px/1.35 'Noto Serif','Times New Roman',Georgia,serif;min-height:1.35em}
+.cnj .help{flex:none;font:600 12px system-ui,sans-serif;background:none;border:0;color:#857d6e;text-decoration:underline;cursor:pointer;padding:6px 2px}
+.cnj .dock{display:none}
+.act[data-next]{background:#fff1bf!important;border-color:#d9791f!important;box-shadow:0 0 0 3px rgba(244,184,41,.45),0 0 16px rgba(244,184,41,.75);animation:cnnext 1.8s ease-in-out infinite}
+.cnj .go{animation:cnnext 1.8s ease-in-out infinite}
+@keyframes cnnext{50%{box-shadow:0 0 0 5px rgba(244,184,41,.25),0 0 24px rgba(244,184,41,.9)}}
+header,.controls,.made-with,.vset,.zchip,.lgd{display:none!important}
+#fig{cursor:default!important;touch-action:pan-y}
+#cnglow{pointer-events:none}
+#cnglow circle{fill:rgba(255,255,255,.28);stroke:#fff;filter:drop-shadow(0 0 1.5px #3a1a00) drop-shadow(0 0 4px #ffcc33);transform-box:fill-box;transform-origin:50% 50%;animation:cnglow 1.8s ease-in-out infinite}
+@keyframes cnglow{0%,100%{opacity:.35;transform:scale(.88)}50%{opacity:1;transform:scale(1.1)}}
+@media (prefers-reduced-motion:reduce){#cnglow circle,.act[data-next],.cnj .go{animation:none!important}#cnglow circle{opacity:.85}}
+@media (max-width:700px){.cnj li span{display:none}.cnj li{flex:none;padding:5px}.cnj li.now{flex:1;padding-right:12px}.cnj li.now span{display:inline}}
+@media (max-width:560px){
+  body{padding-left:16px!important;padding-right:16px!important;padding-bottom:calc(var(--cnj-h,150px) + 16px)!important}
+  .cnj{position:fixed;left:0;right:0;bottom:0;z-index:20;margin:0;max-width:none;background:#f2efe7;border-top:1.5px solid #231e16;
+    box-shadow:0 -8px 22px rgba(35,30,22,.12);padding:10px 16px calc(12px + env(safe-area-inset-bottom))}
+  .cnj ol{justify-content:center;gap:10px}
+  .cnj li,.cnj li.now{flex:none;padding:0;border:0;background:none}
+  .cnj li span,.cnj li.now span{display:none}
+  .cnj li b{width:12px;height:12px;font-size:0;border-width:1.5px}
+  .cnj li.now b{width:30px;border-radius:99px}
+  .cnj .say{margin-top:8px}.cnj .line{font-size:15px;text-align:center}
+  .cnj .dock{display:flex;gap:8px;margin-top:10px}
+  .cnj .go{flex:1;min-height:50px;border-radius:999px;border:2px solid #231e16;background:#d9791f;color:#fffaf0;font:700 16px system-ui,sans-serif;cursor:pointer;box-shadow:0 3px 0 #231e16}
+  .cnj .go:disabled{background:#e6dcc4;color:#857d6e;box-shadow:none;animation:none}
+  .cnj .more{flex:none;min-height:50px;padding:0 16px;border-radius:999px;border:1.5px solid #231e16;background:#f2efe7;color:#231e16;font:600 14px system-ui,sans-serif;cursor:pointer}
+  .cnj .more[aria-expanded=true]{background:#231e16;color:#fff4d6}
+  #btns{display:none!important}
+  html.cnmore #btns{display:flex!important;position:fixed;top:auto;height:auto;max-height:60vh;overflow:auto;align-content:flex-start;left:0;right:0;bottom:var(--cnj-h,150px);z-index:19;margin:0;padding:12px 16px;background:#f2efe7;
+    border-top:1.5px solid #231e16;box-shadow:0 -8px 22px rgba(35,30,22,.12);flex-wrap:wrap;gap:8px}
+  html.cnmore #btns .act{font-size:13.5px;padding:9px 14px}
+  html.cnmore #btns .stepwrap{flex-wrap:wrap}
+  html.cnmore #btns .chips{position:static;width:100%;max-width:none;margin-top:6px}
+}
+.cnwel .cnslip h2{font-size:24px;color:#c4561a;margin:6px 0 12px;letter-spacing:.04em}
+.cnwel .cnslip p{font:15.5px/1.55 system-ui,-apple-system,'Segoe UI',sans-serif;margin:0 0 10px}
+@media (max-width:560px){.cnwel .cnslip{height:auto;width:auto;margin:0 14px;border-radius:4px}}
+</style>
+</head><body>
+<script src="core.js"></script>
+<script>
+/* =====================================================================================================
+   Miếu cầu nắng: a small roadside shrine where you pray for sunshine. A sibling of the Chùa Tàu machine.
+
+   TRUTH FIRST (a typical Vietnamese roadside miếu; the bell and the slip box are part of this game, not of every miếu):
+   1. Light three incense sticks; they go in the bronze incense pot (bát nhang) on the front ledge.
+   2. Pull the cord of the small bronze bell hanging from its wooden post beside the shrine.
+   3. Pray before the shrine: the oil lamp inside is lit, the incense smoke rises.
+   4. The clouds over the shrine drift apart and the sun comes out; the scene warms, shadows appear.
+      Only clouds that clear: nothing falls from the sky.
+   5. A slip rises out of the slot of the small red slip box on the ledge; take it and read it.
+   Where things are after each step: sticks unlit → lit (smoke) · bell still → swinging → still ·
+                                     lamp dark → lit · clouds over the sun → at the edges · slip in box → slot → hand.
+
+   COORDINATES: x = depth (sky backdrop at x = 0..1, the scene in front of it), y = width (+y = viewer-left),
+   z = up. 1 unit ≈ 1 cm. The shrine is centred on y = 90; the bell post stands viewer-left at y = 140.
+
+   PARTS LIST
+   backdrop: sky panel (gradient), sun with halo and rays, eight clouds
+   ground:   grass patch with earth front, dirt path, stones, grass tufts
+   shrine:   plinth, plastered pillar with red band, capital slab with front ledge, yellow plaster body,
+             two red front columns, arched opening, MIẾU plaque, eave board, hip roof with tile lines,
+             ridge with upturned ends, corner tips, gold pearl
+   inside:   back wall, floor, red ancestral tablet, oil lamp (base, glass, flame)
+   ledge:    bronze incense pot with ash and 3 sticks, red slip box with slot and sun emblem, slip,
+             plate with 3 oranges
+   bell:     stone footing, wooden post and arm, hook, bronze bell with band, cord with tassel
+   ===================================================================================================== */
+
+const cnPLASTER = { l:'#fbe7a6', m:'#eccb72', d:'#a8823a' }, cnTILE = { l:'#e8573e', m:'#c43a24', d:'#6e1d10' };
+const cnCREAM = { l:'#f6efdc', m:'#e2d6b6', d:'#a99a74' }, cnGOLD = { l:'#f7d774', m:'#d6a53a', d:'#8c6418' };
+const cnBRONZE = { l:'#c99a5a', m:'#9a6c34', d:'#5a3c18' }, cnGRASS = { l:'#b9d27e', m:'#93b45c', d:'#5f7a35' };
+const cnEARTH = { l:'#c99a68', m:'#a8794a', d:'#6e4a2a' }, cnPOST = { l:'#b98756', m:'#93633a', d:'#5c3b20' };
+const cnSTONE = { l:'#d8d4ca', m:'#b5b0a4', d:'#7d786c' }, cnPAPER = { l:'#fffaf0', m:'#f1e6cc', d:'#cdbf9f' };
+const cnSERIF = "'Noto Serif','Times New Roman',Georgia,serif";
+const cnSUNY = 50, cnPIV = [41.5, 126, 157];
+const cnRM = (() => { try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch { return false; } })();
+
+/* ---------- small helpers ---------- */
+const cnLerp = (a, b, t) => a.map((v, i) => v + (b[i] - v)*t);
+const cnCl = v => Math.max(0, Math.min(1, v));
+const cnRX = (x, y0, z0, y1, z1) => on(PX(x), rectUV(y0, z0, y1, z1));
+const cnText = (o, U, V, str, size, col, fam, weight) => `<text transform="${txM(P(...o), U, V)}" font-size="${size}" fill="${col}" text-anchor="middle" font-family="${fam}" font-weight="${weight}">${str}</text>`;
+const cnTxX = (x,y,z,str,size,col=INK,weight=700,fam=cnSERIF) => cnText([x,y,z], Dv(0,-1,0), Dv(0,0,-1), str, size, col, fam, weight);
+const cnStroke = (pts, col, w, close = true, extra = '') => `<path d="${pd(pts, close)}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round" ${extra}/>`;
+const cnDot = (p, r, col, extra = '') => { const [X, Y] = P(...p); return `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(CAM_K*r)}" fill="${col}" ${extra}/>`; };
+const cnBall = (c, r, m, w = .9) => { const [X, Y] = P(...c), R = CAM_K*r;
+  return `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R)}" fill="${m.m}"/><circle cx="${f(X - R*.28)}" cy="${f(Y - R*.3)}" r="${f(R*.55)}" fill="${m.l}"/><circle cx="${f(X)}" cy="${f(Y)}" r="${f(R)}" fill="none" stroke="${INK}" stroke-width="${w}"/>`; };
+// overcast greys every colour a little; k = 1 (sun out) gives the true colours back
+const cnDull = (m, k) => k >= 1 ? m : Object.fromEntries(['l', 'm', 'd'].map(t => [t, mix(mix(m[t], '#a2a9b0', .34), m[t], k)]));
+const cnEsc = s => String(s).replace(/[&<>"]/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' })[ch]);
+
+/* ---------- the journey's look: every drawn quantity comes from (phase, t) ---------- */
+const cnOrder = ['idle', 'lighting', 'lit', 'ringing', 'rung', 'praying', 'prayed', 'clearing', 'rise', 'ready', 'taking', 'held', 'reading', 'done', 'fade'];
+const cnDurs = { lighting: [1.6, .8], ringing: [2.6, 1.2], praying: [2.4, 1.0], clearing: [3.6, 1.6], rise: [1.2, .6], taking: [.9, .4], fade: [1.6, .7] };
+const cnDur = ph => (cnDurs[ph] || [0, 0])[cnRM ? 1 : 0];
+function cnLook(st){
+  const i = cnOrder.indexOf(st.phase), past = p => i > cnOrder.indexOf(p), T = cnDur(st.phase), u = T ? cnCl(st.t/T) : 1;
+  const now = p => st.phase === p;
+  const lk = {
+    inc:   now('lighting') ? u : past('lighting') ? 1 : 0,
+    bell:  now('ringing') ? 20*Math.sin(u*Math.PI*5)*Math.pow(1 - u, 1.3) : 0,
+    wave:  now('ringing') ? u : -1,
+    lamp:  now('praying') ? ease(cnCl(u*1.6)) : past('praying') ? 1 : 0,
+    sun:   now('clearing') ? ease(u) : past('clearing') ? 1 : 0,
+    slip:  now('rise') ? ease(u) : past('rise') ? 1 : 0,
+    card:  now('taking') ? ease(u) : past('taking') ? 1 : 0,
+    alpha: 1,
+  };
+  if (now('fade')){ const k = 1 - ease(u); lk.inc = lk.lamp = lk.sun = k; lk.alpha = k; lk.slip = 0; }
+  return lk;
+}
+
+/* ---------- backdrop: the sky panel, the sun and the clouds ---------- */
+const cnClouds = [
+  { y:150, z:200, s:1.15, dy: 42 }, { y:112, z:212, s:1.3, dy: 52 }, { y:70, z:202, s:1.4, dy:-66 }, { y:34, z:214, s:1.15, dy:-46 },
+  { y:50, z:182, s:1.15, dy:-58 }, { y:100, z:180, s:1.0, dy: 58 }, { y:18, z:172, s:.9, dy:-36 }, { y:160, z:172, s:.9, dy: 30 },
+];
+function cnCloud(y, z, s, col, shd){
+  const blobs = [[-15, 0, 8], [-5, 6, 11.5], [7, 4, 10], [16, -1, 7.5]].map(([dy, dz, r]) => { const [X, Y] = P(1.5, y + dy*s, z + dz*s); return [X, Y, CAM_K*r*s]; });
+  const base = pd(on(PX(1.5), rrUV(y - 21*s, z - 7*s, y + 22*s, z + 1*s, 3*s)));
+  const circ = ([X, Y, R], c, extra = '') => `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R)}" fill="${c}" ${extra}/>`;
+  return blobs.map(b => circ(b, INK, `stroke="${INK}" stroke-width="2.2"`)).join('') + `<path d="${base}" fill="${INK}" stroke="${INK}" stroke-width="2.2"/>`
+    + blobs.map(b => circ(b, shd)).join('') + fill(base, shd)
+    + blobs.map(([X, Y, R]) => circ([X, Y - R*.2, R*.8], col)).join('');
+}
+function cnSky(lk){
+  const k = lk.sun, panel = on(PX(1), rrUV(0, 0, 180, 235, 10));
+  const top = mix('#aab7c4', '#79bfe9', k), bot = mix('#d2d7dc', '#ffe2a0', k);
+  const [gx1, gy1] = P(1, 90, 235), [gx2, gy2] = P(1, 90, 0);
+  let s = `<defs><linearGradient id="cnsky" gradientUnits="userSpaceOnUse" x1="${f(gx1)}" y1="${f(gy1)}" x2="${f(gx2)}" y2="${f(gy2)}"><stop offset="0" stop-color="${top}"/><stop offset="1" stop-color="${bot}"/></linearGradient></defs>`;
+  s += fill(pd(panel), 'url(#cnsky)');
+  let inner = '';
+  if (k > 0){
+    const z = 172 + 26*k, c = [1.2, cnSUNY, z], [X, Y] = P(...c), R = CAM_K*13, a = cnCl(k*2.2);
+    inner += `<g opacity="${f(a)}">` + `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R*2.3)}" fill="#fff4c2" opacity="${f(.55*k)}"/>`;
+    for (let i = 0; i < 12; i++){ const t = i/12*2*Math.PI + .13, r0 = R*(1.22), r1 = R*(1.22 + .38*k);
+      const d = `M${f(X + r0*Math.cos(t))} ${f(Y + r0*Math.sin(t))}L${f(X + r1*Math.cos(t))} ${f(Y + r1*Math.sin(t))}`;
+      inner += `<path d="${d}" stroke="${INK}" stroke-width="2.6" stroke-linecap="round"/><path d="${d}" stroke="#f3a51f" stroke-width="1.4" stroke-linecap="round"/>`; }
+    inner += `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R)}" fill="#ffcf3a"/><circle cx="${f(X - R*.18)}" cy="${f(Y - R*.2)}" r="${f(R*.66)}" fill="#ffe681"/>`
+      + `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(R)}" fill="none" stroke="${INK}" stroke-width="1.5"/></g>`;
+  }
+  const col = mix('#c6ccd4', '#fffdf6', k), shd = mix('#a4aeba', '#e4ebf1', k);
+  for (const c of cnClouds) inner += cnCloud(c.y + c.dy*k, c.z + 6*k, c.s*(1 - .18*k), col, shd);
+  return s + clipTo(panel, inner) + ink(pd(panel), 2);
+}
+const cnSkyBack = () => shape(on(PX(0), rrUV(0, 0, 180, 235, 10)), cnPOST.d, 2);
+
+/* ---------- ground ---------- */
+function cnGround(k){
+  const G = cnDull(cnGRASS, k), E = cnDull(cnEARTH, k);
+  let s = box(0, 0, 0, 84, 180, 3, E, toneI, 1.6);
+  if (vis([0,0,1])){ s += shape(on(PZ(3), rectUV(0, 0, 84, 180)), G.m, 1.4)
+      + fill(pd(on(PZ(3.02), [[56, 80], [84, 76], [84, 104], [56, 100]])), mix('#e2cf9e', '#a2a9b0', .3*(1 - k)));
+    for (const [x, y] of [[70, 30], [78, 58], [66, 132], [80, 160], [74, 118], [62, 20]]){ const [X, Y] = P(x, y, 3);
+      s += `<path d="M${f(X - 2)} ${f(Y)}l1 -3M${f(X)} ${f(Y)}l0 -4M${f(X + 2)} ${f(Y)}l-1 -3" stroke="${G.d}" stroke-width="1" stroke-linecap="round" fill="none"/>`; } }
+  return s;
+}
+const cnStones = k => { const m = cnDull(cnSTONE, k); return [[76, 66, 2.2], [79, 112, 1.6], [70, 150, 1.9]].map(([x, y, r]) =>
+  ({ box:[[x - r, y - r, 3], [x + r, y + r, 3 + r]], svg: rod([x, y, 3], [x, y, 3 + r*.9], r, m, toneI, .8, r*.7, 12) })); };
+
+/* ---------- the shrine (pillar + slab, body with its opening, roof) ---------- */
+const cnArch = x => { const pts = [[x, 80, 101], [x, 100, 101], [x, 100, 116]];
+  for (let i = 1; i < 14; i++){ const a = i/14*Math.PI; pts.push([x, 90 + 10*Math.cos(a), 116 + 10*Math.sin(a)]); }
+  pts.push([x, 80, 116]); return pts; };
+function cnPillar(k){
+  const CR = cnDull(cnCREAM, k), TL = cnDull(cnTILE, k);
+  let s = box(26, 74, 3, 58, 106, 9, CR, tone, 1.4) + box(30, 78, 9, 54, 102, 92, CR, tone, 1.6);
+  if (vis([1,0,0])) s += box(54, 78, 80, 54.4, 102, 84, TL, tone, .8) + cnStroke(cnRX(54.45, 82, 20, 98, 70), CR.d, .7);
+  s += box(24, 68, 92, 64, 112, 98, CR, tone, 1.5);
+  return { box:[[24, 68, 3], [64, 112, 98]], svg: s };
+}
+function cnInterior(lk){
+  const x1 = 57, lamp = lk.lamp;
+  let s = fill(pd(cnRX(30.5, 71, 98, 109, 136)), mix('#5c1a10', '#8a2a14', lamp*.6));
+  if (vis([0,0,1])) s += fill(pd(on(PZ(98.05), rectUV(30.5, 72, x1, 108))), '#3f120b');
+  // ancestral tablet: red board with a gold frame, on a small stand
+  s += box(31, 84, 98, 33, 96, 101, cnGOLD, toneI, .6) + box(31, 85.5, 101, 32.6, 94.5, 117, cnTILE, toneI, .8);
+  if (vis([1,0,0])) s += cnStroke(cnRX(32.65, 86.5, 102.5, 93.5, 115.5), cnGOLD.m, .7) + cnStroke([[32.66, 90, 113], [32.66, 90, 105]], cnGOLD.l, .9, false);
+  // oil lamp: base, glass belly, wick and flame
+  const lx = 44, ly = 90;
+  s += cyl(lx, ly, 98, 99.4, 1.9, cnBRONZE, toneI, .8, 16);
+  s += `<g opacity=".85">${loft(on(PZ(99.4), ellUV(lx, ly, 1.2, 1.2, 16)), on(PZ(101.8), ellUV(lx, ly, 2.1, 2.1, 16)), n => toneI(n, CLEAR))}${loft(on(PZ(101.8), ellUV(lx, ly, 2.1, 2.1, 16)), on(PZ(104), ellUV(lx, ly, .8, .8, 16)), n => toneI(n, CLEAR))}</g>`
+    + hullInk([...on(PZ(99.4), ellUV(lx, ly, 1.2, 1.2, 16)), ...on(PZ(101.8), ellUV(lx, ly, 2.1, 2.1, 16)), ...on(PZ(104), ellUV(lx, ly, .8, .8, 16))], .8);
+  if (lamp > 0){ const [X, Y] = P(lx, ly, 104.2), h = CAM_K*3.6*lamp, w = CAM_K*1.1*lamp;
+    s += cnDot([lx, ly, 106], 9*lamp, '#ffd36a', `opacity="${f(.35*lamp)}"`)
+      + `<path d="M${f(X)} ${f(Y)}c${f(-w)} ${f(-h*.3)} ${f(-w*.6)} ${f(-h*.75)} 0 ${f(-h)}c${f(w*.6)} ${f(h*.25)} ${f(w)} ${f(h*.7)} 0 ${f(h)}Z" fill="#ffb020" stroke="${INK}" stroke-width=".6"/>`; }
+  if (lamp > 0) s += fill(pd(cnArch(x1)), '#ffcf6a', `opacity="${f(.18*lamp)}"`);
+  return clipTo(cnArch(x1 + .02), s);
+}
+function cnBody(lk, k){
+  const PL = cnDull(cnPLASTER, k), TL = cnDull(cnTILE, k), FRONT = vis([1,0,0]);
+  let s = box(28, 71, 98, 57, 109, 136, PL, tone, 2.2);
+  if (FRONT){
+    s += cnInterior(lk) + cnStroke(cnArch(57.05), TL.m, 2.6) + ink(pd(cnArch(57.05)), 1.6);
+    for (const [y0, y1] of [[72, 75.5], [104.5, 108]]) s += box(57, y0, 98, 57.8, y1, 136, TL, tone, .9);
+    s += box(57, 83, 127.6, 57.5, 97, 134, TL, tone, .9) + cnStroke(cnRX(57.55, 84, 128.4, 96, 133.2), cnGOLD.l, .6)
+      + cnTxX(57.56, 90, 129.6, 'MIẾU', 3.4, cnGOLD.l, 800);
+  }
+  return { box:[[28, 71, 98], [57.8, 109, 136]], svg: s };
+}
+function cnRoof(k){
+  const TL = cnDull(cnTILE, k), GD = cnDull(cnGOLD, k);
+  let s = box(21, 63, 135, 67, 117, 137, TL, tone, 1.2);
+  const rA = on(PZ(137), rectUV(22, 64, 66, 116)), rB = on(PZ(150), rectUV(38, 80, 50, 100));
+  s += loft(rA, rB, n => tone(n, TL)) + fill(pd(rB), tone([0,0,1], TL));
+  const cen = avg(rA.concat(rB));
+  for (let i = 0; i < 4; i++){ const a0 = rA[i], a1 = rA[(i + 1) % 4], b0 = rB[i], b1 = rB[(i + 1) % 4];
+    let nr = norm(cross(sub(a1, a0), sub(b0, a0))); if (dot(nr, sub(avg([a0, a1, b1, b0]), cen)) < 0) nr = nr.map(v => -v);
+    if (!vis(nr)) continue;
+    for (let j = 1; j < 12; j++){ const t = j/12; s += cnStroke([cnLerp(a0, a1, t), cnLerp(b0, b1, t)], TL.d, .55, false); } }
+  s += hullInk([...rA, ...rB], 2.4);
+  const tips = rA.map(p => { const o = [p[0] < 44 ? -2.5 : 2.5, p[1] < 90 ? -3 : 3, 4], q = [p[0] + o[0], p[1] + o[1], p[2] + o[2]];
+    return { box:[[Math.min(p[0], q[0]) - .8, Math.min(p[1], q[1]) - .8, p[2]], [Math.max(p[0], q[0]) + .8, Math.max(p[1], q[1]) + .8, q[2] + .8]], svg: rod(p, q, 1, TL, tone, .8, .4, 10) }; });
+  s += byDepth([
+    { box:[[41, 78, 150], [47, 102, 153]], svg: box(41, 78, 150, 47, 102, 153, TL, tone, 1) },
+    { box:[[41, 78, 153], [47, 80.5, 157]], svg: box(41, 78, 153, 47, 80.5, 157, TL, tone, .9) },
+    { box:[[41, 99.5, 153], [47, 102, 157]], svg: box(41, 99.5, 153, 47, 102, 157, TL, tone, .9) },
+    ...tips,
+    { box:[[41.8, 87.8, 153], [46.2, 92.2, 158]], svg: cnBall([44, 90, 155.4], 2.2, GD, 1) },
+  ]);
+  return { box:[[19, 60, 135], [69, 120, 158]], svg: s };
+}
+
+/* ---------- ledge: incense pot, slip box with the slip, plate of oranges ---------- */
+const cnPot = [60.6, 90], cnSticks = [-1.3, 0, 1.3];
+const cnTip = dy => [cnPot[0], cnPot[1] + dy*1.8, 117];
+function cnIncense(lk, k){
+  const [x, y] = cnPot, B = cnDull(cnBRONZE, k);
+  let s = cyl(x, y, 98, 99, 2.4, B, toneI, .8, 18) + cyl(x, y, 99, 103.4, 3.2, B, toneI, 1.1, 20)
+    + fill(pd(on(PZ(103.42), ellUV(x, y, 2.6, 2.6, 18))), '#9c9285');
+  if (vis([1,0,0])) s += cnStroke([[x + 3.25, y + 1.4, 101.6], [x + 3.25, y - 1.4, 101.6]], cnGOLD.l, .8, false);
+  cnSticks.forEach((dy, j) => { const tip = cnTip(dy), on1 = lk.inc > j/3 + .12;
+    s += rod([x, y + dy*.5, 103.4], tip, .22, { l:'#c0573a', m:'#9a3d24', d:'#6a2614' }, toneI, .5, .22, 6);
+    if (on1) s += cnDot(tip, 1.6, '#ffb060', 'opacity=".45"') + cnDot(tip, .6, '#ff6a1a'); });
+  return { box:[[x - 3.3, y - 3.3, 98], [x + 3.3, y + 3.3, 118]], svg: act('incense', s) };
+}
+function cnSlipBox(lk, k){
+  const TL = cnDull(cnTILE, k);
+  let s = box(58.5, 100, 98, 63.5, 107, 104, TL, tone, 1.1);
+  if (vis([0,0,1])) s += shape(on(PZ(104.03), rectUV(60.3, 101.4, 61.7, 105.6)), '#1d0b06', .5);
+  if (vis([1,0,0])) s += cnDot([63.55, 103.5, 101], 1.25, cnGOLD.l, `stroke="${INK}" stroke-width=".5"`);
+  const h = 9*lk.slip;
+  if (h > .2){ const xs = 61;
+    s += shape(cnRX(xs, 101.8, 104, 105.2, 104 + h), vis([1,0,0]) ? '#fdf6df' : '#efe2c2', .8);
+    if (h > 4 && vis([1,0,0])) s += cnStroke(cnRX(xs + .02, 102.2, 104 + h - 3.6, 104.8, 104 + h - .4), '#d9791f', .5) + cnDot([xs + .04, 103.5, 104 + h - 2], .7, '#f3a51f'); }
+  return { box:[[58.5, 100, 98], [63.5, 107, 113.2]], svg: act('box', s) };
+}
+function cnPlate(k){
+  const x = 60.8, y = 77, OR = cnDull({ l:'#ffb347', m:'#f28c1f', d:'#a5520c' }, k);
+  let s = cyl(x, y, 98, 98.8, 3, cnDull(CERAMIC, k), toneI, .8, 20);
+  s += cnBall([x, y + 1.25, 100.3], 1.5, OR, .8) + cnBall([x, y - 1.25, 100.3], 1.5, OR, .8) + cnBall([x, y, 102.4], 1.45, OR, .8);
+  return { box:[[x - 3, y - 3, 98], [x + 3, y + 3, 104]], svg: s };
+}
+
+/* ---------- the bell on its post (swings about the x axis, so it swings sideways for the viewer) ---------- */
+function cnPost(k){
+  const W = cnDull(cnPOST, k);
+  return [
+    { box:[[37, 135, 3], [46, 145, 7]], svg: box(37, 135, 3, 46, 145, 7, cnDull(cnSTONE, k), tone, 1.1) },
+    { box:[[40, 138.5, 7], [43, 141.5, 157]], svg: box(40, 138.5, 7, 43, 141.5, 157, W, tone, 1.3) },
+    { box:[[40, 122, 157], [43, 141.5, 160]], svg: box(40, 122, 157, 43, 141.5, 160, W, tone, 1.2) },
+  ];
+}
+const cnRot = (p, a) => { const c = Math.cos(a), s2 = Math.sin(a), dy = p[1] - cnPIV[1], dz = p[2] - cnPIV[2];
+  return [p[0], cnPIV[1] + dy*c - dz*s2, cnPIV[2] + dy*s2 + dz*c]; };
+function cnBell(lk, k){
+  const a = lk.bell*Math.PI/180, [x, y] = cnPIV, B = cnDull(cnBRONZE, k);
+  const ring = (z, r) => on(PZ(z), ellUV(x, y, r, r, 20)).map(p => cnRot(p, a));
+  const prof = [[154.6, 1.5], [153.7, 2.8], [152, 3.4], [147.6, 4.1], [147, 4.15], [146, 4.7], [145.3, 4.9]].map(([z, r]) => ring(z, r));
+  let s = '';
+  // cord and tassel hang from the clapper, below the bell (drawn first: the bell hangs in front of its top end)
+  const c0 = cnRot([x, y, 146], a), c1 = cnRot([x, y, 128], a*1.25), c2 = cnRot([x, y, 125], a*1.25);
+  s += `<path d="${pd([c0, c1], false)}" stroke="${INK}" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="${pd([c0, c1], false)}" stroke="#c8321f" stroke-width=".8" stroke-linecap="round" fill="none"/>`
+    + rod(c1, c2, .5, cnDull(cnTILE, k), toneI, .7, 1.1, 10);
+  s += rod([x, y, 157], cnRot([x, y, 154.6], a), .35, METAL, toneI, .6, .35, 8);
+  for (let i = 0; i < prof.length - 1; i++) s += loft(prof[i], prof[i + 1], n => toneI(n, i === 3 ? { l:B.m, m:B.d, d:B.d } : B));
+  s += fill(pd(prof[0]), B.l) + hullInk(prof.flat(), 1.4);
+  if (lk.wave >= 0){ const [X, Y] = P(...cnRot([x, y, 149], a)), u = lk.wave;
+    for (let j = 0; j < 3; j++){ const v = (u*2.6 + j/3) % 1, R = CAM_K*(7 + 12*v), op = (1 - v)*(1 - u*.6);
+      for (const [t0, t1] of [[-.6, .6], [Math.PI - .6, Math.PI + .6]]){
+        const p0 = [X + R*Math.cos(t0), Y + R*Math.sin(t0)], p1 = [X + R*Math.cos(t1), Y + R*Math.sin(t1)];
+        s += `<path d="M${f(p0[0])} ${f(p0[1])}A${f(R)} ${f(R)} 0 0 1 ${f(p1[0])} ${f(p1[1])}" fill="none" stroke="${INK}" stroke-width="1.1" stroke-linecap="round" opacity="${f(op)}"/>`; } } }
+  return { box:[[36, 117, 123], [47, 135, 158]], svg: act('bell', s) };
+}
+
+/* ---------- the slip in the hand ---------- */
+function cnCard(st, lk){
+  const u = lk.card, x = 61 + 19*u;
+  const y0 = 101.8 + (76 - 101.8)*u, y1 = 105.2 + (104 - 105.2)*u, z0 = 104 + (54 - 104)*u, z1 = 113 + (92 - 113)*u;
+  const pts = cnRX(x, y0, z0, y1, z1), FRONT = vis([1,0,0]);
+  let s = shape(pts, FRONT ? '#fdf6df' : '#efe2c2', 1.2);
+  if (FRONT && u > .75){ const ym = (y0 + y1)/2, xf = x + .05;
+    s += cnStroke(cnRX(xf, y0 + 1.2, z0 + 1.2, y1 - 1.2, z1 - 1.2), '#d9791f', .9)
+      + cnTxX(xf, ym, z1 - 6.2, 'PHIẾU CẦU NẮNG', 2.4, '#c4561a', 800)
+      + cnDot([xf, ym, z1 - 14], 3.2, '#ffcf3a', `stroke="${INK}" stroke-width=".7"`)
+      + cnTxX(xf, ym, z0 + 10, 'Trời sẽ', 3.4, INK, 800)
+      + cnTxX(xf, ym, z0 + 5, 'nắng thôi', 3.4, INK, 800);
+    for (let i = 0; i < 8; i++){ const t = i/8*2*Math.PI, c = [xf, ym, z1 - 14];
+      s += cnStroke([[xf, c[1] + 4*Math.cos(t), c[2] + 4*Math.sin(t)], [xf, c[1] + 5.4*Math.cos(t), c[2] + 5.4*Math.sin(t)]], '#f3a51f', .7, false); } }
+  return { box:[[x - .3, Math.min(y0, y1), z0], [x + .3, Math.max(y0, y1), z1]], svg: act('card', lk.alpha < 1 ? `<g opacity="${f(lk.alpha)}">${s}</g>` : s) };
+}
+
+/* ================= sound: synthesized with WebAudio; nothing plays before a press ================= */
+const cnSound = (() => {
+  const NAMES = ['Tắt', 'Nhỏ', 'Vừa', 'Lớn'], GAINS = [0, .3, .55, .85];
+  let level = 2, ctx = null, out = null, noiseBuf = null;
+  try { const v = localStorage.getItem('chuatau.sound'); if (v != null && GAINS[+v] != null) level = +v; } catch {}
+  function ac(){ if (!level || (navigator.userActivation && !navigator.userActivation.hasBeenActive)) return null;
+    try { if (!ctx){ const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+        ctx = new AC(); out = ctx.createGain(); out.connect(ctx.destination);
+        noiseBuf = ctx.createBuffer(1, ctx.sampleRate*.5, ctx.sampleRate); const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random()*2 - 1; }
+      out.gain.value = GAINS[level]; if (ctx.state === 'suspended') ctx.resume(); return ctx; } catch { return null; } }
+  const env = (g, t, a, peak, d) => { g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + a); g.gain.exponentialRampToValueAtTime(.0001, t + a + d); };
+  function osc(fq, type, peak, a, d, when = 0){ const c = ac(); if (!c) return;
+    const t = c.currentTime + when, o = c.createOscillator(), g = c.createGain(); o.type = type; o.frequency.setValueAtTime(fq, t);
+    env(g, t, a, peak, d); o.connect(g).connect(out); o.start(t); o.stop(t + a + d + .05); }
+  function noise(fc, q, peak, d, when = 0){ const c = ac(); if (!c) return;
+    const t = c.currentTime + when, s = c.createBufferSource(), bp = c.createBiquadFilter(), g = c.createGain();
+    s.buffer = noiseBuf; bp.type = 'bandpass'; bp.frequency.value = fc; bp.Q.value = q; env(g, t, .002, peak, d); s.connect(bp).connect(g).connect(out); s.start(t, Math.random()*.3); s.stop(t + d + .05); }
+  const bell = (f0, peak = .22, d = 2.6, when = 0) => { for (const [r, k] of [[1, 1], [2.76, .45], [5.4, .22], [8.93, .1]]) osc(f0*r, 'sine', peak*k, .004, d/r**.5, when); };
+  return {
+    NAMES, get level(){ return level; },
+    set(v){ level = v; try { localStorage.setItem('chuatau.sound', String(v)); } catch {} if (out && level) out.gain.value = GAINS[level]; },
+    pick(){ noise(3200, 5, .12, .04); osc(1900, 'sine', .06, .001, .12); },
+    strike(){ noise(2400, 1.4, .14, .22); noise(900, 1, .06, .4, .05); },
+    bell(){ bell(294, .26, 3.4); bell(294, .16, 2.8, 1.05); },
+    pray(){ bell(196, .12, 3.2); },
+    clear(){ [523, 659, 784, 1047].forEach((fq, i) => osc(fq, 'sine', .07, .01, 1.2, .3 + i*.28)); },
+    slip(){ noise(3000, 1.2, .07, .45); for (let i = 0; i < 6; i++) noise(5200, 2, .03, .03, .05 + i*.06); },
+    take(){ noise(1100, 2, .12, .18); },
+    close(){ noise(700, 3, .12, .1); },
+  };
+})();
+
+/* ================= the ritual: one state object, one frame driver ================= */
+const cnState = { phase:'idle', t:0, ev:{} };
+let ui = null, cnLoop = false;
+function cnGo(ph){ const st = ui.st; st.phase = ph; st.t = 0; st.ev = {}; cnRun(); }
+function cnRun(){ if (cnLoop) return; cnLoop = true; ui.animate(cnTick); }
+const cnAfter = { lighting:'lit', ringing:'rung', praying:'prayed', clearing:'rise', rise:'ready', taking:'held', fade:'idle' };
+function cnTick(dt){
+  const st = ui.st, T = cnDur(st.phase);
+  if (!T){ cnLoop = false; return false; }
+  st.t += dt;
+  const ev = (name, cond, fn) => { if (cond && !st.ev[name]){ st.ev[name] = 1; fn(); } };
+  if (st.phase === 'lighting') cnSticks.forEach((_, j) => ev('s' + j, st.t/T > j/3 + .12, () => cnSound.pick()));
+  if (st.phase === 'clearing') ev('chime', st.t/T > .2, () => cnSound.clear());
+  if (st.phase === 'rise') ev('slip', true, () => cnSound.slip());
+  if (st.t < T) return true;
+  const ph = st.phase;
+  st.phase = cnAfter[ph]; st.t = 0; st.ev = {};
+  if (ph === 'lighting') cnSmoke(true);
+  if (ph === 'clearing') ui.flash('Mây đã tan, nắng đã lên.', 2000);
+  if (ph === 'rise') ui.flash('Phiếu cầu nắng đã ra.', 2000);
+  if (ph === 'fade') cnSmoke(false);
+  ui.drawStats && ui.drawStats();
+  if (cnDur(st.phase)) return true;
+  cnLoop = false; return false;
+}
+
+/* each action needs one resting phase; out of order it says what to do first */
+const cnActs = {
+  light: { at:'idle',   run: st => { cnSound.strike(); cnGo('lighting'); } },
+  ring:  { at:'lit',    run: st => { cnSound.bell(); cnGo('ringing'); } },
+  pray:  { at:'rung',   run: st => { cnSound.pray(); cnBurst(); cnGo('praying'); } },
+  clear: { at:'prayed', run: st => cnGo('clearing') },
+  take:  { at:'ready',  run: st => { cnSound.take(); cnGo('taking'); } },
+  read:  { at:'held',   run: st => cnOpenModal() },
+  again: { at:'done',   run: st => { cnCloseModal(true); cnSound.close(); cnGo('fade'); } },
+};
+function cnTry(name){
+  const st = ui.st, a = cnActs[name];
+  if (st.phase === a.at) return a.run(st);
+  if (name === 'read' && st.phase === 'done') return cnOpenModal();
+  if (name === 'again' && st.phase === 'held') return cnActs.again.run(st);
+  if (cnDur(st.phase)) return ui.flash('Chờ một chút...');
+  if (st.phase === 'reading') return;
+  if (cnOrder.indexOf(st.phase) < cnOrder.indexOf(a.at)) return ui.flash('Hãy ' + cnStep(st).go.toLowerCase() + ' trước.');
+  ui.flash('Bước này đã xong.');
+}
+function cnNext(){ const st = ui.st; if (st.phase === 'reading') cnCloseModal(); else { const s = cnStep(st); if (s.act) cnTry(s.act); } ui.render(); }
+
+/* ---------- the journey: which of the five steps the visitor is on, what to do, and which button and part to light ---------- */
+const cnSteps = ['Thắp nhang', 'Rung chuông', 'Khấn nguyện', 'Mây tan, nắng lên', 'Nhận phiếu'];
+const cnGlowAt = { incense:[60.6, 90, 110], bell:[41.5, 126, 150], altar:[57, 90, 112], sky:[1, cnSUNY, 186], box:[61, 103.5, 107], card:[80, 90, 73] };
+function cnStep(st){
+  switch (st.phase){
+    case 'idle':     return { i:0, line:'Thắp ba nén nhang ở bát nhang trước miếu.', go:'Thắp nhang', btn:'Thắp nhang', part:'incense', act:'light' };
+    case 'lighting': return { i:0, line:'Nhang đang bén lửa...' };
+    case 'lit':      return { i:1, line:'Kéo dây, rung chuông một hồi.', go:'Rung chuông', btn:'Rung chuông', part:'bell', act:'ring' };
+    case 'ringing':  return { i:1, line:'Chuông đang ngân...' };
+    case 'rung':     return { i:2, line:'Chắp tay trước miếu, khấn điều mình mong.', go:'Khấn nguyện', btn:'Khấn nguyện', part:'altar', act:'pray' };
+    case 'praying':  return { i:2, line:'Đang khấn nguyện...' };
+    case 'prayed':   return { i:3, line:'Chờ mây tan, nắng lên.', go:'Mây tan, nắng lên', btn:'Mây tan, nắng lên', part:'sky', act:'clear' };
+    case 'clearing': return { i:3, line:'Mây đang tan dần...' };
+    case 'rise':     return { i:4, line:'Phiếu cầu nắng đang ra...', part:'box' };
+    case 'ready':    return { i:4, line:'Phiếu đã ra – nhấn để nhận phiếu.', go:'Nhận phiếu', btn:'Nhận phiếu', part:'box', act:'take' };
+    case 'taking':   return { i:4, line:'Đang nhận phiếu...' };
+    case 'held':     return { i:4, line:'Đọc lời trên phiếu.', go:'Đọc phiếu', btn:'Đọc phiếu', part:'card', act:'read' };
+    case 'reading':  return { i:4, line:'Đọc lời trên phiếu.' };
+    case 'fade':     return { i:0, line:'Mây kéo về, miếu trở lại như cũ...' };
+    default:         return { i:5, line:'Muốn cầu thêm? Cầu lại từ đầu.', go:'Cầu lại', btn:'Cầu lại', act:'again' };
+  }
+}
+let cnJ = null, cnGlow = null;
+function cnBuildJourney(){
+  const back = document.createElement('a'); back.className = 'cnback'; back.href = '/'; back.textContent = '← Cổng chùa';
+  cnJ = document.createElement('nav'); cnJ.className = 'cnj'; cnJ.setAttribute('aria-label', 'Các bước cầu nắng');
+  cnJ.innerHTML = `<ol>${cnSteps.map((n, i) => `<li><b>${i + 1}</b><span>${n}</span></li>`).join('')}</ol>
+    <div class="say"><p class="line" aria-live="polite"></p><button type="button" class="help">Hướng dẫn</button></div>
+    <div class="dock"><button type="button" class="more" aria-expanded="false">Thêm</button><button type="button" class="go"></button></div>`;
+  document.querySelector('.stage').before(back, cnJ);
+  cnJ.querySelector('.help').onclick = () => cnWelcome(true);
+  cnJ.querySelector('.go').onclick = () => cnNext();
+  const more = cnJ.querySelector('.more');
+  more.onclick = () => { const on = document.documentElement.classList.toggle('cnmore'); more.setAttribute('aria-expanded', on); };
+  new ResizeObserver(() => document.documentElement.style.setProperty('--cnj-h', cnJ.offsetHeight + 'px')).observe(cnJ);
+  cnGlow = document.createElementNS('http://www.w3.org/2000/svg', 'g'); cnGlow.id = 'cnglow';
+  document.getElementById('fig').appendChild(cnGlow);
+}
+function cnDrawJourney(){
+  const st = ui.st, s = cnStep(st);
+  cnJ.querySelectorAll('li').forEach((li, i) => { li.className = i < s.i ? 'done' : i === s.i ? 'now' : ''; li.setAttribute('aria-current', i === s.i ? 'step' : 'false'); });
+  const line = cnJ.querySelector('.line'); if (line.textContent !== s.line) line.textContent = s.line;
+  const go = cnJ.querySelector('.go'); go.textContent = s.go || s.line; go.disabled = !s.act;
+  for (const b of document.querySelectorAll('#btns .act')){ const on = !!s.btn && b.textContent.startsWith(s.btn); if (on !== b.hasAttribute('data-next')) b.toggleAttribute('data-next', on); }
+  const at = s.part ? cnGlowAt[s.part] : null, key = at ? s.part + YAW + PITCH + VIEW : '';
+  if (cnGlow.dataset.k !== key){ cnGlow.dataset.k = key;
+    if (!at) cnGlow.innerHTML = '';
+    else { const [X, Y] = P(...at), [X2, Y2] = P(at[0], at[1], at[2] + (s.part === 'sky' ? 20 : s.part === 'card' ? 22 : 11));
+      cnGlow.innerHTML = `<circle cx="${f(X)}" cy="${f(Y)}" r="${f(Math.hypot(X2 - X, Y2 - Y))}" stroke-width="${f(2.8*INK_K)}"/>`; } }
+}
+
+/* ---------- first visit: a short welcome card, shown again from Hướng dẫn ---------- */
+let cnWel = null;
+function cnWelcome(force){
+  if (!force){ try { if (localStorage.getItem('caunang.welcomed')) return; } catch {} }
+  if (!cnWel){ cnWel = document.createElement('div'); cnWel.className = 'cnmodal cnwel'; cnWel.setAttribute('role', 'dialog'); cnWel.setAttribute('aria-modal', 'true'); cnWel.setAttribute('aria-labelledby', 'cn-wh');
+    cnWel.innerHTML = `<div class="cnslip"><h2 id="cn-wh">Miếu cầu nắng</h2>
+      <p>Một miếu nhỏ ảo bên đường: thắp nhang, rung chuông, khấn nguyện, chờ mây tan rồi nhận một phiếu cầu nắng.</p>
+      <div class="row"><button type="button" class="pri" id="cn-wgo">Bắt đầu</button></div></div>`;
+    document.body.appendChild(cnWel);
+    cnWel.addEventListener('click', e => { if (e.target === cnWel) cnWelClose(); });
+    document.getElementById('cn-wgo').onclick = () => cnWelClose(); }
+  cnWel.classList.add('show'); setTimeout(() => document.getElementById('cn-wgo').focus(), 30);
+}
+function cnWelClose(){ if (!cnWel) return; cnWel.classList.remove('show'); try { localStorage.setItem('caunang.welcomed', '1'); } catch {} }
+
+/* ---------- the reading: one fixed line ---------- */
+let cnModal = null;
+function cnBuildModal(){
+  cnModal = document.createElement('div'); cnModal.className = 'cnmodal'; cnModal.setAttribute('role', 'dialog'); cnModal.setAttribute('aria-modal', 'true'); cnModal.setAttribute('aria-labelledby', 'cn-hd');
+  cnModal.innerHTML = `<div class="cnslip"><p class="hd">PHIẾU CẦU NẮNG</p><p class="msg" id="cn-hd">Trời sẽ nắng thôi</p>
+    <div class="row"><button type="button" id="cn-close">Đóng</button><button type="button" class="pri" id="cn-again">Cầu lại</button></div></div>`;
+  document.body.appendChild(cnModal);
+  cnModal.addEventListener('click', e => { if (e.target === cnModal) cnCloseModal(); });
+  document.getElementById('cn-close').onclick = () => cnCloseModal();
+  document.getElementById('cn-again').onclick = () => { cnCloseModal(true); cnTry('again'); ui.render(); };
+}
+function cnOpenModal(){
+  ui.st.phase = 'reading'; cnModal.classList.add('show'); cnSound.slip();
+  setTimeout(() => document.getElementById('cn-close').focus(), 30); ui.render();
+}
+function cnCloseModal(quiet){
+  if (!cnModal || !cnModal.classList.contains('show')) return;
+  cnModal.classList.remove('show'); if (ui.st.phase === 'reading') ui.st.phase = 'done'; if (!quiet) cnSound.close(); ui.render();
+}
+
+/* ---------- incense smoke (an overlay over the sticks, CSS-animated) ---------- */
+let cnFx = null;
+function cnSmoke(on){ if (cnFx) cnFx.style.display = on ? '' : 'none'; }
+function cnBurst(){ if (!cnFx) return; cnFx.classList.add('burst'); setTimeout(() => cnFx.classList.remove('burst'), 4400); }
+function cnPlaceFx(){ if (!cnFx) return; const [X, Y] = P(...cnTip(0)); cnFx.setAttribute('transform', `translate(${f(X)} ${f(Y)})`); }
+
+/* ---------- mount ---------- */
+ui = mountFigure({
+  fig: 'CN', title: 'Miếu cầu nắng', size: [84, 180, 235], center: [42, 90], palette: 'mustard', credit: false,
+  state: cnState,
+  scene(st){
+    const lk = cnLook(st), k = lk.sun, FRONT = vis([1,0,0]);
+    let s = FRONT && !st.bare ? cnSky(lk) : '';
+    if (!st.bare) s += cnGround(k);
+    const sPts = [[30, 74, 3], [58, 74, 3], [30, 106, 3], [58, 106, 3], [21, 63, 137], [67, 63, 137], [21, 117, 137], [67, 117, 137], [44, 90, 157],
+                  [40, 138.5, 3], [43, 141.5, 3], [40, 122, 160], [43, 141.5, 160]];
+    s += castShadow(sPts, 3, on(PZ(3), rectUV(0, 0, 84, 180))).replace(/#41538f/gi, '#56703c').replace('fill="#56703c"', `fill="#56703c" fill-opacity="${f(.2 + .6*k)}"`);
+    const items = [cnPillar(k), cnBody(lk, k), cnRoof(k), cnIncense(lk, k), cnSlipBox(lk, k), cnPlate(k), ...cnPost(k), cnBell(lk, k), ...(st.bare ? [] : cnStones(k))];
+    if (lk.card > 0) items.push(cnCard(st, lk));
+    s += byDepth(items);
+    if (!FRONT && !st.bare) s += cnSkyBack();
+    return s;
+  },
+  stats: () => [],
+  buttons: [
+    { label:'Thắp nhang', onClick: () => cnTry('light') },
+    { label:'Rung chuông', onClick: () => cnTry('ring') },
+    { label:'Khấn nguyện', onClick: () => cnTry('pray') },
+    { label:'Mây tan, nắng lên', onClick: () => cnTry('clear') },
+    { label:'Nhận phiếu', onClick: () => cnTry('take') },
+    { label:'Đọc phiếu', onClick: () => cnTry('read') },
+    { label:'Cầu lại', onClick: () => cnTry('again') },
+    { label:'Âm thanh', choices: () => cnSound.NAMES.map((n, i) => ({ label:n, current: i === cnSound.level, onClick: () => { cnSound.set(i); if (i) cnSound.pick(); } })) },
+  ],
+  acts: {
+    incense: () => cnTry('light'),
+    bell: () => cnTry('ring'),
+    box: st => cnTry(st.phase === 'rung' ? 'pray' : 'take'),
+    card: st => cnTry(st.phase === 'done' ? 'read' : 'read'),
+  },
+  params(st, q){
+    const ph = q.get('phase');
+    st.bare = q.get('backdrop') === '0';
+    if (ph && cnOrder.includes(ph)){
+      st.phase = ph === 'reading' ? 'held' : ph; st.wantRead = ph === 'reading';
+      st.t = q.has('u') ? cnCl(+q.get('u'))*cnDur(ph) : 0; st.frozen = q.has('u');
+    }
+  },
+  turn: 'full',
+});
+document.title = 'Miếu cầu nắng';
+cnFx = document.createElementNS('http://www.w3.org/2000/svg', 'g'); cnFx.id = 'cnfx';
+cnFx.innerHTML = [0, 1, 2].map(i => `<path class="sm" stroke-width="${f(.9*INK_K)}" d="M0 0c${-2 + i} -4 ${3 - i} -7 0 -11s${-3 + i} -8 ${1 - i} -13"/>`).join('');
+document.getElementById('fig').appendChild(cnFx);
+cnSmoke(cnOrder.indexOf(ui.st.phase) > cnOrder.indexOf('lighting'));
+cnBuildModal(); cnBuildJourney();
+{ const r0 = ui.render; ui.render = () => { r0(); cnPlaceFx(); cnDrawJourney(); }; }
+addEventListener('keydown', e => {
+  if (cnWel && cnWel.classList.contains('show')){ if (e.key === 'Escape' || e.key === 'Enter'){ e.preventDefault(); cnWelClose(); } return; }
+  if (e.key === 'Escape' && cnModal.classList.contains('show')){ cnCloseModal(); return; }
+  if (e.key !== ' ' && e.key !== 'Enter') return;
+  if (/input|textarea|button|select|a/i.test(e.target.tagName) && e.target !== document.body) return;
+  if (cnModal.classList.contains('show')) return;
+  e.preventDefault(); cnNext();
+});
+if (ui.st.wantRead){ ui.st.wantRead = false; cnOpenModal(); }
+else if (cnDur(ui.st.phase) && !ui.st.frozen) cnRun();
+{ const q = new URLSearchParams(location.search); if (!['phase', 'press'].some(k => q.has(k)) && q.get('welcome') !== '0') cnWelcome(q.get('welcome') === '1'); }
+/* the visitor stands face to face with the shrine; ?free=1 keeps the engine's turning for checks */
+if (new URLSearchParams(location.search).get('free') !== '1'){
+  CAM_LIM = null; setCam(0, 9);
+  const pts = [], svg = document.getElementById('fig');
+  OX = OY = 0;
+  for (const x of [0, 84]) for (const y of [0, 180]) for (const z of [0, 235]) pts.push(P(x, y, z));
+  const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]), bw = Math.max(...xs) - Math.min(...xs), bh = Math.max(...ys) - Math.min(...ys);
+  const ph = innerWidth <= 560, vbW = ph ? bw/.94 : Math.max(bw/.86, bh/.9/.75), vbH = ph ? bh/.9 : vbW*.75;
+  OX = (vbW - bw)/2 - Math.min(...xs); OY = (vbH - bh)*.35 - Math.min(...ys);
+  svg.setAttribute('viewBox', `0 0 ${f(vbW)} ${f(vbH)}`);
+  INK_K = vbW / INK_REF_VB; document.getElementById('fdefs').innerHTML = filterFor(INK_K); bakeNoise(svg);
+  setCam = () => {};
+}
+ui.render();
+</script>
+</body></html>

@@ -39,6 +39,15 @@ defmodule ChuaTauWeb.Machines do
         thumb_size: {257, 520},
         scene: {55, 70},
         accent: "#e5533d"
+      },
+      %__MODULE__{
+        slug: "cau-nang",
+        name: "Cầu nắng",
+        tagline: "Thắp nhang, rung chuông, chờ mây tan nắng lên.",
+        thumb: "/images/machines/cau-nang.png",
+        thumb_size: {277, 520},
+        scene: {66.7, 74.9},
+        accent: "#f3a51f"
       }
     ]
   end

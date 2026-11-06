@@ -4,12 +4,15 @@ defmodule ChuaTauWeb.Seo do
 
   @site_name "Cổng chùa · Máy xin xăm và máy giải nghiệp"
   @gate_title "Cổng chùa · Máy xin xăm và máy giải nghiệp online"
-  @gate_description "Cổng chùa online với hai chiếc máy: máy xin xăm ảo rút quẻ từ bộ Quan Âm và Lữ Tổ Linh Xăm, và máy giải nghiệp. Chọn một máy để bắt đầu."
+  @gate_description "Cổng chùa online với ba chiếc máy: máy xin xăm ảo rút quẻ từ bộ Quan Âm và Lữ Tổ Linh Xăm, máy giải nghiệp và miếu cầu nắng. Chọn một máy để bắt đầu."
   @xin_xam_title "Xin xăm online · Quan Âm Linh Xăm 100 quẻ"
   @xin_xam_description "Xin xăm online với máy xin xăm ảo: thành tâm khấn nguyện, bỏ đồng xu, nhận viên nang vàng rồi đọc lời xăm. Hai bộ Quan Âm và Lữ Tổ Linh Xăm, mỗi bộ 100 quẻ, có lời thơ, lời giải và lời khuyên."
 
   @giai_nghiep_title "Máy giải nghiệp online · Nhanh, gọn, có kết quả"
   @giai_nghiep_description "Máy giải nghiệp online: chọn nghiệp thân, khẩu hoặc ý, nhét tiền vào máy, đợi máy giải rồi nhận kết quả và giấy chứng nhận đã giải nghiệp. Nhanh, gọn, có kết quả."
+
+  @cau_nang_title "Miếu cầu nắng online · Thắp nhang, rung chuông, chờ nắng lên"
+  @cau_nang_description "Miếu cầu nắng online: thắp nhang, rung chuông, khấn một điều mong, đợi mây tan nắng lên rồi nhận phiếu cầu nắng."
 
   defstruct [:title, :description, :url, noindex: false, json_ld: nil, image: "/images/og.png"]
 
@@ -30,6 +33,14 @@ defmodule ChuaTauWeb.Seo do
       title: @giai_nghiep_title,
       description: @giai_nghiep_description,
       url: absolute("/giai-nghiep")
+    }
+  end
+
+  def cau_nang do
+    %__MODULE__{
+      title: @cau_nang_title,
+      description: @cau_nang_description,
+      url: absolute("/cau-nang")
     }
   end
 

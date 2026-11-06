@@ -7,11 +7,17 @@ defmodule ChuaTauWeb.GateTest do
     doc = conn |> get(~p"/") |> html_response(200) |> Floki.parse_document!()
     links = Floki.find(doc, "a.machine")
 
-    assert Enum.flat_map(links, &Floki.attribute(&1, "href")) == ["/xin-xam", "/giai-nghiep"]
+    assert Enum.flat_map(links, &Floki.attribute(&1, "href")) == [
+             "/xin-xam",
+             "/giai-nghiep",
+             "/cau-nang"
+           ]
 
     for {link, m} <- Enum.zip(links, Machines.all()) do
       assert Floki.text(link) =~ m.name
-      assert [ChuaTauWeb.StaticPath.versioned(m.thumb)] == link |> Floki.find("img") |> Floki.attribute("src")
+
+      assert [ChuaTauWeb.StaticPath.versioned(m.thumb)] ==
+               link |> Floki.find("img") |> Floki.attribute("src")
     end
   end
 
@@ -31,7 +37,9 @@ defmodule ChuaTauWeb.GateTest do
     [svg] = Floki.find(doc, "svg.scene")
     assert Floki.attribute(svg, "aria-hidden") == ["true"]
     assert Floki.find(svg, "a") == []
-    assert ["true", "true", "true"] == doc |> Floki.find("svg.vignette") |> Floki.attribute("aria-hidden")
+
+    assert ["true", "true", "true"] ==
+             doc |> Floki.find("svg.vignette") |> Floki.attribute("aria-hidden")
   end
 
   test "each machine link appears once", %{conn: conn} do
@@ -64,6 +72,6 @@ defmodule ChuaTauWeb.GateTest do
 
   test "unrelated query params keep the gate", %{conn: conn} do
     doc = conn |> get("/?utm_source=fb") |> html_response(200) |> Floki.parse_document!()
-    assert [_, _] = Floki.find(doc, "a.machine")
+    assert length(Floki.find(doc, "a.machine")) == length(Machines.all())
   end
 end
